@@ -8,7 +8,60 @@ import { EnquirySchema, EnquiryInput } from "@/lib/validations";
 import { submitEnquiryAction } from "@/actions";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Send, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
+import { Send, CheckCircle, AlertCircle, Loader2, ChevronDown } from "lucide-react";
+
+function CustomSelect({ 
+  value, 
+  onChange, 
+  options 
+}: { 
+  value: string, 
+  onChange: (v: string) => void,
+  options: {value: string, label: string}[]
+}) {
+  const [isOpen, setIsOpen] = React.useState(false);
+  const ref = React.useRef<HTMLDivElement>(null);
+  
+  React.useEffect(() => {
+    const clickOut = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) setIsOpen(false);
+    }
+    document.addEventListener("mousedown", clickOut);
+    return () => document.removeEventListener("mousedown", clickOut);
+  }, []);
+
+  const selectedOption = options.find(o => o.value === value);
+
+  return (
+    <div className="relative" ref={ref}>
+      <button 
+        type="button" 
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-full rounded-sm border border-border p-3.5 px-4 text-sm bg-background text-foreground focus:ring-1 focus:ring-primary focus:outline-hidden transition-all flex items-center justify-between text-left"
+      >
+        <span className={selectedOption ? "" : "text-muted-foreground"}>{selectedOption ? selectedOption.label : "Select product..."}</span>
+        <ChevronDown className={`w-4 h-4 text-slate-500 transition-transform ${isOpen ? "rotate-180" : ""}`} />
+      </button>
+      {isOpen && (
+        <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-border rounded-sm shadow-[0_8px_30px_rgb(0,0,0,0.08)] z-50 overflow-hidden py-1">
+          {options.map(opt => (
+            <button
+              key={opt.value}
+              type="button"
+              onClick={() => {
+                onChange(opt.value);
+                setIsOpen(false);
+              }}
+              className={`w-full text-left px-4 py-2.5 text-sm transition-colors ${value === opt.value ? 'bg-slate-50 font-bold text-[#1E3261]' : 'hover:bg-slate-50 text-slate-700'}`}
+            >
+              {opt.label}
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  )
+}
 
 export function ContactForm() {
   const searchParams = useSearchParams();
@@ -22,6 +75,7 @@ export function ContactForm() {
     register,
     handleSubmit,
     setValue,
+    watch,
     formState: { errors },
     reset
   } = useForm<EnquiryInput>({
@@ -89,7 +143,7 @@ export function ContactForm() {
             id="name-field"
             type="text"
             placeholder="John Doe"
-            className="w-full rounded-full border border-border p-3.5 px-6 text-sm bg-background text-foreground focus:ring-1 focus:ring-primary focus:outline-hidden transition-all"
+            className="w-full rounded-sm border border-border p-3.5 px-4 text-sm bg-background text-foreground focus:ring-1 focus:ring-primary focus:outline-hidden transition-all"
             {...register("name")}
           />
           {errors.name && (
@@ -110,7 +164,7 @@ export function ContactForm() {
               id="company-field"
               type="text"
               placeholder="Enterprise LLC"
-              className="w-full rounded-full border border-border p-3.5 px-6 text-sm bg-background text-foreground focus:ring-1 focus:ring-primary focus:outline-hidden transition-all"
+              className="w-full rounded-sm border border-border p-3.5 px-4 text-sm bg-background text-foreground focus:ring-1 focus:ring-primary focus:outline-hidden transition-all"
               {...register("company")}
             />
             {errors.company && (
@@ -129,7 +183,7 @@ export function ContactForm() {
               id="country-field"
               type="text"
               placeholder="United States"
-              className="w-full rounded-full border border-border p-3.5 px-6 text-sm bg-background text-foreground focus:ring-1 focus:ring-primary focus:outline-hidden transition-all"
+              className="w-full rounded-sm border border-border p-3.5 px-4 text-sm bg-background text-foreground focus:ring-1 focus:ring-primary focus:outline-hidden transition-all"
               {...register("country")}
             />
             {errors.country && (
@@ -151,7 +205,7 @@ export function ContactForm() {
               id="email-field"
               type="email"
               placeholder="buyer@company.com"
-              className="w-full rounded-full border border-border p-3.5 px-6 text-sm bg-background text-foreground focus:ring-1 focus:ring-primary focus:outline-hidden transition-all"
+              className="w-full rounded-sm border border-border p-3.5 px-4 text-sm bg-background text-foreground focus:ring-1 focus:ring-primary focus:outline-hidden transition-all"
               {...register("email")}
             />
             {errors.email && (
@@ -170,7 +224,7 @@ export function ContactForm() {
               id="phone-field"
               type="text"
               placeholder="+1 555 0199"
-              className="w-full rounded-full border border-border p-3.5 px-6 text-sm bg-background text-foreground focus:ring-1 focus:ring-primary focus:outline-hidden transition-all"
+              className="w-full rounded-sm border border-border p-3.5 px-4 text-sm bg-background text-foreground focus:ring-1 focus:ring-primary focus:outline-hidden transition-all"
               {...register("phone")}
             />
             {errors.phone && (
@@ -188,24 +242,19 @@ export function ContactForm() {
             <label htmlFor="interest-field" className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
               Product Interest
             </label>
-            <div className="relative">
-              <select
-                id="interest-field"
-                className="w-full rounded-full border border-border p-3.5 px-6 text-sm bg-background text-foreground focus:ring-1 focus:ring-primary focus:outline-hidden transition-all appearance-none cursor-pointer"
-                {...register("productInterest")}
-              >
-                <option value="exercise-books">Exercise Books</option>
-                <option value="spiral-bound">Spiral Bound</option>
-                <option value="double-wire-bound">Double Wire Bound</option>
-                <option value="gally-bound">Hard Cover Gally Bound</option>
-                <option value="centre-stitched">Centre Stitched</option>
-                <option value="glue-bound">Glue Bound</option>
-                <option value="packaging">Paper Packaging</option>
-              </select>
-              <div className="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none">
-                <svg className="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
-              </div>
-            </div>
+            <CustomSelect
+              value={watch("productInterest") || ""}
+              onChange={(val) => setValue("productInterest", val as any, { shouldValidate: true })}
+              options={[
+                { value: "exercise-books", label: "Exercise Books" },
+                { value: "spiral-bound", label: "Spiral Bound" },
+                { value: "double-wire-bound", label: "Double Wire Bound" },
+                { value: "gally-bound", label: "Hard Cover Gally Bound" },
+                { value: "centre-stitched", label: "Centre Stitched" },
+                { value: "glue-bound", label: "Glue Bound" },
+                { value: "packaging", label: "Paper Packaging" }
+              ]}
+            />
             {errors.productInterest && (
               <p className="text-[10px] text-red-500 font-semibold flex items-center gap-1 mt-0.5">
                 <AlertCircle size={10} />
@@ -222,7 +271,7 @@ export function ContactForm() {
               id="moq-field"
               type="text"
               placeholder="e.g. 1 FCL Container"
-              className="w-full rounded-full border border-border p-3.5 px-6 text-sm bg-background text-foreground focus:ring-1 focus:ring-primary focus:outline-hidden transition-all"
+              className="w-full rounded-sm border border-border p-3.5 px-4 text-sm bg-background text-foreground focus:ring-1 focus:ring-primary focus:outline-hidden transition-all"
               {...register("moq")}
             />
             {errors.moq && (
@@ -243,7 +292,7 @@ export function ContactForm() {
             id="msg-field"
             rows={4}
             placeholder="Specify target sizing, cover GSM, lines, and discharge ports..."
-            className="w-full rounded-[24px] border border-border p-4 px-6 text-sm bg-background text-foreground focus:ring-1 focus:ring-primary focus:outline-hidden transition-all"
+            className="w-full rounded-sm border border-border p-4 text-sm bg-background text-foreground focus:ring-1 focus:ring-primary focus:outline-hidden transition-all"
             {...register("message")}
           />
           {errors.message && (

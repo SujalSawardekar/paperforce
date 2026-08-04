@@ -69,18 +69,18 @@ export function CorporateProfileSection() {
               {/* Stats Bar */}
               <div className="flex flex-wrap gap-8 pt-10 border-t border-slate-100  mt-10">
                 <div>
-                  <span className="block text-2xl md:text-3xl font-bold text-[#0b1c3f]  font-serif">10+</span>
-                  <span className="block text-[10px] uppercase tracking-wider font-bold text-slate-500 mt-1">Years Exp.</span>
+                  <span className="block text-4xl md:text-5xl font-bold text-[#0b1c3f] font-serif">10+</span>
+                  <span className="block text-[10px] uppercase tracking-wider font-bold text-slate-500 mt-2">Years Exp.</span>
                 </div>
                 <div className="w-[1px] bg-slate-200  hidden sm:block" />
                 <div>
-                  <span className="block text-2xl md:text-3xl font-bold text-[#0b1c3f]  font-serif">1988</span>
-                  <span className="block text-[10px] uppercase tracking-wider font-bold text-slate-500 mt-1">Trade Legacy</span>
+                  <span className="block text-4xl md:text-5xl font-bold text-[#0b1c3f] font-serif">1988</span>
+                  <span className="block text-[10px] uppercase tracking-wider font-bold text-slate-500 mt-2">Trade Legacy</span>
                 </div>
                 <div className="w-[1px] bg-slate-200  hidden sm:block" />
                 <div>
-                  <span className="block text-2xl md:text-3xl font-bold text-[#0b1c3f]  font-serif">100k+</span>
-                  <span className="block text-[10px] uppercase tracking-wider font-bold text-slate-500 mt-1">Daily Output</span>
+                  <span className="block text-4xl md:text-5xl font-bold text-[#0b1c3f] font-serif">10&zwnj;0k+</span>
+                  <span className="block text-[10px] uppercase tracking-wider font-bold text-slate-500 mt-2">Daily Output</span>
                 </div>
               </div>
             </ScrollReveal>
