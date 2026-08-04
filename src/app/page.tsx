@@ -75,7 +75,7 @@ export default function HomePage() {
               </Button>
             </Link>
             <Link href="/about">
-              <Button variant="outline" size="lg" className="h-14 px-8 text-base font-bold border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 rounded-full hover:bg-slate-50 dark:hover:bg-slate-800 transition-all bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm">
+              <Button variant="outline" size="lg" className="h-14 px-8 text-base font-bold border-slate-300  text-slate-700  rounded-full hover:bg-slate-50 transition-all bg-white/50  backdrop-blur-sm">
                 Explore Infrastructure
               </Button>
             </Link>

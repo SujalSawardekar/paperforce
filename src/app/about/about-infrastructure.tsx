@@ -8,7 +8,7 @@ import { Users, Ship, Anchor, MapPin } from "lucide-react";
 
 export function AboutInfrastructure() {
   return (
-    <section className="py-24 md:py-32 bg-[#f7f8fc] dark:bg-slate-900 border-y border-border/40 relative overflow-hidden">
+    <section className="py-24 md:py-32 bg-[#f7f8fc]  border-y border-border/40 relative overflow-hidden">
       <Container>
         
         <ScrollReveal direction="up" className="max-w-2xl mb-16">
@@ -24,10 +24,10 @@ export function AboutInfrastructure() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[280px]">
           
           {/* Card 1: Wide */}
-          <ScrollReveal direction="up" delay={0.1} className="md:col-span-2 relative group overflow-hidden rounded-[32px] bg-white dark:bg-slate-950 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all duration-500">
+          <ScrollReveal direction="up" delay={0.1} className="md:col-span-2 relative group overflow-hidden rounded-[32px] bg-white  border border-slate-100  shadow-sm hover:shadow-xl transition-all duration-500">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <div className="p-8 h-full flex flex-col justify-between relative z-10">
-              <div className="w-14 h-14 rounded-2xl bg-slate-50 dark:bg-slate-900 flex items-center justify-center border border-slate-100 dark:border-slate-800 group-hover:scale-110 transition-transform duration-500">
+              <div className="w-14 h-14 rounded-2xl bg-slate-50  flex items-center justify-center border border-slate-100  group-hover:scale-110 transition-transform duration-500">
                 <MapPin className="text-primary" size={24} />
               </div>
               <div>
@@ -40,10 +40,10 @@ export function AboutInfrastructure() {
           </ScrollReveal>
 
           {/* Card 2: Square */}
-          <ScrollReveal direction="up" delay={0.2} className="md:col-span-1 relative group overflow-hidden rounded-[32px] bg-white dark:bg-slate-950 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all duration-500">
+          <ScrollReveal direction="up" delay={0.2} className="md:col-span-1 relative group overflow-hidden rounded-[32px] bg-white  border border-slate-100  shadow-sm hover:shadow-xl transition-all duration-500">
             <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-[50px] -translate-y-1/2 translate-x-1/2 group-hover:bg-primary/20 transition-colors duration-500" />
             <div className="p-8 h-full flex flex-col justify-between relative z-10">
-              <div className="w-14 h-14 rounded-2xl bg-slate-50 dark:bg-slate-900 flex items-center justify-center border border-slate-100 dark:border-slate-800 group-hover:scale-110 transition-transform duration-500">
+              <div className="w-14 h-14 rounded-2xl bg-slate-50  flex items-center justify-center border border-slate-100  group-hover:scale-110 transition-transform duration-500">
                 <Users className="text-primary" size={24} />
               </div>
               <div>
@@ -56,9 +56,9 @@ export function AboutInfrastructure() {
           </ScrollReveal>
 
           {/* Card 3: Square */}
-          <ScrollReveal direction="up" delay={0.3} className="md:col-span-1 relative group overflow-hidden rounded-[32px] bg-white dark:bg-slate-950 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all duration-500">
+          <ScrollReveal direction="up" delay={0.3} className="md:col-span-1 relative group overflow-hidden rounded-[32px] bg-white  border border-slate-100  shadow-sm hover:shadow-xl transition-all duration-500">
             <div className="p-8 h-full flex flex-col justify-between relative z-10">
-              <div className="w-14 h-14 rounded-2xl bg-slate-50 dark:bg-slate-900 flex items-center justify-center border border-slate-100 dark:border-slate-800 group-hover:scale-110 transition-transform duration-500">
+              <div className="w-14 h-14 rounded-2xl bg-slate-50  flex items-center justify-center border border-slate-100  group-hover:scale-110 transition-transform duration-500">
                 <Ship className="text-primary" size={24} />
               </div>
               <div>

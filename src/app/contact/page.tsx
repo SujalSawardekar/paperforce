@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <main className="flex-1 py-24 md:py-32 bg-white dark:bg-background">
+    <main className="flex-1 py-24 md:py-32 bg-white ">
       <Container className="space-y-20">
         
         {/* Page Banner Header */}
@@ -24,10 +24,10 @@ export default function ContactPage() {
             <span>/</span>
             <span>Contact</span>
           </div>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[#0b1c3f] dark:text-white font-serif">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[#0b1c3f]  font-serif">
             Let's Discuss Your Supply Chain
           </h1>
-          <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+          <p className="text-lg text-slate-600  leading-relaxed">
             Whether you are an importer, distributor, wholesaler, or retail chain, our team is ready to discuss container specifications and timelines.
           </p>
         </div>
@@ -70,7 +70,7 @@ export default function ContactPage() {
 
           {/* Right Column: Contact Form */}
           <div className="relative">
-            <div className="absolute inset-0 bg-slate-50 dark:bg-slate-900/50 rounded-3xl -m-6 sm:-m-10 p-6 sm:p-10 -z-10 border border-slate-100 dark:border-slate-800" />
+            <div className="absolute inset-0 bg-slate-50  rounded-3xl -m-6 sm:-m-10 p-6 sm:p-10 -z-10 border border-slate-100 " />
             <Suspense fallback={<div className="h-96 flex items-center justify-center text-slate-400">Loading form...</div>}>
               <ContactForm />
             </Suspense>

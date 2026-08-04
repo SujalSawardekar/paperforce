@@ -101,7 +101,7 @@ export function ProductSection() {
 
   return (
     // Outer scroll track: 200vh height allows pinned scrolling through the 6 items faster
-    <section ref={containerRef} className="relative pt-20 md:pt-32 h-[200vh] bg-white dark:bg-background">
+    <section ref={containerRef} className="relative pt-20 md:pt-32 h-[200vh] bg-white ">
       {/* Pinned Sticky Window: stays fixed at top-24/top-28 while scrolling */}
       <div className="sticky top-24 md:top-28 h-[calc(100vh-6rem)] flex flex-col justify-center overflow-hidden">
         <Container className="space-y-6 md:space-y-8">
@@ -115,7 +115,7 @@ export function ProductSection() {
               />
             </div>
             <Link href="/products" className="shrink-0 mb-8 md:mb-12">
-              <Button variant="outline" className="rounded-full font-bold group border-[#0b1c3f] bg-white/50 dark:border-slate-700 dark:bg-slate-900/50 hover:bg-slate-50 dark:hover:bg-slate-800 backdrop-blur-sm text-[#0b1c3f] dark:text-white">
+              <Button variant="outline" className="rounded-full font-bold group border-[#0b1c3f] bg-white/50   hover:bg-slate-50 backdrop-blur-sm text-[#0b1c3f] ">
                 Explore Full Catalog
                 <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
               </Button>
@@ -123,7 +123,7 @@ export function ProductSection() {
           </div>          {/* 2-Column Content Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center max-w-6xl mx-auto">
             {/* Left Column: Product Image Frame (Cross-fading active item) */}
-            <div className="lg:col-span-5 relative rounded-3xl overflow-hidden aspect-[4/3] lg:aspect-square bg-slate-50 border border-slate-100 dark:border-slate-800 shadow-lg shrink-0">
+            <div className="lg:col-span-5 relative rounded-3xl overflow-hidden aspect-[4/3] lg:aspect-square bg-slate-50 border border-slate-100  shadow-lg shrink-0">
               {notebookTeasers.map((teaser, idx) => (
                 <div
                   key={idx}
@@ -150,7 +150,7 @@ export function ProductSection() {
               <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-slate-400">
                 Your formats
               </span>
-              <h3 className="text-xl sm:text-2xl font-bold text-[#0b1c3f] dark:text-white font-serif pb-2">
+              <h3 className="text-xl sm:text-2xl font-bold text-[#0b1c3f]  font-serif pb-2">
                 Premium Notebooks
               </h3>
 
@@ -161,23 +161,23 @@ export function ProductSection() {
                     <div
                       key={idx}
                       onClick={() => setActiveIndex(idx)}
-                      className="py-3.5 md:py-4 border-b border-slate-200 dark:border-slate-800 flex justify-between items-center transition-all duration-300 cursor-pointer"
+                      className="py-3.5 md:py-4 border-b border-slate-200  flex justify-between items-center transition-all duration-300 cursor-pointer"
                       style={{ opacity: isActive ? 1 : 0.25 }}
                     >
                       <div className="flex flex-col sm:flex-row sm:items-baseline">
                         <span className={`font-bold text-base sm:text-lg tracking-wider uppercase transition-all duration-300 ${
                           isActive 
-                            ? "text-[#0b1c3f] dark:text-white font-extrabold" 
-                            : "text-slate-800 dark:text-slate-200"
+                            ? "text-[#0b1c3f]  font-extrabold" 
+                            : "text-slate-800 "
                         }`}>
                           {teaser.name}
                         </span>
-                        <span className="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400 sm:ml-2 font-normal">
+                        <span className="text-[10px] sm:text-xs text-slate-500  sm:ml-2 font-normal">
                           / {teaser.specs}
                         </span>
                       </div>
                       <span className={`font-bold text-xs sm:text-sm transition-colors duration-300 ${
-                        isActive ? "text-[#0b1c3f] dark:text-slate-300 font-extrabold" : "text-slate-400"
+                        isActive ? "text-[#0b1c3f]  font-extrabold" : "text-slate-400"
                       }`}>
                         {teaser.moq}
                       </span>

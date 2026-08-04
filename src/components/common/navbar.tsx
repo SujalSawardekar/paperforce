@@ -81,7 +81,7 @@ export function Navbar() {
       className={cn(
         "fixed top-0 left-0 right-0 w-full z-50 pointer-events-none transition-all duration-300",
         isCompact 
-          ? "bg-white/70 dark:bg-slate-950/70 backdrop-blur-2xl shadow-[0_10px_40px_rgba(11,28,63,0.05)] py-1" 
+          ? "bg-white/70  backdrop-blur-2xl shadow-[0_10px_40px_rgba(11,28,63,0.05)] py-1" 
           : "pt-5 bg-transparent"
       )}
     >
@@ -103,7 +103,7 @@ export function Navbar() {
         
         {/* True glassmorphism blur for the curve using clip-path */}
         <motion.div 
-          className="absolute left-1/2 -translate-x-1/2 w-[400px] h-[84px] bg-white/70 dark:bg-slate-950/70 backdrop-blur-md pointer-events-none"
+          className="absolute left-1/2 -translate-x-1/2 w-[400px] h-[84px] bg-white/70  backdrop-blur-md pointer-events-none"
           initial={false}
           animate={{
             clipPath: isCompact
@@ -129,7 +129,7 @@ export function Navbar() {
             }}
             transition={{ duration: 0.4, ease: "easeInOut" }}
             fill="none" 
-            className="stroke-slate-300 dark:stroke-slate-700" 
+            className="stroke-slate-300 " 
             strokeWidth="1.5" 
           />
         </svg>
@@ -189,15 +189,15 @@ export function Navbar() {
                       "text-[12px] font-bold h-8 px-4 border relative overflow-hidden group rounded-full",
                       isActive 
                         ? "border-transparent" 
-                        : "border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-300"
+                        : "border-slate-300  text-slate-600 "
                     )}
                   >
                     {!isActive && (
-                      <span className="absolute inset-0 bg-slate-100 dark:bg-slate-800 -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out will-change-transform" />
+                      <span className="absolute inset-0 bg-slate-100  -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out will-change-transform" />
                     )}
                     <span className={cn(
                       "relative z-10 transition-colors duration-300",
-                      !isActive && "group-hover:text-[#0b1c3f] dark:group-hover:text-white"
+                      !isActive && "group-hover:text-[#0b1c3f]"
                     )}>
                       {link.name}
                     </span>
@@ -218,9 +218,9 @@ export function Navbar() {
         <div className="flex justify-end items-center pointer-events-auto shrink-0 w-[40%]">
           <motion.div variants={itemVariants} className="hidden md:block">
             <Link href="/contact">
-              <Button variant="outline" className="relative overflow-hidden group rounded-full font-bold text-[13px] px-7 h-9 border-slate-300 dark:border-slate-700 text-slate-800 dark:text-slate-200 transition-colors duration-300">
-                <span className="absolute inset-0 bg-slate-100 dark:bg-slate-800 -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out rounded-full will-change-transform" />
-                <span className="relative z-10 transition-colors duration-300 group-hover:text-[#0b1c3f] dark:group-hover:text-white">Request Quote</span>
+              <Button variant="outline" className="relative overflow-hidden group rounded-full font-bold text-[13px] px-7 h-9 border-slate-300  text-slate-800  transition-colors duration-300">
+                <span className="absolute inset-0 bg-slate-100  -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out rounded-full will-change-transform" />
+                <span className="relative z-10 transition-colors duration-300 group-hover:text-[#0b1c3f]">Request Quote</span>
               </Button>
             </Link>
           </motion.div>
@@ -229,7 +229,7 @@ export function Navbar() {
           <motion.div variants={itemVariants} className="md:hidden">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="rounded-full p-2 bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 cursor-pointer transition-colors"
+              className="rounded-full p-2 bg-slate-100  text-slate-800  cursor-pointer transition-colors"
               aria-label="Toggle Menu"
             >
               {mobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
@@ -241,7 +241,7 @@ export function Navbar() {
       {/* Mobile Nav Menu Dropdown */}
       {mobileMenuOpen && (
         <div className="px-4">
-          <nav className="md:hidden pointer-events-auto border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 rounded-2xl mt-8 p-4 flex flex-col space-y-2 shadow-2xl animate-in fade-in slide-in-from-top-2 duration-200 relative z-[60]">
+          <nav className="md:hidden pointer-events-auto border border-slate-200  bg-white  rounded-2xl mt-8 p-4 flex flex-col space-y-2 shadow-2xl animate-in fade-in slide-in-from-top-2 duration-200 relative z-[60]">
             {[...desktopPillLinks, { name: "Contact Us", href: "/contact" }].map((link) => {
               const isActive = pathname === link.href;
               return (
@@ -253,7 +253,7 @@ export function Navbar() {
                     "px-4 py-2.5 rounded-xl text-sm font-bold transition-colors",
                     isActive
                       ? "bg-[#18294a] text-white"
-                      : "text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
+                      : "text-slate-700  hover:bg-slate-100"
                   )}
                 >
                   {link.name}

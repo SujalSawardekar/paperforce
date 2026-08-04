@@ -95,12 +95,12 @@ export function ManufacturingGallery() {
             key={item.id}
             variants={itemVariants}
             className={cn(
-              "group relative overflow-hidden rounded-3xl bg-slate-100 dark:bg-slate-900",
+              "group relative overflow-hidden rounded-3xl bg-slate-100 ",
               item.span
             )}
           >
             {/* Image Placeholder */}
-            <div className="absolute inset-0 bg-slate-200 dark:bg-slate-800 animate-pulse" />
+            <div className="absolute inset-0 bg-slate-200  animate-pulse" />
             
             <Image
               src={item.src}

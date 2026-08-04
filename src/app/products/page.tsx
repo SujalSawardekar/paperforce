@@ -6,7 +6,7 @@ import { ProductCard } from "@/components/common/product-card";
 
 export default function ProductsPage() {
   return (
-    <main className="flex-1 py-24 md:py-32 relative overflow-hidden bg-white dark:bg-background">
+    <main className="flex-1 py-24 md:py-32 relative overflow-hidden bg-white ">
       <Container className="space-y-20 relative z-10">
         
         <ScrollReveal direction="up">
@@ -16,10 +16,10 @@ export default function ProductsPage() {
               <span>/</span>
               <span>Products</span>
             </div>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[#0b1c3f] dark:text-white font-serif">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[#0b1c3f]  font-serif">
               Our Manufacturing Portfolio
             </h1>
-            <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+            <p className="text-lg text-slate-600  leading-relaxed">
               Precision-engineered paper stationery produced at massive scale.
             </p>
           </div>

@@ -37,7 +37,7 @@ const reasons = [
 
 export function AboutWhyPartner() {
   return (
-    <section className="py-24 md:py-32 bg-[#f7f8fc] dark:bg-slate-900 border-t border-border/40">
+    <section className="py-24 md:py-32 bg-[#f7f8fc]  border-t border-border/40">
       <Container>
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
@@ -67,10 +67,10 @@ export function AboutWhyPartner() {
                   key={idx} 
                   direction="up" 
                   delay={0.1 * idx} 
-                  className={`bg-white dark:bg-slate-950 p-10 rounded-[32px] border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group relative overflow-hidden ${reason.colSpan} ${reason.rowSpan}`}
+                  className={`bg-white  p-10 rounded-[32px] border border-slate-100  shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group relative overflow-hidden ${reason.colSpan} ${reason.rowSpan}`}
                 >
                   {/* Subtle Background Number */}
-                  <div className="absolute -right-4 -bottom-8 text-9xl font-serif font-bold text-slate-50 dark:text-slate-900/50 pointer-events-none group-hover:text-primary/5 transition-colors duration-500">
+                  <div className="absolute -right-4 -bottom-8 text-9xl font-serif font-bold text-slate-50  pointer-events-none group-hover:text-primary/5 transition-colors duration-500">
                     {reason.number}
                   </div>
                   

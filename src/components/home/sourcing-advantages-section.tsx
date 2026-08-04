@@ -84,7 +84,7 @@ function StackCard({
       }}
     >
       <div
-        className="flex flex-col lg:flex-row rounded-[28px] overflow-hidden border border-slate-100/80 dark:border-slate-800 shadow-[0_8px_40px_-10px_rgba(0,0,0,0.12)] dark:shadow-[0_8px_40px_-10px_rgba(0,0,0,0.5)]"
+        className="flex flex-col lg:flex-row rounded-[28px] overflow-hidden border border-slate-100/80  shadow-[0_8px_40px_-10px_rgba(0,0,0,0.12)] (0,0,0,0.5)]"
         style={{ backgroundColor: cap.bgColor }}
       >
         {/* Left Column */}
@@ -95,10 +95,10 @@ function StackCard({
               {cap.tag}
             </span>
           </div>
-          <h3 className="text-2xl sm:text-3xl lg:text-[2rem] font-bold text-slate-900 dark:text-white mb-4 font-serif leading-tight">
+          <h3 className="text-2xl sm:text-3xl lg:text-[2rem] font-bold text-slate-900  mb-4 font-serif leading-tight">
             {cap.title}
           </h3>
-          <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed max-w-xs">
+          <p className="text-sm text-slate-600  leading-relaxed max-w-xs">
             {cap.desc}
           </p>
         </div>
@@ -129,7 +129,7 @@ export function SourcingAdvantagesSection() {
   });
 
   return (
-    <section className="pt-20 md:pt-28 pb-0 bg-white dark:bg-background cursor-default">
+    <section className="pt-20 md:pt-28 pb-0 bg-white  cursor-default">
       <Container className="max-w-[1400px] mx-auto space-y-16 relative" ref={containerRef}>
 
         {/* Section Header */}

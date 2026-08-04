@@ -71,8 +71,8 @@ export function Footer() {
           </motion.p>
           <motion.div variants={itemVariants}>
             <Button size="lg" className="relative overflow-hidden group rounded-full px-10 h-14 font-bold bg-[#0b1c3f] hover:bg-[#0b1c3f] border border-[#0b1c3f] text-white shadow-md transition-colors duration-300 text-base md:text-lg">
-              <span className="absolute inset-0 bg-slate-100 dark:bg-slate-800 -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out rounded-full will-change-transform" />
-              <span className="relative z-10 flex items-center group-hover:text-[#0b1c3f] dark:group-hover:text-white transition-colors duration-300">
+              <span className="absolute inset-0 bg-slate-100  -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out rounded-full will-change-transform" />
+              <span className="relative z-10 flex items-center group-hover:text-[#0b1c3f] transition-colors duration-300">
                 Request Quote
                 <ArrowRight className="ml-2 transition-transform group-hover:translate-x-1" />
               </span>

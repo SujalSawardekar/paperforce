@@ -40,7 +40,7 @@ export function AboutTimeline() {
   const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   return (
-    <section className="py-24 md:py-32 bg-white dark:bg-slate-950 relative overflow-hidden" ref={containerRef}>
+    <section className="py-24 md:py-32 bg-white  relative overflow-hidden" ref={containerRef}>
       <Container className="max-w-4xl mx-auto">
         
         <ScrollReveal direction="up" className="text-center mb-24">
@@ -50,7 +50,7 @@ export function AboutTimeline() {
 
         <div className="relative">
           {/* Background subtle line */}
-          <div className="absolute left-6 md:left-1/2 md:-translate-x-1/2 top-0 bottom-0 w-px bg-slate-200 dark:bg-slate-800" />
+          <div className="absolute left-6 md:left-1/2 md:-translate-x-1/2 top-0 bottom-0 w-px bg-slate-200 " />
           
           {/* Animated active line */}
           <motion.div 
@@ -75,8 +75,8 @@ export function AboutTimeline() {
                       isEven ? "md:pr-12 md:text-right" : "md:pl-12 md:text-left"
                     )}
                   >
-                    <div className="bg-slate-50 dark:bg-slate-900/50 backdrop-blur-sm border border-slate-100 dark:border-slate-800 p-8 rounded-3xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                      <div className="text-4xl font-serif font-bold text-slate-300 dark:text-slate-700 mb-4">{milestone.year}</div>
+                    <div className="bg-slate-50  backdrop-blur-sm border border-slate-100  p-8 rounded-3xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                      <div className="text-4xl font-serif font-bold text-slate-300  mb-4">{milestone.year}</div>
                       <h3 className="text-xl font-bold text-foreground mb-3">{milestone.title}</h3>
                       <p className="text-sm text-muted-foreground leading-relaxed">{milestone.description}</p>
                     </div>

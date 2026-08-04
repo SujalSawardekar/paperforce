@@ -12,10 +12,10 @@ interface AccordionItemProps {
 
 export function AccordionItem({ title, content, isOpen, onClick }: AccordionItemProps) {
   return (
-    <div className="border-b border-slate-200 dark:border-slate-800 last:border-0">
+    <div className="border-b border-slate-200  last:border-0">
       <button
         onClick={onClick}
-        className="flex w-full items-center justify-between py-4 text-left text-sm sm:text-base font-semibold text-slate-900 dark:text-slate-100 transition-colors hover:text-[#0b1c3f] dark:hover:text-blue-400"
+        className="flex w-full items-center justify-between py-4 text-left text-sm sm:text-base font-semibold text-slate-900  transition-colors hover:text-[#0b1c3f]"
       >
         {title}
         <ChevronDown
@@ -32,7 +32,7 @@ export function AccordionItem({ title, content, isOpen, onClick }: AccordionItem
             exit={{ height: 0, opacity: 0 }}
             className="overflow-hidden"
           >
-            <div className="pb-4 pt-1 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+            <div className="pb-4 pt-1 text-sm text-slate-600  leading-relaxed">
               {content}
             </div>
           </motion.div>

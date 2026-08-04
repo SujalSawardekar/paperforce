@@ -8,7 +8,7 @@ import { ArrowRight } from "lucide-react"
 
 export function Cta() {
   return (
-    <section className="py-24 relative overflow-hidden bg-[#0b1c3f] dark:bg-slate-950">
+    <section className="py-24 relative overflow-hidden bg-[#0b1c3f] ">
       <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-transparent pointer-events-none" />
       <Container className="relative z-10 text-center max-w-4xl mx-auto space-y-8">
         <ScrollReveal direction="up" delay={0.1}>
