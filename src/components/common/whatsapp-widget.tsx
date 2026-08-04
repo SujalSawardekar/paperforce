@@ -1,0 +1,1 @@
+export function WhatsappWidget() { return null; }\nexport default function WhatsappWidgetDefault() { return null; }

@@ -1,0 +1,1 @@
+export function SplashScreen() { return null; }\nexport default function SplashScreenDefault() { return null; }

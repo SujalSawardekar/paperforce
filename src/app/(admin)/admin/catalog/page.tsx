@@ -1,0 +1,1 @@
+export function Page() { return null; }\nexport default function PageDefault() { return null; }

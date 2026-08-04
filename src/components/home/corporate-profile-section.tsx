@@ -1,0 +1,148 @@
+"use client";
+
+import * as React from "react";
+import Link from "next/link";
+import { Container } from "@/components/common/container";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
+import { SectionHeader } from "@/components/ui/section-header";
+import { ChevronRight, Clock, ShieldCheck, Anchor } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+
+const milestones = [
+  {
+    num: "01",
+    title: "Paper Trade Heritage",
+    desc: "Backed by three generations of family experience in the paper trade, offering unmatched raw pulp sourcing and delivery consistency.",
+    icon: <Clock size={20} className="text-slate-400" />
+  },
+  {
+    num: "02",
+    title: "AQL Quality Assurance",
+    desc: "Our output process conforms to strict Acceptable Quality Limits (AQL) at sheet folding, ruling alignment, binding, and packing.",
+    icon: <ShieldCheck size={20} className="text-slate-400" />
+  },
+  {
+    num: "03",
+    title: "JNPT Logistics Gateway",
+    desc: "Efficient global freight coordination through Nhava Sheva (JNPT), India's leading modern container port cluster near Mumbai.",
+    icon: <Anchor size={20} className="text-slate-400" />
+  }
+];
+
+export function CorporateProfileSection() {
+  const timelineRef = useRef<HTMLDivElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: timelineRef,
+    offset: ["start 80%", "end 60%"],
+  });
+
+  // Map scroll progress (0→1) to scaleY (0→1) for the fill line
+  const lineScaleY = useTransform(scrollYProgress, [0, 1], [0, 1]);
+
+  return (
+    <section className="pt-12 pb-20 md:pt-16 md:pb-32 bg-white dark:bg-background overflow-hidden">
+      <Container>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          
+          {/* Left Column: Title, CTA & Stats */}
+          <div className="lg:col-span-5 flex flex-col pt-2">
+            <SectionHeader 
+              eyebrow="Corporate Profile"
+              title={<>Supplying High-Volume<br className="hidden sm:inline" /><span className="text-[#0b1c3f] dark:text-slate-300"> Stationery Globally</span></>}
+              description="At Paperforce India LLP, we manufacture and export paper stationery to distributors, wholesalers, and importers across the globe - combining hands-on production experience with the scale that high-volume export orders demand."
+            />
+            
+            <ScrollReveal direction="up" delay={0.1} className="-mt-2">
+              
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+                <Link href="/about">
+                  <Button className="relative overflow-hidden group rounded-full px-8 font-bold bg-[#0b1c3f] border border-[#0b1c3f] text-white shadow-md transition-colors duration-300">
+                    <span className="absolute inset-0 bg-slate-100 dark:bg-slate-800 -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out rounded-full will-change-transform" />
+                    <span className="relative z-10 flex items-center group-hover:text-[#0b1c3f] dark:group-hover:text-white transition-colors duration-300">
+                      Read Our Story 
+                      <ChevronRight size={16} className="ml-2 transition-transform group-hover:translate-x-1" />
+                    </span>
+                  </Button>
+                </Link>
+              </div>
+
+              {/* Stats Bar */}
+              <div className="flex flex-wrap gap-8 pt-10 border-t border-slate-100 dark:border-slate-800/60 mt-10">
+                <div>
+                  <span className="block text-2xl md:text-3xl font-bold text-[#0b1c3f] dark:text-white font-serif">10+</span>
+                  <span className="block text-[10px] uppercase tracking-wider font-bold text-slate-500 mt-1">Years Exp.</span>
+                </div>
+                <div className="w-[1px] bg-slate-200 dark:bg-slate-800 hidden sm:block" />
+                <div>
+                  <span className="block text-2xl md:text-3xl font-bold text-[#0b1c3f] dark:text-white font-serif">1988</span>
+                  <span className="block text-[10px] uppercase tracking-wider font-bold text-slate-500 mt-1">Trade Legacy</span>
+                </div>
+                <div className="w-[1px] bg-slate-200 dark:bg-slate-800 hidden sm:block" />
+                <div>
+                  <span className="block text-2xl md:text-3xl font-bold text-[#0b1c3f] dark:text-white font-serif">100k+</span>
+                  <span className="block text-[10px] uppercase tracking-wider font-bold text-slate-500 mt-1">Daily Output</span>
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
+
+          {/* Right Column: Timeline Cards */}
+          <div className="lg:col-span-7 relative lg:pl-12" ref={timelineRef}>
+
+            {/* Background track (always visible, light grey) */}
+            <div className="absolute left-6 lg:left-[4.5rem] top-8 bottom-12 w-0.5 bg-slate-200 dark:bg-slate-800 z-0" />
+
+            {/* Animated fill line — grows from top as you scroll */}
+            <div className="absolute left-6 lg:left-[4.5rem] top-8 bottom-12 w-0.5 z-0 overflow-hidden">
+              <motion.div
+                className="w-full bg-[#0b1c3f] dark:bg-white origin-top"
+                style={{
+                  scaleY: lineScaleY,
+                  height: "100%",
+                  willChange: "transform",
+                }}
+              />
+            </div>
+            
+            <div className="space-y-6 relative z-10">
+              {milestones.map((item, idx) => (
+                <ScrollReveal key={idx} direction="up" delay={idx * 0.15}>
+                  <div className="flex items-start gap-6 lg:gap-8 group">
+                    
+                    {/* Number Node */}
+                    <div className="shrink-0 relative flex items-center justify-center pt-8">
+                      <div className="w-12 h-12 rounded-full bg-white dark:bg-background border-4 border-white dark:border-background flex items-center justify-center z-10 shadow-sm shadow-slate-200 dark:shadow-none ring-1 ring-slate-200 dark:ring-slate-800 transition-transform group-hover:scale-110">
+                        <span className="text-[10px] font-bold text-slate-500 font-serif">
+                          {item.num}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Content Card */}
+                    <div className="flex-1 bg-slate-50 dark:bg-slate-900/50 rounded-3xl p-6 sm:p-8 border border-slate-100 dark:border-slate-800/80 transition-all duration-300 group-hover:shadow-lg group-hover:-translate-y-1">
+                      <div className="w-10 h-10 rounded-full bg-white dark:bg-slate-800 flex items-center justify-center mb-5 shadow-sm border border-slate-100 dark:border-slate-700">
+                        {item.icon}
+                      </div>
+                      <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white font-serif mb-2">
+                        {item.title}
+                      </h3>
+                      <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                        {item.desc}
+                      </p>
+                    </div>
+
+                  </div>
+                </ScrollReveal>
+              ))}
+            </div>
+          </div>
+
+        </div>
+      </Container>
+    </section>
+  );
+}
+

@@ -1,0 +1,242 @@
+// Paperforce India LLP — Prisma Schema
+// Database: PostgreSQL (Neon / Supabase / local)
+// ORM: Prisma 5
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ─── Product Catalog ──────────────────────────────────────────────────────────
+
+model Category {
+  id          String    @id @default(cuid())
+  name        String    @unique
+  slug        String    @unique
+  description String?
+  imageUrl    String?
+  sortOrder   Int       @default(0)
+  products    Product[]
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@map("categories")
+}
+
+model Product {
+  id             String                @id @default(cuid())
+  name           String
+  slug           String                @unique
+  description    String
+  categoryId     String
+  category       Category              @relation(fields: [categoryId], references: [id])
+  specifications ProductSpec[]
+  images         ProductImage[]
+  certifications ProductCertification[]
+  rfqItems       RFQItem[]
+  isActive       Boolean               @default(true)
+  isFeatured     Boolean               @default(false)
+  sortOrder      Int                   @default(0)
+  seoTitle       String?
+  seoDescription String?
+  createdAt      DateTime              @default(now())
+  updatedAt      DateTime              @updatedAt
+
+  @@map("products")
+}
+
+model ProductSpec {
+  id            String       @id @default(cuid())
+  productId     String
+  product       Product      @relation(fields: [productId], references: [id], onDelete: Cascade)
+  gsm           Int?         // Paper weight in grams per square metre
+  pageCount     Int?
+  bindingType   BindingType?
+  size          String?      // "A4", "A5", "B5", "Legal", "Custom"
+  sizeWidthMm   Float?
+  sizeHeightMm  Float?
+  coverType     CoverType?
+  rulingType    RulingType?
+  packagingUnit String?      // e.g. "12 pcs/carton"
+  moqCartons    Int?         // Minimum order quantity in cartons
+  leadTimeDays  Int?
+  incoterms     String?      // "FOB Nhava Sheva"
+  hsCode        String?      // Harmonised Tariff Code
+  label         String?      // Custom label for unlisted spec
+  value         String?      // Free-form value
+
+  @@map("product_specs")
+}
+
+model ProductImage {
+  id        String  @id @default(cuid())
+  productId String
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  url       String  // Cloudinary URL or /public path
+  alt       String?
+  isPrimary Boolean @default(false)
+  sortOrder Int     @default(0)
+
+  @@map("product_images")
+}
+
+model Certification {
+  id          String                 @id @default(cuid())
+  name        String                 @unique // "ISO 9001:2015", "FSC", "BIS"
+  issuer      String?
+  validUntil  DateTime?
+  documentUrl String?
+  products    ProductCertification[]
+
+  @@map("certifications")
+}
+
+model ProductCertification {
+  productId       String
+  certificationId String
+  product         Product       @relation(fields: [productId], references: [id], onDelete: Cascade)
+  certification   Certification @relation(fields: [certificationId], references: [id])
+
+  @@id([productId, certificationId])
+  @@map("product_certifications")
+}
+
+enum BindingType {
+  SPIRAL_SINGLE
+  DOUBLE_WIRE
+  GLUE_BOUND
+  CENTRE_STITCHED
+  HARD_COVER_GALLY
+  SOFT_COVER
+}
+
+enum CoverType {
+  SOFT_COVER
+  HARD_COVER
+  KRAFT
+  LAMINATED
+}
+
+enum RulingType {
+  SINGLE_LINE
+  DOUBLE_LINE
+  FOUR_LINE
+  BLANK
+  GRAPH
+}
+
+// ─── RFQ / Lead System ────────────────────────────────────────────────────────
+
+model RFQ {
+  id                  String     @id @default(cuid())
+  // Buyer contact
+  companyName         String
+  contactName         String
+  email               String
+  phone               String?
+  country             String
+  // Order intent
+  items               RFQItem[]
+  estimatedVolume     String?    // "1 x 20ft FCL", "500 cartons"
+  targetDeliveryDate  String?
+  incotermsPreferred  String?    // "FOB", "CIF", "DAP"
+  currency            String     @default("USD")
+  destinationPort     String?
+  additionalNotes     String?
+  // Admin workflow
+  status              RFQStatus  @default(NEW)
+  priority            Priority   @default(NORMAL)
+  assignedToId        String?
+  assignedTo          AdminUser? @relation(fields: [assignedToId], references: [id])
+  adminNotes          String?
+  quoteSentAt         DateTime?
+  // Metadata
+  source              String?    // "website", "whatsapp"
+  ipAddress           String?
+  createdAt           DateTime   @default(now())
+  updatedAt           DateTime   @updatedAt
+
+  @@map("rfqs")
+}
+
+model RFQItem {
+  id          String   @id @default(cuid())
+  rfqId       String
+  rfq         RFQ      @relation(fields: [rfqId], references: [id], onDelete: Cascade)
+  productId   String?
+  product     Product? @relation(fields: [productId], references: [id])
+  productName String   // Free-text — always store for denormalised read
+  quantity    Int?
+  unit        String?  // "cartons", "reams", "pieces"
+  specNotes   String?
+
+  @@map("rfq_items")
+}
+
+model ContactSubmission {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  phone     String?
+  subject   String?
+  message   String
+  createdAt DateTime @default(now())
+
+  @@map("contact_submissions")
+}
+
+enum RFQStatus {
+  NEW
+  REVIEWING
+  QUOTE_SENT
+  NEGOTIATING
+  WON
+  LOST
+  SPAM
+}
+
+enum Priority {
+  LOW
+  NORMAL
+  HIGH
+  URGENT
+}
+
+// ─── Admin / Auth ─────────────────────────────────────────────────────────────
+
+model AdminUser {
+  id            String     @id @default(cuid())
+  email         String     @unique
+  name          String
+  passwordHash  String
+  role          AdminRole  @default(AGENT)
+  rfqs          RFQ[]
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+
+  // NextAuth session fields
+  sessions      AdminSession[]
+
+  @@map("admin_users")
+}
+
+model AdminSession {
+  id        String    @id @default(cuid())
+  userId    String
+  user      AdminUser @relation(fields: [userId], references: [id], onDelete: Cascade)
+  token     String    @unique
+  expiresAt DateTime
+  createdAt DateTime  @default(now())
+
+  @@map("admin_sessions")
+}
+
+enum AdminRole {
+  SUPER_ADMIN
+  ADMIN
+  AGENT
+}

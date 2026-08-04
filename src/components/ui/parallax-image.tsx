@@ -1,0 +1,1 @@
+export function ParallaxImage() { return null; }\nexport default function ParallaxImageDefault() { return null; }
