@@ -36,49 +36,56 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
-      <section className="relative pt-28 md:pt-36 pb-32 md:pb-64 isolate flex flex-col items-center bg-[#1E3261] text-white">
-        <div className="absolute inset-0 paper-noise pointer-events-none opacity-30 -z-10" />
-        <div className="absolute inset-0 grid-mesh pointer-events-none opacity-30 -z-10 mix-blend-overlay" />
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-[420px] bg-gradient-to-b from-[#2A4480]/90 via-[#2A4480]/70 to-transparent pointer-events-none -z-10 rounded-full blur-2xl opacity-90" />
-  
-        <Container className="relative z-10 max-w-6xl mx-auto flex flex-col items-center text-center space-y-6 md:space-y-10">
+      <section className="relative pt-28 md:pt-40 pb-20 md:pb-32 isolate overflow-hidden">
+        {/* Background textures */}
+        <div className="absolute inset-0 paper-noise pointer-events-none -z-10" />
+        <div className="absolute inset-0 grid-mesh pointer-events-none -z-10" />
+        {/* Ambient glow */}
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] dreamy-glow-navy pointer-events-none -z-10" />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] dreamy-glow-grey pointer-events-none -z-10" />
+
+        <Container className="max-w-6xl mx-auto flex flex-col items-center text-center space-y-8">
+          {/* Eyebrow */}
           <ScrollReveal direction="up" delay={0.1}>
-            <div className="inline-flex items-center space-x-2 bg-white/10 border border-white/20 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider text-white shadow-sm backdrop-blur-md">
-              <span className="relative flex h-2 w-2 mr-1">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-60"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+            <div className="inline-flex items-center gap-2.5 bg-white border border-[#E5E7EB] px-4 py-2 rounded-full shadow-sm">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#1E3261] opacity-40" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#1E3261]" />
               </span>
-              100% Export Oriented Unit
+              <span className="text-xs font-semibold tracking-widest uppercase text-[#1E3261]">
+                B2B OEM Private Label Manufacturer
+              </span>
             </div>
           </ScrollReveal>
 
+          {/* Headline */}
           <ScrollReveal direction="up" delay={0.2} className="w-full">
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white leading-[1.08] font-serif">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-[#111827] leading-[1.08] font-serif">
               Premium Paper
               <br className="hidden md:block" />
-              <span className="text-[#60A5FA]">Stationery</span>
+              <span className="text-[#1E3261]">Stationery</span>
               <br className="hidden md:block" />
               Crafted for the World.
             </h1>
           </ScrollReveal>
 
+          {/* Sub-headline */}
           <ScrollReveal direction="up" delay={0.3} className="max-w-2xl mx-auto">
-            <p className="text-lg sm:text-xl text-blue-100/90 leading-relaxed">
+            <p className="text-lg sm:text-xl text-[#6B7280] leading-relaxed">
               A decade of hands-on manufacturing and export experience. Three decades of paper logistics heritage. One dependable partner for your bulk notebook sourcing.
             </p>
           </ScrollReveal>
 
-          <ScrollReveal direction="up" delay={0.4} className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-            <Link href="/contact">
-              <Button size="lg" className="h-14 px-8 text-base font-bold bg-[#0b1c3f] hover:bg-blue-900 text-white rounded-full shadow-lg hover:shadow-xl transition-all">
-                Request B2B Quote
-              </Button>
-            </Link>
-            <Link href="/about">
-              <Button variant="outline" size="lg" className="h-14 px-8 text-base font-bold border-slate-300  text-slate-700  rounded-full hover:bg-slate-50 transition-all bg-white/50  backdrop-blur-sm">
-                Explore Infrastructure
-              </Button>
-            </Link>
+          {/* CTAs */}
+          <ScrollReveal direction="up" delay={0.4}>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+              <Link href="/products">
+                <Button size="lg" className="bg-[#1E3261] hover:bg-[#1E3261]/90 text-white border-none">Explore Our Products &rarr;</Button>
+              </Link>
+              <Link href="/contact">
+                <Button variant="outline" size="lg" className="bg-white border-[#E5E7EB] text-[#1E3261] hover:bg-slate-50">Partner with Us</Button>
+              </Link>
+            </div>
           </ScrollReveal>
         </Container>
       </section>
