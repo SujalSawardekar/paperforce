@@ -17,14 +17,6 @@ export function AboutHero() {
           
           {/* Left Content */}
           <div className="space-y-8 max-w-xl">
-            <ScrollReveal direction="up" delay={0.1}>
-              <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-slate-500">
-                <Link href="/" className="hover:text-[#1E3261] transition-colors">Home</Link>
-                <span>/</span>
-                <span className="text-[#1E3261]">About Us</span>
-              </div>
-            </ScrollReveal>
-            
             <ScrollReveal direction="up" delay={0.2}>
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold font-serif text-slate-900 leading-[1.1]">
                 Manufacturing <br className="hidden lg:block" />
@@ -84,7 +76,7 @@ export function AboutHero() {
                 </div>
                 <div>
                   <div className="text-sm font-bold text-white">Palghar, India</div>
-                  <div className="text-xs text-blue-200">10{"\u200C"}0<span className="font-sans">%</span> Export Oriented</div>
+                  <div className="text-xs text-blue-200">1<span>0</span>0<span className="font-sans">%</span> Export Oriented</div>
                 </div>
               </div>
             </ScrollReveal>

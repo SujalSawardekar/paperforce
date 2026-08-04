@@ -20,8 +20,10 @@
 @layer base {
   :root {
     /* Brand Colors — Design System §3 */
-    --background: 0 0% 100%;            /* Pure White #FFFFFF */
-    --foreground: 220 15% 7%;           /* Dark Text ~#111827 */
+    --background: 0 0% 100%;
+    /* Pure White #FFFFFF */
+    --foreground: 220 15% 7%;
+    /* Dark Text ~#111827 */
 
     --card: 0 0% 100%;
     --card-foreground: 220 15% 7%;
@@ -82,14 +84,21 @@
   * {
     border-color: hsl(var(--border));
   }
+
   body {
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+
   /* All headings use Recoleta */
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: "Recoleta", "Playfair Display", ui-serif, Georgia, serif;
   }
 }
@@ -112,10 +121,21 @@
 }
 
 /* ─── Background Utilities ─── */
-.bg-brand-navy { background-color: #1E3261; }
-.bg-brand-surface { background-color: #F5F7FA; }
-.text-brand-navy { color: #1E3261; }
-.text-brand-grey { color: #9CA3AF; }
+.bg-brand-navy {
+  background-color: #1E3261;
+}
+
+.bg-brand-surface {
+  background-color: #F5F7FA;
+}
+
+.text-brand-navy {
+  color: #1E3261;
+}
+
+.text-brand-grey {
+  color: #9CA3AF;
+}
 
 /* ─── Subtle Grid Mesh (hero background texture) ─── */
 .grid-mesh {
@@ -142,15 +162,31 @@
 
 /* ─── Floating Navbar Ambient Glow ─── */
 @keyframes float1 {
-  0%   { transform: translate(0, 0) scale(1); }
-  50%  { transform: translate(15px, 10px) scale(1.05); }
-  100% { transform: translate(0, 0) scale(1); }
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(15px, 10px) scale(1.05);
+  }
+
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
 }
 
 @keyframes float2 {
-  0%   { transform: translate(0, 0) scale(1); }
-  50%  { transform: translate(-10px, 15px) scale(1.03); }
-  100% { transform: translate(0, 0) scale(1); }
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(-10px, 15px) scale(1.03);
+  }
+
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
 }
 
 .dreamy-glow-navy {
@@ -172,6 +208,7 @@
   opacity: 0;
   transform: translateY(32px);
 }
+
 .reveal-visible {
   opacity: 1;
   transform: translateY(0);

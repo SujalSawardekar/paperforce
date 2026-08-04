@@ -3,18 +3,34 @@ import * as React from "react"
 import { Container } from "@/components/common/container"
 import { SectionHeader } from "@/components/ui/section-header"
 import { ScrollReveal } from "@/components/ui/scroll-reveal"
-import { ShieldCheck, Award, FileCheck, CheckCircle2 } from "lucide-react"
+import Image from "next/image"
 
 const certs = [
-  { title: "ISO 9001:2015", desc: "Certified Quality Management Systems ensuring consistent manufacturing standards.", icon: <Award className="w-8 h-8 text-blue-500" /> },
-  { title: "FSC Certified", desc: "Commitment to responsible forestry and sustainable paper sourcing.", icon: <FileCheck className="w-8 h-8 text-green-500" /> },
-  { title: "AQL 2.5 Standard", desc: "Rigorous international Acceptable Quality Limit checks prior to shipping.", icon: <ShieldCheck className="w-8 h-8 text-[#0b1c3f] " /> },
-  { title: "Export Compliant", desc: "Adherence to global customs, packaging, and palletization regulations.", icon: <CheckCircle2 className="w-8 h-8 text-indigo-500" /> }
+  { 
+    title: "ISO 9001:2015", 
+    desc: "Certified Quality Management Systems ensuring consistent manufacturing standards.", 
+    image: "/images/capabilities/factory-machinery.png" 
+  },
+  { 
+    title: "FSC Certified", 
+    desc: "Commitment to responsible forestry and sustainable paper sourcing.", 
+    image: "/images/capabilities/warehouse-pallets.png" 
+  },
+  { 
+    title: "AQL 2.5 Standard", 
+    desc: "Rigorous international Acceptable Quality Limit checks prior to shipping.", 
+    image: "/images/capabilities/quality-inspection.png" 
+  },
+  { 
+    title: "Export Compliant", 
+    desc: "Adherence to global customs, packaging, and palletization regulations.", 
+    image: "/images/capabilities/shipping-containers.png" 
+  }
 ]
 
 export function CertificationsSection() {
   return (
-    <section className="py-20 md:py-32 bg-slate-50  border-t border-slate-200 ">
+    <section className="py-20 md:py-32 bg-slate-50 border-t border-slate-200">
       <Container>
         <SectionHeader 
           eyebrow="Compliance & Quality" 
@@ -26,12 +42,21 @@ export function CertificationsSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16">
           {certs.map((cert, idx) => (
             <ScrollReveal key={idx} direction="up" delay={idx * 0.1}>
-              <div className="p-8 rounded-3xl bg-white  shadow-sm border border-slate-100  hover:shadow-md transition-shadow text-center flex flex-col items-center h-full">
-                <div className="w-16 h-16 rounded-full bg-slate-50  flex items-center justify-center mb-6">
-                  {cert.icon}
+              <div className="group rounded-3xl bg-white overflow-hidden transition-all duration-300 border border-slate-100 hover:shadow-lg flex flex-col h-full">
+                <div className="relative h-48 w-full overflow-hidden rounded-t-3xl bg-slate-100 shrink-0">
+                  <Image 
+                    src={cert.image} 
+                    alt={cert.title} 
+                    fill 
+                    className="object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300 group-hover:scale-105"
+                  />
+                  {/* Fade out bottom of image to blend with card body */}
+                  <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-white to-transparent" />
                 </div>
-                <h3 className="text-xl font-bold font-serif text-slate-900  mb-3">{cert.title}</h3>
-                <p className="text-sm text-slate-600  leading-relaxed">{cert.desc}</p>
+                <div className="p-6 pt-2 bg-white text-center flex flex-col items-center flex-1">
+                  <h3 className="text-xl font-bold font-serif text-[#0b1c3f] mb-3">{cert.title}</h3>
+                  <p className="text-sm text-slate-500 leading-relaxed">{cert.desc}</p>
+                </div>
               </div>
             </ScrollReveal>
           ))}
