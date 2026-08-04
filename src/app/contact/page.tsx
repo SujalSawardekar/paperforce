@@ -6,7 +6,7 @@ import { SectionTitle } from "@/components/common/section-title";
 import { ContactForm } from "./contact-form";
 import { ContactMap } from "./contact-map";
 import { AccordionItem } from "@/components/ui/accordion";
-import { MapPin, Mail, Phone, MessageSquare, Clock, ArrowRight } from "lucide-react";
+import { MapPin, Mail, Phone, MessageSquare, Clock } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Contact Us | Paperforce India LLP",
@@ -26,7 +26,7 @@ export default function ContactPage() {
           <div className="w-full max-w-lg space-y-12">
             <div className="space-y-6">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#0b1c3f] font-serif leading-tight">
-                Let's Discuss Your Supply<br />Chain
+                Let's Discuss Your<br />Supply Chain
               </h1>
               
               <p className="text-base text-slate-600 leading-relaxed pt-2 max-w-md">
