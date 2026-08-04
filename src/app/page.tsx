@@ -12,7 +12,8 @@ import { ProductSection } from "@/components/home/product-section";
 import { CertificationsSection } from "@/components/home/certifications-section";
 import { IndustriesSection } from "@/components/home/industries-section";
 import { BlogPreviewSection } from "@/components/home/blog-preview-section";
-import { Cta } from "@/components/common/cta";
+import { GlobalReachSection } from "@/components/home/global-reach-section";
+import { HomeFaqSection } from "@/components/home/faq-section";
 
 function getCompanySchema() {
   return {
@@ -89,9 +90,13 @@ export default function HomePage() {
       <ManufacturingSection />
       <IndustriesSection />
       <WhyChooseSection />
-      <BlogPreviewSection />
-      <Cta />
+      {/* 5.3 Global Reach & Logistics */}
+      <GlobalReachSection />
 
+      {/* 6. B2B Sourcing FAQ Accordion Section */}
+      <HomeFaqSection />
+
+      <BlogPreviewSection />
     </main>
   );
 }

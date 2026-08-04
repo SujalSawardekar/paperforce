@@ -105,24 +105,22 @@ export function ProductSection() {
       {/* Pinned Sticky Window: stays fixed at top-24/top-28 while scrolling */}
       <div className="sticky top-24 md:top-28 h-[calc(100vh-6rem)] flex flex-col justify-center overflow-hidden">
         <Container className="space-y-6 md:space-y-8">
-          <SectionHeader
-            eyebrow="Our Catalog"
-            title="Bulk Stationery Specifications"
-            description="We manufacture a wide range of notebooks alongside a growing paper packaging vertical - combining structural durability and premium paper grades."
-            action={
-              <Link href="/products">
-                <Button variant="outline" className="relative overflow-hidden group rounded-full px-6 font-bold border-[#0b1c3f] text-[#0b1c3f] dark:border-slate-700 dark:text-white transition-colors duration-300 cursor-pointer hover:bg-transparent">
-                  <span className="absolute inset-0 bg-slate-200 dark:bg-slate-800 -translate-x-[105%] group-hover:translate-x-0 transition-transform duration-300 ease-out rounded-full will-change-transform" />
-                  <span className="relative z-10 flex items-center group-hover:text-[#0b1c3f] dark:group-hover:text-white transition-colors duration-300">
-                    View All Products
-                    <ArrowUpRight size={15} className="ml-1.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                  </span>
-                </Button>
-              </Link>
-            }
-          />
-
-          {/* 2-Column Content Grid */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div className="max-w-2xl">
+              <SectionHeader 
+                eyebrow="Our Catalog" 
+                title="Bulk Stationery Specifications" 
+                description="We manufacture a wide range of notebooks alongside a growing paper packaging vertical - combining structural durability and premium paper grades."
+                centered={false}
+              />
+            </div>
+            <Link href="/products" className="shrink-0 mb-8 md:mb-12">
+              <Button variant="outline" className="rounded-full font-bold group border-[#0b1c3f] bg-white/50 dark:border-slate-700 dark:bg-slate-900/50 hover:bg-slate-50 dark:hover:bg-slate-800 backdrop-blur-sm text-[#0b1c3f] dark:text-white">
+                Explore Full Catalog
+                <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+              </Button>
+            </Link>
+          </div>          {/* 2-Column Content Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center max-w-6xl mx-auto">
             {/* Left Column: Product Image Frame (Cross-fading active item) */}
             <div className="lg:col-span-5 relative rounded-3xl overflow-hidden aspect-[4/3] lg:aspect-square bg-slate-50 border border-slate-100 dark:border-slate-800 shadow-lg shrink-0">
