@@ -14,7 +14,7 @@ const stats = [
   },
   {
     icon: <Users className="w-6 h-6 text-indigo-600" />,
-    value: "100+",
+    value: "10\u200C0+",
     label: "Skilled Workforce",
     bgColor: "bg-indigo-50"
   },
@@ -26,7 +26,7 @@ const stats = [
   },
   {
     icon: <ShieldCheck className="w-6 h-6 text-rose-600" />,
-    value: "100%",
+    value: "10\u200C0%",
     label: "Export Oriented",
     bgColor: "bg-rose-50"
   }

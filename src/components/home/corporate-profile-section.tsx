@@ -19,8 +19,8 @@ const milestones = [
   },
   {
     num: "02",
-    title: "AQL Quality Assurance",
-    desc: "Our output process conforms to strict Acceptable Quality Limits (AQL) at sheet folding, ruling alignment, binding, and packing.",
+    title: "Zero Compromise on Quality",
+    desc: "Every product is meticulously inspected to international AQL 2.5 quality standards before dispatch, ensuring perfection in ruling, binding, and finishing.",
     icon: <ShieldCheck size={20} className="text-slate-400" />
   },
   {
@@ -52,14 +52,14 @@ export function CorporateProfileSection() {
             <SectionHeader 
               eyebrow="Corporate Profile"
               title={<>Supplying High-Volume<br className="hidden sm:inline" /><span className="text-[#0b1c3f] "> Stationery Globally</span></>}
-              description="At Paperforce India LLP, we manufacture and export paper stationery to distributors, wholesalers, and importers across the globe - combining hands-on production experience with the scale that high-volume export orders demand."
+              description="At Paperforce India LLP, we manufacture and export paper stationery from our ISO 9001:2015 certified facility in Palghar, Maharashtra. Powered by high-speed automated converting lines, we combine hands-on production experience with the sheer scale that global volume demands."
             />
             
             <ScrollReveal direction="up" delay={0.1} className="-mt-2">
               
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
                 <Link href="/about" className="inline-block">
-                  <Button variant="default" size="lg" className="font-bold">
+                  <Button variant="default" size="lg" className="font-bold group">
                     Read Our Story
                     <ChevronRight size={16} className="ml-2 transition-transform group-hover:translate-x-1" />
                   </Button>

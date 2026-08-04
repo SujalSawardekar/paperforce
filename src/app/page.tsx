@@ -7,12 +7,10 @@ import { Button } from "@/components/ui/button";
 import { CorporateProfileSection } from "@/components/home/corporate-profile-section";
 import { WhyChooseSection } from "@/components/home/why-choose-section";
 import { SourcingAdvantagesSection } from "@/components/home/sourcing-advantages-section";
-import { ManufacturingSection } from "@/components/home/manufacturing-section";
 import { ProductSection } from "@/components/home/product-section";
 import { CertificationsSection } from "@/components/home/certifications-section";
 import { IndustriesSection } from "@/components/home/industries-section";
 import { BlogPreviewSection } from "@/components/home/blog-preview-section";
-import { GlobalReachSection } from "@/components/home/global-reach-section";
 import { HomeFaqSection } from "@/components/home/faq-section";
 
 function getCompanySchema() {
@@ -91,18 +89,12 @@ export default function HomePage() {
       </section>
 
       <CorporateProfileSection />
+      <WhyChooseSection />
       <SourcingAdvantagesSection />
       <ProductSection />
       <CertificationsSection />
-      <ManufacturingSection />
       <IndustriesSection />
-      <WhyChooseSection />
-      {/* 5.3 Global Reach & Logistics */}
-      <GlobalReachSection />
-
-      {/* 6. B2B Sourcing FAQ Accordion Section */}
       <HomeFaqSection />
-
       <BlogPreviewSection />
     </main>
   );
