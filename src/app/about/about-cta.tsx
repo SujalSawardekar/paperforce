@@ -1,1 +1,0 @@
-export function AboutCta() { return null; }\nexport default function AboutCtaDefault() { return null; }

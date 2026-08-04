@@ -1,1 +1,0 @@
-export function NeatGradient() { return null; }\nexport default function NeatGradientDefault() { return null; }

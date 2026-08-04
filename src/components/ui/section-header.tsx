@@ -4,7 +4,7 @@ import { ScrollReveal } from "@/components/ui/scroll-reveal";
 interface SectionHeaderProps {
   eyebrow?: string;
   title: ReactNode;
-  description?: string;
+  description?: ReactNode;
   action?: ReactNode;
   centered?: boolean;
   className?: string;
@@ -29,9 +29,9 @@ export function SectionHeader({ eyebrow, title, description, action, centered = 
 
       {description && (
         <ScrollReveal direction="up" delay={0.3}>
-          <p className="text-slate-600 dark:text-slate-400 max-w-2xl text-base sm:text-lg leading-relaxed">
+          <div className="text-slate-600 dark:text-slate-400 max-w-2xl text-base sm:text-lg leading-relaxed">
             {description}
-          </p>
+          </div>
         </ScrollReveal>
       )}
 

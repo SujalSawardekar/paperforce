@@ -6,11 +6,11 @@ import { siteConfig } from "@/config/site";
 import { footerLinks } from "@/data";
 import { Container } from "./container";
 import { MapPin, Mail, ArrowRight } from "lucide-react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, Variants } from "framer-motion";
 import { Button } from "../ui/button";
 import { useRef, useEffect } from "react";
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -21,7 +21,7 @@ const containerVariants = {
   },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,

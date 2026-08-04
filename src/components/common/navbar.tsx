@@ -6,7 +6,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { motion, useScroll, useMotionValueEvent } from "framer-motion";
+import { motion, useScroll, useMotionValueEvent, Variants } from "framer-motion";
 import { Button } from "../ui/button";
 
 const desktopPillLinks = [
@@ -60,12 +60,12 @@ export function Navbar() {
     }
   });
 
-  const navVariants = {
+  const navVariants: Variants = {
     visible: { transition: { staggerChildren: 0.05 } },
     hidden: { transition: { staggerChildren: 0.05, staggerDirection: -1 } }
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } },
     hidden: { opacity: 0, y: -20, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } }
   };

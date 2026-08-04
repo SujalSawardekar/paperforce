@@ -1,69 +1,81 @@
 @import "tailwindcss";
 
+/* ─── Recoleta Heading Font (self-hosted from /public/fonts/) ─── */
+@font-face {
+  font-family: "Recoleta";
+  src: url("/fonts/Recoleta-RegularDEMO.otf") format("opentype");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-sans: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Recoleta", "Playfair Display", ui-serif, Georgia, serif;
+}
+
+/* ─── CSS Variables ─── */
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Brand Colors — Design System §3 */
+    --background: 0 0% 100%;            /* Pure White #FFFFFF */
+    --foreground: 220 15% 7%;           /* Dark Text ~#111827 */
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
- 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
- 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
- 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
- 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
- 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
- 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --card-foreground: 220 15% 7%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
- 
-    --radius: 0.5rem;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 15% 7%;
+
+    /* Deep Navy #1E3261 — Primary Brand Color */
+    --primary: 225 53% 24%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Light Grey Surface #F5F7FA */
+    --secondary: 220 18% 97%;
+    --secondary-foreground: 225 53% 24%;
+
+    --muted: 220 18% 97%;
+    --muted-foreground: 220 9% 46%;
+
+    --accent: 220 18% 97%;
+    --accent-foreground: 225 53% 24%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Border Grey #E5E7EB */
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 225 53% 24%;
+
+    --radius: 0.75rem;
   }
- 
+
+  /* Light theme only — no dark inversion */
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
- 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
- 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
- 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
- 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
- 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
- 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
- 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
- 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --background: 0 0% 100%;
+    --foreground: 220 15% 7%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 15% 7%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 15% 7%;
+    --primary: 225 53% 24%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 18% 97%;
+    --secondary-foreground: 225 53% 24%;
+    --muted: 220 18% 97%;
+    --muted-foreground: 220 9% 46%;
+    --accent: 220 18% 97%;
+    --accent-foreground: 225 53% 24%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 225 53% 24%;
   }
 }
- 
+
 @layer base {
   * {
     border-color: hsl(var(--border));
@@ -71,46 +83,95 @@
   body {
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  /* All headings use Recoleta */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Recoleta", "Playfair Display", ui-serif, Georgia, serif;
   }
 }
 
+/* ─── Brand Utility Classes ─── */
+
+/* Section eyebrow label */
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #1E3261;
+  background: #F5F7FA;
+  border: 1px solid #E5E7EB;
+  padding: 0.25rem 0.875rem;
+  border-radius: 100px;
+}
+
+/* ─── Background Utilities ─── */
+.bg-brand-navy { background-color: #1E3261; }
+.bg-brand-surface { background-color: #F5F7FA; }
+.text-brand-navy { color: #1E3261; }
+.text-brand-grey { color: #9CA3AF; }
+
+/* ─── Subtle Grid Mesh (hero background texture) ─── */
+.grid-mesh {
+  background-image:
+    linear-gradient(to right, rgba(30, 50, 97, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(30, 50, 97, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* ─── Paper Noise Texture ─── */
+.paper-noise {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.02'/%3E%3C/svg%3E");
+}
+
+/* ─── Glassmorphism Card ─── */
+.glass-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(229, 231, 235, 0.8);
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 24px rgba(30, 50, 97, 0.06);
+}
+
+/* ─── Floating Navbar Ambient Glow ─── */
 @keyframes float1 {
-  0% { transform: translate(0, 0) scale(1) rotate(0deg); }
-  33% { transform: translate(10vw, 5vh) scale(1.2) rotate(120deg); }
-  66% { transform: translate(-5vw, 15vh) scale(0.8) rotate(240deg); }
-  100% { transform: translate(0, 0) scale(1) rotate(360deg); }
+  0%   { transform: translate(0, 0) scale(1); }
+  50%  { transform: translate(15px, 10px) scale(1.05); }
+  100% { transform: translate(0, 0) scale(1); }
 }
 
 @keyframes float2 {
-  0% { transform: translate(0, 0) scale(1) rotate(0deg); }
-  33% { transform: translate(-15vw, -5vh) scale(1.4) rotate(-120deg); }
-  66% { transform: translate(8vw, -10vh) scale(0.7) rotate(-240deg); }
-  100% { transform: translate(0, 0) scale(1) rotate(-360deg); }
+  0%   { transform: translate(0, 0) scale(1); }
+  50%  { transform: translate(-10px, 15px) scale(1.03); }
+  100% { transform: translate(0, 0) scale(1); }
 }
 
-/* Brand compliant ambient glow gradients */
 .dreamy-glow-navy {
-  background: radial-gradient(circle at 30% 30%, rgba(11, 28, 63, 0.3) 0%, transparent 70%);
-  filter: blur(40px);
-  animation: float1 12s ease-in-out infinite;
+  background: radial-gradient(circle at 30% 30%, rgba(30, 50, 97, 0.25) 0%, transparent 70%);
+  filter: blur(50px);
+  animation: float1 14s ease-in-out infinite;
   will-change: transform;
 }
 
 .dreamy-glow-grey {
-  background: radial-gradient(circle at 70% 70%, rgba(100, 116, 139, 0.25) 0%, transparent 70%);
-  filter: blur(40px);
-  animation: float2 16s ease-in-out infinite;
+  background: radial-gradient(circle at 70% 70%, rgba(156, 163, 175, 0.2) 0%, transparent 70%);
+  filter: blur(50px);
+  animation: float2 18s ease-in-out infinite;
   will-change: transform;
 }
 
-/* Backgrounds.supply style mesh pattern and tactile paper grain */
-.grid-mesh {
-  background-image: 
-    linear-gradient(to right, rgba(11, 28, 63, 0.035) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(11, 28, 63, 0.035) 1px, transparent 1px);
-  background-size: 40px 40px;
+/* ─── Scroll Reveal Base (used by ScrollReveal component) ─── */
+.reveal-hidden {
+  opacity: 0;
+  transform: translateY(32px);
 }
-
-.paper-noise {
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.02'/%3E%3C/svg%3E");
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.7s ease, transform 0.7s ease;
 }

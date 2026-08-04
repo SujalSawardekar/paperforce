@@ -35,34 +35,35 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
-      <section className="relative pt-28 md:pt-36 pb-32 md:pb-64 isolate flex flex-col items-center">
+      <section className="relative pt-28 md:pt-36 pb-32 md:pb-64 isolate flex flex-col items-center bg-[#1E3261] text-white">
         <div className="absolute inset-0 paper-noise pointer-events-none opacity-30 -z-10" />
-        <div className="absolute inset-0 grid-mesh pointer-events-none opacity-30 -z-10" />
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-[420px] bg-gradient-to-b from-[#f4f7fb]/90 via-[#f4f7fb]/70 to-transparent dark:from-slate-950/90 dark:via-slate-950/60 dark:to-transparent pointer-events-none -z-10 rounded-full blur-2xl opacity-90" />
+        <div className="absolute inset-0 grid-mesh pointer-events-none opacity-30 -z-10 mix-blend-overlay" />
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-[420px] bg-gradient-to-b from-[#2A4480]/90 via-[#2A4480]/70 to-transparent pointer-events-none -z-10 rounded-full blur-2xl opacity-90" />
   
         <Container className="relative z-10 max-w-6xl mx-auto flex flex-col items-center text-center space-y-6 md:space-y-10">
           <ScrollReveal direction="up" delay={0.1}>
-            <div className="inline-flex items-center space-x-2 bg-white/80 dark:bg-slate-900/80 border border-slate-200/80 dark:border-white/10 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider text-[#0b1c3f] dark:text-slate-200 shadow-sm backdrop-blur-md">
+            <div className="inline-flex items-center space-x-2 bg-white/10 border border-white/20 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider text-white shadow-sm backdrop-blur-md">
               <span className="relative flex h-2 w-2 mr-1">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-60"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
               </span>
-              <span>100% Export Oriented Unit</span>
+              100% Export Oriented Unit
             </div>
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={0.2} className="w-full">
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-slate-900 dark:text-white font-serif drop-shadow-sm">
-              Global Scale. <br className="hidden md:block" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0b1c3f] to-blue-600 dark:from-blue-400 dark:to-blue-200">
-                Precision Quality.
-              </span>
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white leading-[1.08] font-serif">
+              Premium Paper
+              <br className="hidden md:block" />
+              <span className="text-[#60A5FA]">Stationery</span>
+              <br className="hidden md:block" />
+              Crafted for the World.
             </h1>
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={0.3} className="max-w-2xl mx-auto">
-            <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-400 leading-relaxed font-medium">
-              We are an OEM/Private Label manufacturer engineering millions of premium notebooks for the world's most demanding importers and brands.
+            <p className="text-lg sm:text-xl text-blue-100/90 leading-relaxed">
+              A decade of hands-on manufacturing and export experience. Three decades of paper logistics heritage. One dependable partner for your bulk notebook sourcing.
             </p>
           </ScrollReveal>
 
