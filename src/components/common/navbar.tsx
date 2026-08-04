@@ -187,7 +187,7 @@ export function Navbar() {
                     variant={isActive ? "default" : "ghost"} 
                     className={cn(
                       "text-[12px] font-bold h-8 px-4",
-                      isActive ? "border-transparent" : "border border-slate-300 text-slate-600"
+                      isActive ? "border-transparent" : "border-transparent text-slate-600 hover:text-slate-900"
                     )}
                   >
                     {link.name}

@@ -22,7 +22,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             "bg-white border border-slate-200 text-[#1E3261] shadow-sm hover:text-white": variant === "outline",
               
             // Ghost (No border or shadow)
-            "hover:bg-slate-100 text-slate-900": variant === "ghost",
+            "text-slate-900": variant === "ghost",
               
             // Link
             "text-[#1E3261] underline-offset-4 hover:underline p-0 h-auto": variant === "link",
@@ -45,6 +45,9 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         )}
         {variant === "outline" && (
           <span className="absolute inset-0 bg-[#1E3261] -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out rounded-full will-change-transform" />
+        )}
+        {variant === "ghost" && (
+          <span className="absolute inset-0 bg-slate-100 -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out rounded-full will-change-transform" />
         )}
         <span className="relative z-10 flex items-center justify-center transition-colors duration-300">
           {children}

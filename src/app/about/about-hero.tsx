@@ -84,7 +84,7 @@ export function AboutHero() {
                 </div>
                 <div>
                   <div className="text-sm font-bold text-white">Palghar, India</div>
-                  <div className="text-xs text-blue-200">10&zwnj;0% Export Oriented</div>
+                  <div className="text-xs text-blue-200">10{"\u200C"}0<span className="font-sans">%</span> Export Oriented</div>
                 </div>
               </div>
             </ScrollReveal>

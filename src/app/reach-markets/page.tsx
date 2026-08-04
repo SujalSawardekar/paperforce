@@ -30,7 +30,7 @@ export default function ReachMarketsPage() {
             <div className="p-8 rounded-3xl bg-slate-50 border border-slate-100">
                <h2 className="text-2xl font-bold font-serif text-[#0b1c3f] mb-4">Exporting to 30+ Countries</h2>
                <p className="text-slate-600 leading-relaxed mb-6">
-                 Paperforce India is a 10&zwnj;0% Export Oriented Unit (EOU). We specialize in high-volume container shipments to North America, Europe, the Middle East, and Africa.
+                 Paperforce India is a 10{"\u200C"}0<span className="font-sans">%</span> Export Oriented Unit (EOU). We specialize in high-volume container shipments to North America, Europe, the Middle East, and Africa.
                </p>
                <ul className="space-y-3 text-slate-700">
                  <li className="flex items-center">
