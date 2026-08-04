@@ -7,7 +7,7 @@ import { Container } from "@/components/common/container";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { SectionHeader } from "@/components/ui/section-header";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ArrowRight } from "lucide-react";
 
 interface ProductTeaser {
   name: string;
