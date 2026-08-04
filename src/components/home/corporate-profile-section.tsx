@@ -58,13 +58,10 @@ export function CorporateProfileSection() {
             <ScrollReveal direction="up" delay={0.1} className="-mt-2">
               
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
-                <Link href="/about">
-                  <Button className="relative overflow-hidden group rounded-full px-8 font-bold bg-[#0b1c3f] border border-[#0b1c3f] text-white shadow-md transition-colors duration-300">
-                    <span className="absolute inset-0 bg-slate-100  -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out rounded-full will-change-transform" />
-                    <span className="relative z-10 flex items-center group-hover:text-[#0b1c3f] transition-colors duration-300">
-                      Read Our Story 
-                      <ChevronRight size={16} className="ml-2 transition-transform group-hover:translate-x-1" />
-                    </span>
+                <Link href="/about" className="inline-block">
+                  <Button variant="default" size="lg" className="font-bold">
+                    Read Our Story
+                    <ChevronRight size={16} className="ml-2 transition-transform group-hover:translate-x-1" />
                   </Button>
                 </Link>
               </div>

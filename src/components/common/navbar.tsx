@@ -186,21 +186,11 @@ export function Navbar() {
                   <Button 
                     variant={isActive ? "default" : "ghost"} 
                     className={cn(
-                      "text-[12px] font-bold h-8 px-4 border relative overflow-hidden group rounded-full",
-                      isActive 
-                        ? "border-transparent" 
-                        : "border-slate-300  text-slate-600 "
+                      "text-[12px] font-bold h-8 px-4",
+                      isActive ? "border-transparent" : "border border-slate-300 text-slate-600"
                     )}
                   >
-                    {!isActive && (
-                      <span className="absolute inset-0 bg-slate-100  -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out will-change-transform" />
-                    )}
-                    <span className={cn(
-                      "relative z-10 transition-colors duration-300",
-                      !isActive && "group-hover:text-[#0b1c3f]"
-                    )}>
-                      {link.name}
-                    </span>
+                    {link.name}
                   </Button>
                 </Link>
               </motion.div>
@@ -218,9 +208,8 @@ export function Navbar() {
         <div className="flex justify-end items-center pointer-events-auto shrink-0 w-[40%]">
           <motion.div variants={itemVariants} className="hidden md:block">
             <Link href="/contact">
-              <Button variant="outline" className="relative overflow-hidden group rounded-full font-bold text-[13px] px-7 h-9 border-slate-300  text-slate-800  transition-colors duration-300">
-                <span className="absolute inset-0 bg-slate-100  -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out rounded-full will-change-transform" />
-                <span className="relative z-10 transition-colors duration-300 group-hover:text-[#0b1c3f]">Request Quote</span>
+              <Button variant="outline" className="font-bold text-[13px] px-7 h-9 border-slate-300">
+                Request Quote
               </Button>
             </Link>
           </motion.div>

@@ -57,7 +57,7 @@ export function GlobalReachSection() {
 
             <ScrollReveal direction="up" delay={0.5}>
               <Link href="/reach-markets">
-                <Button variant="outline" className="border-white/30 text-white bg-white/5 hover:bg-white hover:text-[#1E3261] transition-all">
+                <Button variant="outline">
                   See Our Markets
                   <ArrowRight size={16} className="ml-2" />
                 </Button>

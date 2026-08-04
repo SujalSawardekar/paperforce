@@ -115,7 +115,7 @@ export function ProductSection() {
               />
             </div>
             <Link href="/products" className="shrink-0 mb-8 md:mb-12">
-              <Button variant="outline" className="rounded-full font-bold group border-[#0b1c3f] bg-white/50   hover:bg-slate-50 backdrop-blur-sm text-[#0b1c3f] ">
+              <Button variant="outline" className="font-bold border-[#1E3261]">
                 Explore Full Catalog
                 <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
               </Button>

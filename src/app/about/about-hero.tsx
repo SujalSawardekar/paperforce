@@ -39,8 +39,8 @@ export function AboutHero() {
             </ScrollReveal>
 
             <ScrollReveal direction="up" delay={0.4}>
-              <Link href="/contact">
-                <Button size="lg" className="bg-[#1E3261] hover:bg-[#1E3261]/90 text-white rounded-full font-bold group">
+              <Link href="/contact" className="inline-block">
+                <Button variant="default" size="lg" className="font-bold">
                   Partner With Us
                   <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
                 </Button>

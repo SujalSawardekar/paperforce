@@ -80,10 +80,10 @@ export default function HomePage() {
           <ScrollReveal direction="up" delay={0.4}>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
               <Link href="/products">
-                <Button size="lg" className="bg-[#1E3261] hover:bg-[#1E3261]/90 text-white border-none">Explore Our Products &rarr;</Button>
+                <Button size="lg" variant="default">Explore Our Products &rarr;</Button>
               </Link>
               <Link href="/contact">
-                <Button variant="outline" size="lg" className="bg-white border-[#E5E7EB] text-[#1E3261] hover:bg-slate-50">Partner with Us</Button>
+                <Button variant="outline" size="lg">Partner with Us</Button>
               </Link>
             </div>
           </ScrollReveal>

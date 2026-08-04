@@ -8,40 +8,48 @@ export interface ButtonProps
 }
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant = "default", size = "default", ...props }, ref) => {
+  ({ className, variant = "default", size = "default", children, ...props }, ref) => {
     return (
       <button
         ref={ref}
         className={cn(
-          "inline-flex items-center justify-center rounded-full text-sm font-medium tracking-wide transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary disabled:pointer-events-none disabled:opacity-50 active:translate-y-[1px] cursor-pointer",
+          "group relative overflow-hidden inline-flex items-center justify-center rounded-full text-sm font-bold tracking-wide transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary disabled:pointer-events-none disabled:opacity-50 cursor-pointer",
           {
-            // Default (Dark/Primary Button) - subtle white border, inner top highlight, drop shadow
-            "bg-primary text-primary-foreground border border-black/10  shadow-[0_2px_4px_rgba(0,0,0,0.1),inset_0_1px_0_rgba(255,255,255,0.1)] hover:bg-opacity-90 hover:-translate-y-[1px] hover:shadow-[0_4px_8px_rgba(0,0,0,0.15),inset_0_1px_0_rgba(255,255,255,0.1)]  ":
-              variant === "default",
+            // Default (Dark/Primary Button) - slides to white, text to navy
+            "bg-[#1E3261] border border-[#1E3261] text-white shadow-md hover:text-[#1E3261]": variant === "default",
             
-            // Outline (Light/Secondary Button) - subtle border, strong inner top highlight, soft drop shadow
-            "bg-white  border border-slate-200  text-slate-900  shadow-[0_2px_4px_rgba(0,0,0,0.02),inset_0_1px_0_rgba(255,255,255,1)] (0,0,0,0.1),inset_0_1px_0_rgba(255,255,255,0.05)] hover:-translate-y-[1px] hover:shadow-[0_4px_8px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,1)]":
-              variant === "outline",
+            // Outline (Light/Secondary Button) - slides to navy, text to white
+            "bg-white border border-slate-200 text-[#1E3261] shadow-sm hover:text-white": variant === "outline",
               
-            // Ghost (No border or shadow, but tactile background)
-            "hover:bg-slate-100 text-foreground hover:-translate-y-[1px]": 
-              variant === "ghost",
+            // Ghost (No border or shadow)
+            "hover:bg-slate-100 text-slate-900": variant === "ghost",
               
-            "text-primary  underline-offset-4 hover:underline p-0 h-auto":
-              variant === "link",
-            "glass-btn":
-              variant === "glass",
+            // Link
+            "text-[#1E3261] underline-offset-4 hover:underline p-0 h-auto": variant === "link",
+            
+            // Glass
+            "glass-btn": variant === "glass",
           },
           {
             "h-10 px-5 py-2": size === "default",
             "h-9 px-4": size === "sm",
-            "h-11 px-8 text-base": size === "lg",
+            "h-12 px-8 text-base": size === "lg",
             "h-10 w-10": size === "icon",
           },
           className
         )}
         {...props}
-      />
+      >
+        {variant === "default" && (
+          <span className="absolute inset-0 bg-white -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out rounded-full will-change-transform" />
+        )}
+        {variant === "outline" && (
+          <span className="absolute inset-0 bg-[#1E3261] -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out rounded-full will-change-transform" />
+        )}
+        <span className="relative z-10 flex items-center justify-center transition-colors duration-300">
+          {children}
+        </span>
+      </button>
     );
   }
 );

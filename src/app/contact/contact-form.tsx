@@ -257,7 +257,8 @@ export function ContactForm() {
         {/* Submit */}
         <Button
           type="submit"
-          className="w-full rounded-full font-bold mt-2 py-6 bg-[#1E3261] hover:bg-[#1E3261]/90 text-white group transition-all"
+          variant="default"
+          className="w-full mt-2 py-6"
           disabled={isSubmittingState}
           id="submit-enquiry-btn"
         >

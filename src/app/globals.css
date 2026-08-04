@@ -7,6 +7,8 @@
   font-weight: 400 700;
   font-style: normal;
   font-display: swap;
+  font-variant-ligatures: none;
+  font-feature-settings: "liga" 0, "clig" 0, "dlig" 0, "calt" 0;
 }
 
 @theme {
@@ -152,16 +154,16 @@
 }
 
 .dreamy-glow-navy {
-  background: radial-gradient(circle at 30% 30%, rgba(30, 50, 97, 0.25) 0%, transparent 70%);
+  background: radial-gradient(circle at 30% 30%, rgba(96, 165, 250, 0.4) 0%, transparent 70%);
   filter: blur(50px);
-  animation: float1 14s ease-in-out infinite;
+  animation: float1 6s ease-in-out infinite;
   will-change: transform;
 }
 
 .dreamy-glow-grey {
-  background: radial-gradient(circle at 70% 70%, rgba(156, 163, 175, 0.2) 0%, transparent 70%);
+  background: radial-gradient(circle at 70% 70%, rgba(147, 197, 253, 0.4) 0%, transparent 70%);
   filter: blur(50px);
-  animation: float2 18s ease-in-out infinite;
+  animation: float2 8s ease-in-out infinite;
   will-change: transform;
 }
 

@@ -21,12 +21,9 @@ export function BlogPreviewSection() {
           title="Sourcing Knowledge Hub"
           action={
             <Link href="/blog">
-              <Button variant="outline" className="relative overflow-hidden group rounded-full px-6 font-bold border-slate-300  bg-white/50  hover:bg-white/50 text-slate-900  shadow-sm transition-colors duration-300">
-                <span className="absolute inset-0 bg-slate-200  -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out rounded-full will-change-transform" />
-                <span className="relative z-10 flex items-center group-hover:text-[#0b1c3f] transition-colors duration-300">
-                  View All Articles
-                  <ArrowRight size={14} className="ml-2 transition-transform group-hover:translate-x-1" />
-                </span>
+              <Button variant="outline" className="px-6 font-bold">
+                View All Articles
+                <ArrowRight size={14} className="ml-2" />
               </Button>
             </Link>
           }
