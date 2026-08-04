@@ -156,7 +156,7 @@ export function Navbar() {
       )}>
         <Link href="/" className="transition-transform hover:scale-105 active:scale-95 flex items-center justify-center">
           <Image
-            src="/logo.png"
+            src="/Horizontal Version 2.png"
             alt="Paperforce Logo"
             width={140}
             height={36}

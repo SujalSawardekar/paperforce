@@ -42,13 +42,13 @@ export function IndustriesSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16">
           {industries.map((item, idx) => (
             <ScrollReveal key={idx} direction="up" delay={idx * 0.1}>
-              <div className="group rounded-3xl bg-white overflow-hidden transition-all duration-300">
+              <div className="group rounded-3xl bg-white overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-xl hover:shadow-blue-900/10 cursor-pointer border border-transparent hover:border-slate-100">
                 <div className="relative h-48 w-full overflow-hidden rounded-t-3xl bg-slate-100">
                   <Image 
                     src={item.image} 
                     alt={item.title} 
                     fill 
-                    className="object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300 group-hover:scale-105"
+                    className="object-cover opacity-80 group-hover:opacity-100 transition-all duration-700 ease-out group-hover:scale-110"
                   />
                   {/* Fade out bottom of image to blend with card body */}
                   <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-white to-transparent" />

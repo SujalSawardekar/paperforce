@@ -88,7 +88,7 @@ export function Footer() {
           <motion.div variants={itemVariants} className="lg:col-span-4 space-y-6 flex flex-col items-start pr-0 lg:pr-12">
             <div className="inline-block bg-white p-3 rounded-2xl shadow-lg">
               <Image
-                src="/logo.png"
+                src="/Horizontal Version 2.png"
                 alt="Paperforce Logo"
                 width={160}
                 height={42}
@@ -151,8 +151,12 @@ export function Footer() {
                 {siteConfig.contact.email}
               </a>
               <div className="flex items-start gap-3">
-                <MapPin size={18} className="text-blue-400 shrink-0 mt-0.5" />
-                <span>Palghar, Maharashtra<br/>Mumbai, India</span>
+                <MapPin size={18} className="text-blue-400 shrink-0 mt-1" />
+                <span><strong className="text-white font-medium block mb-0.5">Corporate Office</strong>C 210 Morya House, Andheri West, Mumbai – 400053</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <MapPin size={18} className="text-blue-400 shrink-0 mt-1" />
+                <span><strong className="text-white font-medium block mb-0.5">Manufacturing</strong>Palghar Industrial Cluster, Maharashtra</span>
               </div>
             </div>
             

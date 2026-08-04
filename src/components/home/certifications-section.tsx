@@ -42,21 +42,9 @@ export function CertificationsSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16">
           {certs.map((cert, idx) => (
             <ScrollReveal key={idx} direction="up" delay={idx * 0.1}>
-              <div className="group rounded-3xl bg-white overflow-hidden transition-all duration-300 border border-slate-100 hover:shadow-lg flex flex-col h-full">
-                <div className="relative h-48 w-full overflow-hidden rounded-t-3xl bg-slate-100 shrink-0">
-                  <Image 
-                    src={cert.image} 
-                    alt={cert.title} 
-                    fill 
-                    className="object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300 group-hover:scale-105"
-                  />
-                  {/* Fade out bottom of image to blend with card body */}
-                  <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-white to-transparent" />
-                </div>
-                <div className="p-6 pt-2 bg-white text-center flex flex-col items-center flex-1">
-                  <h3 className="text-xl font-bold font-serif text-[#0b1c3f] mb-3">{cert.title}</h3>
-                  <p className="text-sm text-slate-500 leading-relaxed">{cert.desc}</p>
-                </div>
+              <div className="group rounded-3xl bg-white p-8 transition-all duration-300 border border-slate-100 hover:shadow-lg hover:border-slate-200 flex flex-col h-full items-center text-center justify-center">
+                <h3 className="text-xl font-bold font-serif text-[#0b1c3f] mb-3">{cert.title}</h3>
+                <p className="text-sm text-slate-500 leading-relaxed">{cert.desc}</p>
               </div>
             </ScrollReveal>
           ))}
