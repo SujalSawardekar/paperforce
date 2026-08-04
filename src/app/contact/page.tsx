@@ -4,6 +4,7 @@ import { Suspense } from "react";
 import { Container } from "@/components/common/container";
 import { SectionTitle } from "@/components/common/section-title";
 import { ContactForm } from "./contact-form";
+import { ContactMap } from "./contact-map";
 import { AccordionItem } from "@/components/ui/accordion";
 import { MapPin, Mail, Phone, MessageSquare, Clock } from "lucide-react";
 
@@ -32,23 +33,36 @@ export default function ContactPage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-16">
           
           {/* Left Column: Contact Info & Map */}
           <div className="space-y-12">
             <div className="space-y-8">
               
-              {/* Address */}
+              {/* Corporate Office */}
               <div className="flex items-start gap-4">
                 <div className="mt-1 w-12 h-12 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center shrink-0">
                   <MapPin className="w-5 h-5 text-slate-900" />
                 </div>
                 <div className="space-y-1">
-                  <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider">Manufacturing Facility</h3>
+                  <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider">Corporate Office</h3>
                   <p className="text-sm text-slate-500 leading-relaxed">
-                    Palghar, Maharashtra<br />
-                    India (100% EOU)
+                    C 210 Morya House, Off New Link Road<br />
+                    Andheri West, Mumbai – 400053
                   </p>
+                </div>
+              </div>
+
+              {/* Contact Person & Phone */}
+              <div className="flex items-start gap-4">
+                <div className="mt-1 w-12 h-12 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center shrink-0">
+                  <Phone className="w-5 h-5 text-slate-900" />
+                </div>
+                <div className="space-y-1">
+                  <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider">Vedant Choudhary</h3>
+                  <a href="tel:+919769966770" className="block text-sm text-slate-500 hover:underline hover:text-slate-900 leading-relaxed">
+                    +91 9769966770 (Phone & WhatsApp)
+                  </a>
                 </div>
               </div>
 
@@ -59,13 +73,15 @@ export default function ContactPage() {
                 </div>
                 <div className="space-y-1">
                   <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider">Email Correspondence</h3>
-                  <a href="mailto:info@paperforce.in" className="text-sm text-slate-500 hover:underline hover:text-slate-900">
-                    info@paperforce.in
+                  <a href="mailto:vedant@paperforce.in" className="text-sm text-slate-500 hover:underline hover:text-slate-900">
+                    vedant@paperforce.in
                   </a>
                 </div>
               </div>
 
             </div>
+
+            <ContactMap />
           </div>
 
           {/* Right Column: Contact Form */}

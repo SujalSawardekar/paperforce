@@ -188,19 +188,24 @@ export function ContactForm() {
             <label htmlFor="interest-field" className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
               Product Interest
             </label>
-            <select
-              id="interest-field"
-              className="w-full rounded-full border border-border p-3.5 px-6 text-sm bg-background text-foreground focus:ring-1 focus:ring-primary focus:outline-hidden transition-all"
-              {...register("productInterest")}
-            >
-              <option value="exercise-books">Exercise Books</option>
-              <option value="spiral-bound">Spiral Bound</option>
-              <option value="double-wire-bound">Double Wire Bound</option>
-              <option value="gally-bound">Hard Cover Gally Bound</option>
-              <option value="centre-stitched">Centre Stitched</option>
-              <option value="glue-bound">Glue Bound</option>
-              <option value="packaging">Paper Packaging</option>
-            </select>
+            <div className="relative">
+              <select
+                id="interest-field"
+                className="w-full rounded-full border border-border p-3.5 px-6 text-sm bg-background text-foreground focus:ring-1 focus:ring-primary focus:outline-hidden transition-all appearance-none cursor-pointer"
+                {...register("productInterest")}
+              >
+                <option value="exercise-books">Exercise Books</option>
+                <option value="spiral-bound">Spiral Bound</option>
+                <option value="double-wire-bound">Double Wire Bound</option>
+                <option value="gally-bound">Hard Cover Gally Bound</option>
+                <option value="centre-stitched">Centre Stitched</option>
+                <option value="glue-bound">Glue Bound</option>
+                <option value="packaging">Paper Packaging</option>
+              </select>
+              <div className="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none">
+                <svg className="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+              </div>
+            </div>
             {errors.productInterest && (
               <p className="text-[10px] text-red-500 font-semibold flex items-center gap-1 mt-0.5">
                 <AlertCircle size={10} />
@@ -252,7 +257,7 @@ export function ContactForm() {
         {/* Submit */}
         <Button
           type="submit"
-          className="w-full rounded-full font-semibold mt-2 py-3"
+          className="w-full rounded-full font-bold mt-2 py-6 bg-[#1E3261] hover:bg-[#1E3261]/90 text-white group transition-all"
           disabled={isSubmittingState}
           id="submit-enquiry-btn"
         >
@@ -263,8 +268,8 @@ export function ContactForm() {
             </>
           ) : (
             <>
-              <Send size={14} className="mr-2" />
               Send B2B Enquiry
+              <Send size={16} className="ml-2 transition-transform group-hover:translate-x-1" />
             </>
           )}
         </Button>

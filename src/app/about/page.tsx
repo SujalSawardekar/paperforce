@@ -1,10 +1,14 @@
 import { Metadata } from "next";
 import { AboutHero } from "./about-hero";
+import { AboutIntro } from "./about-intro";
 import { AboutStory } from "./about-story";
-import { AboutMissionVision } from "./about-mission-vision";
+import { AboutTimeline } from "./about-timeline";
+import { ManufacturingGallery } from "./manufacturing-gallery";
 import { AboutInfrastructure } from "./about-infrastructure";
 import { AboutCompliance } from "./about-compliance";
+import { AboutMissionVision } from "./about-mission-vision";
 import { AboutWhyPartner } from "./about-why-partner";
+import { AboutGallery } from "./about-gallery";
 
 export const metadata: Metadata = {
   title: "About Us & Infrastructure | Paperforce India LLP",
@@ -15,11 +19,15 @@ export default function AboutPage() {
   return (
     <main className="flex flex-col min-h-screen">
       <AboutHero />
+      <AboutIntro />
       <AboutStory />
-      <AboutMissionVision />
+      <AboutTimeline />
+      <ManufacturingGallery />
       <AboutInfrastructure />
       <AboutCompliance />
+      <AboutMissionVision />
       <AboutWhyPartner />
+      <AboutGallery />
     </main>
   );
 }
