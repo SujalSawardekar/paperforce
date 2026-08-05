@@ -6,7 +6,7 @@ import { SectionTitle } from "@/components/common/section-title";
 import { ContactForm } from "./contact-form";
 import { ContactMap } from "./contact-map";
 import { AccordionItem } from "@/components/ui/accordion";
-import { MapPin, Mail, Phone, MessageSquare, Clock } from "lucide-react";
+import { MapPin, Mail, Phone, MessageSquare, Clock, Globe } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Contact Us | Paperforce India LLP",
@@ -35,55 +35,74 @@ export default function ContactPage() {
             </div>
 
             {/* Contact Information Card */}
-            <div className="bg-white rounded-2xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 space-y-8">
-              <h3 className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">Contact Us</h3>
-              
-              <div>
-                <h4 className="text-xl font-bold text-slate-900">Paperforce India LLP</h4>
+            {/* Contact Information Card */}
+            <div className="bg-white rounded-2xl p-8 lg:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 space-y-8">
+              <div className="space-y-1 pb-6 border-b border-slate-100">
+                <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest">Contact Us</h3>
+                <h4 className="text-2xl font-bold text-slate-900">Paperforce India LLP</h4>
               </div>
 
-              <div className="space-y-5">
-                <div className="flex items-start gap-4 text-sm">
+              <div className="space-y-6">
+                
+                {/* Corporate Office */}
+                <div className="flex items-start gap-4 text-sm pb-6 border-b border-slate-100">
                   <MapPin className="w-5 h-5 text-slate-400 shrink-0 mt-0.5" />
-                  <div className="space-y-4">
-                    <div>
-                      <span className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Corporate Office</span>
-                      <span className="text-slate-700 leading-relaxed block">C-210, Morya House,<br/>Off. New Link Road, Andheri West,<br/>Mumbai – 400053, Maharashtra, India.</span>
-                    </div>
-                    <div>
-                      <span className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Branch Office</span>
-                      <span className="text-slate-700 leading-relaxed block">403-B, Venus Tower,<br/>Veera Desai Road, Andheri (W),<br/>Mumbai – 400053, Maharashtra, India.</span>
-                    </div>
-                    <div>
-                      <span className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Manufacturing Facility</span>
-                      <span className="text-slate-700 leading-relaxed block">Plot No. 19–20, Dewan & Shah Industrial Estate,<br/>Palghar Udyog Nagar, Palghar – 401404,<br/>Maharashtra, India.</span>
-                    </div>
+                  <div>
+                    <span className="block text-sm font-bold text-[#1E3261] mb-2">Corporate Office</span>
+                    <span className="text-slate-600 leading-relaxed block max-w-[280px]">C-210, Morya House<br/>Off. New Link Road,<br/>Andheri West, Mumbai – 400053<br/>Maharashtra, India</span>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4 text-sm">
-                  <Phone className="w-5 h-5 text-slate-400 shrink-0 mt-0.5" />
+                {/* Branch Office */}
+                <div className="flex items-start gap-4 text-sm pb-6 border-b border-slate-100">
+                  <MapPin className="w-5 h-5 text-slate-400 shrink-0 mt-0.5" />
                   <div>
-                    <span className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Phone No.</span>
-                    <span className="text-slate-700 leading-relaxed">+91 97699 66770</span>
+                    <span className="block text-sm font-bold text-[#1E3261] mb-2">Branch Office</span>
+                    <span className="text-slate-600 leading-relaxed block max-w-[280px]">403-B, Venus Tower<br/>Veera Desai Road,<br/>Andheri (W), Mumbai – 400053<br/>Maharashtra, India</span>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4 text-sm">
-                  <MessageSquare className="w-5 h-5 text-green-500 shrink-0 mt-0.5" />
+                {/* Manufacturing Facility */}
+                <div className="flex items-start gap-4 text-sm pb-6 border-b border-slate-100">
+                  <MapPin className="w-5 h-5 text-slate-400 shrink-0 mt-0.5" />
                   <div>
-                    <span className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">WhatsApp</span>
-                    <span className="text-slate-700 leading-relaxed">+91 97699 66770</span>
+                    <span className="block text-sm font-bold text-[#1E3261] mb-2">Manufacturing Facility</span>
+                    <span className="text-slate-600 leading-relaxed block max-w-[280px]">Plot No. 19–20<br/>Dewan & Shah Industrial Estate<br/>Palghar Udyog Nagar<br/>Palghar – 401404<br/>Maharashtra, India</span>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4 text-sm">
-                  <Mail className="w-5 h-5 text-slate-400 shrink-0 mt-0.5" />
-                  <div>
-                    <span className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Email ID</span>
-                    <a href="mailto:vedant@paperforce.in" className="text-slate-700 hover:text-slate-900 hover:underline leading-relaxed">
-                      vedant@paperforce.in
-                    </a>
+                {/* Direct Contacts */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2">
+                  <div className="flex items-start gap-3 text-sm">
+                    <Phone className="w-4 h-4 text-slate-400 shrink-0 mt-1" />
+                    <div>
+                      <span className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-0.5">Phone</span>
+                      <span className="text-slate-700 font-medium">+91 97699 66770</span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3 text-sm">
+                    <MessageSquare className="w-4 h-4 text-green-500 shrink-0 mt-1" />
+                    <div>
+                      <span className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-0.5">WhatsApp</span>
+                      <span className="text-slate-700 font-medium">+91 97699 66770</span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3 text-sm">
+                    <Mail className="w-4 h-4 text-slate-400 shrink-0 mt-1" />
+                    <div>
+                      <span className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-0.5">Email</span>
+                      <a href="mailto:vedant@paperforce.in" className="text-[#1E3261] font-medium hover:underline">vedant@paperforce.in</a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3 text-sm">
+                    <Globe className="w-4 h-4 text-slate-400 shrink-0 mt-1" />
+                    <div>
+                      <span className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-0.5">Website</span>
+                      <a href="https://www.paperforce.in" className="text-[#1E3261] font-medium hover:underline">www.paperforce.in</a>
+                    </div>
                   </div>
                 </div>
               </div>

@@ -5,7 +5,7 @@ import Image from "next/image";
 import { siteConfig } from "@/config/site";
 import { footerLinks } from "@/data";
 import { Container } from "./container";
-import { MapPin, Mail, ArrowRight } from "lucide-react";
+import { MapPin, Mail, ArrowRight, Phone, MessageSquare, Globe } from "lucide-react";
 import { motion, useInView, Variants } from "framer-motion";
 import { Button } from "../ui/button";
 import { useRef, useEffect } from "react";
@@ -90,7 +90,7 @@ export function Footer() {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8"
         >
           {/* Brand & Description */}
-          <motion.div variants={itemVariants} className="lg:col-span-4 space-y-6 flex flex-col items-start pr-0 lg:pr-12">
+          <motion.div variants={itemVariants} className="lg:col-span-3 space-y-6 flex flex-col items-start pr-0 lg:pr-8">
             <div className="inline-block bg-white p-3 rounded-2xl shadow-lg">
               <Image
                 src="/logo.png"
@@ -100,14 +100,14 @@ export function Footer() {
                 className="h-8 w-auto object-contain"
               />
             </div>
-            <p className="text-sm md:text-base text-blue-200/80 leading-relaxed text-left">
-              Paperforce India LLP is a trusted notebook and paper stationery manufacturer exporting to importers, chain stores, and distributors across the USA, UK, Middle East, West Africa, and Latin America.
+            <p className="text-sm text-blue-200/80 leading-relaxed text-left">
+              Paperforce India LLP is a trusted notebook and paper stationery manufacturer exporting across the globe.
             </p>
           </motion.div>
 
           {/* Quick Links */}
           <motion.div variants={itemVariants} className="flex flex-col items-start text-left lg:col-span-2">
-            <h4 className="text-base font-semibold text-white mb-6">Quick Links</h4>
+            <h4 className="text-base font-semibold text-white mb-6">Company</h4>
             <ul className="space-y-4">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
@@ -133,54 +133,54 @@ export function Footer() {
             </ul>
           </motion.div>
 
-          {/* Markets */}
-          <motion.div variants={itemVariants} className="flex flex-col items-start text-left lg:col-span-2">
-            <h4 className="text-base font-semibold text-white mb-6">Markets</h4>
-            <ul className="space-y-4">
-              {footerLinks.markets?.map((link) => (
-                <li key={link.name}>
-                  <Link href={link.href} className="text-sm text-blue-200/70 hover:text-white transition-colors block">
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-
           {/* Contact & Social */}
-          <motion.div variants={itemVariants} className="flex flex-col items-start text-left lg:col-span-2">
-            <h4 className="text-base font-semibold text-white mb-6">Contact</h4>
-            <div className="space-y-3 text-sm text-blue-200/70">
-              <a href={`mailto:${siteConfig.contact.email}`} className="flex items-center gap-3 hover:text-white transition-colors pb-1">
-                <Mail size={16} className="text-blue-400 shrink-0" />
-                <span className="truncate">{siteConfig.contact.email}</span>
-              </a>
-              <div className="flex items-start gap-3">
-                <MapPin size={16} className="text-blue-400 shrink-0 mt-0.5" />
-                <div className="leading-snug">
-                  <strong className="text-white font-medium block">Corporate Office</strong>
-                  <span className="text-xs">C 210 Morya House,<br/>Andheri W, Mumbai 400053</span>
+          <motion.div variants={itemVariants} className="flex flex-col items-start text-left lg:col-span-5">
+            <h4 className="text-base font-semibold text-white mb-6">Contact Us</h4>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 w-full text-sm text-blue-200/70">
+              
+              {/* Addresses */}
+              <div className="space-y-5">
+                <div className="space-y-1.5">
+                  <strong className="text-white font-medium block">Paperforce India LLP</strong>
+                  <strong className="text-blue-300 font-medium block text-xs uppercase tracking-wider mt-2">Corporate Office</strong>
+                  <p className="leading-relaxed">C-210, Morya House, Off. New Link Road, Andheri West, Mumbai – 400053</p>
+                </div>
+                <div className="space-y-1.5">
+                  <strong className="text-blue-300 font-medium block text-xs uppercase tracking-wider">Manufacturing Facility</strong>
+                  <p className="leading-relaxed">Plot No. 19–20, Dewan & Shah Industrial Estate, Palghar Udyog Nagar, Palghar – 401404</p>
                 </div>
               </div>
-              <div className="flex items-start gap-3">
-                <MapPin size={16} className="text-blue-400 shrink-0 mt-0.5" />
-                <div className="leading-snug">
-                  <strong className="text-white font-medium block">Manufacturing</strong>
-                  <span className="text-xs">Palghar Industrial Cluster,<br/>Maharashtra</span>
+
+              {/* Contact Info */}
+              <div className="space-y-4">
+                <div className="flex items-center gap-3 hover:text-white transition-colors">
+                  <Phone size={16} className="text-blue-400 shrink-0" />
+                  <span>+91 97699 66770</span>
+                </div>
+                <div className="flex items-center gap-3 hover:text-white transition-colors">
+                  <MessageSquare size={16} className="text-green-400 shrink-0" />
+                  <span>+91 97699 66770</span>
+                </div>
+                <div className="flex items-center gap-3 hover:text-white transition-colors">
+                  <Mail size={16} className="text-blue-400 shrink-0" />
+                  <a href="mailto:vedant@paperforce.in" className="hover:underline">vedant@paperforce.in</a>
+                </div>
+                <div className="flex items-center gap-3 hover:text-white transition-colors">
+                  <Globe size={16} className="text-blue-400 shrink-0" />
+                  <a href="https://www.paperforce.in" className="hover:underline">www.paperforce.in</a>
+                </div>
+                
+                {/* Social */}
+                <div className="flex gap-3 pt-2">
+                  <a href="#" className="w-9 h-9 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center text-blue-300 hover:text-white transition-all">
+                    <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                  </a>
+                  <a href="#" className="w-9 h-9 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center text-blue-300 hover:text-white transition-all">
+                    <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                  </a>
                 </div>
               </div>
-            </div>
-            
-            <div className="flex gap-3 mt-6 pt-5 border-t border-blue-900/50 w-full">
-              <a href="#" className="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center text-blue-300 hover:text-white transition-all">
-                <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="css-i6dzq1"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center text-blue-300 hover:text-white transition-all">
-                <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="css-i6dzq1"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center text-blue-300 hover:text-white transition-all">
-                <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="css-i6dzq1"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-              </a>
+
             </div>
           </motion.div>
         </motion.div>

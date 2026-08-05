@@ -74,28 +74,6 @@ export function ContactMap() {
             />
           )}
 
-          <div className="absolute z-10 bg-white/90 backdrop-blur-sm p-4 rounded-xl border border-slate-200 shadow-sm flex items-start gap-3 max-w-sm text-left">
-            <MapPin className="w-5 h-5 text-[#1E3261] shrink-0 mt-0.5" />
-            <div>
-              {activeTab === "corporate" ? (
-                <>
-                  <h4 className="text-sm font-bold text-[#1E3261]">Corporate Office</h4>
-                  <p className="text-xs text-slate-500 mt-1">C-210, Morya House, Off. New Link Road, Andheri West, Mumbai – 400053</p>
-                </>
-              ) : activeTab === "branch" ? (
-                <>
-                  <h4 className="text-sm font-bold text-[#1E3261]">Branch Office</h4>
-                  <p className="text-xs text-slate-500 mt-1">403-B, Venus Tower, Veera Desai Road, Andheri (W), Mumbai – 400053</p>
-                </>
-              ) : (
-                <>
-                  <h4 className="text-sm font-bold text-[#1E3261]">Manufacturing Facility</h4>
-                  <p className="text-xs text-slate-500 mt-1">Plot No. 19–20, Dewan & Shah Industrial Estate, Palghar Udyog Nagar, Palghar – 401404</p>
-                </>
-              )}
-            </div>
-          </div>
-
           <div className="absolute top-4 right-4 z-10">
             <a href={activeTab === "corporate" ? "https://maps.google.com/?q=Morya+House+Andheri+West+Mumbai" : activeTab === "branch" ? "https://maps.google.com/?q=Venus+Tower+Veera+Desai+Road+Andheri+W+Mumbai" : "https://maps.google.com/?q=Dewan+Shah+Industrial+Estate+Palghar"} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-3 py-1.5 bg-white rounded-md shadow-sm text-[11px] font-bold text-slate-600 hover:text-slate-900 border border-slate-200 transition-colors">
               Open in Maps <ExternalLink size={12} />
