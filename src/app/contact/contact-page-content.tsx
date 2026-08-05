@@ -224,7 +224,7 @@ export function ContactPageContent() {
             <motion.div 
               variants={cardVariants}
               whileHover={{ y: -8 }}
-              className="group bg-white/95 backdrop-blur-xl p-10 h-[330px] border-t-2 border-transparent hover:border-[#1E3261] border-t-[#1E3261] shadow-[0_25px_60px_rgba(16,35,78,0.15)] flex flex-col text-left transition-all duration-300 rounded-3xl lg:rounded-bl-[100px] lg:rounded-br-3xl lg:rounded-tl-3xl lg:rounded-tr-3xl lg:-translate-x-3 lg:w-[105%] relative overflow-hidden"
+              className="group bg-white/95 backdrop-blur-xl px-10 pt-10 pb-24 border-t-2 border-transparent hover:border-[#1E3261] border-t-[#1E3261] shadow-[0_25px_60px_rgba(16,35,78,0.15)] flex flex-col text-left transition-all duration-300 rounded-3xl lg:rounded-bl-[100px] lg:rounded-br-3xl lg:rounded-tl-3xl lg:rounded-tr-3xl lg:-translate-x-3 lg:w-[105%] relative overflow-hidden"
             >
               <div className="flex items-center gap-3 mb-6 relative z-10">
                 <MapPin className="w-5 h-5 text-[#1E3261] group-hover:text-blue-600 group-hover:scale-110 transition-all duration-300" />
@@ -241,7 +241,7 @@ export function ContactPageContent() {
             <motion.div 
               variants={cardVariants}
               whileHover={{ y: -8 }}
-              className="group bg-white/95 backdrop-blur-xl p-10 h-[350px] border-t-2 border-transparent hover:border-[#1E3261] border-t-[#1E3261] shadow-[0_25px_60px_rgba(16,35,78,0.15)] flex flex-col text-left transition-all duration-300 relative z-10 rounded-3xl overflow-hidden"
+              className="group bg-white/95 backdrop-blur-xl px-10 pt-10 pb-24 lg:pb-32 border-t-2 border-transparent hover:border-[#1E3261] border-t-[#1E3261] shadow-[0_25px_60px_rgba(16,35,78,0.15)] flex flex-col text-left transition-all duration-300 relative z-10 rounded-3xl overflow-hidden"
             >
               <div className="flex items-center gap-3 mb-6 relative z-10">
                 <MapPin className="w-5 h-5 text-[#1E3261] group-hover:text-blue-600 group-hover:scale-110 transition-all duration-300" />
@@ -258,7 +258,7 @@ export function ContactPageContent() {
             <motion.div 
               variants={cardVariants}
               whileHover={{ y: -8 }}
-              className="group bg-white/95 backdrop-blur-xl p-10 h-[330px] border-t-2 border-transparent hover:border-[#1E3261] border-t-[#1E3261] shadow-[0_25px_60px_rgba(16,35,78,0.15)] flex flex-col text-left transition-all duration-300 rounded-3xl lg:rounded-br-[100px] lg:rounded-bl-3xl lg:rounded-tl-3xl lg:rounded-tr-3xl lg:translate-x-3 lg:w-[105%] relative overflow-hidden"
+              className="group bg-white/95 backdrop-blur-xl px-10 pt-10 pb-24 border-t-2 border-transparent hover:border-[#1E3261] border-t-[#1E3261] shadow-[0_25px_60px_rgba(16,35,78,0.15)] flex flex-col text-left transition-all duration-300 rounded-3xl lg:rounded-br-[100px] lg:rounded-bl-3xl lg:rounded-tl-3xl lg:rounded-tr-3xl lg:translate-x-3 lg:w-[105%] relative overflow-hidden"
             >
               <div className="flex items-center gap-3 mb-6 relative z-10">
                 <MapPin className="w-5 h-5 text-[#1E3261] group-hover:text-blue-600 group-hover:scale-110 transition-all duration-300" />
