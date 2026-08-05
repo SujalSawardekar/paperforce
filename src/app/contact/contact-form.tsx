@@ -199,7 +199,7 @@ export function ContactForm() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="space-y-1">
             <label htmlFor="email-field" className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
-              Business Email *
+              Email ID *
             </label>
             <input
               id="email-field"

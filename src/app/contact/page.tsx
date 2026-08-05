@@ -34,34 +34,47 @@ export default function ContactPage() {
               </p>
             </div>
 
-            {/* Contact Person Card */}
+            {/* Contact Information Card */}
             <div className="bg-white rounded-2xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 space-y-8">
-              <h3 className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">Contact Person</h3>
+              <h3 className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">Contact Us</h3>
               
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center shrink-0">
-                  <span className="text-sm font-bold text-slate-700">VC</span>
-                </div>
-                <div>
-                  <h4 className="text-base font-bold text-slate-900">Vedant Choudhary</h4>
-                  <p className="text-xs text-slate-500 mt-0.5">B2B Export Division</p>
-                </div>
+              <div>
+                <h4 className="text-xl font-bold text-slate-900">Paperforce India LLP</h4>
               </div>
 
-              <div className="space-y-4">
-                <div className="flex items-center gap-4 text-sm">
-                  <Phone className="w-4 h-4 text-slate-400" />
-                  <span className="text-slate-600">+91 9769966770</span>
+              <div className="space-y-5">
+                <div className="flex items-start gap-4 text-sm">
+                  <MapPin className="w-5 h-5 text-slate-400 shrink-0 mt-0.5" />
+                  <div>
+                    <span className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Office Address</span>
+                    <span className="text-slate-700 leading-relaxed">[Registered Office Address]</span>
+                  </div>
                 </div>
-                <div className="flex items-center gap-4 text-sm">
-                  <MessageSquare className="w-4 h-4 text-green-500" />
-                  <span className="text-green-600 font-medium">+91 9769966770 (WhatsApp)</span>
+
+                <div className="flex items-start gap-4 text-sm">
+                  <Phone className="w-5 h-5 text-slate-400 shrink-0 mt-0.5" />
+                  <div>
+                    <span className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Phone No.</span>
+                    <span className="text-slate-700 leading-relaxed">[Company Phone Number]</span>
+                  </div>
                 </div>
-                <div className="flex items-center gap-4 text-sm">
-                  <Mail className="w-4 h-4 text-slate-400" />
-                  <a href="mailto:vedant@paperforce.in" className="text-slate-600 hover:text-slate-900 hover:underline">
-                    vedant@paperforce.in
-                  </a>
+
+                <div className="flex items-start gap-4 text-sm">
+                  <MessageSquare className="w-5 h-5 text-green-500 shrink-0 mt-0.5" />
+                  <div>
+                    <span className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">WhatsApp</span>
+                    <span className="text-slate-700 leading-relaxed">[Company WhatsApp Number]</span>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4 text-sm">
+                  <Mail className="w-5 h-5 text-slate-400 shrink-0 mt-0.5" />
+                  <div>
+                    <span className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Email ID</span>
+                    <a href="mailto:[Company Email Address]" className="text-slate-700 hover:text-slate-900 hover:underline leading-relaxed">
+                      [Company Email Address]
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
