@@ -210,7 +210,7 @@ export function Navbar() {
               <Button 
                 variant="ghost" 
                 className="font-bold text-[13px] px-4 h-9 text-slate-600 hover:text-slate-900"
-                onClick={() => window.open("/catalogue.pdf", "_blank")}
+                onClick={() => window.open("/Cellpage cateloge.pdf", "_blank")}
               >
                 <Download size={16} className="mr-1.5" />
                 Catalogue
