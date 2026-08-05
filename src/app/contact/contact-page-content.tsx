@@ -37,12 +37,37 @@ const cardVariants: Variants = {
 export function ContactPageContent() {
   return (
     <main className="flex-1 w-full min-h-screen flex flex-col">
-      <div className="flex flex-col lg:flex-row w-full items-start relative">
+      {/* Top Header Section */}
+      <section className="w-full relative pt-32 pb-16 lg:pt-40 lg:pb-24 overflow-hidden border-b border-slate-100">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#f0f4f8] via-[#e6f0fa] to-[#f4f7fb] -z-10" />
+        <Container>
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ staggerChildren: 0.15 }}
+            className="w-full max-w-4xl space-y-8 text-center mx-auto"
+          >
+            <motion.h1 variants={revealVariants} className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#0b1c3f] font-serif leading-tight">
+              Let's Build Your<br />Next Export Partnership
+            </motion.h1>
+            
+            <motion.div variants={revealVariants} className="space-y-5 text-base lg:text-lg text-slate-600 leading-relaxed max-w-3xl mx-auto">
+              <p>
+                Paperforce India LLP manufactures premium notebooks and paper stationery for importers, distributors, wholesalers, retailers, educational institutions, and private-label brands across global markets.
+              </p>
+              <p>
+                Whether you're looking for OEM manufacturing, bulk exports, private labeling, or customized stationery solutions, our export team is ready to assist.
+              </p>
+            </motion.div>
+          </motion.div>
+        </Container>
+      </section>
+
+      <div className="flex flex-col lg:flex-row w-full items-start relative bg-white">
         
-        {/* Left Column: Info & Contact Person (Scrolls naturally) */}
-        <div className="w-full lg:w-1/2 relative flex items-center justify-center p-8 pt-32 lg:p-16 lg:pt-40 xl:p-24 xl:pt-48 overflow-hidden">
-          {/* Subtle blue gradient background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#f0f4f8] via-[#e6f0fa] to-[#f4f7fb] -z-10" />
+        {/* Left Column: Info (Scrolls naturally) */}
+        <div className="w-full lg:w-1/2 relative flex items-start justify-center p-8 pt-16 lg:p-16 xl:p-24 overflow-hidden bg-white/50">
           
           <motion.div 
             initial="hidden"
@@ -51,38 +76,51 @@ export function ContactPageContent() {
             transition={{ staggerChildren: 0.15 }}
             className="w-full max-w-lg space-y-16"
           >
-            {/* Heading and Description */}
-            <motion.div variants={revealVariants} className="space-y-8">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#0b1c3f] font-serif leading-tight">
-                Let's Build Your<br />Next Export Partnership
-              </h1>
-              
-              <div className="space-y-5 text-base lg:text-lg text-slate-600 leading-relaxed max-w-md">
-                <p>
-                  Paperforce India LLP manufactures premium notebooks and paper stationery for importers, distributors, wholesalers, retailers, educational institutions, and private-label brands across global markets.
-                </p>
-                <p>
-                  Whether you're looking for OEM manufacturing, bulk exports, private labeling, or customized stationery solutions, our export team is ready to assist.
-                </p>
-                <p className="font-medium text-slate-800">
-                  Let's discuss your requirements.
-                </p>
-              </div>
+            <motion.div variants={revealVariants} className="space-y-4">
+              <h2 className="text-2xl font-bold text-[#0b1c3f] font-serif">Contact Information</h2>
+              <p className="text-slate-600">Let's discuss your requirements.</p>
             </motion.div>
 
             {/* Contact Information Grid */}
-            <motion.div variants={revealVariants} className="pt-4">
+            <motion.div variants={revealVariants} className="pt-2">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-10 gap-x-12">
-                {/* Head Office */}
+                
+                {/* Corporate Office */}
                 <div className="group flex flex-col gap-2 text-sm col-span-1 sm:col-span-2 cursor-default">
                   <span className="block text-xs font-bold text-slate-400 uppercase tracking-widest flex items-center gap-2">
                     <MapPin className="w-4 h-4 text-slate-400 group-hover:text-blue-600 group-hover:animate-bounce transition-colors" />
-                    Head Office
+                    Corporate Office
                   </span>
                   <span className="text-slate-700 leading-relaxed block max-w-[280px] pl-6 transition-colors">
                     C-210, Morya House<br/>
                     Off. New Link Road<br/>
                     Andheri West, Mumbai – 400053
+                  </span>
+                </div>
+
+                {/* Branch Office */}
+                <div className="group flex flex-col gap-2 text-sm col-span-1 sm:col-span-2 cursor-default">
+                  <span className="block text-xs font-bold text-slate-400 uppercase tracking-widest flex items-center gap-2">
+                    <MapPin className="w-4 h-4 text-slate-400 group-hover:text-blue-600 group-hover:animate-bounce transition-colors" />
+                    Branch Office
+                  </span>
+                  <span className="text-slate-700 leading-relaxed block max-w-[280px] pl-6 transition-colors">
+                    403-B, Venus Tower<br/>
+                    Veera Desai Road<br/>
+                    Andheri (W), Mumbai
+                  </span>
+                </div>
+
+                {/* Manufacturing Facility */}
+                <div className="group flex flex-col gap-2 text-sm col-span-1 sm:col-span-2 cursor-default">
+                  <span className="block text-xs font-bold text-slate-400 uppercase tracking-widest flex items-center gap-2">
+                    <MapPin className="w-4 h-4 text-slate-400 group-hover:text-blue-600 group-hover:animate-bounce transition-colors" />
+                    Manufacturing Facility
+                  </span>
+                  <span className="text-slate-700 leading-relaxed block max-w-[280px] pl-6 transition-colors">
+                    Plot No. 19–20, Dewan {"&"} Shah Industrial Estate<br/>
+                    Palghar Udyog Nagar<br/>
+                    Palghar
                   </span>
                 </div>
 
@@ -105,12 +143,12 @@ export function ContactPageContent() {
                 </div>
 
                 {/* Email */}
-                <div className="group flex flex-col gap-2 text-sm">
+                <div className="group flex flex-col gap-2 text-sm col-span-1 sm:col-span-2">
                   <span className="block text-xs font-bold text-slate-400 uppercase tracking-widest flex items-center gap-2">
                     <Mail className="w-4 h-4 text-slate-400 group-hover:text-blue-600 transition-colors duration-300" />
                     Email
                   </span>
-                  <a href="mailto:vedant@paperforce.in" className="text-[#1E3261] font-medium hover:text-blue-600 pl-6 relative after:absolute after:bottom-0 after:left-6 after:right-0 after:h-[2px] after:bg-blue-600 after:scale-x-0 group-hover:after:scale-x-100 after:transition-transform after:origin-left">
+                  <a href="mailto:vedant@paperforce.in" className="text-[#1E3261] font-medium hover:text-blue-600 pl-6 relative after:absolute after:bottom-0 after:left-6 after:right-0 after:h-[2px] after:bg-blue-600 after:scale-x-0 group-hover:after:scale-x-100 after:transition-transform after:origin-left inline-block w-max">
                     vedant@paperforce.in
                   </a>
                 </div>
@@ -127,7 +165,7 @@ export function ContactPageContent() {
         </div>
 
         {/* Right Column: Contact Form (Sticky on Desktop) */}
-        <div className="w-full lg:w-1/2 bg-white flex items-center justify-center p-8 pt-16 lg:p-16 xl:p-24 shadow-[-20px_0_40px_-15px_rgba(0,0,0,0.05)] z-10 relative lg:sticky lg:top-0 lg:h-screen lg:overflow-y-auto custom-scrollbar">
+        <div className="w-full lg:w-1/2 bg-slate-50 flex items-center justify-center p-8 pt-16 lg:p-16 xl:p-24 shadow-[inset_20px_0_40px_-15px_rgba(0,0,0,0.05)] z-10 relative lg:sticky lg:top-0 lg:h-screen lg:overflow-y-auto custom-scrollbar border-l border-slate-100">
           <div className="w-full max-w-xl my-auto">
             <Suspense fallback={<div className="h-96 flex items-center justify-center text-slate-400">Loading form...</div>}>
               <ContactForm />
@@ -215,7 +253,7 @@ export function ContactPageContent() {
               </div>
               <p className="text-base text-slate-600 leading-loose">
                 Plot No. 19–20<br/>
-                Dewan & Shah Industrial Estate<br/>
+                Dewan {"&"} Shah Industrial Estate<br/>
                 Palghar Udyog Nagar<br/>
                 Palghar
               </p>
