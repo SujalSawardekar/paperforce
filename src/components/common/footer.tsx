@@ -139,15 +139,14 @@ export function Footer() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 w-full text-sm text-blue-200/70">
               
               {/* Addresses */}
-              <div className="space-y-5">
-                <div className="space-y-1.5">
-                  <strong className="text-white font-medium block">Paperforce India LLP</strong>
-                  <strong className="text-blue-300 font-medium block text-xs uppercase tracking-wider mt-2">Corporate Office</strong>
-                  <p className="leading-relaxed">C-210, Morya House, Off. New Link Road, Andheri West, Mumbai – 400053</p>
-                </div>
-                <div className="space-y-1.5">
-                  <strong className="text-blue-300 font-medium block text-xs uppercase tracking-wider">Manufacturing Facility</strong>
-                  <p className="leading-relaxed">Plot No. 19–20, Dewan & Shah Industrial Estate, Palghar Udyog Nagar, Palghar – 401404</p>
+              <div className="space-y-4">
+                <strong className="text-white font-medium text-base block mb-2">Paperforce India LLP</strong>
+                <div className="flex items-start gap-3 hover:text-white transition-colors">
+                  <MapPin size={16} className="text-blue-400 shrink-0 mt-0.5" />
+                  <div className="space-y-1">
+                    <strong className="text-blue-300 font-medium block text-xs uppercase tracking-wider">Corporate Office</strong>
+                    <p className="leading-relaxed">C-210, Morya House, Off. New Link Road, Andheri West, Mumbai – 400053</p>
+                  </div>
                 </div>
               </div>
 
