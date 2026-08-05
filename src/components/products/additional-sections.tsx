@@ -80,33 +80,3 @@ export function QualityProcessSection() {
     </section>
   );
 }
-
-export function CatalogueDownloadSection() {
-  const router = useRouter();
-  
-  return (
-    <section className="py-24 bg-[#1E3261] text-white relative overflow-hidden">
-      <div className="absolute inset-0 paper-noise mix-blend-multiply opacity-20 pointer-events-none" />
-      <Container className="relative z-10 text-center max-w-3xl mx-auto space-y-8">
-        <ScrollReveal direction="up">
-          <h2 className="text-3xl md:text-5xl font-bold font-serif mb-4">Ready to Review Our Full Range?</h2>
-          <p className="text-slate-300 text-lg md:text-xl">
-            Download our comprehensive export catalogue featuring detailed technical specifications, container loading capacities, and our complete product matrix.
-          </p>
-        </ScrollReveal>
-        <ScrollReveal direction="up" delay={0.1}>
-          <div className="flex justify-center pt-4">
-            <Button 
-              size="lg" 
-              className="bg-white text-[#1E3261] hover:bg-slate-100 px-8 py-6 text-base font-bold"
-              onClick={() => window.open("/Cellpage cateloge.pdf", "_blank")}
-            >
-              <Download className="mr-2" size={20} />
-              Download PDF Catalogue
-            </Button>
-          </div>
-        </ScrollReveal>
-      </Container>
-    </section>
-  );
-}

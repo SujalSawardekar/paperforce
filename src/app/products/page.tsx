@@ -2,7 +2,7 @@ import * as React from "react";
 import { Container } from "@/components/common/container";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { ProductCatalog } from "@/components/products/product-catalog";
-import { CustomizationSection, QualityProcessSection, CatalogueDownloadSection } from "@/components/products/additional-sections";
+import { CustomizationSection, QualityProcessSection } from "@/components/products/additional-sections";
 
 export default function ProductsPage() {
   return (
@@ -35,7 +35,6 @@ export default function ProductsPage() {
       {/* Additional Manufacturing & Export Info */}
       <CustomizationSection />
       <QualityProcessSection />
-      <CatalogueDownloadSection />
       
     </main>
   );
