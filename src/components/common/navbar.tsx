@@ -23,6 +23,8 @@ export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
   const [isScrolled, setIsScrolled] = React.useState(false);
 
+  const isCollectionPage = pathname.startsWith('/products/') && pathname !== '/products';
+
   const { scrollY } = useScroll();
   const [isHidden, setIsHidden] = React.useState(false);
   const [isCompact, setIsCompact] = React.useState(false);
@@ -70,6 +72,26 @@ export function Navbar() {
     visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } },
     hidden: { opacity: 0, y: -20, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } }
   };
+
+  if (isCollectionPage) {
+    return (
+      <header className="fixed top-0 left-0 right-0 w-full z-50 pt-5 bg-transparent pointer-events-none transition-all duration-300">
+        <div className="absolute left-1/2 -translate-x-1/2 top-0 h-[80px] pt-2 flex items-center justify-center pointer-events-auto px-4">
+          <Link href="/" className="transition-transform hover:scale-105 active:scale-95 flex items-center justify-center bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full">
+            <Image
+              src="/logo.png"
+              alt="Paperforce Logo"
+              width={140}
+              height={36}
+              className="w-auto object-contain h-8"
+              priority
+              loading="eager"
+            />
+          </Link>
+        </div>
+      </header>
+    );
+  }
 
   return (
     <motion.header

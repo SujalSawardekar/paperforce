@@ -3,6 +3,7 @@
 import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { ArrowLeft, ChevronLeft, ChevronRight, FileText, Download, PenTool, Factory, Box } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { defaultSpecs } from "@/components/products/data";
@@ -15,6 +16,7 @@ interface CollectionViewProps {
 
 export function CollectionView({ collection }: CollectionViewProps) {
   const [galleryIndex, setGalleryIndex] = React.useState(0);
+  const router = useRouter();
 
   return (
     <div className="w-full bg-white pb-32">
@@ -175,10 +177,19 @@ export function CollectionView({ collection }: CollectionViewProps) {
               Download the technical specifications or request a custom quotation based on your required volume and port of destination.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4 relative z-10">
-              <Button size="lg" className="bg-white text-[#1E3261] hover:bg-slate-100 px-8 py-6 text-base font-bold">
+              <Button 
+                size="lg" 
+                className="bg-white text-[#1E3261] hover:bg-slate-200 hover:text-[#1E3261] px-8 py-6 text-base font-bold transition-all shadow-xl hover:scale-105"
+                onClick={() => router.push(`/contact?interest=${collection.id}`)}
+              >
                 Request Quotation
               </Button>
-              <Button size="lg" variant="outline" className="bg-transparent text-white border-slate-400 hover:bg-white/10 px-8 py-6 text-base font-bold">
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="bg-transparent text-white border-slate-400 hover:bg-white/10 hover:border-white px-8 py-6 text-base font-bold transition-all hover:scale-105"
+                onClick={() => window.open("/Cellpage cateloge.pdf", "_blank")}
+              >
                 <Download size={20} className="mr-2" /> Download Catalogue
               </Button>
             </div>
