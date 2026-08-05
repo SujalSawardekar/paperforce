@@ -127,22 +127,6 @@ export function Footer() {
                 <Mail size={16} className="text-blue-400 shrink-0" />
                 <a href="mailto:vedant@paperforce.in" className="hover:underline">vedant@paperforce.in</a>
               </div>
-              <div className="flex gap-4 pt-2">
-                <a href="https://www.instagram.com/paperforceindia?igsh=eG10NWp6NDVhbGQ=" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-white transition-colors">
-                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                </a>
-                <a href="https://www.facebook.com/share/1EpdqK5Zve/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-white transition-colors">
-                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-                </a>
-                <a href="https://www.linkedin.com/in/paperforce-india-llp-536a15426?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-white transition-colors">
-                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-                </a>
-                <a href="#" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-white transition-colors">
-                  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-                    <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.951-7.252 4.195 0 7.457 2.989 7.457 6.981 0 4.175-2.63 7.531-6.282 7.531-1.227 0-2.381-.638-2.775-1.39l-.756 2.876c-.274 1.042-1.021 2.346-1.523 3.143 1.166.36 2.416.554 3.71.554 6.621 0 11.988-5.367 11.988-11.988C24.006 5.367 18.638 0 12.017 0z"/>
-                  </svg>
-                </a>
-              </div>
             </div>
           </motion.div>
 
@@ -170,9 +154,27 @@ export function Footer() {
           <span>
             &copy; 2026 Paperforce India LLP. All Rights Reserved.
           </span>
-          <div className="flex gap-6">
-            <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link href="/terms" className="hover:text-white transition-colors">Terms & Conditions</Link>
+          <div className="flex flex-col sm:flex-row items-center gap-6">
+            <div className="flex gap-4 sm:border-r border-blue-900/50 sm:pr-6">
+              <a href="https://www.instagram.com/paperforceindia?igsh=eG10NWp6NDVhbGQ=" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-white transition-colors">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+              </a>
+              <a href="https://www.facebook.com/share/1EpdqK5Zve/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-white transition-colors">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+              </a>
+              <a href="https://www.linkedin.com/in/paperforce-india-llp-536a15426?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-white transition-colors">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+              </a>
+              <a href="#" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-white transition-colors">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                  <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.951-7.252 4.195 0 7.457 2.989 7.457 6.981 0 4.175-2.63 7.531-6.282 7.531-1.227 0-2.381-.638-2.775-1.39l-.756 2.876c-.274 1.042-1.021 2.346-1.523 3.143 1.166.36 2.416.554 3.71.554 6.621 0 11.988-5.367 11.988-11.988C24.006 5.367 18.638 0 12.017 0z"/>
+                </svg>
+              </a>
+            </div>
+            <div className="flex gap-6">
+              <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+              <Link href="/terms" className="hover:text-white transition-colors">Terms & Conditions</Link>
+            </div>
           </div>
         </motion.div>
         
