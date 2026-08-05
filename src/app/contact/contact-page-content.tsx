@@ -218,7 +218,7 @@ export function ContactPageContent() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-10%" }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mt-24 max-w-6xl mx-auto relative transform translate-y-[120px] md:translate-y-[180px] lg:translate-y-[220px] z-30"
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mt-24 max-w-6xl mx-auto relative transform translate-y-12 lg:translate-y-16 z-30"
           >
             {/* Corporate Office */}
             <motion.div 
