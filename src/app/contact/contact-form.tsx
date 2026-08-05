@@ -37,6 +37,7 @@ function CustomSelect({
       <button 
         type="button" 
         onClick={() => setIsOpen(!isOpen)}
+        suppressHydrationWarning
         className="w-full rounded-sm border border-border p-3.5 px-4 text-sm bg-background text-foreground focus:ring-1 focus:ring-primary focus:outline-hidden transition-all flex items-center justify-between text-left"
       >
         <span className={selectedOption ? "" : "text-muted-foreground"}>{selectedOption ? selectedOption.label : "Select product..."}</span>
@@ -142,6 +143,7 @@ export function ContactForm() {
           <input
             id="name-field"
             type="text"
+            suppressHydrationWarning
             placeholder="John Doe"
             className="w-full rounded-sm border border-border p-3.5 px-4 text-sm bg-background text-foreground focus:ring-1 focus:ring-primary focus:outline-hidden transition-all"
             {...register("name")}
@@ -163,6 +165,7 @@ export function ContactForm() {
             <input
               id="company-field"
               type="text"
+              suppressHydrationWarning
               placeholder="Enterprise LLC"
               className="w-full rounded-sm border border-border p-3.5 px-4 text-sm bg-background text-foreground focus:ring-1 focus:ring-primary focus:outline-hidden transition-all"
               {...register("company")}
@@ -182,6 +185,7 @@ export function ContactForm() {
             <input
               id="country-field"
               type="text"
+              suppressHydrationWarning
               placeholder="United States"
               className="w-full rounded-sm border border-border p-3.5 px-4 text-sm bg-background text-foreground focus:ring-1 focus:ring-primary focus:outline-hidden transition-all"
               {...register("country")}
@@ -204,6 +208,7 @@ export function ContactForm() {
             <input
               id="email-field"
               type="email"
+              suppressHydrationWarning
               placeholder="buyer@company.com"
               className="w-full rounded-sm border border-border p-3.5 px-4 text-sm bg-background text-foreground focus:ring-1 focus:ring-primary focus:outline-hidden transition-all"
               {...register("email")}
@@ -223,6 +228,7 @@ export function ContactForm() {
             <input
               id="phone-field"
               type="text"
+              suppressHydrationWarning
               placeholder="+1 555 0199"
               className="w-full rounded-sm border border-border p-3.5 px-4 text-sm bg-background text-foreground focus:ring-1 focus:ring-primary focus:outline-hidden transition-all"
               {...register("phone")}
@@ -270,6 +276,7 @@ export function ContactForm() {
             <input
               id="moq-field"
               type="text"
+              suppressHydrationWarning
               placeholder="e.g. 1 FCL Container"
               className="w-full rounded-sm border border-border p-3.5 px-4 text-sm bg-background text-foreground focus:ring-1 focus:ring-primary focus:outline-hidden transition-all"
               {...register("moq")}
@@ -291,6 +298,7 @@ export function ContactForm() {
           <textarea
             id="msg-field"
             rows={4}
+            suppressHydrationWarning
             placeholder="Specify target sizing, cover GSM, lines, and discharge ports..."
             className="w-full rounded-sm border border-border p-4 text-sm bg-background text-foreground focus:ring-1 focus:ring-primary focus:outline-hidden transition-all"
             {...register("message")}
