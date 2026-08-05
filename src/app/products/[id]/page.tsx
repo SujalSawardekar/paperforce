@@ -9,8 +9,9 @@ export function generateStaticParams() {
   }));
 }
 
-export default function ProductCollectionPage({ params }: { params: { id: string } }) {
-  const collection = collections.find((c) => c.id === params.id);
+export default async function ProductCollectionPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const collection = collections.find((c) => c.id === id);
   
   if (!collection) {
     notFound();
