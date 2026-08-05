@@ -17,10 +17,8 @@ export default function ProductCollectionPage({ params }: { params: { id: string
   }
 
   return (
-    <main className="min-h-screen bg-slate-50 pt-[100px] pb-12">
-      <div className="max-w-[1600px] mx-auto px-4 md:px-8">
-        <CollectionView collection={collection} />
-      </div>
+    <main className="min-h-screen bg-white">
+      <CollectionView collection={collection} />
     </main>
   );
 }

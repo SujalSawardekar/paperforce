@@ -1,47 +1,31 @@
 "use client";
 
 import * as React from "react";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { Container } from "@/components/common/container";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
-import { FileText, Download, ShieldCheck, Factory, Box, PenTool } from "lucide-react";
+import { FileText, Download, ShieldCheck, Factory, Box, PenTool, CheckCircle, Package } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useRouter } from "next/navigation";
-import Image from "next/image";
 
-export function CustomizationSection() {
+export function ProductPhilosophy() {
   return (
-    <section className="py-24 bg-slate-50 border-t border-slate-200">
+    <section className="py-24 md:py-32 bg-white">
       <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <ScrollReveal direction="right">
-            <div className="space-y-6">
-              <h2 className="text-3xl md:text-4xl font-bold font-serif text-[#1E3261]">Customization & OEM Branding</h2>
-              <p className="text-lg text-slate-600 leading-relaxed">
-                As a dedicated Private Label Manufacturer, we adapt completely to your brand. From specific paper grammage to custom ruling, bindings, and intricate cover finishing.
-              </p>
-              <ul className="space-y-4 pt-4">
-                {[
-                  { icon: PenTool, title: "Custom Artwork & Covers", desc: "Gold foiling, UV coating, soft-touch laminates, and debossing." },
-                  { icon: Factory, title: "Flexible Specifications", desc: "Choose your exact sizes, ruling formats, and paper brightness." },
-                  { icon: Box, title: "Export Ready Packaging", desc: "Barcoding, shrink-wrapping, and master cartons designed for retail." }
-                ].map((feature, i) => (
-                  <li key={i} className="flex gap-4">
-                    <div className="mt-1 bg-white p-2 rounded-lg shadow-sm text-[#1E3261]">
-                      <feature.icon size={20} />
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-slate-900">{feature.title}</h4>
-                      <p className="text-slate-500 text-sm">{feature.desc}</p>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
+          <ScrollReveal>
+            <h2 className="text-3xl md:text-5xl font-serif font-bold text-[#1E3261] leading-tight">
+              Craftsmanship Engineered for Global Export.
+            </h2>
           </ScrollReveal>
-          <ScrollReveal direction="left">
-            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl bg-white border border-slate-100 flex items-center justify-center p-8">
-              <Image src="/Images of Product/Set_07/Set_07 (1).png" alt="OEM Manufacturing" fill className="object-contain" />
-              <div className="absolute inset-0 bg-gradient-to-tr from-slate-100/50 to-transparent pointer-events-none" />
+          <ScrollReveal delay={0.1}>
+            <div className="space-y-6 text-slate-600 text-lg leading-relaxed">
+              <p>
+                At Paperforce India, we don't just manufacture notebooks—we engineer premium stationery solutions tailored for international markets. Our state-of-the-art facility is built to handle high-volume OEM production without ever compromising on precision.
+              </p>
+              <p>
+                From sourcing FSC-certified raw materials to rigorous AQL inspections, every phase of our manufacturing process is designed to meet the exacting standards of global distributors, wholesalers, and premium retail brands.
+              </p>
             </div>
           </ScrollReveal>
         </div>
@@ -50,32 +34,195 @@ export function CustomizationSection() {
   );
 }
 
-export function QualityProcessSection() {
+export function ManufacturingProcess() {
+  const steps = [
+    { num: "01", title: "Raw Material", desc: "FSC-certified paper sourcing" },
+    { num: "02", title: "Printing", desc: "Precision offset web presses" },
+    { num: "03", title: "Binding", desc: "Automated high-speed lines" },
+    { num: "04", title: "Inspection", desc: "Strict AQL quality checks" },
+    { num: "05", title: "Packing", desc: "Export-grade master cartons" },
+    { num: "06", title: "Dispatch", desc: "Container loading & shipping" }
+  ];
+
+  return (
+    <section className="py-24 bg-slate-50 border-y border-slate-200 overflow-hidden">
+      <Container>
+        <ScrollReveal>
+          <h2 className="text-3xl md:text-4xl font-bold font-serif text-[#1E3261] mb-16">The Manufacturing Flow</h2>
+        </ScrollReveal>
+        
+        <div className="relative">
+          <div className="hidden md:block absolute top-1/2 left-0 w-full h-px bg-slate-300 -translate-y-1/2" />
+          <div className="grid grid-cols-2 md:grid-cols-6 gap-6 md:gap-4 relative z-10">
+            {steps.map((step, i) => (
+              <ScrollReveal key={i} delay={i * 0.1} className="relative">
+                <div className="bg-white border border-slate-200 rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-shadow relative z-10 h-full flex flex-col items-center justify-center">
+                  <span className="text-[#1E3261] font-bold text-sm mb-2 opacity-50 block">Step {step.num}</span>
+                  <h4 className="font-bold text-slate-900 mb-1">{step.title}</h4>
+                  <p className="text-xs text-slate-500">{step.desc}</p>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </Container>
+    </section>
+  );
+}
+
+export function OemPrivateLabelSection() {
   return (
     <section className="py-24 bg-white">
       <Container>
-        <ScrollReveal direction="up">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <ScrollReveal>
+            <div className="relative aspect-square md:aspect-[4/3] rounded-2xl overflow-hidden bg-slate-100 p-8 flex items-center justify-center">
+              <Image 
+                src="/Images of Product/Set_07/Set_07 (1).png" 
+                alt="OEM Manufacturing" 
+                fill 
+                className="object-contain hover:scale-105 transition-transform duration-700" 
+              />
+            </div>
+          </ScrollReveal>
+          
+          <div className="space-y-8">
+            <ScrollReveal>
+              <h2 className="text-3xl md:text-4xl font-bold font-serif text-[#1E3261]">OEM & Private Label</h2>
+              <p className="text-lg text-slate-600 mt-4 leading-relaxed">
+                Your brand, our manufacturing expertise. We offer complete customization capabilities to ensure the final product perfectly aligns with your brand identity.
+              </p>
+            </ScrollReveal>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {[
+                { icon: PenTool, title: "Custom Covers", desc: "Foil stamping, UV, debossing" },
+                { icon: Factory, title: "Paper Grammage", desc: "54 GSM to 80+ GSM options" },
+                { icon: Box, title: "Retail Packaging", desc: "Custom shrink-wrap & barcodes" },
+                { icon: CheckCircle, title: "Brand Identity", desc: "Watermarks & custom endpapers" }
+              ].map((feat, i) => (
+                <ScrollReveal key={i} delay={0.1 * i} className="flex gap-4 items-start">
+                  <div className="text-[#1E3261] bg-slate-50 p-3 rounded-lg">
+                    <feat.icon size={20} />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-slate-900">{feat.title}</h4>
+                    <p className="text-sm text-slate-500 mt-1">{feat.desc}</p>
+                  </div>
+                </ScrollReveal>
+              ))}
+            </div>
+          </div>
+        </div>
+      </Container>
+    </section>
+  );
+}
+
+export function QualityAssuranceSection() {
+  return (
+    <section className="py-24 bg-[#1E3261] text-white">
+      <Container>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="space-y-8">
+            <ScrollReveal>
+              <ShieldCheck size={48} className="text-blue-300 mb-6" />
+              <h2 className="text-3xl md:text-4xl font-bold font-serif">Export Quality Assurance</h2>
+              <p className="text-lg text-slate-300 mt-4 leading-relaxed">
+                We understand that in international trade, consistency is paramount. Our factory operates under stringent quality control protocols to guarantee that every single container shipped meets global retail standards.
+              </p>
+            </ScrollReveal>
+            
+            <ul className="space-y-4">
+              {[
+                "AQL Pre-Shipment Inspection",
+                "ISO Certified Manufacturing Standards",
+                "Rigorous Raw Material Testing",
+                "Moisture & Bind Strength Checks"
+              ].map((item, i) => (
+                <ScrollReveal key={i} delay={0.1 * i} className="flex items-center gap-3">
+                  <CheckCircle size={20} className="text-blue-400" />
+                  <span className="font-medium text-slate-200">{item}</span>
+                </ScrollReveal>
+              ))}
+            </ul>
+          </div>
+          
+          <ScrollReveal>
+            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-slate-800">
+               {/* Using a placeholder for factory imagery, or relying on a general manufacturing image */}
+               <div className="absolute inset-0 bg-slate-900/50 mix-blend-multiply" />
+               <div className="absolute inset-0 paper-noise opacity-30" />
+               <div className="absolute inset-0 flex items-center justify-center p-8">
+                  <span className="text-slate-400 font-serif italic text-xl">Precision at Scale</span>
+               </div>
+            </div>
+          </ScrollReveal>
+        </div>
+      </Container>
+    </section>
+  );
+}
+
+export function CatalogueDownloadsSection() {
+  const docs = [
+    { title: "Product Catalogue", desc: "Complete 2026 Collection", file: "/Cellpage cateloge.pdf" },
+    { title: "Technical Specifications", desc: "Detailed GSM & Bindings", file: "/Cellpage cateloge.pdf" },
+    { title: "Export Packaging Guide", desc: "Pallet & Container Specs", file: "/Cellpage cateloge.pdf" }
+  ];
+
+  return (
+    <section className="py-24 bg-slate-50">
+      <Container>
+        <ScrollReveal>
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <ShieldCheck size={40} className="text-[#1E3261] mx-auto mb-4" />
-            <h2 className="text-3xl md:text-4xl font-bold font-serif text-[#1E3261] mb-4">Export Quality Assurance</h2>
-            <p className="text-slate-600">Every container shipped meets strict international standards, ensuring your retail shelves only see perfection.</p>
+            <h2 className="text-3xl md:text-4xl font-bold font-serif text-[#1E3261] mb-4">Official Documentation</h2>
+            <p className="text-slate-600 text-lg">Download our comprehensive guides to review product matrixes, technical details, and logistical requirements.</p>
           </div>
         </ScrollReveal>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {[
-            { step: "01", title: "Raw Material Sourcing", desc: "Premium grade paper sourced from FSC-certified mills." },
-            { step: "02", title: "Precision Manufacturing", desc: "Automated web presses and binding lines ensuring consistency at scale." },
-            { step: "03", title: "Pre-Shipment Inspection", desc: "Rigorous lot testing before container loading." }
-          ].map((item, i) => (
-            <ScrollReveal key={i} direction="up" delay={i * 0.1}>
-              <div className="p-8 bg-slate-50 rounded-2xl border border-slate-100 hover:border-[#1E3261]/20 transition-colors">
-                <span className="text-5xl font-bold font-serif text-slate-200 mb-4 block">{item.step}</span>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">{item.title}</h3>
-                <p className="text-slate-500">{item.desc}</p>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {docs.map((doc, i) => (
+            <ScrollReveal key={i} delay={0.1 * i}>
+              <div 
+                className="bg-white border border-slate-200 p-8 rounded-2xl hover:border-slate-300 hover:shadow-lg transition-all cursor-pointer group"
+                onClick={() => window.open(doc.file, "_blank")}
+              >
+                <div className="bg-slate-50 w-12 h-12 rounded-full flex items-center justify-center text-[#1E3261] mb-6 group-hover:bg-[#1E3261] group-hover:text-white transition-colors">
+                  <FileText size={20} />
+                </div>
+                <h3 className="font-bold text-xl text-slate-900 mb-2">{doc.title}</h3>
+                <p className="text-slate-500 mb-6">{doc.desc}</p>
+                <div className="flex items-center text-sm font-bold text-[#1E3261] uppercase tracking-wider">
+                  Download PDF <Download size={16} className="ml-2 group-hover:-translate-y-1 transition-transform" />
+                </div>
               </div>
             </ScrollReveal>
           ))}
         </div>
+      </Container>
+    </section>
+  );
+}
+
+export function FinalCtaSection() {
+  const router = useRouter();
+  return (
+    <section className="py-32 bg-white text-center border-t border-slate-100">
+      <Container>
+        <ScrollReveal>
+          <h2 className="text-4xl md:text-6xl font-bold font-serif text-[#1E3261] mb-8 max-w-4xl mx-auto leading-tight">
+            Let's Build Your Next Export Partnership.
+          </h2>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Button size="lg" className="px-8 py-6 text-base font-bold" onClick={() => router.push("/contact")}>
+              Get Quote
+            </Button>
+            <Button size="lg" variant="outline" className="px-8 py-6 text-base font-bold border-slate-300" onClick={() => window.open("/Cellpage cateloge.pdf", "_blank")}>
+              Request Catalogue
+            </Button>
+          </div>
+        </ScrollReveal>
       </Container>
     </section>
   );
