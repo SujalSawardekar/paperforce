@@ -1,9 +1,11 @@
+"use client";
+
 import * as React from "react";
 import { Container } from "@/components/common/container";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { FileText, Download, ShieldCheck, Factory, Box, PenTool } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 
 export function CustomizationSection() {
@@ -80,6 +82,8 @@ export function QualityProcessSection() {
 }
 
 export function CatalogueDownloadSection() {
+  const router = useRouter();
+  
   return (
     <section className="py-24 bg-[#1E3261] text-white relative overflow-hidden">
       <div className="absolute inset-0 paper-noise mix-blend-multiply opacity-20 pointer-events-none" />
@@ -96,11 +100,14 @@ export function CatalogueDownloadSection() {
               <Download className="mr-2" size={20} />
               Download PDF Catalogue
             </Button>
-            <Link href="/contact">
-              <Button size="lg" variant="outline" className="text-white border-slate-500 hover:bg-slate-800 px-8 py-6 text-base font-bold">
-                Request Physical Samples
-              </Button>
-            </Link>
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="text-white border-slate-500 hover:bg-slate-800 px-8 py-6 text-base font-bold"
+              onClick={() => router.push("/contact")}
+            >
+              Request Physical Samples
+            </Button>
           </div>
         </ScrollReveal>
       </Container>

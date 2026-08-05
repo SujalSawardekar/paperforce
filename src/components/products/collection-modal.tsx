@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight, Maximize2, FileText, Download, Box, LayoutGrid } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { defaultSpecs } from "./data";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 interface CollectionModalProps {
   collection: any;
@@ -14,6 +14,7 @@ interface CollectionModalProps {
 }
 
 export function CollectionModal({ collection, onClose }: CollectionModalProps) {
+  const router = useRouter();
   const [activeTab, setActiveTab] = React.useState("gallery");
   const [activeIndex, setActiveIndex] = React.useState(0);
   const [isFullscreen, setIsFullscreen] = React.useState(false);
@@ -58,14 +59,16 @@ export function CollectionModal({ collection, onClose }: CollectionModalProps) {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-0 md:p-6"
+        onClick={onClose}
       >
         <motion.div
+          onClick={(e) => e.stopPropagation()}
           initial={{ opacity: 0, scale: 0.96, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.96, y: 20 }}
           transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          className={`bg-white w-full h-full md:rounded-2xl overflow-hidden shadow-2xl flex flex-col relative ${
-            isFullscreen ? "md:rounded-none m-0" : "max-w-[1400px]"
+          className={`bg-white w-full h-full md:h-[90vh] md:rounded-2xl overflow-hidden shadow-2xl flex flex-col relative ${
+            isFullscreen ? "md:h-screen md:rounded-none m-0" : "max-w-[1400px]"
           }`}
         >
           {/* Header */}
@@ -82,9 +85,9 @@ export function CollectionModal({ collection, onClose }: CollectionModalProps) {
             </button>
           </div>
 
-          <div className="flex flex-col md:flex-row flex-1 overflow-hidden">
+          <div className="flex flex-col md:flex-row flex-1 min-h-0 overflow-hidden">
             {/* Left Content Area (Gallery) */}
-            <div className="flex-1 bg-slate-100 flex flex-col overflow-hidden">
+            <div className="h-[50vh] md:h-auto md:flex-1 bg-slate-100 flex flex-col min-h-0">
               {/* Large Preview */}
               <div className="relative flex-1 group overflow-hidden bg-slate-200 flex items-center justify-center">
                 <AnimatePresence mode="wait">
@@ -146,7 +149,7 @@ export function CollectionModal({ collection, onClose }: CollectionModalProps) {
 
             {/* Right Information Sidebar */}
             {!isFullscreen && (
-              <div className="w-full md:w-[450px] bg-white border-l border-border flex flex-col h-full">
+              <div className="flex-1 md:flex-none w-full md:w-[450px] bg-white border-t md:border-t-0 md:border-l border-border flex flex-col min-h-0">
                 {/* Tabs */}
                 <div className="flex border-b border-border overflow-x-auto no-scrollbar">
                   {tabs.map((tab) => (
@@ -247,11 +250,13 @@ export function CollectionModal({ collection, onClose }: CollectionModalProps) {
 
                 {/* Footer Action */}
                 <div className="p-6 bg-slate-50 border-t border-border">
-                  <Link href={`/contact?interest=${collection.id}`}>
-                    <Button size="lg" className="w-full text-base py-6 shadow-lg hover:shadow-xl transition-all">
-                      Request a Quote for {collection.name}
-                    </Button>
-                  </Link>
+                  <Button 
+                    size="lg" 
+                    className="w-full text-base py-6 shadow-lg hover:shadow-xl transition-all"
+                    onClick={() => router.push(`/contact?interest=${collection.id}`)}
+                  >
+                    Request a Quote for {collection.name}
+                  </Button>
                 </div>
               </div>
             )}
