@@ -73,25 +73,6 @@ export function Navbar() {
     hidden: { opacity: 0, y: -20, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } }
   };
 
-  if (isCollectionPage) {
-    return (
-      <header className="fixed top-0 left-0 right-0 w-full z-50 pt-5 bg-transparent pointer-events-none transition-all duration-300">
-        <div className="absolute left-1/2 -translate-x-1/2 top-0 h-[80px] pt-2 flex items-center justify-center pointer-events-auto px-4">
-          <Link href="/" className="transition-transform hover:scale-105 active:scale-95 flex items-center justify-center bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full">
-            <Image
-              src="/logo.png"
-              alt="Paperforce Logo"
-              width={140}
-              height={36}
-              className="w-auto object-contain h-8"
-              priority
-              loading="eager"
-            />
-          </Link>
-        </div>
-      </header>
-    );
-  }
 
   return (
     <motion.header
@@ -200,8 +181,8 @@ export function Navbar() {
       )}>
         
         {/* Left Cluster: Navigation Links */}
-        <nav className="hidden md:flex items-center space-x-1.5 pointer-events-auto shrink-0 w-[40%]">
-          {desktopPillLinks.map((link) => {
+        <div className="hidden md:flex items-center space-x-1.5 pointer-events-auto shrink-0 w-[40%]">
+          {!isCollectionPage && desktopPillLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
               <motion.div key={link.href} variants={itemVariants}>
@@ -218,7 +199,7 @@ export function Navbar() {
               </motion.div>
             );
           })}
-        </nav>
+        </div>
 
         {/* Mobile Left Brand Logo placeholder so mobile layout aligns correctly */}
         <div className="md:hidden pointer-events-auto shrink-0" />
@@ -228,34 +209,38 @@ export function Navbar() {
 
         {/* Right Cluster: Action Buttons */}
         <div className="flex justify-end items-center gap-3 pointer-events-auto shrink-0 w-[40%]">
-          <motion.div variants={itemVariants} className="hidden md:flex items-center gap-2">
-              <Button 
-                variant="ghost" 
-                className="font-bold text-[13px] px-4 h-9 text-slate-600 hover:text-slate-900"
-                onClick={() => window.open("/Cellpage cateloge.pdf", "_blank")}
-              >
-                <Download size={16} className="mr-1.5" />
-                Catalogue
-              </Button>
-              <Button 
-                variant="outline" 
-                className="font-bold text-[13px] px-7 h-9 border-slate-300"
-                onClick={() => router.push("/contact")}
-              >
-                Request Quote
-              </Button>
-          </motion.div>
+          {!isCollectionPage && (
+            <>
+              <motion.div variants={itemVariants} className="hidden md:flex items-center gap-2">
+                  <Button 
+                    variant="ghost" 
+                    className="font-bold text-[13px] px-4 h-9 text-slate-600 hover:text-slate-900"
+                    onClick={() => window.open("/Cellpage cateloge.pdf", "_blank")}
+                  >
+                    <Download size={16} className="mr-1.5" />
+                    Catalogue
+                  </Button>
+                  <Button 
+                    variant="outline" 
+                    className="font-bold text-[13px] px-7 h-9 border-slate-300"
+                    onClick={() => router.push("/contact")}
+                  >
+                    Request Quote
+                  </Button>
+              </motion.div>
 
-          {/* Mobile Menu Toggle */}
-          <motion.div variants={itemVariants} className="md:hidden">
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="rounded-full p-2 bg-slate-100  text-slate-800  cursor-pointer transition-colors"
-              aria-label="Toggle Menu"
-            >
-              {mobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
-            </button>
-          </motion.div>
+              {/* Mobile Menu Toggle */}
+              <motion.div variants={itemVariants} className="md:hidden">
+                <button
+                  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                  className="rounded-full p-2 bg-slate-100  text-slate-800  cursor-pointer transition-colors"
+                  aria-label="Toggle Menu"
+                >
+                  {mobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
+                </button>
+              </motion.div>
+            </>
+          )}
         </div>
       </motion.div>
 
