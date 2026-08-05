@@ -4,7 +4,7 @@ import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Download } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion, useScroll, useMotionValueEvent, Variants } from "framer-motion";
 import { Button } from "../ui/button";
@@ -204,9 +204,17 @@ export function Navbar() {
         {/* Center Space so flex-between works correctly (remaining width) */}
         <div className="hidden md:block flex-1" />
 
-        {/* Right Cluster: Request Quote Button */}
-        <div className="flex justify-end items-center pointer-events-auto shrink-0 w-[40%]">
-          <motion.div variants={itemVariants} className="hidden md:block">
+        {/* Right Cluster: Action Buttons */}
+        <div className="flex justify-end items-center gap-3 pointer-events-auto shrink-0 w-[40%]">
+          <motion.div variants={itemVariants} className="hidden md:flex items-center gap-2">
+              <Button 
+                variant="ghost" 
+                className="font-bold text-[13px] px-4 h-9 text-slate-600 hover:text-slate-900"
+                onClick={() => window.open("/catalogue.pdf", "_blank")}
+              >
+                <Download size={16} className="mr-1.5" />
+                Catalogue
+              </Button>
               <Button 
                 variant="outline" 
                 className="font-bold text-[13px] px-7 h-9 border-slate-300"
