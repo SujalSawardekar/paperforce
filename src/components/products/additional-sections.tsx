@@ -39,9 +39,9 @@ export function CustomizationSection() {
             </div>
           </ScrollReveal>
           <ScrollReveal direction="left">
-            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
-              <Image src="/images/hero-bg.jpg" alt="OEM Manufacturing" fill className="object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-tr from-[#1E3261]/80 to-transparent mix-blend-multiply" />
+            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl bg-white border border-slate-100 flex items-center justify-center p-8">
+              <Image src="/Images of Product/Set_07/Set_07 (1).png" alt="OEM Manufacturing" fill className="object-contain" />
+              <div className="absolute inset-0 bg-gradient-to-tr from-slate-100/50 to-transparent pointer-events-none" />
             </div>
           </ScrollReveal>
         </div>
@@ -103,7 +103,7 @@ export function CatalogueDownloadSection() {
             <Button 
               size="lg" 
               variant="outline" 
-              className="text-white border-slate-500 hover:bg-slate-800 px-8 py-6 text-base font-bold"
+              className="bg-transparent text-white border-slate-500 hover:border-slate-400 hover:bg-slate-800 hover:!text-white px-8 py-6 text-base font-bold"
               onClick={() => router.push("/contact")}
             >
               Request Physical Samples

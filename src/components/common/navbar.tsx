@@ -3,7 +3,7 @@
 import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion, useScroll, useMotionValueEvent, Variants } from "framer-motion";
@@ -19,6 +19,7 @@ const desktopPillLinks = [
 
 export function Navbar() {
   const pathname = usePathname();
+  const router = useRouter();
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
   const [isScrolled, setIsScrolled] = React.useState(false);
 
@@ -182,17 +183,16 @@ export function Navbar() {
             const isActive = pathname === link.href;
             return (
               <motion.div key={link.href} variants={itemVariants}>
-                <Link href={link.href}>
                   <Button 
                     variant={isActive ? "default" : "ghost"} 
                     className={cn(
                       "text-[12px] font-bold h-8 px-4",
                       isActive ? "border-transparent" : "border-transparent text-slate-600 hover:text-slate-900"
                     )}
+                    onClick={() => router.push(link.href)}
                   >
                     {link.name}
                   </Button>
-                </Link>
               </motion.div>
             );
           })}
@@ -207,11 +207,13 @@ export function Navbar() {
         {/* Right Cluster: Request Quote Button */}
         <div className="flex justify-end items-center pointer-events-auto shrink-0 w-[40%]">
           <motion.div variants={itemVariants} className="hidden md:block">
-            <Link href="/contact">
-              <Button variant="outline" className="font-bold text-[13px] px-7 h-9 border-slate-300">
+              <Button 
+                variant="outline" 
+                className="font-bold text-[13px] px-7 h-9 border-slate-300"
+                onClick={() => router.push("/contact")}
+              >
                 Request Quote
               </Button>
-            </Link>
           </motion.div>
 
           {/* Mobile Menu Toggle */}

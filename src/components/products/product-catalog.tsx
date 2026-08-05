@@ -4,12 +4,12 @@ import * as React from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { collections } from "./data";
-import { CollectionModal } from "./collection-modal";
 import { ArrowRight, ImageIcon } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export function ProductCatalog() {
+  const router = useRouter();
   const [filter, setFilter] = React.useState("All");
-  const [selectedCollection, setSelectedCollection] = React.useState<any | null>(null);
 
   const filters = ["All", "Exercise Books", "Spiral Bound", "Double Wire Bound", "Hard Cover Gally Bound", "Centre Stitched", "Glue Bound", "Packaging", "Premium Notebooks", "Specialty Binding"];
 
@@ -23,17 +23,12 @@ export function ProductCatalog() {
           <button
             key={f}
             onClick={() => setFilter(f)}
-            className={`relative px-5 py-2.5 rounded-full text-sm font-semibold transition-colors duration-300 ${
-              filter === f ? "text-white" : "text-slate-600 hover:text-slate-900 bg-slate-100 hover:bg-slate-200"
+            className={`relative px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 ${
+              filter === f 
+                ? "bg-[#1E3261] text-white shadow-md" 
+                : "bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900"
             }`}
           >
-            {filter === f && (
-              <motion.div
-                layoutId="active-filter"
-                className="absolute inset-0 bg-[#1E3261] rounded-full -z-10"
-                transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              />
-            )}
             <span className="relative z-10">{f}</span>
           </button>
         ))}
@@ -51,7 +46,7 @@ export function ProductCatalog() {
               transition={{ duration: 0.4 }}
               key={collection.id}
               className="group cursor-pointer bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl hover:border-[#1E3261]/20 transition-all duration-500 flex flex-col"
-              onClick={() => setSelectedCollection(collection)}
+              onClick={() => router.push(`/products/${collection.id}`)}
             >
               <div className="relative aspect-[4/3] bg-slate-100 overflow-hidden">
                 <Image
@@ -79,11 +74,6 @@ export function ProductCatalog() {
           ))}
         </AnimatePresence>
       </motion.div>
-
-      {/* Modal */}
-      {selectedCollection && (
-        <CollectionModal collection={selectedCollection} onClose={() => setSelectedCollection(null)} />
-      )}
     </div>
   );
 }
