@@ -80,7 +80,7 @@ function CollectionCard({
         />
       </div>
 
-      <div className="relative z-20 bg-white p-6 md:p-8 flex flex-col justify-center flex-1 shrink-0 h-auto min-h-min">
+      <div className="relative z-20 bg-white p-6 md:p-10 flex flex-col justify-start flex-1 shrink-0 h-auto min-h-min">
         <h3 className="text-2xl font-serif font-bold text-[#1E3261] mb-2">{collection.name}</h3>
         <p className="text-slate-600 text-sm md:text-base line-clamp-3 mb-6">
           {collection.description}
@@ -110,7 +110,7 @@ export function EditorialCatalog() {
         <CollectionCard 
           collection={featured} 
           imagePriority 
-          className="md:h-[600px] flex-col md:flex-row" 
+          className="min-h-[400px] md:min-h-[500px] flex-col md:flex-row" 
         />
       </FadeIn>
 
@@ -118,7 +118,7 @@ export function EditorialCatalog() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
         {mediums.map((coll, i) => (
           <FadeIn key={coll.id} delay={i * 100}>
-            <CollectionCard collection={coll} className="h-[500px]" />
+            <CollectionCard collection={coll} className="min-h-[450px] h-full" />
           </FadeIn>
         ))}
       </div>
@@ -127,7 +127,7 @@ export function EditorialCatalog() {
       <FadeIn>
         <CollectionCard 
           collection={wideBanner} 
-          className="md:h-[400px] flex-col md:flex-row-reverse" 
+          className="min-h-[400px] md:min-h-[450px] flex-col md:flex-row-reverse" 
         />
       </FadeIn>
 
@@ -135,18 +135,18 @@ export function EditorialCatalog() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
         {compacts.map((coll, i) => (
           <FadeIn key={coll.id} delay={i * 100}>
-            <CollectionCard collection={coll} className="h-[450px]" />
+            <CollectionCard collection={coll} className="min-h-[450px] h-full" />
           </FadeIn>
         ))}
       </div>
 
       {/* 5. Asymmetric Showcase (2/3 and 1/3 split) */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-        <FadeIn className="md:col-span-2">
-          <CollectionCard collection={showcase} className="h-[500px] md:h-[600px]" />
+        <FadeIn className="md:col-span-2 h-full">
+          <CollectionCard collection={showcase} className="min-h-[450px] md:min-h-[550px] h-full" />
         </FadeIn>
-        <FadeIn delay={100} className="md:col-span-1">
-          <CollectionCard collection={finalCard} className="h-[500px] md:h-[600px]" />
+        <FadeIn delay={100} className="md:col-span-1 h-full">
+          <CollectionCard collection={finalCard} className="min-h-[450px] md:min-h-[550px] h-full" />
         </FadeIn>
       </div>
 

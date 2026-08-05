@@ -150,8 +150,8 @@ export function QualityAssuranceSection() {
           
           <ScrollReveal>
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-slate-800 p-8 flex items-center justify-center">
-               <Image src="/Images of Product/Set_07/Set_07 (1).png" alt="Quality Assurance" fill className="object-cover opacity-50" />
-               <div className="absolute inset-0 bg-slate-900/40 mix-blend-multiply pointer-events-none" />
+               <Image src="/images/precision_at_scale.png" alt="Quality Assurance" fill className="object-cover opacity-60 mix-blend-luminosity" />
+               <div className="absolute inset-0 bg-slate-900/60 mix-blend-multiply pointer-events-none" />
                <div className="absolute inset-0 paper-noise opacity-30 pointer-events-none" />
                <div className="relative z-10 p-8 text-center">
                   <span className="text-white font-serif italic text-2xl drop-shadow-md">Precision at Scale</span>
