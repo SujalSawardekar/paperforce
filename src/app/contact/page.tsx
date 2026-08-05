@@ -45,9 +45,19 @@ export default function ContactPage() {
               <div className="space-y-5">
                 <div className="flex items-start gap-4 text-sm">
                   <MapPin className="w-5 h-5 text-slate-400 shrink-0 mt-0.5" />
-                  <div>
-                    <span className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Office Address</span>
-                    <span className="text-slate-700 leading-relaxed">[Registered Office Address]</span>
+                  <div className="space-y-4">
+                    <div>
+                      <span className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Corporate Office</span>
+                      <span className="text-slate-700 leading-relaxed block">C-210, Morya House,<br/>Off. New Link Road, Andheri West,<br/>Mumbai – 400053, Maharashtra, India.</span>
+                    </div>
+                    <div>
+                      <span className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Branch Office</span>
+                      <span className="text-slate-700 leading-relaxed block">403-B, Venus Tower,<br/>Veera Desai Road, Andheri (W),<br/>Mumbai – 400053, Maharashtra, India.</span>
+                    </div>
+                    <div>
+                      <span className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Manufacturing Facility</span>
+                      <span className="text-slate-700 leading-relaxed block">Plot No. 19–20, Dewan & Shah Industrial Estate,<br/>Palghar Udyog Nagar, Palghar – 401404,<br/>Maharashtra, India.</span>
+                    </div>
                   </div>
                 </div>
 
@@ -55,7 +65,7 @@ export default function ContactPage() {
                   <Phone className="w-5 h-5 text-slate-400 shrink-0 mt-0.5" />
                   <div>
                     <span className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Phone No.</span>
-                    <span className="text-slate-700 leading-relaxed">[Company Phone Number]</span>
+                    <span className="text-slate-700 leading-relaxed">+91 97699 66770</span>
                   </div>
                 </div>
 
@@ -63,7 +73,7 @@ export default function ContactPage() {
                   <MessageSquare className="w-5 h-5 text-green-500 shrink-0 mt-0.5" />
                   <div>
                     <span className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">WhatsApp</span>
-                    <span className="text-slate-700 leading-relaxed">[Company WhatsApp Number]</span>
+                    <span className="text-slate-700 leading-relaxed">+91 97699 66770</span>
                   </div>
                 </div>
 
@@ -71,8 +81,8 @@ export default function ContactPage() {
                   <Mail className="w-5 h-5 text-slate-400 shrink-0 mt-0.5" />
                   <div>
                     <span className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Email ID</span>
-                    <a href="mailto:[Company Email Address]" className="text-slate-700 hover:text-slate-900 hover:underline leading-relaxed">
-                      [Company Email Address]
+                    <a href="mailto:vedant@paperforce.in" className="text-slate-700 hover:text-slate-900 hover:underline leading-relaxed">
+                      vedant@paperforce.in
                     </a>
                   </div>
                 </div>
