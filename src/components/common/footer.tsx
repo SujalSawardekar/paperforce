@@ -134,18 +134,14 @@ export function Footer() {
             </div>
           </motion.div>
 
-          {/* Manufacturing */}
+          {/* Addresses */}
           <motion.div variants={itemVariants} className="flex flex-col items-start text-left">
-            <h4 className="text-base font-semibold text-white mb-6">Manufacturing</h4>
+            <h4 className="text-base font-semibold text-white mb-6">Address</h4>
             <div className="space-y-4 text-sm text-blue-200/70">
-              <div className="space-y-1 mb-2">
-                <strong className="text-white font-medium text-sm block">Factory</strong>
-                <p className="leading-relaxed">Palghar, Maharashtra</p>
-              </div>
               <ul className="space-y-4">
-                <li><span className="block hover:text-white transition-colors">OEM Manufacturing</span></li>
-                <li><span className="block hover:text-white transition-colors">Private Label</span></li>
-                <li><span className="block hover:text-white transition-colors">Export Ready</span></li>
+                <li><Link href="/contact#map-section" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Corporate Office</Link></li>
+                <li><Link href="/contact#map-section" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Branch Office</Link></li>
+                <li><Link href="/contact#map-section" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Factory</Link></li>
               </ul>
             </div>
           </motion.div>

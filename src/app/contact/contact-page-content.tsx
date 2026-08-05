@@ -156,10 +156,16 @@ export function ContactPageContent() {
             </motion.div>
 
             <motion.div variants={revealVariants} className="pt-8">
-              <a href="#map-section" className="group inline-flex items-center gap-2 text-sm font-semibold text-[#1E3261] hover:text-blue-700 transition-all duration-300">
+              <button 
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('map-section')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="group inline-flex items-center gap-2 text-sm font-semibold text-[#1E3261] hover:text-blue-700 transition-all duration-300"
+              >
                 View Company Locations
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform group-hover:translate-y-1"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
-              </a>
+              </button>
             </motion.div>
           </motion.div>
         </div>
