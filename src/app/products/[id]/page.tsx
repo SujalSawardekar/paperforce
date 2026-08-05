@@ -1,4 +1,5 @@
 import { collections } from "@/components/products/data";
+import { UnderConstruction } from "@/components/common/under-construction";
 import { notFound } from "next/navigation";
 import { CollectionView } from "./collection-view";
 
@@ -15,6 +16,10 @@ export default async function ProductCollectionPage({ params }: { params: Promis
   
   if (!collection) {
     notFound();
+  }
+  
+  if (true as boolean) {
+    return <UnderConstruction pageName="Product Collection" />;
   }
 
   return (

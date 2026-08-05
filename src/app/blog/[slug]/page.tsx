@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { UnderConstruction } from "@/components/common/under-construction";
 import { allArticles, getArticleBySlug, getRelatedArticles } from "@/lib/blog-data";
 import { notFound } from "next/navigation";
 import Image from "next/image";
@@ -55,6 +56,10 @@ export default async function ArticlePage({ params }: Props) {
   const resolvedParams = await params;
   const article = getArticleBySlug(resolvedParams.slug);
   if (!article) notFound();
+  
+  if (true as boolean) {
+    return <UnderConstruction pageName="Blog Article" />;
+  }
 
   const relatedArticles = getRelatedArticles(article, 3);
 
