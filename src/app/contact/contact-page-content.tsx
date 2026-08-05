@@ -205,25 +205,25 @@ export function ContactPageContent() {
           >
             <ContactMap />
           </motion.div>
-          
           <motion.div 
             variants={cardContainerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-10%" }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-24 max-w-6xl mx-auto relative transform translate-y-10 lg:translate-y-16"
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mt-24 max-w-6xl mx-auto relative z-20 transform translate-y-24 lg:translate-y-36 -mb-24 lg:-mb-36"
           >
             {/* Corporate Office */}
             <motion.div 
               variants={cardVariants}
-              whileHover={{ y: -10 }}
-              className="group bg-white p-10 rounded-2xl shadow-[0_4px_30px_rgb(0,0,0,0.04)] border border-slate-100/50 hover:border-blue-200 hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] flex flex-col text-left h-full transition-all duration-300 lg:-translate-x-3 lg:w-[105%]"
+              whileHover={{ y: -8 }}
+              className="group bg-white p-10 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.08)] hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.12)] flex flex-col text-left transition-all duration-300 rounded-3xl lg:rounded-bl-[60px] lg:-translate-x-3 lg:w-[105%] relative overflow-hidden"
             >
-              <div className="flex items-center gap-3 mb-6">
-                <MapPin className="w-5 h-5 text-[#1E3261] group-hover:scale-110 transition-transform duration-300" />
-                <h4 className="text-xl font-bold text-[#1E3261]">Corporate Office</h4>
+              <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-slate-100/40 to-transparent pointer-events-none" />
+              <div className="flex items-center gap-3 mb-6 relative z-10">
+                <MapPin className="w-5 h-5 text-[#1E3261] group-hover:text-blue-600 group-hover:scale-105 transition-all duration-300" />
+                <h4 className="text-xl font-bold text-[#1E3261] group-hover:text-blue-600 transition-colors duration-300">Corporate Office</h4>
               </div>
-              <p className="text-base text-slate-600 leading-loose">
+              <p className="text-base text-slate-600 leading-loose relative z-10">
                 C-210, Morya House<br/>
                 Andheri West<br/>
                 Mumbai
@@ -233,14 +233,15 @@ export function ContactPageContent() {
             {/* Branch Office */}
             <motion.div 
               variants={cardVariants}
-              whileHover={{ y: -10 }}
-              className="group bg-white p-10 rounded-2xl shadow-[0_4px_30px_rgb(0,0,0,0.04)] border border-slate-100/50 hover:border-blue-200 hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] flex flex-col text-left h-full transition-all duration-300 relative z-10"
+              whileHover={{ y: -8 }}
+              className="group bg-white p-10 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.08)] hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.12)] flex flex-col text-left transition-all duration-300 relative z-10 rounded-3xl lg:rounded-b-[40px] overflow-hidden"
             >
-              <div className="flex items-center gap-3 mb-6">
-                <MapPin className="w-5 h-5 text-[#1E3261] group-hover:scale-110 transition-transform duration-300" />
-                <h4 className="text-xl font-bold text-[#1E3261]">Branch Office</h4>
+              <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-slate-100/40 to-transparent pointer-events-none" />
+              <div className="flex items-center gap-3 mb-6 relative z-10">
+                <MapPin className="w-5 h-5 text-[#1E3261] group-hover:text-blue-600 group-hover:scale-105 transition-all duration-300" />
+                <h4 className="text-xl font-bold text-[#1E3261] group-hover:text-blue-600 transition-colors duration-300">Branch Office</h4>
               </div>
-              <p className="text-base text-slate-600 leading-loose">
+              <p className="text-base text-slate-600 leading-loose relative z-10">
                 403-B, Venus Tower<br/>
                 Veera Desai Road<br/>
                 Andheri (W), Mumbai
@@ -250,14 +251,15 @@ export function ContactPageContent() {
             {/* Manufacturing Facility */}
             <motion.div 
               variants={cardVariants}
-              whileHover={{ y: -10 }}
-              className="group bg-white p-10 rounded-2xl shadow-[0_4px_30px_rgb(0,0,0,0.04)] border border-slate-100/50 hover:border-blue-200 hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] flex flex-col text-left h-full transition-all duration-300 lg:translate-x-3 lg:w-[105%]"
+              whileHover={{ y: -8 }}
+              className="group bg-white p-10 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.08)] hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.12)] flex flex-col text-left transition-all duration-300 rounded-3xl lg:rounded-br-[60px] lg:translate-x-3 lg:w-[105%] relative overflow-hidden"
             >
-              <div className="flex items-center gap-3 mb-6">
-                <MapPin className="w-5 h-5 text-[#1E3261] group-hover:scale-110 transition-transform duration-300" />
-                <h4 className="text-xl font-bold text-[#1E3261]">Manufacturing Facility</h4>
+              <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-slate-100/40 to-transparent pointer-events-none" />
+              <div className="flex items-center gap-3 mb-6 relative z-10">
+                <MapPin className="w-5 h-5 text-[#1E3261] group-hover:text-blue-600 group-hover:scale-105 transition-all duration-300" />
+                <h4 className="text-xl font-bold text-[#1E3261] group-hover:text-blue-600 transition-colors duration-300">Manufacturing Facility</h4>
               </div>
-              <p className="text-base text-slate-600 leading-loose">
+              <p className="text-base text-slate-600 leading-loose relative z-10">
                 Plot No. 19–20<br/>
                 Dewan {"&"} Shah Industrial Estate<br/>
                 Palghar Udyog Nagar<br/>
