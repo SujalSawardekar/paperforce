@@ -218,17 +218,16 @@ export function ContactPageContent() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-10%" }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mt-24 max-w-6xl mx-auto relative transform translate-y-32 z-10"
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mt-24 max-w-6xl mx-auto relative transform translate-y-[120px] md:translate-y-[180px] lg:translate-y-[220px] z-30"
           >
             {/* Corporate Office */}
             <motion.div 
               variants={cardVariants}
-              whileHover={{ y: -8 }}
-              className="group bg-white/95 backdrop-blur-xl px-10 pt-10 pb-40 h-[440px] border-t-2 border-transparent hover:border-[#1E3261] border-t-[#1E3261] shadow-[0_25px_60px_rgba(16,35,78,0.15)] flex flex-col text-left transition-all duration-300 rounded-3xl lg:rounded-bl-[100px] lg:rounded-br-3xl lg:rounded-tl-3xl lg:rounded-tr-3xl lg:-translate-x-3 lg:w-[105%] relative overflow-hidden"
+              className="bg-white px-10 pt-12 pb-16 h-[380px] shadow-[0_20px_50px_rgba(16,35,78,0.12)] flex flex-col text-left rounded-3xl lg:rounded-bl-[70px] relative overflow-hidden"
             >
-              <div className="flex items-center gap-3 mb-6 relative z-10">
-                <MapPin className="w-5 h-5 text-[#1E3261] group-hover:text-blue-600 group-hover:scale-110 transition-all duration-300" />
-                <h4 className="text-xl font-bold text-[#1E3261] group-hover:text-blue-600 transition-colors duration-300">Corporate Office</h4>
+              <div className="flex items-center gap-3 mb-8 relative z-10">
+                <MapPin className="w-5 h-5 text-[#1E3261]" />
+                <h4 className="text-xl font-bold text-[#1E3261]">Corporate Office</h4>
               </div>
               <p className="text-base text-slate-600 leading-loose relative z-10">
                 C-210, Morya House<br/>
@@ -240,12 +239,11 @@ export function ContactPageContent() {
             {/* Branch Office */}
             <motion.div 
               variants={cardVariants}
-              whileHover={{ y: -8 }}
-              className="group bg-white/95 backdrop-blur-xl px-10 pt-10 pb-48 h-[460px] border-t-2 border-transparent hover:border-[#1E3261] border-t-[#1E3261] shadow-[0_25px_60px_rgba(16,35,78,0.15)] flex flex-col text-left transition-all duration-300 relative z-10 rounded-3xl overflow-hidden"
+              className="bg-white px-10 pt-12 pb-16 h-[380px] shadow-[0_20px_50px_rgba(16,35,78,0.12)] flex flex-col text-left rounded-3xl relative overflow-hidden"
             >
-              <div className="flex items-center gap-3 mb-6 relative z-10">
-                <MapPin className="w-5 h-5 text-[#1E3261] group-hover:text-blue-600 group-hover:scale-110 transition-all duration-300" />
-                <h4 className="text-xl font-bold text-[#1E3261] group-hover:text-blue-600 transition-colors duration-300">Branch Office</h4>
+              <div className="flex items-center gap-3 mb-8 relative z-10">
+                <MapPin className="w-5 h-5 text-[#1E3261]" />
+                <h4 className="text-xl font-bold text-[#1E3261]">Branch Office</h4>
               </div>
               <p className="text-base text-slate-600 leading-loose relative z-10">
                 403-B, Venus Tower<br/>
@@ -257,16 +255,15 @@ export function ContactPageContent() {
             {/* Manufacturing Facility */}
             <motion.div 
               variants={cardVariants}
-              whileHover={{ y: -8 }}
-              className="group bg-white/95 backdrop-blur-xl px-10 pt-10 pb-40 h-[440px] border-t-2 border-transparent hover:border-[#1E3261] border-t-[#1E3261] shadow-[0_25px_60px_rgba(16,35,78,0.15)] flex flex-col text-left transition-all duration-300 rounded-3xl lg:rounded-br-[100px] lg:rounded-bl-3xl lg:rounded-tl-3xl lg:rounded-tr-3xl lg:translate-x-3 lg:w-[105%] relative overflow-hidden"
+              className="bg-white px-10 pt-12 pb-16 h-[380px] shadow-[0_20px_50px_rgba(16,35,78,0.12)] flex flex-col text-left rounded-3xl lg:rounded-br-[70px] relative overflow-hidden"
             >
-              <div className="flex items-center gap-3 mb-6 relative z-10">
-                <MapPin className="w-5 h-5 text-[#1E3261] group-hover:text-blue-600 group-hover:scale-110 transition-all duration-300" />
-                <h4 className="text-xl font-bold text-[#1E3261] group-hover:text-blue-600 transition-colors duration-300">Manufacturing Facility</h4>
+              <div className="flex items-center gap-3 mb-8 relative z-10">
+                <MapPin className="w-5 h-5 text-[#1E3261]" />
+                <h4 className="text-xl font-bold text-[#1E3261]">Manufacturing Facility</h4>
               </div>
               <p className="text-base text-slate-600 leading-loose relative z-10">
-                Plot No. 19–20<br/>
-                Dewan {"&"} Shah Industrial Estate<br/>
+                Plot No. 19-20<br/>
+                Dewan & Shah Industrial Estate<br/>
                 Palghar Udyog Nagar<br/>
                 Palghar
               </p>

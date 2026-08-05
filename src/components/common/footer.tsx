@@ -41,7 +41,7 @@ export function Footer() {
   }, [isInView]);
 
   return (
-    <footer ref={footerRef} className="relative z-20 bg-[#172554] text-white pt-12">
+    <footer ref={footerRef} className="relative z-20 bg-[#172554] text-white pt-40 md:pt-48 lg:pt-56">
       {/* Organic Curved Top Border - Animated Growth */}
       <div className="absolute top-0 left-0 w-full leading-none -translate-y-full transform z-0">
         <svg
