@@ -2,7 +2,7 @@ import * as React from "react";
 import Link from "next/link";
 import { Container } from "@/components/common/container";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
-import { GlobalReachSection } from "@/components/home/global-reach-section";
+import { ExportNetworkSection } from "@/components/markets/export-network-section";
 
 export default function ReachMarketsPage() {
   return (
@@ -12,11 +12,7 @@ export default function ReachMarketsPage() {
           
           <ScrollReveal direction="up">
             <div className="space-y-6 max-w-3xl text-left">
-              <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-slate-500">
-                <Link href="/" className="hover:underline">Home</Link>
-                <span>/</span>
-                <span>Reach & Markets</span>
-              </div>
+
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[#0b1c3f] font-serif">
                 Global Export Capabilities
               </h1>
@@ -52,7 +48,7 @@ export default function ReachMarketsPage() {
         </Container>
       </div>
 
-      <GlobalReachSection />
+      <ExportNetworkSection />
     </main>
   );
 }

@@ -42,14 +42,19 @@ export function Footer() {
 
   return (
     <footer ref={footerRef} className="relative bg-[#172554] text-white pt-12">
-      {/* Organic Curved Top Border */}
-      <div className="absolute top-0 left-0 w-full overflow-hidden leading-none -translate-y-full transform">
+      {/* Organic Curved Top Border - Animated Growth */}
+      <div className="absolute top-0 left-0 w-full leading-none -translate-y-full transform z-0">
         <svg
-          className="relative block w-full h-[60px] md:h-[100px] lg:h-[150px] text-[#172554] fill-current"
+          className="relative block w-full h-[60px] md:h-[100px] lg:h-[150px] text-[#172554] fill-current overflow-visible"
           viewBox="0 0 1440 100"
           preserveAspectRatio="none"
         >
-          <path d="M0,100 Q720,0 1440,100 Z" />
+          <motion.path 
+            initial={{ d: "M0,100 Q720,100 1440,100 Z" }}
+            whileInView={{ d: "M0,100 Q720,0 1440,100 Z" }}
+            viewport={{ once: true, margin: "50px" }}
+            transition={{ duration: 1.8, type: "spring", bounce: 0.65 }}
+          />
         </svg>
       </div>
 
@@ -88,7 +93,7 @@ export function Footer() {
           <motion.div variants={itemVariants} className="lg:col-span-4 space-y-6 flex flex-col items-start pr-0 lg:pr-12">
             <div className="inline-block bg-white p-3 rounded-2xl shadow-lg">
               <Image
-                src="/Horizontal Version 2.png"
+                src="/logo.png"
                 alt="Paperforce Logo"
                 width={160}
                 height={42}
@@ -145,22 +150,28 @@ export function Footer() {
           {/* Contact & Social */}
           <motion.div variants={itemVariants} className="flex flex-col items-start text-left lg:col-span-2">
             <h4 className="text-base font-semibold text-white mb-6">Contact</h4>
-            <div className="space-y-4 text-sm text-blue-200/70">
-              <a href={`mailto:${siteConfig.contact.email}`} className="flex items-center gap-3 hover:text-white transition-colors">
-                <Mail size={18} className="text-blue-400" />
-                {siteConfig.contact.email}
+            <div className="space-y-3 text-sm text-blue-200/70">
+              <a href={`mailto:${siteConfig.contact.email}`} className="flex items-center gap-3 hover:text-white transition-colors pb-1">
+                <Mail size={16} className="text-blue-400 shrink-0" />
+                <span className="truncate">{siteConfig.contact.email}</span>
               </a>
               <div className="flex items-start gap-3">
-                <MapPin size={18} className="text-blue-400 shrink-0 mt-1" />
-                <span><strong className="text-white font-medium block mb-0.5">Corporate Office</strong>C 210 Morya House, Andheri West, Mumbai – 400053</span>
+                <MapPin size={16} className="text-blue-400 shrink-0 mt-0.5" />
+                <div className="leading-snug">
+                  <strong className="text-white font-medium block">Corporate Office</strong>
+                  <span className="text-xs">C 210 Morya House,<br/>Andheri W, Mumbai 400053</span>
+                </div>
               </div>
               <div className="flex items-start gap-3">
-                <MapPin size={18} className="text-blue-400 shrink-0 mt-1" />
-                <span><strong className="text-white font-medium block mb-0.5">Manufacturing</strong>Palghar Industrial Cluster, Maharashtra</span>
+                <MapPin size={16} className="text-blue-400 shrink-0 mt-0.5" />
+                <div className="leading-snug">
+                  <strong className="text-white font-medium block">Manufacturing</strong>
+                  <span className="text-xs">Palghar Industrial Cluster,<br/>Maharashtra</span>
+                </div>
               </div>
             </div>
             
-            <div className="flex gap-4 mt-8 pt-6 border-t border-blue-900/50 w-full">
+            <div className="flex gap-3 mt-6 pt-5 border-t border-blue-900/50 w-full">
               <a href="#" className="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center text-blue-300 hover:text-white transition-all">
                 <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="css-i6dzq1"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
               </a>

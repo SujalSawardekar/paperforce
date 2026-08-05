@@ -11,11 +11,7 @@ export default function ProductsPage() {
         
         <ScrollReveal direction="up">
           <div className="space-y-6 max-w-3xl text-left">
-            <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-slate-500">
-              <Link href="/" className="hover:underline">Home</Link>
-              <span>/</span>
-              <span>Products</span>
-            </div>
+
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[#0b1c3f]  font-serif">
               Our Manufacturing Portfolio
             </h1>
