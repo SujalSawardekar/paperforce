@@ -50,8 +50,8 @@ export default function ContactPage() {
                 <div className="flex items-start gap-3 text-sm col-span-1 sm:col-span-2">
                   <MapPin className="w-5 h-5 text-slate-400 shrink-0 mt-0.5" />
                   <div>
-                    <span className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Corporate Office</span>
-                    <span className="text-slate-700 font-medium">C-210, Morya House, Off. New Link Road, Andheri West, Mumbai – 400053</span>
+                    <span className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Head Office</span>
+                    <span className="text-slate-700 font-medium">C - 210, Morya House, Off. New Link Road, Andheri West, Mumbai - 400 053. INDIA</span>
                   </div>
                 </div>
 
@@ -95,7 +95,7 @@ export default function ContactPage() {
               
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div className="bg-white p-4 rounded-xl border border-slate-100 shadow-[0_4px_20px_rgb(0,0,0,0.03)]">
-                  <h4 className="text-sm font-bold text-[#1E3261] mb-1">Corporate Office</h4>
+                  <h4 className="text-sm font-bold text-[#1E3261] mb-1">Head Office</h4>
                   <p className="text-xs text-slate-500">Mumbai, Maharashtra</p>
                 </div>
                 <div className="bg-white p-4 rounded-xl border border-slate-100 shadow-[0_4px_20px_rgb(0,0,0,0.03)]">
@@ -103,7 +103,7 @@ export default function ContactPage() {
                   <p className="text-xs text-slate-500">Andheri (W), Mumbai</p>
                 </div>
                 <div className="bg-white p-4 rounded-xl border border-slate-100 shadow-[0_4px_20px_rgb(0,0,0,0.03)]">
-                  <h4 className="text-sm font-bold text-[#1E3261] mb-1">Manufacturing Facility</h4>
+                  <h4 className="text-sm font-bold text-[#1E3261] mb-1">Factory</h4>
                   <p className="text-xs text-slate-500">Palghar, Maharashtra</p>
                 </div>
               </div>
@@ -140,15 +140,16 @@ export default function ContactPage() {
           <ContactMap />
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 max-w-5xl mx-auto">
-            {/* Corporate Office */}
+            {/* Head Office */}
             <div className="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm flex flex-col items-center text-center">
               <MapPin className="w-6 h-6 text-[#1E3261] mb-4" />
-              <h4 className="text-lg font-bold text-[#1E3261] mb-3">Corporate Office</h4>
+              <h4 className="text-lg font-bold text-[#1E3261] mb-3">Head Office</h4>
               <p className="text-sm text-slate-600 leading-relaxed">
-                C-210, Morya House<br/>
+                C - 210, Morya House<br/>
                 Off. New Link Road<br/>
                 Andheri West<br/>
-                Mumbai – 400053
+                Mumbai - 400 053<br/>
+                INDIA
               </p>
             </div>
             
@@ -157,22 +158,24 @@ export default function ContactPage() {
               <MapPin className="w-6 h-6 text-[#1E3261] mb-4" />
               <h4 className="text-lg font-bold text-[#1E3261] mb-3">Branch Office</h4>
               <p className="text-sm text-slate-600 leading-relaxed">
-                403-B, Venus Tower<br/>
-                Veera Desai Road<br/>
-                Andheri (W)<br/>
-                Mumbai – 400053
+                403-B, Venus Tower,<br/>
+                Veera Desai Road,<br/>
+                Andheri (W),<br/>
+                Mumbai - 400 053.<br/>
+                INDIA.
               </p>
             </div>
             
-            {/* Manufacturing Facility */}
+            {/* Factory */}
             <div className="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm flex flex-col items-center text-center">
               <MapPin className="w-6 h-6 text-[#1E3261] mb-4" />
-              <h4 className="text-lg font-bold text-[#1E3261] mb-3">Manufacturing Facility</h4>
+              <h4 className="text-lg font-bold text-[#1E3261] mb-3">Factory</h4>
               <p className="text-sm text-slate-600 leading-relaxed">
-                Plot No. 19–20<br/>
-                Dewan & Shah Industrial Estate<br/>
+                Plot No. 19-20,<br/>
+                Dewan & Shah<br/>
                 Palghar Udyog Nagar<br/>
-                Palghar – 401404
+                Palghar - 401 404<br/>
+                Maharashtra, INDIA.
               </p>
             </div>
           </div>

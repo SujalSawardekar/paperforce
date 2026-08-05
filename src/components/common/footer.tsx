@@ -144,8 +144,8 @@ export function Footer() {
                 <div className="flex items-start gap-3 hover:text-white transition-colors">
                   <MapPin size={16} className="text-blue-400 shrink-0 mt-0.5" />
                   <div className="space-y-1">
-                    <strong className="text-blue-300 font-medium block text-xs uppercase tracking-wider">Corporate Office</strong>
-                    <p className="leading-relaxed">C-210, Morya House, Off. New Link Road, Andheri West, Mumbai – 400053</p>
+                    <strong className="text-blue-300 font-medium block text-xs uppercase tracking-wider">Head Office</strong>
+                    <p className="leading-relaxed">C - 210, Morya House, Off. New Link Road, Andheri West, Mumbai - 400 053. INDIA</p>
                   </div>
                 </div>
               </div>
