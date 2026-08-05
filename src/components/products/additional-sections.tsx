@@ -95,18 +95,10 @@ export function CatalogueDownloadSection() {
           </p>
         </ScrollReveal>
         <ScrollReveal direction="up" delay={0.1}>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+          <div className="flex justify-center pt-4">
             <Button size="lg" className="bg-white text-[#1E3261] hover:bg-slate-100 px-8 py-6 text-base font-bold">
               <Download className="mr-2" size={20} />
               Download PDF Catalogue
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="bg-transparent text-white border-slate-500 hover:border-slate-400 hover:bg-slate-800 hover:!text-white px-8 py-6 text-base font-bold"
-              onClick={() => router.push("/contact")}
-            >
-              Request Physical Samples
             </Button>
           </div>
         </ScrollReveal>
