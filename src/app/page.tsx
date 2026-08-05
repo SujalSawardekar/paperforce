@@ -12,6 +12,7 @@ import { CertificationsSection } from "@/components/home/certifications-section"
 import { IndustriesSection } from "@/components/home/industries-section";
 import { BlogPreviewSection } from "@/components/home/blog-preview-section";
 import { HomeFaqSection } from "@/components/home/faq-section";
+import { HeroBackground } from "@/components/home/hero-background";
 
 function getCompanySchema() {
   return {
@@ -35,12 +36,8 @@ export default function HomePage() {
       />
 
       <section className="relative pt-28 md:pt-40 pb-20 md:pb-32 isolate overflow-hidden">
-        {/* Background textures */}
-        <div className="absolute inset-0 paper-noise pointer-events-none -z-10" />
-        <div className="absolute inset-0 grid-mesh pointer-events-none -z-10" />
-        {/* Ambient glow */}
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] dreamy-glow-navy pointer-events-none -z-10" />
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] dreamy-glow-grey pointer-events-none -z-10" />
+        {/* Animated Background */}
+        <HeroBackground />
 
         <Container className="max-w-6xl mx-auto flex flex-col items-center text-center space-y-8">
           {/* Eyebrow */}
