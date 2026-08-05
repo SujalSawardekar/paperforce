@@ -29,96 +29,57 @@ export default function ContactPage() {
                 Let's Build Your<br />Next Export Partnership
               </h1>
               
-              <div className="space-y-4 text-base text-slate-600 leading-relaxed pt-2">
+              <div className="space-y-4 text-base text-slate-600 leading-relaxed pt-2 max-w-md">
                 <p>
-                  Paperforce India LLP supplies premium paper products to distributors, importers, wholesalers, retailers, and OEM brands across global markets.
+                  Paperforce India LLP manufactures premium notebooks and paper stationery for importers, distributors, wholesalers, retailers, educational institutions, and private-label brands across global markets.
                 </p>
                 <p>
-                  Whether you're looking for product catalogs, pricing, private labeling, or container-based exports, our team is ready to assist you.
+                  Whether you're looking for OEM manufacturing, bulk exports, private labeling, or customized stationery solutions, our export team is ready to assist.
                 </p>
                 <p className="font-medium text-slate-800">
-                  Have a project in mind? We'd love to hear from you.
+                  Let's discuss your requirements.
                 </p>
               </div>
             </div>
 
-            {/* Compact Contact Information */}
-            <div className="space-y-8">
-              <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest">Contact Information</h3>
-              
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-8">
-                <div className="flex items-start gap-3 text-sm col-span-1 sm:col-span-2">
-                  <MapPin className="w-5 h-5 text-slate-400 shrink-0 mt-0.5" />
-                  <div>
-                    <span className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Head Office</span>
-                    <span className="text-slate-700 font-medium">C - 210, Morya House, Off. New Link Road, Andheri West, Mumbai - 400 053. INDIA</span>
-                  </div>
+            {/* Contact Information */}
+            <div className="pt-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-8 gap-x-8">
+                {/* Head Office */}
+                <div className="flex flex-col gap-1.5 text-sm col-span-1 sm:col-span-2">
+                  <span className="block text-xs font-bold text-slate-400 uppercase tracking-widest">Head Office</span>
+                  <span className="text-slate-700 leading-relaxed block max-w-[280px]">
+                    C-210, Morya House<br/>
+                    Off. New Link Road<br/>
+                    Andheri West, Mumbai – 400053
+                  </span>
                 </div>
 
-                <div className="flex items-start gap-3 text-sm">
-                  <Phone className="w-5 h-5 text-slate-400 shrink-0 mt-0.5" />
-                  <div>
-                    <span className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Phone</span>
-                    <span className="text-slate-700 font-medium">+91 97699 66770</span>
-                  </div>
+                {/* Phone */}
+                <div className="flex flex-col gap-1.5 text-sm">
+                  <span className="block text-xs font-bold text-slate-400 uppercase tracking-widest">Phone</span>
+                  <span className="text-slate-700 font-medium">+91 97699 66770</span>
                 </div>
 
-                <div className="flex items-start gap-3 text-sm">
-                  <MessageSquare className="w-5 h-5 text-green-500 shrink-0 mt-0.5" />
-                  <div>
-                    <span className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">WhatsApp</span>
-                    <span className="text-slate-700 font-medium">+91 97699 66770</span>
-                  </div>
+                {/* WhatsApp */}
+                <div className="flex flex-col gap-1.5 text-sm">
+                  <span className="block text-xs font-bold text-slate-400 uppercase tracking-widest">WhatsApp</span>
+                  <span className="text-slate-700 font-medium">+91 97699 66770</span>
                 </div>
 
-                <div className="flex items-start gap-3 text-sm">
-                  <Mail className="w-5 h-5 text-slate-400 shrink-0 mt-0.5" />
-                  <div>
-                    <span className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Email</span>
-                    <a href="mailto:vedant@paperforce.in" className="text-[#1E3261] font-medium hover:underline">vedant@paperforce.in</a>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3 text-sm">
-                  <Globe className="w-5 h-5 text-slate-400 shrink-0 mt-0.5" />
-                  <div>
-                    <span className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Website</span>
-                    <a href="https://www.paperforce.in" className="text-[#1E3261] font-medium hover:underline">www.paperforce.in</a>
-                  </div>
+                {/* Email */}
+                <div className="flex flex-col gap-1.5 text-sm">
+                  <span className="block text-xs font-bold text-slate-400 uppercase tracking-widest">Email</span>
+                  <a href="mailto:vedant@paperforce.in" className="text-[#1E3261] font-medium hover:underline">vedant@paperforce.in</a>
                 </div>
               </div>
             </div>
 
-            {/* Compact Company Locations Cards */}
-            <div className="space-y-4 pt-4 border-t border-slate-200">
-              <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest">Company Locations</h3>
-              
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                <div className="bg-white p-4 rounded-xl border border-slate-100 shadow-[0_4px_20px_rgb(0,0,0,0.03)]">
-                  <h4 className="text-sm font-bold text-[#1E3261] mb-1">Head Office</h4>
-                  <p className="text-xs text-slate-500">Mumbai, Maharashtra</p>
-                </div>
-                <div className="bg-white p-4 rounded-xl border border-slate-100 shadow-[0_4px_20px_rgb(0,0,0,0.03)]">
-                  <h4 className="text-sm font-bold text-[#1E3261] mb-1">Branch Office</h4>
-                  <p className="text-xs text-slate-500">Andheri (W), Mumbai</p>
-                </div>
-                <div className="bg-white p-4 rounded-xl border border-slate-100 shadow-[0_4px_20px_rgb(0,0,0,0.03)]">
-                  <h4 className="text-sm font-bold text-[#1E3261] mb-1">Factory</h4>
-                  <p className="text-xs text-slate-500">Palghar, Maharashtra</p>
-                </div>
-              </div>
-              
-              <div className="pt-2">
-                <a href="#map-section" className="inline-flex items-center gap-2 text-xs font-semibold text-[#1E3261] hover:text-blue-700 transition-colors">
-                  <MapPin size={14} />
-                  View on Google Maps
-                </a>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-2 text-xs text-slate-500 font-medium">
-              <Clock className="w-4 h-4" />
-              <span>We respond to all enquiries within <strong className="text-slate-700">1 business day</strong>.</span>
+            <div className="pt-4">
+              <a href="#map-section" className="inline-flex items-center gap-2 text-sm font-semibold text-[#1E3261] hover:text-blue-700 transition-colors">
+                View Company Locations
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+              </a>
             </div>
           </div>
         </div>
@@ -135,47 +96,46 @@ export default function ContactPage() {
       </div>
 
       {/* Our Locations Section */}
-      <section id="map-section" className="bg-slate-50 pt-24 pb-16 border-t border-slate-100">
+      <section id="map-section" className="bg-slate-50 pt-24 pb-24 border-t border-slate-100">
         <Container>
+          <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#0b1c3f] font-serif tracking-tight">Visit Our Locations</h2>
+            <p className="text-base text-slate-600">
+              Find our Corporate Office, Branch Office and Manufacturing Facility across Maharashtra.
+            </p>
+          </div>
+
           <ContactMap />
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 max-w-5xl mx-auto">
-            {/* Head Office */}
-            <div className="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm flex flex-col items-center text-center">
-              <MapPin className="w-6 h-6 text-[#1E3261] mb-4" />
-              <h4 className="text-lg font-bold text-[#1E3261] mb-3">Head Office</h4>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 max-w-5xl mx-auto">
+            {/* Corporate Office */}
+            <div className="bg-white p-8 rounded-2xl shadow-[0_4px_20px_rgb(0,0,0,0.03)] border border-slate-100 flex flex-col text-left h-full">
+              <h4 className="text-lg font-bold text-[#1E3261] mb-4">Corporate Office</h4>
               <p className="text-sm text-slate-600 leading-relaxed">
-                C - 210, Morya House<br/>
-                Off. New Link Road<br/>
+                C-210, Morya House<br/>
                 Andheri West<br/>
-                Mumbai - 400 053<br/>
-                INDIA
+                Mumbai
               </p>
             </div>
             
             {/* Branch Office */}
-            <div className="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm flex flex-col items-center text-center">
-              <MapPin className="w-6 h-6 text-[#1E3261] mb-4" />
-              <h4 className="text-lg font-bold text-[#1E3261] mb-3">Branch Office</h4>
+            <div className="bg-white p-8 rounded-2xl shadow-[0_4px_20px_rgb(0,0,0,0.03)] border border-slate-100 flex flex-col text-left h-full">
+              <h4 className="text-lg font-bold text-[#1E3261] mb-4">Branch Office</h4>
               <p className="text-sm text-slate-600 leading-relaxed">
-                403-B, Venus Tower,<br/>
-                Veera Desai Road,<br/>
-                Andheri (W),<br/>
-                Mumbai - 400 053.<br/>
-                INDIA.
+                403-B, Venus Tower<br/>
+                Veera Desai Road<br/>
+                Andheri (W), Mumbai
               </p>
             </div>
             
-            {/* Factory */}
-            <div className="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm flex flex-col items-center text-center">
-              <MapPin className="w-6 h-6 text-[#1E3261] mb-4" />
-              <h4 className="text-lg font-bold text-[#1E3261] mb-3">Factory</h4>
+            {/* Manufacturing Facility */}
+            <div className="bg-white p-8 rounded-2xl shadow-[0_4px_20px_rgb(0,0,0,0.03)] border border-slate-100 flex flex-col text-left h-full">
+              <h4 className="text-lg font-bold text-[#1E3261] mb-4">Manufacturing Facility</h4>
               <p className="text-sm text-slate-600 leading-relaxed">
-                Plot No. 19-20,<br/>
-                Dewan & Shah<br/>
+                Plot No. 19–20<br/>
+                Dewan & Shah Industrial Estate<br/>
                 Palghar Udyog Nagar<br/>
-                Palghar - 401 404<br/>
-                Maharashtra, INDIA.
+                Palghar
               </p>
             </div>
           </div>

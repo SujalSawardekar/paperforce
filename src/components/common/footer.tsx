@@ -87,99 +87,66 @@ export function Footer() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8"
         >
-          {/* Brand & Description */}
-          <motion.div variants={itemVariants} className="lg:col-span-3 space-y-6 flex flex-col items-start pr-0 lg:pr-8">
-            <div className="inline-block bg-white p-3 rounded-2xl shadow-lg">
-              <Image
-                src="/logo.png"
-                alt="Paperforce Logo"
-                width={160}
-                height={42}
-                className="h-8 w-auto object-contain"
-              />
-            </div>
-            <p className="text-sm text-blue-200/80 leading-relaxed text-left">
-              Paperforce India LLP is a trusted notebook and paper stationery manufacturer exporting across the globe.
-            </p>
-          </motion.div>
-
-          {/* Quick Links */}
-          <motion.div variants={itemVariants} className="flex flex-col items-start text-left lg:col-span-2">
+          {/* Company */}
+          <motion.div variants={itemVariants} className="flex flex-col items-start text-left">
             <h4 className="text-base font-semibold text-white mb-6">Company</h4>
             <ul className="space-y-4">
-              {footerLinks.company.map((link) => (
-                <li key={link.name}>
-                  <Link href={link.href} className="text-sm text-blue-200/70 hover:text-white transition-colors block">
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
+              <li><Link href="/about" className="text-sm text-blue-200/70 hover:text-white transition-colors block">About Us</Link></li>
+              <li><Link href="/reach-markets" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Markets</Link></li>
+              <li><Link href="/products" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Products</Link></li>
+              <li><Link href="/blog" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Blog</Link></li>
+              <li><Link href="/contact" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Contact</Link></li>
             </ul>
           </motion.div>
 
           {/* Products */}
-          <motion.div variants={itemVariants} className="flex flex-col items-start text-left lg:col-span-2">
+          <motion.div variants={itemVariants} className="flex flex-col items-start text-left">
             <h4 className="text-base font-semibold text-white mb-6">Products</h4>
             <ul className="space-y-4">
-              {footerLinks.products.map((link) => (
-                <li key={link.name}>
-                  <Link href={link.href} className="text-sm text-blue-200/70 hover:text-white transition-colors block">
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
+              <li><Link href="/products" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Exercise Books</Link></li>
+              <li><Link href="/products" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Spiral Bound</Link></li>
+              <li><Link href="/products" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Double Wire Bound</Link></li>
+              <li><Link href="/products" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Hard Cover</Link></li>
+              <li><Link href="/products" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Centre Stitch</Link></li>
+              <li><Link href="/products" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Private Label</Link></li>
             </ul>
           </motion.div>
 
-          {/* Contact & Social */}
-          <motion.div variants={itemVariants} className="flex flex-col items-start text-left lg:col-span-5">
-            <h4 className="text-base font-semibold text-white mb-6">Contact Us</h4>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 w-full text-sm text-blue-200/70">
-              
-              {/* Addresses */}
-              <div className="space-y-4">
-                <strong className="text-white font-medium text-base block mb-2">Paperforce India LLP</strong>
-                <div className="flex items-start gap-3 hover:text-white transition-colors">
-                  <MapPin size={16} className="text-blue-400 shrink-0 mt-0.5" />
-                  <div className="space-y-1">
-                    <strong className="text-blue-300 font-medium block text-xs uppercase tracking-wider">Head Office</strong>
-                    <p className="leading-relaxed">C - 210, Morya House, Off. New Link Road, Andheri West, Mumbai - 400 053. INDIA</p>
-                  </div>
-                </div>
+          {/* Contact */}
+          <motion.div variants={itemVariants} className="flex flex-col items-start text-left">
+            <h4 className="text-base font-semibold text-white mb-6">Contact</h4>
+            <div className="space-y-4 text-sm text-blue-200/70">
+              <strong className="text-white font-medium text-base block mb-2">Paperforce India LLP</strong>
+              <div className="flex items-center gap-3 hover:text-white transition-colors">
+                <Phone size={16} className="text-blue-400 shrink-0" />
+                <span>+91 97699 66770</span>
               </div>
-
-              {/* Contact Info */}
-              <div className="space-y-4">
-                <div className="flex items-center gap-3 hover:text-white transition-colors">
-                  <Phone size={16} className="text-blue-400 shrink-0" />
-                  <span>+91 97699 66770</span>
-                </div>
-                <div className="flex items-center gap-3 hover:text-white transition-colors">
-                  <MessageSquare size={16} className="text-green-400 shrink-0" />
-                  <span>+91 97699 66770</span>
-                </div>
-                <div className="flex items-center gap-3 hover:text-white transition-colors">
-                  <Mail size={16} className="text-blue-400 shrink-0" />
-                  <a href="mailto:vedant@paperforce.in" className="hover:underline">vedant@paperforce.in</a>
-                </div>
-                <div className="flex items-center gap-3 hover:text-white transition-colors">
-                  <Globe size={16} className="text-blue-400 shrink-0" />
-                  <a href="https://www.paperforce.in" className="hover:underline">www.paperforce.in</a>
-                </div>
-                
-                {/* Social */}
-                <div className="flex gap-3 pt-2">
-                  <a href="#" className="w-9 h-9 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center text-blue-300 hover:text-white transition-all">
-                    <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-                  </a>
-                  <a href="#" className="w-9 h-9 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center text-blue-300 hover:text-white transition-all">
-                    <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                  </a>
-                </div>
+              <div className="flex items-center gap-3 hover:text-white transition-colors">
+                <Mail size={16} className="text-blue-400 shrink-0" />
+                <a href="mailto:vedant@paperforce.in" className="hover:underline">vedant@paperforce.in</a>
               </div>
+              <div className="flex items-center gap-3 hover:text-white transition-colors">
+                <MapPin size={16} className="text-blue-400 shrink-0" />
+                <span>Andheri West, Mumbai</span>
+              </div>
+            </div>
+          </motion.div>
 
+          {/* Manufacturing */}
+          <motion.div variants={itemVariants} className="flex flex-col items-start text-left">
+            <h4 className="text-base font-semibold text-white mb-6">Manufacturing</h4>
+            <div className="space-y-4 text-sm text-blue-200/70">
+              <div className="space-y-1 mb-2">
+                <strong className="text-white font-medium text-sm block">Factory</strong>
+                <p className="leading-relaxed">Palghar, Maharashtra</p>
+              </div>
+              <ul className="space-y-4">
+                <li><span className="block hover:text-white transition-colors">OEM Manufacturing</span></li>
+                <li><span className="block hover:text-white transition-colors">Private Label</span></li>
+                <li><span className="block hover:text-white transition-colors">Export Ready</span></li>
+              </ul>
             </div>
           </motion.div>
         </motion.div>
@@ -193,12 +160,11 @@ export function Footer() {
           className="border-t border-blue-900/50 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-blue-200/60"
         >
           <span>
-            &copy; {currentYear} {siteConfig.name}. All rights reserved.
+            &copy; 2026 Paperforce India LLP. All Rights Reserved.
           </span>
           <div className="flex gap-6">
-            {footerLinks.support?.map(link => (
-               <Link key={link.name} href={link.href} className="hover:text-white transition-colors">{link.name}</Link>
-            ))}
+            <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-white transition-colors">Terms & Conditions</Link>
           </div>
         </motion.div>
         

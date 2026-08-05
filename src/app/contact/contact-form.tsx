@@ -199,7 +199,7 @@ export function ContactForm() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="space-y-1">
             <label htmlFor="email-field" className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
-              Email ID *
+              Email Address *
             </label>
             <input
               id="email-field"
@@ -218,7 +218,7 @@ export function ContactForm() {
 
           <div className="space-y-1">
             <label htmlFor="phone-field" className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
-              Phone / WhatsApp *
+              Phone Number *
             </label>
             <input
               id="phone-field"
@@ -265,7 +265,7 @@ export function ContactForm() {
 
           <div className="space-y-1">
             <label htmlFor="moq-field" className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
-              Required Volume / MOQ *
+              Estimated Order Quantity *
             </label>
             <input
               id="moq-field"
@@ -286,7 +286,7 @@ export function ContactForm() {
         {/* Message / Specifications */}
         <div className="space-y-1">
           <label htmlFor="msg-field" className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
-            Message & Custom Specifications *
+            Project Requirements *
           </label>
           <textarea
             id="msg-field"
@@ -318,7 +318,7 @@ export function ContactForm() {
             </>
           ) : (
             <>
-              Send B2B Enquiry
+              Request a Quote
               <Send size={16} className="ml-2 transition-transform group-hover:translate-x-1" />
             </>
           )}
