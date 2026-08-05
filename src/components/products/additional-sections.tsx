@@ -149,12 +149,12 @@ export function QualityAssuranceSection() {
           </div>
           
           <ScrollReveal>
-            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-slate-800">
-               {/* Using a placeholder for factory imagery, or relying on a general manufacturing image */}
-               <div className="absolute inset-0 bg-slate-900/50 mix-blend-multiply" />
-               <div className="absolute inset-0 paper-noise opacity-30" />
-               <div className="absolute inset-0 flex items-center justify-center p-8">
-                  <span className="text-slate-400 font-serif italic text-xl">Precision at Scale</span>
+            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-slate-800 p-8 flex items-center justify-center">
+               <Image src="/Images of Product/Set_07/Set_07 (1).png" alt="Quality Assurance" fill className="object-cover opacity-50" />
+               <div className="absolute inset-0 bg-slate-900/40 mix-blend-multiply pointer-events-none" />
+               <div className="absolute inset-0 paper-noise opacity-30 pointer-events-none" />
+               <div className="relative z-10 p-8 text-center">
+                  <span className="text-white font-serif italic text-2xl drop-shadow-md">Precision at Scale</span>
                </div>
             </div>
           </ScrollReveal>
@@ -205,25 +205,4 @@ export function CatalogueDownloadsSection() {
   );
 }
 
-export function FinalCtaSection() {
-  const router = useRouter();
-  return (
-    <section className="py-32 bg-white text-center border-t border-slate-100">
-      <Container>
-        <ScrollReveal>
-          <h2 className="text-4xl md:text-6xl font-bold font-serif text-[#1E3261] mb-8 max-w-4xl mx-auto leading-tight">
-            Let's Build Your Next Export Partnership.
-          </h2>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button size="lg" className="px-8 py-6 text-base font-bold" onClick={() => router.push("/contact")}>
-              Get Quote
-            </Button>
-            <Button size="lg" variant="outline" className="px-8 py-6 text-base font-bold border-slate-300" onClick={() => window.open("/Cellpage cateloge.pdf", "_blank")}>
-              Request Catalogue
-            </Button>
-          </div>
-        </ScrollReveal>
-      </Container>
-    </section>
-  );
-}
+

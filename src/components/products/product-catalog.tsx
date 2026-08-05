@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { collections } from "./data";
 import { cn } from "@/lib/utils";
@@ -50,28 +50,26 @@ function CollectionCard({
   className?: string,
   imagePriority?: boolean 
 }) {
-  const router = useRouter();
-
   return (
-    <div 
-      onClick={() => router.push(`/products/${collection.id}`)}
+    <Link 
+      href={`/products/${collection.id}`}
       className={cn(
-        "group cursor-pointer relative overflow-hidden bg-slate-100 rounded-2xl flex flex-col",
+        "group cursor-pointer relative overflow-hidden bg-slate-50 border border-slate-200 rounded-2xl flex flex-col transition-shadow hover:shadow-lg",
         className
       )}
     >
-      <div className="absolute inset-0 bg-slate-200/50 mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
+      <div className="absolute inset-0 bg-slate-200/50 mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none" />
       
       {/* Badges */}
       <div className="absolute top-4 left-4 z-20 flex flex-wrap gap-2 pointer-events-none">
         {collection.features?.map((feat, i) => (
-          <span key={i} className="bg-white/90 backdrop-blur-sm text-[#1E3261] text-[10px] font-bold tracking-wider uppercase px-2.5 py-1 rounded-sm">
+          <span key={i} className="bg-white/90 backdrop-blur-sm text-[#1E3261] text-[10px] font-bold tracking-wider uppercase px-2.5 py-1 rounded-sm shadow-sm">
             {feat}
           </span>
         ))}
       </div>
 
-      <div className="flex-1 w-full relative min-h-[300px]">
+      <div className="flex-1 w-full relative min-h-[250px] shrink-0 bg-slate-100 overflow-hidden">
         <Image
           src={collection.coverImage}
           alt={collection.name}
@@ -82,16 +80,16 @@ function CollectionCard({
         />
       </div>
 
-      <div className="relative z-20 bg-white p-6 md:p-8 flex flex-col justify-end">
+      <div className="relative z-20 bg-white p-6 md:p-8 flex flex-col justify-center flex-1 shrink-0 h-auto min-h-min">
         <h3 className="text-2xl font-serif font-bold text-[#1E3261] mb-2">{collection.name}</h3>
-        <p className="text-slate-600 text-sm md:text-base line-clamp-2 mb-6">
+        <p className="text-slate-600 text-sm md:text-base line-clamp-3 mb-6">
           {collection.description}
         </p>
-        <div className="flex items-center text-sm font-bold text-[#1E3261] uppercase tracking-wider group-hover:text-blue-600 transition-colors">
+        <div className="flex items-center text-sm font-bold text-[#1E3261] uppercase tracking-wider group-hover:text-blue-600 transition-colors mt-auto pt-2">
           View Collection <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
 

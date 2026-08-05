@@ -7,8 +7,7 @@ import {
   ManufacturingProcess, 
   OemPrivateLabelSection, 
   QualityAssuranceSection, 
-  CatalogueDownloadsSection, 
-  FinalCtaSection 
+  CatalogueDownloadsSection
 } from "@/components/products/additional-sections";
 
 export default function ProductsPage() {
@@ -64,9 +63,6 @@ export default function ProductsPage() {
 
       {/* 8. Catalogue Downloads */}
       <CatalogueDownloadsSection />
-      
-      {/* 9. Final CTA */}
-      <FinalCtaSection />
       
     </main>
   );
