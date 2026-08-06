@@ -12,7 +12,7 @@ import {
 } from "@/components/products/additional-sections";
 
 export default function ProductsPage() {
-  return <UnderConstruction pageName="Products" />;
+  if (process.env.NODE_ENV === 'production') return <UnderConstruction pageName="Products" />;
   return (
     <main className="flex-1 bg-white font-sans antialiased text-foreground">
       

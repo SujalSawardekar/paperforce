@@ -6,7 +6,7 @@ import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { ExportNetworkSection } from "@/components/markets/export-network-section";
 
 export default function ReachMarketsPage() {
-  return <UnderConstruction pageName="Reach Markets" />;
+  if (process.env.NODE_ENV === 'production') return <UnderConstruction pageName="Reach Markets" />;
   return (
     <main className="flex-1 bg-white">
       <div className="py-24 md:py-32 relative overflow-hidden">

@@ -18,7 +18,7 @@ export default async function ProductCollectionPage({ params }: { params: Promis
     notFound();
   }
   
-  if (true as boolean) {
+  if (process.env.NODE_ENV === 'production') {
     return <UnderConstruction pageName="Product Collection" />;
   }
 

@@ -57,7 +57,7 @@ export default async function ArticlePage({ params }: Props) {
   const article = getArticleBySlug(resolvedParams.slug);
   if (!article) notFound();
   
-  if (true as boolean) {
+  if (process.env.NODE_ENV === 'production') {
     return <UnderConstruction pageName="Blog Article" />;
   }
 

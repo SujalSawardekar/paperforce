@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="font-sans antialiased" suppressHydrationWarning>
+      <body className="font-sans antialiased overflow-x-hidden" suppressHydrationWarning>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} forcedTheme="light" disableTransitionOnChange>
           <Navbar />
           <main className="min-h-screen">

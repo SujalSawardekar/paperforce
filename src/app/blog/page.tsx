@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 };
 
 export default function BlogPage() {
-  return <UnderConstruction pageName="Blogs" />;
+  if (process.env.NODE_ENV === 'production') return <UnderConstruction pageName="Blogs" />;
   return (
     <Suspense fallback={<div className="min-h-screen bg-slate-50" />}>
       <BlogPageContent />
