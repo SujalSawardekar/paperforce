@@ -15,6 +15,7 @@ export function TopicChips({ categories, activeCategory }: TopicChipsProps) {
     <div className="w-full flex flex-wrap gap-3 my-12">
       <Link 
         href="/blog"
+        scroll={false}
         className={cn(
           "px-5 py-2.5 rounded-full text-sm font-semibold transition-colors border",
           !activeCategory 
@@ -30,6 +31,7 @@ export function TopicChips({ categories, activeCategory }: TopicChipsProps) {
           <Link
             key={category.id}
             href={`/blog?category=${category.slug}`}
+            scroll={false}
             className={cn(
               "px-5 py-2.5 rounded-full text-sm font-semibold transition-colors border",
               isActive 

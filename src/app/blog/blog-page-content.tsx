@@ -7,7 +7,7 @@ import { BlogSearch } from "@/components/blog/blog-search";
 import { TopicChips } from "@/components/blog/topic-chips";
 import { EditorialGrid } from "@/components/blog/editorial-grid";
 import { ResourcesSection } from "@/components/blog/resources-section";
-import { KnowledgeTimeline } from "@/components/blog/knowledge-timeline";
+
 import { NewsletterCta } from "@/components/blog/newsletter-cta";
 import { BlogContactCta } from "@/components/blog/blog-contact-cta";
 import { Container } from "@/components/common/container";
@@ -82,7 +82,7 @@ export function BlogPageContent() {
       
       <ResourcesSection resources={blogResources} />
       
-      <KnowledgeTimeline />
+
       
       <NewsletterCta />
       
