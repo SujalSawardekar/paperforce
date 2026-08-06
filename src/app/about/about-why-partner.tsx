@@ -6,7 +6,7 @@ import { ScrollReveal } from "@/components/ui/scroll-reveal";
 const reasons = [
   {
     number: "01",
-    title: <>100% FOB Consistency</>,
+    title: <>100<span className="font-sans font-normal">%</span> FOB Consistency</>,
     desc: "We understand that international shipping requires exact timing. Our manufacturing schedule is strictly aligned with your vessel cut-offs to guarantee on-time delivery.",
     colSpan: "md:col-span-2",
     rowSpan: "md:row-span-1"

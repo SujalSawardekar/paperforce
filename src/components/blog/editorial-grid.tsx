@@ -54,10 +54,10 @@ export function EditorialGrid({ articles }: EditorialGridProps) {
           <div className="absolute inset-0 bg-gradient-to-t from-[#0B1C3F]/90 via-[#0B1C3F]/40 to-transparent" />
           
           <div className="relative z-10 max-w-3xl">
-            <div className="flex items-center gap-4 mb-6 text-sm font-semibold uppercase tracking-wider text-blue-200">
-              <span className="bg-blue-600 text-white px-3 py-1 rounded-full">{wide1.category}</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-blue-400" />
-              <span>{wide1.publishedDate}</span>
+            <div className="flex flex-wrap items-center gap-4 mb-6 text-sm font-semibold uppercase tracking-wider text-blue-200">
+              <span className="bg-blue-600 text-white px-3 py-1 rounded-full whitespace-nowrap">{wide1.category}</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-blue-400 shrink-0" />
+              <span className="whitespace-nowrap">{wide1.publishedDate}</span>
             </div>
             <h3 className="text-3xl lg:text-5xl font-serif font-bold text-white mb-6 leading-tight group-hover:text-blue-200 transition-colors">
               {wide1.title}
@@ -82,10 +82,10 @@ export function EditorialGrid({ articles }: EditorialGridProps) {
       {editorial1 && (
         <Link href={`/blog/${editorial1.slug}`} className="group grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-0 items-center bg-slate-50 rounded-3xl overflow-hidden border border-slate-100">
           <div className="lg:col-span-5 p-8 lg:p-16 flex flex-col h-full justify-center">
-             <div className="flex items-center gap-4 mb-6 text-sm font-semibold uppercase tracking-wider text-slate-500">
-              <span className="text-blue-600">{editorial1.category}</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-slate-300" />
-              <span className="flex items-center gap-1.5"><Clock size={16} /> {editorial1.readTime}</span>
+             <div className="flex flex-wrap items-center gap-4 mb-6 text-sm font-semibold uppercase tracking-wider text-slate-500">
+              <span className="text-blue-600 whitespace-nowrap">{editorial1.category}</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-slate-300 shrink-0" />
+              <span className="flex items-center gap-1.5 whitespace-nowrap"><Clock size={16} className="shrink-0" /> {editorial1.readTime}</span>
             </div>
             <h3 className="text-3xl lg:text-4xl font-serif font-bold text-[#1E3261] mb-6 leading-tight group-hover:text-blue-700 transition-colors">
               {editorial1.title}
