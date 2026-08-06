@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import { UnderConstruction } from "@/components/common/under-construction";
 import { BlogPageContent } from "./blog-page-content";
 import { Suspense } from "react";
 
@@ -14,7 +13,6 @@ export const metadata: Metadata = {
 };
 
 export default function BlogPage() {
-  if (process.env.NODE_ENV === 'production') return <UnderConstruction pageName="Blogs" />;
   return (
     <Suspense fallback={<div className="min-h-screen bg-slate-50" />}>
       <BlogPageContent />

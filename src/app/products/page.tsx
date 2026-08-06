@@ -1,5 +1,4 @@
 import * as React from "react";
-import { UnderConstruction } from "@/components/common/under-construction";
 import { Container } from "@/components/common/container";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { EditorialCatalog } from "@/components/products/product-catalog";
@@ -12,7 +11,6 @@ import {
 } from "@/components/products/additional-sections";
 
 export default function ProductsPage() {
-  if (process.env.NODE_ENV === 'production') return <UnderConstruction pageName="Products" />;
   return (
     <main className="flex-1 bg-white font-sans antialiased text-foreground">
       
