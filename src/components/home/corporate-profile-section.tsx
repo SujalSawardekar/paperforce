@@ -79,7 +79,7 @@ export function CorporateProfileSection() {
                 </div>
                 <div className="w-[1px] bg-slate-200  hidden sm:block" />
                 <div>
-                  <span className="block text-4xl md:text-5xl font-bold text-[#0b1c3f] font-serif">1<span>0</span>0k+</span>
+                  <span className="block text-4xl md:text-5xl font-bold text-[#0b1c3f] font-serif">100k+</span>
                   <span className="block text-[10px] uppercase tracking-wider font-bold text-slate-500 mt-2">Daily Output</span>
                 </div>
               </div>

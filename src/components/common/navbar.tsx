@@ -248,8 +248,24 @@ export function Navbar() {
       {mobileMenuOpen && (
         <div className="px-4">
           <nav className="md:hidden pointer-events-auto border border-slate-200  bg-white  rounded-2xl mt-8 p-4 flex flex-col space-y-2 shadow-2xl animate-in fade-in slide-in-from-top-2 duration-200 relative z-[60]">
-            {[...desktopPillLinks, { name: "Contact Us", href: "/contact" }].map((link) => {
+            {[...desktopPillLinks, { name: "Catalogue", href: "/Cellpage cateloge.pdf" }, { name: "Contact Us", href: "/contact" }].map((link) => {
               const isActive = pathname === link.href;
+              // Handle Catalogue differently since it's a PDF
+              if (link.name === "Catalogue") {
+                return (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="px-4 py-2.5 rounded-xl text-sm font-bold transition-colors text-slate-700 hover:bg-slate-100 flex items-center"
+                  >
+                    <Download size={16} className="mr-2" />
+                    {link.name}
+                  </a>
+                );
+              }
               return (
                 <Link
                   key={link.href}
