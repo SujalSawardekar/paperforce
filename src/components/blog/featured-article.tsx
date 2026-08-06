@@ -21,12 +21,12 @@ export function FeaturedArticle({ article }: { article: BlogPost }) {
         </div>
         
         <div className="flex flex-col py-6 lg:py-12 pr-4 lg:pr-12">
-          <div className="flex flex-wrap items-center gap-4 mb-6 text-sm font-semibold uppercase tracking-wider text-slate-500">
-            <span className="text-blue-600 bg-blue-50 px-3 py-1 rounded-full whitespace-nowrap">{article.category}</span>
-            <span className="w-1.5 h-1.5 rounded-full bg-slate-300 shrink-0" />
-            <span className="whitespace-nowrap">{article.publishedDate}</span>
-            <span className="w-1.5 h-1.5 rounded-full bg-slate-300 shrink-0" />
-            <span className="flex items-center gap-1.5 whitespace-nowrap"><Clock size={16} className="shrink-0" /> {article.readTime}</span>
+          <div className="flex flex-nowrap items-center gap-2 xl:gap-4 mb-6 text-[10px] xl:text-sm font-semibold uppercase tracking-wider text-slate-500 whitespace-nowrap overflow-hidden">
+            <span className="text-blue-600 bg-blue-50 px-2 xl:px-3 py-1 rounded-full shrink-0">{article.category}</span>
+            <span className="w-1 h-1 xl:w-1.5 xl:h-1.5 rounded-full bg-slate-300 shrink-0" />
+            <span className="shrink-0">{article.publishedDate}</span>
+            <span className="w-1 h-1 xl:w-1.5 xl:h-1.5 rounded-full bg-slate-300 shrink-0" />
+            <span className="flex items-center gap-1 xl:gap-1.5 shrink-0"><Clock size={14} className="xl:w-4 xl:h-4 shrink-0" /> {article.readTime}</span>
           </div>
           
           <h3 className="text-3xl lg:text-5xl font-serif font-bold text-[#1E3261] mb-6 leading-tight group-hover:text-blue-700 transition-colors">

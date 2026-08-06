@@ -94,7 +94,7 @@ export const featuredArticle: BlogPost = {
   excerpt: "Discover how advanced automation and rigorous AQL quality standards are reshaping the global export market for premium stationery.",
   content: sampleContent,
   category: "Export",
-  coverImage: "/images/blog/featured.png",
+  coverImage: "/images/blog/featured-new.png",
   publishedDate: "October 12, 2026",
   readTime: "6 min read",
   seoTitle: "Global Export Trends in Notebook Manufacturing | Paperforce",

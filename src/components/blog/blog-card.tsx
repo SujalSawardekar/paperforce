@@ -25,12 +25,12 @@ export function BlogCard({ post, className, imageClassName, titleClassName, exce
       </div>
       
       <div className="flex flex-col flex-1">
-        <div className="flex flex-wrap items-center gap-4 mb-4 text-xs font-semibold uppercase tracking-wider text-slate-500">
-          <span className="text-[#1E3261] whitespace-nowrap">{post.category}</span>
+        <div className="flex flex-nowrap items-center gap-2 mb-4 text-[10px] xl:text-xs font-semibold uppercase tracking-wider text-slate-500 whitespace-nowrap overflow-hidden">
+          <span className="text-[#1E3261] shrink-0">{post.category}</span>
           <span className="w-1 h-1 rounded-full bg-slate-300 shrink-0" />
-          <span className="whitespace-nowrap">{post.publishedDate}</span>
+          <span className="shrink-0">{post.publishedDate}</span>
           <span className="w-1 h-1 rounded-full bg-slate-300 shrink-0" />
-          <span className="flex items-center gap-1.5 whitespace-nowrap"><Clock size={14} className="shrink-0" /> {post.readTime}</span>
+          <span className="flex items-center gap-1 shrink-0"><Clock size={12} className="shrink-0" /> {post.readTime}</span>
         </div>
         
         <h3 className={cn("font-serif font-bold text-[#1E3261] mb-3 group-hover:text-blue-700 transition-colors line-clamp-3", titleClassName)}>
