@@ -26,7 +26,7 @@ const stats = [
   },
   {
     icon: <ShieldCheck className="w-6 h-6 text-rose-600" />,
-    value: <>1<span>0</span>0<span className="font-sans">%</span></>,
+    value: <>100<span className="font-sans font-normal">%</span></>,
     label: "Export Oriented",
     bgColor: "bg-rose-50"
   }

@@ -37,6 +37,7 @@ function CustomSelect({
       <button 
         type="button" 
         onClick={() => setIsOpen(!isOpen)}
+        suppressHydrationWarning
         className="w-full rounded-sm border border-border p-3.5 px-4 text-sm bg-background text-foreground focus:ring-1 focus:ring-primary focus:outline-hidden transition-all flex items-center justify-between text-left"
       >
         <span className={selectedOption ? "" : "text-muted-foreground"}>{selectedOption ? selectedOption.label : "Select product..."}</span>
@@ -142,6 +143,7 @@ export function ContactForm() {
           <input
             id="name-field"
             type="text"
+            suppressHydrationWarning
             placeholder="John Doe"
             className="w-full rounded-sm border border-border p-3.5 px-4 text-sm bg-background text-foreground focus:ring-1 focus:ring-primary focus:outline-hidden transition-all"
             {...register("name")}
@@ -163,6 +165,7 @@ export function ContactForm() {
             <input
               id="company-field"
               type="text"
+              suppressHydrationWarning
               placeholder="Enterprise LLC"
               className="w-full rounded-sm border border-border p-3.5 px-4 text-sm bg-background text-foreground focus:ring-1 focus:ring-primary focus:outline-hidden transition-all"
               {...register("company")}
@@ -182,6 +185,7 @@ export function ContactForm() {
             <input
               id="country-field"
               type="text"
+              suppressHydrationWarning
               placeholder="United States"
               className="w-full rounded-sm border border-border p-3.5 px-4 text-sm bg-background text-foreground focus:ring-1 focus:ring-primary focus:outline-hidden transition-all"
               {...register("country")}
@@ -199,11 +203,12 @@ export function ContactForm() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="space-y-1">
             <label htmlFor="email-field" className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
-              Business Email *
+              Email Address *
             </label>
             <input
               id="email-field"
               type="email"
+              suppressHydrationWarning
               placeholder="buyer@company.com"
               className="w-full rounded-sm border border-border p-3.5 px-4 text-sm bg-background text-foreground focus:ring-1 focus:ring-primary focus:outline-hidden transition-all"
               {...register("email")}
@@ -218,11 +223,12 @@ export function ContactForm() {
 
           <div className="space-y-1">
             <label htmlFor="phone-field" className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
-              Phone / WhatsApp *
+              Phone Number *
             </label>
             <input
               id="phone-field"
               type="text"
+              suppressHydrationWarning
               placeholder="+1 555 0199"
               className="w-full rounded-sm border border-border p-3.5 px-4 text-sm bg-background text-foreground focus:ring-1 focus:ring-primary focus:outline-hidden transition-all"
               {...register("phone")}
@@ -265,11 +271,12 @@ export function ContactForm() {
 
           <div className="space-y-1">
             <label htmlFor="moq-field" className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
-              Required Volume / MOQ *
+              Estimated Order Quantity *
             </label>
             <input
               id="moq-field"
               type="text"
+              suppressHydrationWarning
               placeholder="e.g. 1 FCL Container"
               className="w-full rounded-sm border border-border p-3.5 px-4 text-sm bg-background text-foreground focus:ring-1 focus:ring-primary focus:outline-hidden transition-all"
               {...register("moq")}
@@ -286,11 +293,12 @@ export function ContactForm() {
         {/* Message / Specifications */}
         <div className="space-y-1">
           <label htmlFor="msg-field" className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
-            Message & Custom Specifications *
+            Project Requirements *
           </label>
           <textarea
             id="msg-field"
             rows={4}
+            suppressHydrationWarning
             placeholder="Specify target sizing, cover GSM, lines, and discharge ports..."
             className="w-full rounded-sm border border-border p-4 text-sm bg-background text-foreground focus:ring-1 focus:ring-primary focus:outline-hidden transition-all"
             {...register("message")}
@@ -318,7 +326,7 @@ export function ContactForm() {
             </>
           ) : (
             <>
-              Send B2B Enquiry
+              Request a Quote
               <Send size={16} className="ml-2 transition-transform group-hover:translate-x-1" />
             </>
           )}

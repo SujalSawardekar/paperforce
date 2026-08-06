@@ -3,8 +3,8 @@
 import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { usePathname, useRouter } from "next/navigation";
+import { Menu, X, Download } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion, useScroll, useMotionValueEvent, Variants } from "framer-motion";
 import { Button } from "../ui/button";
@@ -19,8 +19,11 @@ const desktopPillLinks = [
 
 export function Navbar() {
   const pathname = usePathname();
+  const router = useRouter();
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
   const [isScrolled, setIsScrolled] = React.useState(false);
+
+  const isCollectionPage = pathname.startsWith('/products/') && pathname !== '/products';
 
   const { scrollY } = useScroll();
   const [isHidden, setIsHidden] = React.useState(false);
@@ -69,6 +72,7 @@ export function Navbar() {
     visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } },
     hidden: { opacity: 0, y: -20, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } }
   };
+
 
   return (
     <motion.header
@@ -177,26 +181,25 @@ export function Navbar() {
       )}>
         
         {/* Left Cluster: Navigation Links */}
-        <nav className="hidden md:flex items-center space-x-1.5 pointer-events-auto shrink-0 w-[40%]">
-          {desktopPillLinks.map((link) => {
+        <div className="hidden md:flex items-center space-x-1.5 pointer-events-auto shrink-0 w-[40%]">
+          {!isCollectionPage && desktopPillLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
               <motion.div key={link.href} variants={itemVariants}>
-                <Link href={link.href}>
                   <Button 
                     variant={isActive ? "default" : "ghost"} 
                     className={cn(
                       "text-[12px] font-bold h-8 px-4",
                       isActive ? "border-transparent" : "border-transparent text-slate-600 hover:text-slate-900"
                     )}
+                    onClick={() => router.push(link.href)}
                   >
                     {link.name}
                   </Button>
-                </Link>
               </motion.div>
             );
           })}
-        </nav>
+        </div>
 
         {/* Mobile Left Brand Logo placeholder so mobile layout aligns correctly */}
         <div className="md:hidden pointer-events-auto shrink-0" />
@@ -204,26 +207,40 @@ export function Navbar() {
         {/* Center Space so flex-between works correctly (remaining width) */}
         <div className="hidden md:block flex-1" />
 
-        {/* Right Cluster: Request Quote Button */}
-        <div className="flex justify-end items-center pointer-events-auto shrink-0 w-[40%]">
-          <motion.div variants={itemVariants} className="hidden md:block">
-            <Link href="/contact">
-              <Button variant="outline" className="font-bold text-[13px] px-7 h-9 border-slate-300">
-                Request Quote
-              </Button>
-            </Link>
-          </motion.div>
+        {/* Right Cluster: Action Buttons */}
+        <div className="flex justify-end items-center gap-3 pointer-events-auto shrink-0 w-[40%]">
+          {!isCollectionPage && (
+            <>
+              <motion.div variants={itemVariants} className="hidden md:flex items-center gap-2">
+                  <Button 
+                    variant="ghost" 
+                    className="font-bold text-[13px] px-4 h-9 text-slate-600 hover:text-slate-900"
+                    onClick={() => window.open("/Cellpage cateloge.pdf", "_blank")}
+                  >
+                    <Download size={16} className="mr-1.5" />
+                    Catalogue
+                  </Button>
+                  <Button 
+                    variant="outline" 
+                    className="font-bold text-[13px] px-7 h-9 border-slate-300"
+                    onClick={() => router.push("/contact")}
+                  >
+                    Request Quote
+                  </Button>
+              </motion.div>
 
-          {/* Mobile Menu Toggle */}
-          <motion.div variants={itemVariants} className="md:hidden">
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="rounded-full p-2 bg-slate-100  text-slate-800  cursor-pointer transition-colors"
-              aria-label="Toggle Menu"
-            >
-              {mobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
-            </button>
-          </motion.div>
+              {/* Mobile Menu Toggle */}
+              <motion.div variants={itemVariants} className="md:hidden">
+                <button
+                  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                  className="rounded-full p-2 bg-slate-100  text-slate-800  cursor-pointer transition-colors"
+                  aria-label="Toggle Menu"
+                >
+                  {mobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
+                </button>
+              </motion.div>
+            </>
+          )}
         </div>
       </motion.div>
 
@@ -231,8 +248,24 @@ export function Navbar() {
       {mobileMenuOpen && (
         <div className="px-4">
           <nav className="md:hidden pointer-events-auto border border-slate-200  bg-white  rounded-2xl mt-8 p-4 flex flex-col space-y-2 shadow-2xl animate-in fade-in slide-in-from-top-2 duration-200 relative z-[60]">
-            {[...desktopPillLinks, { name: "Contact Us", href: "/contact" }].map((link) => {
+            {[...desktopPillLinks, { name: "Catalogue", href: "/Cellpage cateloge.pdf" }, { name: "Contact Us", href: "/contact" }].map((link) => {
               const isActive = pathname === link.href;
+              // Handle Catalogue differently since it's a PDF
+              if (link.name === "Catalogue") {
+                return (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="px-4 py-2.5 rounded-xl text-sm font-bold transition-colors text-slate-700 hover:bg-slate-100 flex items-center"
+                  >
+                    <Download size={16} className="mr-2" />
+                    {link.name}
+                  </a>
+                );
+              }
               return (
                 <Link
                   key={link.href}

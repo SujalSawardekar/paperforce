@@ -1,0 +1,25 @@
+import { collections } from "@/components/products/data";
+import { notFound } from "next/navigation";
+import { CollectionView } from "./collection-view";
+
+// Generate static params for all 9 collections
+export function generateStaticParams() {
+  return collections.map((collection) => ({
+    id: collection.id,
+  }));
+}
+
+export default async function ProductCollectionPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const collection = collections.find((c) => c.id === id);
+  
+  if (!collection) {
+    notFound();
+  }
+  
+  return (
+    <main className="min-h-screen bg-white">
+      <CollectionView collection={collection} />
+    </main>
+  );
+}

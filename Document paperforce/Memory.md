@@ -98,6 +98,9 @@
 | 2026-08-02 | Incorporated logo.jpg and mapped all 16 WhatsApp product images to the Home previews and Products spec sheets |
 | 2026-08-02 | Realigned typography (Recoleta + Poppins) and components (floating capsule navbar, pill buttons, 32px rounded cards) with Brand Identity Guidelines PDF |
 | 2026-08-03 | Performed extensive UI/UX refinements on Homepage: consistent section headers, fixed navbar layout on scroll, added consistent scale-up fill hover effects to all buttons, adjusted hero image overlap, fixed interactive map pins styling, and balanced scroll speeds across product and capability sections |
+| 2026-08-04 | Rebuilt Global Export Network map using react-simple-maps, integrated precise TopoJSON, dynamic Framer Motion ship animations, and B2B premium design system |
+| 2026-08-04 | Replaced abstract emoji markers with SVG Lucide icons and synchronized curved dashed routes with SVG animateMotion |
+| 2026-08-04 | Implemented realistic top-down cargo ship SVG and fixed Framer Motion dotted line rendering by engineering an SVG mask reveal |
 
 ---
 

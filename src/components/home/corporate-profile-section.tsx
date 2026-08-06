@@ -55,7 +55,7 @@ export function CorporateProfileSection() {
               description="At Paperforce India LLP, we manufacture and export paper stationery from our ISO 9001:2015 certified facility in Palghar, Maharashtra. Powered by high-speed automated converting lines, we combine hands-on production experience with the sheer scale that global volume demands."
             />
             
-            <ScrollReveal direction="up" delay={0.1} className="-mt-2">
+            <ScrollReveal direction="up" delay={0.1} className="mt-8">
               
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
                 <Link href="/about" className="inline-block">
@@ -79,7 +79,7 @@ export function CorporateProfileSection() {
                 </div>
                 <div className="w-[1px] bg-slate-200  hidden sm:block" />
                 <div>
-                  <span className="block text-4xl md:text-5xl font-bold text-[#0b1c3f] font-serif">1<span>0</span>0k+</span>
+                  <span className="block text-4xl md:text-5xl font-bold text-[#0b1c3f] font-serif">100k+</span>
                   <span className="block text-[10px] uppercase tracking-wider font-bold text-slate-500 mt-2">Daily Output</span>
                 </div>
               </div>

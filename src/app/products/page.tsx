@@ -1,58 +1,69 @@
 import * as React from "react";
-import Link from "next/link";
 import { Container } from "@/components/common/container";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
-import { ProductCard } from "@/components/common/product-card";
+import { EditorialCatalog } from "@/components/products/product-catalog";
+import { 
+  ProductPhilosophy, 
+  ManufacturingProcess, 
+  OemPrivateLabelSection, 
+  QualityAssuranceSection, 
+  CatalogueDownloadsSection
+} from "@/components/products/additional-sections";
 
 export default function ProductsPage() {
   return (
-    <main className="flex-1 py-24 md:py-32 relative overflow-hidden bg-white ">
-      <Container className="space-y-20 relative z-10">
+    <main className="flex-1 bg-white font-sans antialiased text-foreground">
+      
+      {/* 1. Cinematic Hero Section */}
+      <section className="min-h-[80vh] flex items-center justify-center pt-24 pb-20 bg-slate-50 relative overflow-hidden">
+        <div className="absolute inset-0 paper-noise pointer-events-none z-10 opacity-40 mix-blend-multiply" />
         
-        <ScrollReveal direction="up">
-          <div className="space-y-6 max-w-3xl text-left">
-            <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-slate-500">
-              <Link href="/" className="hover:underline">Home</Link>
-              <span>/</span>
-              <span>Products</span>
-            </div>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[#0b1c3f]  font-serif">
-              Our Manufacturing Portfolio
+        {/* Soft abstract lighting/shadows in background to simulate premium paper renders */}
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-slate-200/50 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3 opacity-60" />
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-slate-300/30 rounded-full blur-[80px] translate-y-1/3 -translate-x-1/4 opacity-60" />
+
+        <Container className="relative z-20 text-center max-w-4xl mx-auto space-y-6 mt-16">
+          <ScrollReveal direction="up">
+            <h1 className="text-5xl sm:text-6xl md:text-8xl font-bold tracking-tight text-[#1E3261] font-serif leading-[1.1]">
+              Crafted for Global Brands.
             </h1>
-            <p className="text-lg text-slate-600  leading-relaxed">
-              Precision-engineered paper stationery produced at massive scale.
-            </p>
-          </div>
-        </ScrollReveal>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          </ScrollReveal>
           <ScrollReveal direction="up" delay={0.1}>
-            <ProductCard
-              title="Composition Books"
-              description="Durable, center-sewn composition notebooks tailored for the US educational sector."
-              image=""
-              tags={["Education", "Export"]}
-            />
+            <p className="text-xl md:text-2xl text-slate-500 leading-relaxed max-w-2xl mx-auto mt-6">
+              Premium Notebook Manufacturing Since 1985
+            </p>
           </ScrollReveal>
-          <ScrollReveal direction="up" delay={0.2}>
-            <ProductCard
-              title="Wire-O Notebooks"
-              description="Premium lay-flat spiral and wire-bound notebooks for corporate and retail."
-              image=""
-              tags={["Corporate", "Retail"]}
-            />
-          </ScrollReveal>
-          <ScrollReveal direction="up" delay={0.3}>
-            <ProductCard
-              title="Graph & Ruled Books"
-              description="High-precision grid and ruled paper books manufactured with advanced web presses."
-              image=""
-              tags={["Wholesale"]}
-            />
-          </ScrollReveal>
+        </Container>
+        
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center opacity-50 z-20">
+          <span className="text-xs tracking-widest uppercase font-bold text-[#1E3261] mb-2">Explore</span>
+          <div className="w-px h-12 bg-[#1E3261] animate-pulse" />
         </div>
+      </section>
 
-      </Container>
+      {/* 2. Product Philosophy */}
+      <ProductPhilosophy />
+
+      {/* 3 & 4. Featured & Editorial Collection Showcase */}
+      <section className="py-24 bg-white relative">
+        <Container>
+          <EditorialCatalog />
+        </Container>
+      </section>
+
+      {/* 5. Manufacturing Process */}
+      <ManufacturingProcess />
+
+      {/* 6. OEM & Private Label */}
+      <OemPrivateLabelSection />
+
+      {/* 7. Quality Assurance */}
+      <QualityAssuranceSection />
+
+      {/* 8. Catalogue Downloads */}
+      <CatalogueDownloadsSection />
+      
     </main>
   );
 }
