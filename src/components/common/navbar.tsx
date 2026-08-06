@@ -162,9 +162,9 @@ export function Navbar() {
           <Image
             src="/logo.png"
             alt="Paperforce Logo"
-            width={140}
-            height={36}
-            className={cn("w-auto object-contain transition-all duration-300", isCompact ? "h-6" : "h-8")}
+            width={180}
+            height={48}
+            className={cn("w-auto object-contain transition-all duration-300", isCompact ? "h-8" : "h-12")}
             priority
             loading="eager"
           />
