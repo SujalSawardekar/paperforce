@@ -132,7 +132,11 @@ export function GlobalReachSection() {
                     coordinates={market.coordinates}
                     onMouseEnter={() => setHoveredMarket(market.name)}
                     onMouseLeave={() => setHoveredMarket(null)}
-                    style={{ cursor: "pointer" }}
+                    style={{
+                      default: { cursor: "pointer", outline: "none" },
+                      hover: { cursor: "pointer", outline: "none" },
+                      pressed: { cursor: "pointer", outline: "none" }
+                    }}
                   >
                     <circle 
                       r={hoveredMarket === market.name ? 4 : 2.5} 
