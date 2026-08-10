@@ -11,6 +11,7 @@ import { ProductSection } from "@/components/home/product-section";
 import { CertificationsSection } from "@/components/home/certifications-section";
 import { IndustriesSection } from "@/components/home/industries-section";
 import { BlogPreviewSection } from "@/components/home/blog-preview-section";
+import { GlobalReachSection } from "@/components/home/global-reach-section";
 import { HomeFaqSection } from "@/components/home/faq-section";
 import { HeroBackground } from "@/components/home/hero-background";
 
@@ -91,6 +92,7 @@ export default function HomePage() {
       <ProductSection />
       <CertificationsSection />
       <IndustriesSection />
+      <GlobalReachSection />
       <HomeFaqSection />
       <BlogPreviewSection />
       

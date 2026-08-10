@@ -8,7 +8,7 @@ import { TopicChips } from "@/components/blog/topic-chips";
 import { EditorialGrid } from "@/components/blog/editorial-grid";
 import { ResourcesSection } from "@/components/blog/resources-section";
 
-import { NewsletterCta } from "@/components/blog/newsletter-cta";
+
 import { BlogContactCta } from "@/components/blog/blog-contact-cta";
 import { Container } from "@/components/common/container";
 import { blogCategories, featuredArticle, latestArticles, blogResources, BlogPost } from "@/lib/blog-data";
@@ -84,7 +84,7 @@ export function BlogPageContent() {
       
 
       
-      <NewsletterCta />
+
       
       <BlogContactCta />
     </main>

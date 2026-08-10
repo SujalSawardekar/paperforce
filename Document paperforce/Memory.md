@@ -140,3 +140,16 @@
 - Keep this document synchronized with the codebase.
 - Never delete previous updates; append or modify only where appropriate.
 - Always update this document after completing any task.
+
+---
+
+# Planned Content Architecture (Pending Execution)
+
+Based on the Content Audit & Site Map Allocation (2026-08-06), the site structure will be reorganized as follows to eliminate duplicates:
+- **Homepage**: Introductions, capabilities (merged Sourcing + Why Choose Us), and new preview routing for Infrastructure and Markets.
+- **About Us**: Focused purely on heritage, definitive timeline, team, and mission. (Removing redundant capabilities).
+- **Infrastructure & Quality** *(New Page)*: Dedicated to manufacturing processes, factory gallery, quality assurance, compliance, and official certificates (ISO, FIEO, Udyam, IEC).
+- **Products**: Focuses solely on product catalog, OEM/Private label details, and catalogue downloads.
+- **Reach Markets**: Central hub for all export logistics, JNPT details, and the 30+ countries export map.
+- **Blog**: Industry insights and resources. (Newsletter CTA removed).
+- **Contact**: Locations, form, and map.
