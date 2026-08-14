@@ -188,7 +188,7 @@ export function CollectionView({ collection }: CollectionViewProps) {
                 size="lg" 
                 variant="outline" 
                 className="bg-transparent text-white border-slate-400 hover:bg-white/10 hover:border-white px-8 py-6 text-base font-bold transition-all hover:scale-105"
-                onClick={() => window.open("/Cellpage cateloge.pdf", "_blank")}
+                onClick={() => window.open("/PaperForce%20Catalogue.pdf", "_blank")}
               >
                 <Download size={20} className="mr-2" /> Download Catalogue
               </Button>

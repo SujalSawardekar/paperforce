@@ -166,9 +166,9 @@ export function QualityAssuranceSection() {
 
 export function CatalogueDownloadsSection() {
   const docs = [
-    { title: "Product Catalogue", desc: "Complete 2026 Collection", file: "/Cellpage cateloge.pdf" },
-    { title: "Technical Specifications", desc: "Detailed GSM & Bindings", file: "/Cellpage cateloge.pdf" },
-    { title: "Export Packaging Guide", desc: "Pallet & Container Specs", file: "/Cellpage cateloge.pdf" }
+    { title: "Product Catalogue", desc: "Complete 2026 Collection", file: "/PaperForce%20Catalogue.pdf" },
+    { title: "Technical Specifications", desc: "Detailed GSM & Bindings", file: "/PaperForce%20Catalogue.pdf" },
+    { title: "Export Packaging Guide", desc: "Pallet & Container Specs", file: "/PaperForce%20Catalogue.pdf" }
   ];
 
   return (

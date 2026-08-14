@@ -44,28 +44,28 @@ export const blogResources: BlogResource[] = [
     id: "r1",
     title: "Export Buyer's Guide",
     description: "Comprehensive guide to global sourcing and shipping logistics.",
-    fileUrl: "/Cellpage cateloge.pdf",
+    fileUrl: "/PaperForce%20Catalogue.pdf",
     icon: "guide"
   },
   {
     id: "r2",
     title: "How OEM Notebook Manufacturing Works",
     description: "Step-by-step breakdown of private label production processes.",
-    fileUrl: "/Cellpage cateloge.pdf",
+    fileUrl: "/PaperForce%20Catalogue.pdf",
     icon: "specs"
   },
   {
     id: "r3",
     title: "Choosing Notebook GSM",
     description: "Technical paper standards and how they affect final product weight.",
-    fileUrl: "/Cellpage cateloge.pdf",
+    fileUrl: "/PaperForce%20Catalogue.pdf",
     icon: "document"
   },
   {
     id: "r4",
     title: "AQL Quality Standards Explained",
     description: "Learn how we inspect and assure premium export quality.",
-    fileUrl: "/Cellpage cateloge.pdf",
+    fileUrl: "/PaperForce%20Catalogue.pdf",
     icon: "guide"
   }
 ];

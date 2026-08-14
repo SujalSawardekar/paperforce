@@ -21,7 +21,7 @@ export function BlogContactCta() {
                 Contact Us <ArrowRight size={20} className="ml-2" />
               </Button>
             </Link>
-            <a href="/Cellpage cateloge.pdf" target="_blank" rel="noopener noreferrer">
+            <a href="/PaperForce%20Catalogue.pdf" target="_blank" rel="noopener noreferrer">
               <Button size="lg" variant="outline" className="border-slate-300 hover:bg-slate-100 text-[#1E3261] px-10 h-16 text-lg font-bold rounded-full">
                 <Download size={20} className="mr-2" /> Request Catalogue
               </Button>

@@ -215,7 +215,7 @@ export function Navbar() {
                   <Button 
                     variant="ghost" 
                     className="font-bold text-[13px] px-4 h-9 text-slate-600 hover:text-slate-900"
-                    onClick={() => window.open("/Cellpage cateloge.pdf", "_blank")}
+                    onClick={() => window.open("/PaperForce%20Catalogue.pdf", "_blank")}
                   >
                     <Download size={16} className="mr-1.5" />
                     Catalogue
@@ -248,7 +248,7 @@ export function Navbar() {
       {mobileMenuOpen && (
         <div className="px-4">
           <nav className="md:hidden pointer-events-auto border border-slate-200  bg-white  rounded-2xl mt-8 p-4 flex flex-col space-y-2 shadow-2xl animate-in fade-in slide-in-from-top-2 duration-200 relative z-[60]">
-            {[...desktopPillLinks, { name: "Catalogue", href: "/Cellpage cateloge.pdf" }, { name: "Contact Us", href: "/contact" }].map((link) => {
+            {[...desktopPillLinks, { name: "Catalogue", href: "/PaperForce%20Catalogue.pdf" }, { name: "Contact Us", href: "/contact" }].map((link) => {
               const isActive = pathname === link.href;
               // Handle Catalogue differently since it's a PDF
               if (link.name === "Catalogue") {
