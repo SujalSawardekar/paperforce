@@ -10,7 +10,7 @@ export const resend = process.env.RESEND_API_KEY
 export const EMAIL_FROM =
   process.env.EMAIL_FROM ?? "Paperforce India <noreply@paperforce.in>";
 
-export const SALES_EMAIL = process.env.SALES_EMAIL ?? "info@paperforce.in";
+export const SALES_EMAIL = process.env.SALES_EMAIL ?? "vedant@paperforce.in";
 
 /**
  * Send an email. Falls back to console.log when Resend is not configured.
