@@ -98,6 +98,11 @@ export function ExportNetworkSection() {
   const [activeRegionId, setActiveRegionId] = React.useState<string>(regions[0].id)
   const activeRegion = regions.find((r) => r.id === activeRegionId) || regions[0]
   
+  const [mounted, setMounted] = React.useState(false)
+  React.useEffect(() => {
+    setMounted(true)
+  }, [])
+  
   // Projection settings identical to ComposableMap defaults for accurate manual mapping
   const proj = geoMercator().scale(120).center([0, 20]).translate([400, 300])
   const pFactory = proj(factoryCoord)!
@@ -141,28 +146,30 @@ export function ExportNetworkSection() {
           </div>
 
           <div className="w-full relative" style={{ aspectRatio: '800/600', maxHeight: '600px', margin: '0 auto' }}>
-            <ComposableMap projection="geoMercator" projectionConfig={{ scale: 120, center: [0, 20] }} width={800} height={600} style={{ width: "100%", height: "100%", position: "absolute", inset: 0 }}>
-              
-              {/* Clean Map with Thin Boundaries */}
-              <Geographies geography={geoUrl}>
-                {({ geographies }) =>
-                  geographies.map((geo) => (
-                    <Geography
-                      key={geo.rsmKey}
-                      geography={geo}
-                      fill="#F1F5F9"
-                      stroke="#E2E8F0"
-                      strokeWidth={0.5}
-                      style={{
-                        default: { outline: "none" },
-                        hover: { outline: "none" },
-                        pressed: { outline: "none" },
-                      }}
-                    />
-                  ))
-                }
-              </Geographies>
-            </ComposableMap>
+            {mounted && (
+              <ComposableMap projection="geoMercator" projectionConfig={{ scale: 120, center: [0, 20] }} width={800} height={600} style={{ width: "100%", height: "100%", position: "absolute", inset: 0 }}>
+                
+                {/* Clean Map with Thin Boundaries */}
+                <Geographies geography={geoUrl}>
+                  {({ geographies }) =>
+                    geographies.map((geo) => (
+                      <Geography
+                        key={geo.rsmKey}
+                        geography={geo}
+                        fill="#E2E8F0"
+                        stroke="#CBD5E1"
+                        strokeWidth={0.75}
+                        style={{
+                          default: { outline: "none" },
+                          hover: { outline: "none" },
+                          pressed: { outline: "none" },
+                        }}
+                      />
+                    ))
+                  }
+                </Geographies>
+              </ComposableMap>
+            )}
 
             {/* Absolute SVG overlay for exact programmatic paths and animations */}
             <svg viewBox="0 0 800 600" className="absolute inset-0 w-full h-full pointer-events-none z-10">

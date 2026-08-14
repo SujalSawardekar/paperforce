@@ -47,6 +47,11 @@ const origin: [number, number] = [72.76, 19.69]; // Palghar, India roughly
 
 export function GlobalReachSection() {
   const [hoveredMarket, setHoveredMarket] = React.useState<string | null>(null);
+  const [mounted, setMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
     <section className="py-24 md:py-32 bg-[#0B1221] relative overflow-hidden border-t border-white/5">
@@ -99,62 +104,90 @@ export function GlobalReachSection() {
           {/* Right / Visual Area (60%) */}
           <div className="lg:col-span-7 relative w-full lg:min-h-[500px] flex items-center justify-center lg:ml-8 z-10">
             <ScrollReveal direction="up" delay={0.3} className="w-full h-full relative">
-              <ComposableMap 
-                projection="geoMercator" 
-                projectionConfig={{ scale: 120, center: [10, 20] }}
-                width={800}
-                height={500}
-                style={{ width: "100%", height: "auto", userSelect: "none" }}
-              >
-                <Geographies geography={geoUrl}>
-                  {({ geographies }) =>
-                    geographies.map((geo) => (
-                      <Geography 
-                        key={geo.rsmKey} 
-                        geography={geo} 
-                        fill="#1E2A45" 
-                        stroke="#0B1221"
-                        strokeWidth={0.5}
-                        style={{
-                          default: { outline: "none" },
-                          hover: { outline: "none", fill: "#273659" },
-                          pressed: { outline: "none" }
-                        }}
-                      />
-                    ))
-                  }
-                </Geographies>
+              {mounted && (
+                <ComposableMap 
+                  projection="geoMercator" 
+                  projectionConfig={{ scale: 120, center: [10, 20] }}
+                  width={800}
+                  height={500}
+                  style={{ width: "100%", height: "auto", userSelect: "none" }}
+                >
+                  <Geographies geography={geoUrl}>
+                    {({ geographies }) =>
+                      geographies.map((geo) => (
+                        <Geography 
+                          key={geo.rsmKey} 
+                          geography={geo} 
+                          fill="#1E2A45" 
+                          stroke="#0B1221"
+                          strokeWidth={0.5}
+                          style={{
+                            default: { outline: "none" },
+                            hover: { outline: "none", fill: "#273659" },
+                            pressed: { outline: "none" }
+                          }}
+                        />
+                      ))
+                    }
+                  </Geographies>
 
-                {/* Export Market Markers */}
-                {exportMarkets.map((market, i) => (
-                  <Marker 
-                    key={`marker-${i}`} 
-                    coordinates={market.coordinates}
-                    onMouseEnter={() => setHoveredMarket(market.name)}
-                    onMouseLeave={() => setHoveredMarket(null)}
-                    style={{
-                      default: { cursor: "pointer", outline: "none" },
-                      hover: { cursor: "pointer", outline: "none" },
-                      pressed: { cursor: "pointer", outline: "none" }
-                    }}
-                  >
-                    <circle 
-                      r={hoveredMarket === market.name ? 4 : 2.5} 
-                      fill="#93C5FD" 
-                      opacity={hoveredMarket === market.name ? 1 : 0.8} 
-                      className="transition-all duration-300"
+                  {/* Export Market Markers */}
+                  {exportMarkets.map((market, i) => (
+                    <Marker 
+                      key={`marker-${i}`} 
+                      coordinates={market.coordinates}
+                      onMouseEnter={() => setHoveredMarket(market.name)}
+                      onMouseLeave={() => setHoveredMarket(null)}
+                      style={{
+                        default: { cursor: "pointer", outline: "none" },
+                        hover: { cursor: "pointer", outline: "none" },
+                        pressed: { cursor: "pointer", outline: "none" }
+                      }}
+                    >
+                      <circle 
+                        r={hoveredMarket === market.name ? 4 : 2.5} 
+                        fill="#93C5FD" 
+                        opacity={hoveredMarket === market.name ? 1 : 0.8} 
+                        className="transition-all duration-300"
+                      />
+                      {/* Pulse effect on hover */}
+                      {hoveredMarket === market.name && (
+                        <circle 
+                          r={8} 
+                          fill="#93C5FD" 
+                          opacity={0.3} 
+                          className="animate-ping"
+                        />
+                      )}
+                      {hoveredMarket === market.name && (
+                        <text
+                          textAnchor="middle"
+                          y={-8}
+                          style={{ fontFamily: "system-ui", fill: "#ffffff", fontSize: "11px", fontWeight: 500, pointerEvents: "none" }}
+                        >
+                          {market.name}
+                        </text>
+                      )}
+                    </Marker>
+                  ))}
+
+                  {/* Lines radiating from India */}
+                  {exportMarkets.map((market, i) => (
+                    <Line
+                      key={`line-${i}`}
+                      from={origin}
+                      to={market.coordinates}
+                      stroke="#93C5FD"
+                      strokeWidth={0.5}
+                      strokeLinecap="round"
+                      style={{
+                        default: { opacity: hoveredMarket === market.name ? 0.8 : 0.15 },
+                        hover: { opacity: 0.8 },
+                        pressed: { opacity: 0.8 }
+                      }}
+                      className="transition-opacity duration-300 pointer-events-none"
                     />
-                    {hoveredMarket === market.name && (
-                      <text
-                        textAnchor="middle"
-                        y={-8}
-                        style={{ fontFamily: "system-ui", fill: "#ffffff", fontSize: "11px", fontWeight: 500, pointerEvents: "none" }}
-                      >
-                        {market.name}
-                      </text>
-                    )}
-                  </Marker>
-                ))}
+                  ))}
 
                 {/* Origin Marker (India) */}
                 <Marker coordinates={origin}>
@@ -176,6 +209,7 @@ export function GlobalReachSection() {
                 </Marker>
 
               </ComposableMap>
+              )}
             </ScrollReveal>
           </div>
           
