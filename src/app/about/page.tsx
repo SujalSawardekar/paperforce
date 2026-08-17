@@ -8,7 +8,7 @@ import { AboutInfrastructure } from "./about-infrastructure";
 import { AboutCompliance } from "./about-compliance";
 import { AboutMissionVision } from "./about-mission-vision";
 import { AboutWhyPartner } from "./about-why-partner";
-import { AboutGallery } from "./about-gallery";
+import { CertificationsSection } from "@/components/home/certifications-section";
 
 export const metadata: Metadata = {
   title: "About Us & Infrastructure | Paperforce India LLP",
@@ -27,7 +27,7 @@ export default function AboutPage() {
       <AboutCompliance />
       <AboutMissionVision />
       <AboutWhyPartner />
-      <AboutGallery />
+      <CertificationsSection />
     </main>
   );
 }

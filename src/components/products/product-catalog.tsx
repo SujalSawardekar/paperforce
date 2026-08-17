@@ -94,13 +94,14 @@ function CollectionCard({
 }
 
 export function EditorialCatalog() {
-  // Map 9 collections into the magazine layout
+  // Map 11 collections into the magazine layout
   const featured = collections[0];
   const mediums = collections.slice(1, 3);
   const wideBanner = collections[3];
   const compacts = collections.slice(4, 7);
   const showcase = collections[7];
   const finalCard = collections[8];
+  const newAdditions = collections.slice(9, 11);
 
   return (
     <div className="space-y-6 md:space-y-8 lg:space-y-12">
@@ -149,6 +150,17 @@ export function EditorialCatalog() {
           <CollectionCard collection={finalCard} className="min-h-[450px] md:min-h-[550px] h-full" />
         </FadeIn>
       </div>
+
+      {/* 6. Two Additional Collections (50/50 Split) for Set 10 & 11 */}
+      {newAdditions.length > 0 && (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+          {newAdditions.map((coll, i) => (
+            <FadeIn key={coll.id} delay={i * 100}>
+              <CollectionCard collection={coll} className="min-h-[450px] h-full" />
+            </FadeIn>
+          ))}
+        </div>
+      )}
 
     </div>
   );

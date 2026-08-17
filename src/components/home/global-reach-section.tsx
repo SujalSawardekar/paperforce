@@ -171,23 +171,7 @@ export function GlobalReachSection() {
                     </Marker>
                   ))}
 
-                  {/* Lines radiating from India */}
-                  {exportMarkets.map((market, i) => (
-                    <Line
-                      key={`line-${i}`}
-                      from={origin}
-                      to={market.coordinates}
-                      stroke="#93C5FD"
-                      strokeWidth={0.5}
-                      strokeLinecap="round"
-                      style={{
-                        default: { opacity: hoveredMarket === market.name ? 0.8 : 0.15 },
-                        hover: { opacity: 0.8 },
-                        pressed: { opacity: 0.8 }
-                      }}
-                      className="transition-opacity duration-300 pointer-events-none"
-                    />
-                  ))}
+                  {/* Export Market Markers */}
 
                 {/* Origin Marker (India) */}
                 <Marker coordinates={origin}>

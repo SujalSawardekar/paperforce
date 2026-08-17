@@ -8,7 +8,6 @@ import { CorporateProfileSection } from "@/components/home/corporate-profile-sec
 import { WhyChooseSection } from "@/components/home/why-choose-section";
 import { SourcingAdvantagesSection } from "@/components/home/sourcing-advantages-section";
 import { ProductSection } from "@/components/home/product-section";
-import { CertificationsSection } from "@/components/home/certifications-section";
 import { IndustriesSection } from "@/components/home/industries-section";
 import { BlogPreviewSection } from "@/components/home/blog-preview-section";
 import { GlobalReachSection } from "@/components/home/global-reach-section";
@@ -90,7 +89,6 @@ export default function HomePage() {
       <WhyChooseSection />
       <SourcingAdvantagesSection />
       <ProductSection />
-      <CertificationsSection />
       <IndustriesSection />
       <GlobalReachSection />
       <HomeFaqSection />

@@ -1,30 +1,18 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 
 export function HeroBackground() {
   return (
     <>
-      {/* 1. Base Image Layer */}
-      <div className="absolute inset-0 -z-30">
-        <Image 
-          src="/images/hero-bg.jpg"
-          alt="Paperforce Background"
-          fill
-          className="object-cover"
-          priority
-        />
-      </div>
-
-      {/* 2. Animated Gradient Overlay for readability and motion */}
+      {/* 1. Animated Gradient Overlay for readability and motion */}
       <motion.div
         animate={{
           backgroundPosition: ["0% 0%", "100% 100%"],
           opacity: [0.85, 0.95, 0.85]
         }}
         transition={{
-          duration: 15,
+          duration: 5,
           repeat: Infinity,
           repeatType: "reverse",
           ease: "easeInOut"
