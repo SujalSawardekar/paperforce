@@ -1,3 +1,5 @@
+"use client";
+
 import { Container } from "@/components/common/container";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -21,11 +23,14 @@ export function BlogContactCta() {
                 Contact Us <ArrowRight size={20} className="ml-2" />
               </Button>
             </Link>
-            <a href="/PaperForce%20Catalogue.pdf" target="_blank" rel="noopener noreferrer">
-              <Button size="lg" variant="outline" className="border-slate-300 hover:bg-slate-100 text-[#1E3261] px-10 h-16 text-lg font-bold rounded-full">
-                <Download size={20} className="mr-2" /> Request Catalogue
-              </Button>
-            </a>
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="border-slate-300 hover:bg-slate-100 text-[#1E3261] px-10 h-16 text-lg font-bold rounded-full cursor-pointer"
+              onClick={() => window.dispatchEvent(new CustomEvent("open-catalogue-modal"))}
+            >
+              <Download size={20} className="mr-2" /> Request Catalogue
+            </Button>
           </div>
         </div>
       </Container>

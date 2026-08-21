@@ -3,10 +3,6 @@ import { Container } from "@/components/common/container";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { EditorialCatalog } from "@/components/products/product-catalog";
 import { 
-  ProductPhilosophy, 
-  ManufacturingProcess, 
-  OemPrivateLabelSection, 
-  QualityAssuranceSection, 
   CatalogueDownloadsSection
 } from "@/components/products/additional-sections";
 
@@ -42,26 +38,14 @@ export default function ProductsPage() {
         </div>
       </section>
 
-      {/* 2. Product Philosophy */}
-      <ProductPhilosophy />
-
-      {/* 3 & 4. Featured & Editorial Collection Showcase */}
+      {/* 2. Featured & Editorial Collection Showcase */}
       <section className="py-24 bg-white relative">
         <Container>
           <EditorialCatalog />
         </Container>
       </section>
 
-      {/* 5. Manufacturing Process */}
-      <ManufacturingProcess />
-
-      {/* 6. OEM & Private Label */}
-      <OemPrivateLabelSection />
-
-      {/* 7. Quality Assurance */}
-      <QualityAssuranceSection />
-
-      {/* 8. Catalogue Downloads */}
+      {/* 3. Catalogue Downloads */}
       <CatalogueDownloadsSection />
       
     </main>

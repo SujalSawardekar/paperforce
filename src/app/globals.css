@@ -44,21 +44,22 @@
 @theme {
   --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Recoleta", "Poppins", ui-serif, Georgia, serif;
+  --color-white: #f6f7fb;
 }
 
 /* ─── CSS Variables ─── */
 @layer base {
   :root {
     /* Brand Colors — Design System §3 */
-    --background: 0 0% 100%;
-    /* Pure White #FFFFFF */
+    --background: 210 20% 98%;
+    /* Very Light Grey #F6F7FB */
     --foreground: 220 15% 7%;
     /* Dark Text ~#111827 */
 
-    --card: 0 0% 100%;
+    --card: 210 20% 98%;
     --card-foreground: 220 15% 7%;
 
-    --popover: 0 0% 100%;
+    --popover: 210 20% 98%;
     --popover-foreground: 220 15% 7%;
 
     /* Deep Navy #1E3261 — Primary Brand Color */

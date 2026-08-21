@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://paperforceindia.com";
-  const routes = ["", "/about", "/products", "/reach-markets", "/blog", "/contact", "/quality"];
+  const routes = ["", "/about", "/products", "/reach-markets", "/blog", "/contact", "/certifications", "/privacy", "/terms"];
 
   return routes.map((route) => ({
     url: `${baseUrl}${route}`,

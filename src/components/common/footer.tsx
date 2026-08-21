@@ -94,6 +94,7 @@ export function Footer() {
             <h4 className="text-base font-semibold text-white mb-6">Company</h4>
             <ul className="space-y-4">
               <li><Link href="/about" className="text-sm text-blue-200/70 hover:text-white transition-colors block">About Us</Link></li>
+              <li><Link href="/certifications" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Certifications</Link></li>
               <li><Link href="/reach-markets" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Markets</Link></li>
               <li><Link href="/products" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Products</Link></li>
               <li><Link href="/blog" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Blog</Link></li>
@@ -151,9 +152,15 @@ export function Footer() {
           transition={{ duration: 0.8, delay: 0.5 }}
           className="border-t border-blue-900/50 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-blue-200/60"
         >
-          <span>
-            &copy; 2026 Paperforce India LLP. All Rights Reserved.
-          </span>
+          <div className="flex flex-col sm:flex-row items-center gap-2">
+            <span>
+              &copy; 2026 Paperforce India LLP. All Rights Reserved.
+            </span>
+            <span className="hidden sm:inline text-blue-200/30">|</span>
+            <span>
+              Developed by <a href="https://haloxion.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors underline underline-offset-4 decoration-blue-500/50">Haloxion</a>
+            </span>
+          </div>
           <div className="flex flex-col sm:flex-row items-center gap-6">
             <div className="flex gap-4 sm:border-r border-blue-900/50 sm:pr-6">
               <a href="https://www.instagram.com/paperforceindia?igsh=eG10NWp6NDVhbGQ=" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-white transition-colors">

@@ -45,7 +45,7 @@ export function AboutHero() {
             <ScrollReveal direction="left" delay={0.2}>
               <div className="relative aspect-[4/5] sm:aspect-square lg:aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl border border-slate-200/50">
                 <Image 
-                  src="/images/about/about_hero_factory.png" 
+                  src="/images/about/about_hero_factory_branded.jpg" 
                   alt="Paperforce India Manufacturing Facility Exterior"
                   fill
                   className="object-cover"
@@ -67,7 +67,7 @@ export function AboutHero() {
                 </div>
               </div>
             </ScrollReveal>
-
+ 
             {/* Floating Badge 2 */}
             <ScrollReveal direction="down" delay={0.5} className="absolute -top-6 -right-6 sm:top-12 sm:-right-8">
               <div className="bg-[#1E3261]/95 backdrop-blur-md p-4 rounded-2xl shadow-xl border border-white/10 flex items-center gap-3">

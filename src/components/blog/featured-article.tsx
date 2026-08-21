@@ -6,7 +6,7 @@ import { Clock, ArrowRight } from "lucide-react";
 export function FeaturedArticle({ article }: { article: BlogPost }) {
   return (
     <div className="w-full mb-24">
-      <h2 className="text-sm font-bold tracking-widest uppercase text-slate-400 mb-6">Featured Article</h2>
+      <h2 className="text-sm font-bold tracking-widest uppercase text-slate-400 mb-6">Featured Resource</h2>
       
       <Link href={`/blog/${article.slug}`} className="group flex flex-col lg:flex-row gap-8 lg:gap-12 items-center bg-white rounded-3xl p-4 lg:p-8 shadow-sm hover:shadow-xl transition-all duration-500 border border-slate-100">
         

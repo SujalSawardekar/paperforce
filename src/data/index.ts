@@ -2,6 +2,7 @@ export const navigationLinks = [
   { name: "Home", href: "/" },
   { name: "About Us", href: "/about" },
   { name: "Products", href: "/products" },
+  { name: "Certifications", href: "/certifications" },
   { name: "Reach / Markets", href: "/reach-markets" },
   { name: "Blog", href: "/blog" },
   { name: "Contact Us", href: "/contact" },

@@ -1,17 +1,12 @@
 "use client";
 
 import * as React from "react";
-import { BlogHero } from "@/components/blog/blog-hero";
 import { FeaturedArticle } from "@/components/blog/featured-article";
 import { BlogSearch } from "@/components/blog/blog-search";
 import { TopicChips } from "@/components/blog/topic-chips";
 import { EditorialGrid } from "@/components/blog/editorial-grid";
-import { ResourcesSection } from "@/components/blog/resources-section";
-
-
-import { BlogContactCta } from "@/components/blog/blog-contact-cta";
 import { Container } from "@/components/common/container";
-import { blogCategories, featuredArticle, latestArticles, blogResources, BlogPost } from "@/lib/blog-data";
+import { blogCategories, featuredArticle, latestArticles } from "@/lib/blog-data";
 import { useSearchParams } from "next/navigation";
 import { BlogCard } from "@/components/blog/blog-card";
 
@@ -42,10 +37,8 @@ export function BlogPageContent() {
   }, [categoryFilter, searchQuery]);
 
   return (
-    <main className="w-full bg-white">
-      <BlogHero />
-      
-      <Container className="py-24">
+    <main className="w-full bg-white pt-24 pb-16">
+      <Container className="py-12">
         {/* Only show featured article if not searching/filtering heavily */}
         {!searchQuery && !categoryFilter && (
           <FeaturedArticle article={featuredArticle} />
@@ -54,7 +47,7 @@ export function BlogPageContent() {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 border-t border-slate-200 pt-16">
           <div>
             <h2 className="text-3xl lg:text-5xl font-serif font-bold text-[#1E3261]">
-              {categoryFilter ? `${blogCategories.find(c => c.slug === categoryFilter)?.name} Articles` : 'Latest Articles'}
+              {categoryFilter ? `${blogCategories.find(c => c.slug === categoryFilter)?.name} Articles` : 'Other Blogs'}
             </h2>
           </div>
           <BlogSearch onSearch={setSearchQuery} />
@@ -79,14 +72,6 @@ export function BlogPageContent() {
           <EditorialGrid articles={latestArticles} />
         )}
       </Container>
-      
-      <ResourcesSection resources={blogResources} />
-      
-
-      
-
-      
-      <BlogContactCta />
     </main>
   );
 }

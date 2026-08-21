@@ -1,195 +1,181 @@
 "use client";
 
 import * as React from "react";
-import Link from "next/link";
+import { useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Container } from "@/components/common/container";
-import { Button } from "@/components/ui/button";
-import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { SectionHeader } from "@/components/ui/section-header";
-import { ArrowUpRight, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
+import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 
-interface ProductTeaser {
-  name: string;
-  description: string;
-  imageUrl: string;
-  specs: string;
-  moq: string;
-}
-
-const notebookTeasers: ProductTeaser[] = [
-  { 
-    name: "Exercise Books", 
-    description: "Everyday notebooks for school and office use, produced at export volume. Optimized for cost-effectiveness.",
-    imageUrl: "/products/exercise_books.png",
-    specs: "54 - 80 GSM / A4, A5, Custom",
-    moq: "MOQ 10,000 PCS"
+const productCollections = [
+  {
+    number: "01",
+    title: "Exercise Books",
+    description: "High-volume notebook formats manufactured for institutional, retail and export requirements.",
+    image: "/products/exercise_books.png",
+    bgColor: "#eef6ee",
+    alt: "Exercise Books stacked on production line"
   },
-  { 
-    name: "Spiral Bound Notebooks", 
-    description: "Durable wire-coil binding for a smooth, lay-flat writing experience. Highly favored in college and workspaces.",
-    imageUrl: "/products/spiral_notebook.png",
-    specs: "60 - 90 GSM / A4, A5, B5, Letter",
-    moq: "MOQ 10,000 PCS"
+  {
+    number: "02",
+    title: "Spiral Bound",
+    description: "Durable wire-coil binding for a smooth, lay-flat writing experience. Favored by students and professionals.",
+    image: "/products/spiral_notebook.png",
+    bgColor: "#f1f0f9",
+    alt: "Spiral Bound notebooks close up"
   },
-  { 
-    name: "Double Wire Bound", 
-    description: "Reinforced double-loop wire construction for frequent, heavy business use. Professional appeal.",
-    imageUrl: "/products/double_wire_notebook.png",
-    specs: "70 - 100 GSM / A4, A5, A6, Custom",
-    moq: "MOQ 10,000 PCS"
+  {
+    number: "03",
+    title: "Double Wire Bound",
+    description: "Reinforced double-loop wire construction for frequent, heavy corporate and institutional use.",
+    image: "/products/double_wire_notebook.png",
+    bgColor: "#f6f1f4",
+    alt: "Double Wire Bound notebook preview"
   },
-  { 
-    name: "Hard Cover Gally Bound", 
-    description: "Premium bound notebooks with a rigid protective casing. Built for longevity and archival use.",
-    imageUrl: "/products/hardcover_notebook.png",
-    specs: "70 - 100 GSM / A4, A5, Custom",
-    moq: "MOQ 10,000 PCS"
+  {
+    number: "04",
+    title: "Hard Cover Gally Bound",
+    description: "Premium bound notebooks with rigid protective casing, built for longevity and archive applications.",
+    image: "/products/hardcover_notebook.png",
+    bgColor: "#f0f4f8",
+    alt: "Hard Cover Gally Bound notebook close up"
   },
-  { 
-    name: "Centre Stitched", 
-    description: "Classic saddle-stitched exercise books for volume-conscious procurement and tenders.",
-    imageUrl: "/products/stitched_notebook.png",
-    specs: "54 - 70 GSM / A5, B6, Custom",
-    moq: "MOQ 20,000 PCS"
+  {
+    number: "05",
+    title: "Centre Stitched",
+    description: "Classic saddle-stitched exercise books for volume-conscious school procurement and public tenders.",
+    image: "/products/stitched_notebook.png",
+    bgColor: "#eef6ee",
+    alt: "Centre Stitched notebook binding detail"
   },
-  { 
-    name: "Glue Bound Notebooks", 
-    description: "Adhesive-bound notebooks offering a clean, economical finish. Perfect for note pads.",
-    imageUrl: "/products/glue_bound_notebook.png",
-    specs: "60 - 80 GSM / A4, A5, B5",
-    moq: "MOQ 10,000 PCS"
+  {
+    number: "06",
+    title: "Glue Bound",
+    description: "Clean adhesive-bound notebooks and pads offering a clean, lay-flat finish. Perfect for desktop notepad use.",
+    image: "/products/glue_bound_notebook.png",
+    bgColor: "#f1f0f9",
+    alt: "Glue Bound notebook edge details"
   }
 ];
 
-export function ProductSection() {
-  const containerRef = React.useRef<HTMLDivElement>(null);
-  const [activeIndex, setActiveIndex] = React.useState(0);
+function ProductStackCard({ 
+  product, 
+  idx, 
+  totalCards,
+  progress,
+}: { 
+  product: typeof productCollections[0];
+  idx: number;
+  totalCards: number;
+  progress: MotionValue<number>;
+}) {
+  const isLast = idx === totalCards - 1;
+  const segmentEnd = (idx + 1) / totalCards;
 
-  React.useEffect(() => {
-    let ticking = false;
-
-    const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          if (containerRef.current) {
-            const rect = containerRef.current.getBoundingClientRect();
-            const totalScrollableDistance = rect.height - window.innerHeight;
-            
-            if (totalScrollableDistance > 0) {
-              const scrolled = -rect.top;
-              const progress = Math.max(0, Math.min(1, scrolled / totalScrollableDistance));
-
-              const newIndex = Math.min(
-                notebookTeasers.length - 1,
-                Math.floor(progress * notebookTeasers.length)
-              );
-
-              setActiveIndex((prev) => (prev !== newIndex ? newIndex : prev));
-            }
-          }
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  // Cards 0..N-2 scale down smoothly as the section scrolls.
+  // The last card (idx === totalCards - 1) doesn't scale.
+  const scale = useTransform(
+    progress,
+    isLast ? [0, 1] : [segmentEnd, 1],
+    isLast ? [1, 1] : [1, 0.94]
+  );
 
   return (
-    // Outer scroll track: 200vh height allows pinned scrolling through the 6 items faster
-    <section ref={containerRef} className="relative pt-20 md:pt-32 h-[200vh] bg-white ">
-      {/* Pinned Sticky Window: stays fixed at top-24/top-28 while scrolling */}
-      <div className="sticky top-24 md:top-28 h-[calc(100vh-6rem)] flex flex-col justify-center overflow-hidden">
-        <Container className="space-y-6 md:space-y-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-            <div className="max-w-2xl">
-              <SectionHeader 
-                eyebrow="Our Catalog" 
-                title="Bulk Stationery Specifications" 
-                description="We manufacture a wide range of notebooks alongside a growing paper packaging vertical - combining structural durability and premium paper grades."
-                centered={false}
-              />
-            </div>
-            <Link href="/products" className="shrink-0 mb-8 md:mb-12">
-              <Button variant="outline" className="font-bold border-[#1E3261]">
-                Explore Full Catalog
-                <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
-              </Button>
-            </Link>
-          </div>          {/* 2-Column Content Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center max-w-6xl mx-auto">
-            {/* Left Column: Product Image Frame (Cross-fading active item) */}
-            <div className="lg:col-span-5 relative rounded-3xl overflow-hidden aspect-[4/3] lg:aspect-square bg-slate-50 border border-slate-100  shadow-lg shrink-0">
-              {notebookTeasers.map((teaser, idx) => (
-                <div
-                  key={idx}
-                  className={`absolute inset-0 transition-opacity duration-500 ease-out will-change-opacity ${
-                    activeIndex === idx ? "opacity-100 z-10 scale-100" : "opacity-0 z-0 scale-95"
-                  }`}
-                  style={{ transitionProperty: "opacity, transform" }}
-                >
-                  <Image
-                    src={teaser.imageUrl}
-                    alt={teaser.name}
-                    fill
-                    sizes="(max-width: 1024px) 100vw, (max-width: 1280px) 42vw, 480px"
-                    className="object-cover"
-                    priority={idx === 0}
-                    loading={idx === 0 ? "eager" : "lazy"}
-                  />
-                </div>
-              ))}
-            </div>
+    <motion.div
+      className={`sticky pt-4 ${isLast ? "mb-12" : "mb-[40vh]"}`}
+      style={{
+        top: `calc(12vh + ${idx * 18}px)`,
+        zIndex: idx + 10,
+        scale,
+        transformOrigin: "top center",
+        willChange: "transform",
+      }}
+    >
+      <div
+        className="flex flex-col lg:flex-row rounded-[28px] overflow-hidden border border-slate-100/80 shadow-[0_8px_40px_-10px_rgba(0,0,0,0.12)] bg-white"
+        style={{ backgroundColor: product.bgColor }}
+      >
+        {/* Left Column: Text & Content (2/5 width) */}
+        <div className="w-full lg:w-2/5 p-8 lg:p-12 flex flex-col justify-center">
+          <span className="text-[11px] font-bold uppercase tracking-widest text-[#1E3261] mb-3 block">
+            {product.number}
+          </span>
+          <h3 className="text-2xl sm:text-3xl lg:text-[2rem] font-bold text-slate-900 mb-4 font-serif leading-tight">
+            {product.title}
+          </h3>
+          <p className="text-sm text-slate-600 leading-relaxed max-w-xs mb-6 font-medium">
+            {product.description}
+          </p>
+          <Link href="/products" className="inline-flex items-center gap-1 text-xs font-bold text-[#1E3261] group hover:underline">
+            Explore Range
+            <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
+          </Link>
+        </div>
 
-            {/* Right Column: Product Items List */}
-            <div className="lg:col-span-7 flex flex-col text-left">
-              <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-slate-400">
-                Your formats
-              </span>
-              <h3 className="text-xl sm:text-2xl font-bold text-[#0b1c3f]  font-serif pb-2">
-                Premium Notebooks
-              </h3>
-
-              <div className="flex flex-col">
-                {notebookTeasers.map((teaser, idx) => {
-                  const isActive = activeIndex === idx;
-                  return (
-                    <div
-                      key={idx}
-                      onClick={() => setActiveIndex(idx)}
-                      className="py-3.5 md:py-4 border-b border-slate-200  flex justify-between items-center transition-all duration-300 cursor-pointer"
-                      style={{ opacity: isActive ? 1 : 0.25 }}
-                    >
-                      <div className="flex flex-col sm:flex-row sm:items-baseline">
-                        <span className={`font-bold text-base sm:text-lg tracking-wider uppercase transition-all duration-300 ${
-                          isActive 
-                            ? "text-[#0b1c3f]  font-extrabold" 
-                            : "text-slate-800 "
-                        }`}>
-                          {teaser.name}
-                        </span>
-                        <span className="text-[10px] sm:text-xs text-slate-500  sm:ml-2 font-normal">
-                          / {teaser.specs}
-                        </span>
-                      </div>
-                      <span className={`font-bold text-xs sm:text-sm transition-colors duration-300 ${
-                        isActive ? "text-[#0b1c3f]  font-extrabold" : "text-slate-400"
-                      }`}>
-                        {teaser.moq}
-                      </span>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-        </Container>
+        {/* Right Column: Image only, no overlapping gradient (3/5 width) */}
+        <div className="w-full lg:w-3/5 h-[240px] sm:h-[280px] lg:h-[340px] relative">
+          <Image
+            src={product.image}
+            alt={product.alt}
+            fill
+            sizes="(max-width: 1024px) 100vw, 60vw"
+            className="object-cover"
+            priority={idx === 0}
+            loading={idx === 0 ? "eager" : "lazy"}
+          />
+        </div>
       </div>
-    </section>
+    </motion.div>
   );
 }
 
+export function ProductSection() {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Track the full section scroll progress for sticky overlapping transforms
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"],
+  });
+
+  return (
+    <section className="pt-20 md:pt-28 pb-0 bg-white cursor-default border-t border-slate-100">
+      <Container className="max-w-[1400px] mx-auto space-y-16 relative" ref={containerRef}>
+        
+        {/* Section Heading */}
+        <SectionHeader
+          eyebrow="Our Products"
+          title="Made for every format."
+          description="From everyday exercise books to premium bound formats, Paperforce manufactures notebook collections tailored to global sourcing requirements."
+          centered={false}
+        />
+
+        {/* Overlapping Cards Stack Container */}
+        <div className="relative pb-2">
+          {productCollections.map((product, idx) => (
+            <ProductStackCard
+              key={idx}
+              product={product}
+              idx={idx}
+              totalCards={productCollections.length}
+              progress={scrollYProgress}
+            />
+          ))}
+        </div>
+
+        {/* Final CTA Button */}
+        <div className="flex justify-center pt-8 pb-16">
+          <Link href="/products">
+            <Button variant="outline" size="lg" className="font-bold border-[#1E3261] px-8 py-6 text-base">
+              View All Products
+            </Button>
+          </Link>
+        </div>
+
+      </Container>
+    </section>
+  );
+}

@@ -5,6 +5,7 @@ import { Navbar } from "@/components/common/navbar";
 import { Footer } from "@/components/common/footer";
 import { ThemeProvider } from "next-themes";
 import { Analytics } from "@vercel/analytics/next";
+import { CatalogueDownloadModal } from "@/components/common/catalogue-modal";
 
 export const metadata: Metadata = {
   title: "Paperforce India - Global Stationery Manufacturer",
@@ -26,6 +27,7 @@ export default function RootLayout({
           </main>
           <Footer />
           <Analytics />
+          <CatalogueDownloadModal />
         </ThemeProvider>
       </body>
     </html>

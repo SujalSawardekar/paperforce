@@ -186,7 +186,7 @@ export function CatalogueDownloadsSection() {
             <ScrollReveal key={i} delay={0.1 * i}>
               <div 
                 className="bg-white border border-slate-200 p-8 rounded-2xl hover:border-slate-300 hover:shadow-lg transition-all cursor-pointer group"
-                onClick={() => window.open(doc.file, "_blank")}
+                onClick={() => window.dispatchEvent(new CustomEvent("open-catalogue-modal"))}
               >
                 <div className="bg-slate-50 w-12 h-12 rounded-full flex items-center justify-center text-[#1E3261] mb-6 group-hover:bg-[#1E3261] group-hover:text-white transition-colors">
                   <FileText size={20} />

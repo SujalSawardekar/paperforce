@@ -13,6 +13,7 @@ const desktopPillLinks = [
   { name: "Home", href: "/" },
   { name: "About Us", href: "/about" },
   { name: "Products", href: "/products" },
+  { name: "Certifications", href: "/certifications" },
   { name: "Markets", href: "/reach-markets" },
   { name: "Blog", href: "/blog" },
 ];
@@ -105,24 +106,37 @@ export function Navbar() {
           transition={{ duration: 0.4, ease: "easeInOut" }}
         />
         
-        {/* True glassmorphism blur for the curve using clip-path */}
-        <motion.div 
-          className="absolute left-1/2 -translate-x-1/2 w-[400px] h-[84px] bg-white/70  backdrop-blur-md pointer-events-none"
-          initial={false}
-          animate={{
-            clipPath: isCompact
-              ? "path('M 0 58 C 60 58, 70 58, 120 58 L 280 58 C 330 58, 340 58, 400 58 L 400 0 L 0 0 Z')"
-              : "path('M 0 0.75 C 60 0.75, 70 80, 120 80 L 280 80 C 330 80, 340 0.75, 400 0.75 L 400 0 L 0 0 Z')",
-            opacity: isCompact ? 0 : 1
-          }}
-          transition={{ duration: 0.4, ease: "easeInOut" }}
-        />
-
-        {/* Center SVG stroke that flattens */}
+        {/* Center SVG stroke & background that flattens */}
         <svg 
           className="absolute left-1/2 -translate-x-1/2 w-[400px] h-[84px] pointer-events-none" 
           viewBox="0 0 400 84"
         >
+          <defs>
+            <clipPath id="navbar-curve-clip">
+              <motion.path
+                initial={false}
+                animate={{
+                  d: isCompact
+                    ? "M 0 58 C 60 58, 70 58, 120 58 L 280 58 C 330 58, 340 58, 400 58 L 400 0 L 0 0 Z"
+                    : "M 0 0.75 C 60 0.75, 70 80, 120 80 L 280 80 C 330 80, 340 0.75, 400 0.75 L 400 0 L 0 0 Z"
+                }}
+                transition={{ duration: 0.4, ease: "easeInOut" }}
+              />
+            </clipPath>
+          </defs>
+
+          {/* True glassmorphism blur for the curve using native SVG clipPath */}
+          <g clipPath="url(#navbar-curve-clip)" className="pointer-events-none">
+            <foreignObject x="0" y="0" width="400" height="84">
+              <motion.div 
+                className="w-full h-full bg-white/70 backdrop-blur-md"
+                initial={false}
+                animate={{ opacity: isCompact ? 0 : 1 }}
+                transition={{ duration: 0.4, ease: "easeInOut" }}
+              />
+            </foreignObject>
+          </g>
+
           {/* Stroke path */}
           <motion.path 
             initial={false}
@@ -133,7 +147,7 @@ export function Navbar() {
             }}
             transition={{ duration: 0.4, ease: "easeInOut" }}
             fill="none" 
-            className="stroke-slate-300 " 
+            className="stroke-slate-300" 
             strokeWidth="1.5" 
           />
         </svg>
@@ -162,9 +176,9 @@ export function Navbar() {
           <Image
             src="/logo.png"
             alt="Paperforce Logo"
-            width={180}
-            height={48}
-            className={cn("w-auto object-contain transition-all duration-300", isCompact ? "h-8" : "h-12")}
+            width={240}
+            height={64}
+            className={cn("w-auto object-contain transition-all duration-300", isCompact ? "h-10" : "h-16")}
             priority
             loading="eager"
           />
@@ -181,7 +195,7 @@ export function Navbar() {
       )}>
         
         {/* Left Cluster: Navigation Links */}
-        <div className="hidden md:flex items-center space-x-1.5 pointer-events-auto shrink-0 w-[40%]">
+        <div className="hidden md:flex items-center justify-start space-x-0.5 lg:space-x-1 pointer-events-auto shrink-0 w-[41%] lg:w-[37%]">
           {!isCollectionPage && desktopPillLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
@@ -189,7 +203,7 @@ export function Navbar() {
                   <Button 
                     variant={isActive ? "default" : "ghost"} 
                     className={cn(
-                      "text-[12px] font-bold h-8 px-4",
+                      "text-[10px] lg:text-[11px] font-bold h-8 px-1.5 lg:px-2.5 whitespace-nowrap",
                       isActive ? "border-transparent" : "border-transparent text-slate-600 hover:text-slate-900"
                     )}
                     onClick={() => router.push(link.href)}
@@ -207,22 +221,48 @@ export function Navbar() {
         {/* Center Space so flex-between works correctly (remaining width) */}
         <div className="hidden md:block flex-1" />
 
-        {/* Right Cluster: Action Buttons */}
-        <div className="flex justify-end items-center gap-3 pointer-events-auto shrink-0 w-[40%]">
+        {/* Right Cluster: Action Buttons & Social Icons */}
+        <div className="flex justify-end items-center gap-2 lg:gap-3 pointer-events-auto shrink-0 w-[44%] lg:w-[41%]">
           {!isCollectionPage && (
             <>
-              <motion.div variants={itemVariants} className="hidden md:flex items-center gap-2">
+              <motion.div variants={itemVariants} className="hidden md:flex items-center gap-2 lg:gap-3">
+                  {/* Social Icons */}
+                  <div className="flex items-center gap-3 mr-2 border-r border-slate-200 pr-4 h-5">
+                    <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                      <svg className="w-4 h-4 fill-slate-500 hover:fill-[#1E3261] transition-colors" viewBox="0 0 24 24">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                      </svg>
+                    </a>
+                    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                      <svg className="w-4 h-4 stroke-slate-500 hover:stroke-[#1E3261] transition-colors stroke-2" viewBox="0 0 24 24" fill="none">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                      </svg>
+                    </a>
+                    <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                      <svg className="w-4 h-4 fill-slate-500 hover:fill-[#1E3261] transition-colors" viewBox="0 0 24 24">
+                        <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
+                      </svg>
+                    </a>
+                    <a href="https://www.pinterest.com" target="_blank" rel="noopener noreferrer" aria-label="Pinterest">
+                      <svg className="w-4 h-4 fill-slate-500 hover:fill-[#1E3261] transition-colors" viewBox="0 0 24 24">
+                        <path d="M12 0c-6.627 0-12 5.372-12 12 0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.162 0 7.396 2.967 7.396 6.93 0 4.135-2.607 7.462-6.227 7.462-1.215 0-2.358-.631-2.75-1.378l-.749 2.853c-.271 1.033-.997 2.327-1.488 3.12 1.124.348 2.311.537 3.541.537 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/>
+                      </svg>
+                    </a>
+                  </div>
+
                   <Button 
                     variant="ghost" 
-                    className="font-bold text-[13px] px-4 h-9 text-slate-600 hover:text-slate-900"
-                    onClick={() => window.open("/PaperForce%20Catalogue.pdf", "_blank")}
+                    className="font-bold text-[12px] lg:text-[13px] px-2 lg:px-3 h-9 text-slate-600 hover:text-slate-900"
+                    onClick={() => window.dispatchEvent(new CustomEvent("open-catalogue-modal"))}
                   >
-                    <Download size={16} className="mr-1.5" />
+                    <Download size={15} className="mr-1.5" />
                     Catalogue
                   </Button>
                   <Button 
                     variant="outline" 
-                    className="font-bold text-[13px] px-7 h-9 border-slate-300"
+                    className="font-bold text-[12px] lg:text-[13px] px-3.5 lg:px-5 h-9 border-slate-300"
                     onClick={() => router.push("/contact")}
                   >
                     Request Quote
@@ -253,17 +293,17 @@ export function Navbar() {
               // Handle Catalogue differently since it's a PDF
               if (link.name === "Catalogue") {
                 return (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="px-4 py-2.5 rounded-xl text-sm font-bold transition-colors text-slate-700 hover:bg-slate-100 flex items-center"
+                  <button
+                    key={link.name}
+                    onClick={() => {
+                      setMobileMenuOpen(false);
+                      window.dispatchEvent(new CustomEvent("open-catalogue-modal"));
+                    }}
+                    className="px-4 py-2.5 rounded-xl text-sm font-bold transition-colors text-slate-700 hover:bg-slate-100 flex items-center w-full text-left cursor-pointer"
                   >
                     <Download size={16} className="mr-2" />
                     {link.name}
-                  </a>
+                  </button>
                 );
               }
               return (

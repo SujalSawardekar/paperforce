@@ -9,17 +9,17 @@ const gallery = [
   {
     title: "Production Floor",
     span: "md:col-span-8 md:row-span-2",
-    image: "/images/about/about_mfg_overview.png"
+    image: "/images/about/gallery_production_floor.jpg"
   },
   {
     title: "Skilled Workforce",
     span: "md:col-span-4 md:row-span-1",
-    image: "/images/about/about_mfg_workers.png"
+    image: "/images/about/gallery_skilled_workforce.jpg"
   },
   {
     title: "Automated Packaging",
     span: "md:col-span-4 md:row-span-1",
-    image: "/images/about/about_mfg_packaging.png"
+    image: "/images/about/gallery_automated_packaging.jpg"
   },
   {
     title: "Quality Inspection",
@@ -29,12 +29,12 @@ const gallery = [
   {
     title: "Logistics Warehouse",
     span: "md:col-span-8 md:row-span-1",
-    image: "/images/about/about_mfg_warehouse.png"
+    image: "/images/about/gallery_logistics_warehouse.jpg"
   },
   {
     title: "Export Terminal",
     span: "md:col-span-8 md:row-span-1",
-    image: "/images/about/about_mfg_export.png"
+    image: "/images/about/gallery_export_terminal.jpg"
   }
 ];
 

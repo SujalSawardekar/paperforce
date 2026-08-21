@@ -47,18 +47,9 @@ export function WhyChooseSection() {
         {/* Clean, Elegant Typography Header */}
         <div className="relative z-10 flex flex-col items-center justify-center text-center w-full px-4 mb-12 shrink-0 max-w-5xl mx-auto">
           <div className="relative inline-block mt-4 space-y-6">
-            <h2 className="text-5xl md:text-6xl lg:text-7xl leading-tight font-bold tracking-tight text-slate-900 ">
-              Why <span className="font-serif italic text-amber-500 font-medium">Global</span> Importers <br className="hidden md:block" />
-              <span className="text-[#0b1c3f] ">Choose</span> <span className="text-red-600 relative inline-block">
-                Us.
-                <motion.span 
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                  className="text-amber-500 text-3xl md:text-4xl lg:text-5xl absolute -top-4 -right-8"
-                >
-                  ✦
-                </motion.span>
-              </span>
+            <h2 className="text-5xl md:text-6xl lg:text-7xl leading-tight font-bold tracking-tight text-[#1E3261] font-serif">
+              Why Global Importers <br className="hidden md:block" />
+              Choose Us
             </h2>
             <p className="text-lg md:text-xl text-slate-600  max-w-2xl mx-auto leading-relaxed">
               We combine massive production scale with uncompromising quality control to deliver premium stationery products worldwide.

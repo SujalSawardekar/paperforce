@@ -1,7 +1,6 @@
 "use client"
 import * as React from "react"
 import Image from "next/image"
-import { motion } from "framer-motion"
 import { Container } from "@/components/common/container"
 import { ScrollReveal } from "@/components/ui/scroll-reveal"
 import { ShieldCheck, Target, Leaf, CheckCircle2 } from "lucide-react"
@@ -9,7 +8,7 @@ import { ShieldCheck, Target, Leaf, CheckCircle2 } from "lucide-react"
 const workflow = [
   { step: "01", title: "Raw Material Audit", desc: "Rigorous moisture and GSM checks before production begins." },
   { step: "02", title: "In-line Inspection", desc: "Continuous monitoring of binding strength and ruling alignment." },
-  { step: "03", title: "AQL 2.5 Final Audit", desc: "Strict statistical sampling prior to palletization and container loading." }
+  { step: "03", title: "ISO 9001 Final Audit", desc: "Strict statistical sampling prior to palletization and container loading." }
 ];
 
 export function AboutCompliance() {
@@ -23,7 +22,7 @@ export function AboutCompliance() {
             <ScrollReveal direction="right" delay={0.1}>
               <div className="relative aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl border border-slate-200">
                 <Image 
-                  src="/images/about/about_mfg_quality.png"
+                  src="/images/about/gallery_quality_inspection.jpg"
                   alt="Quality inspection process"
                   fill
                   className="object-cover"
@@ -38,7 +37,7 @@ export function AboutCompliance() {
                   <ShieldCheck className="w-6 h-6" />
                 </div>
                 <div>
-                  <div className="text-sm font-bold text-slate-900">AQL 2.5</div>
+                  <div className="text-sm font-bold text-slate-900">ISO 9001</div>
                   <div className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Certified</div>
                 </div>
               </div>
@@ -50,8 +49,8 @@ export function AboutCompliance() {
                   <Leaf className="w-6 h-6" />
                 </div>
                 <div>
-                  <div className="text-sm font-bold text-white">FSC Standard</div>
-                  <div className="text-xs font-semibold text-blue-200 uppercase tracking-wider">Ethical Sourcing</div>
+                  <div className="text-sm font-bold text-white">Ethical Sourcing</div>
+                  <div className="text-xs font-semibold text-blue-200 uppercase tracking-wider">Certified Paper</div>
                 </div>
               </div>
             </ScrollReveal>

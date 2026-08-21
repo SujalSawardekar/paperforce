@@ -5,14 +5,12 @@ import { Container } from "@/components/common/container";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { Button } from "@/components/ui/button";
 import { CorporateProfileSection } from "@/components/home/corporate-profile-section";
-import { WhyChooseSection } from "@/components/home/why-choose-section";
-import { SourcingAdvantagesSection } from "@/components/home/sourcing-advantages-section";
 import { ProductSection } from "@/components/home/product-section";
 import { IndustriesSection } from "@/components/home/industries-section";
-import { BlogPreviewSection } from "@/components/home/blog-preview-section";
 import { GlobalReachSection } from "@/components/home/global-reach-section";
 import { HomeFaqSection } from "@/components/home/faq-section";
 import { HeroBackground } from "@/components/home/hero-background";
+import { ManufacturingProcess } from "@/components/products/additional-sections";
 
 function getCompanySchema() {
   return {
@@ -86,13 +84,11 @@ export default function HomePage() {
       </section>
 
       <CorporateProfileSection />
-      <WhyChooseSection />
-      <SourcingAdvantagesSection />
+      <ManufacturingProcess />
       <ProductSection />
       <IndustriesSection />
       <GlobalReachSection />
       <HomeFaqSection />
-      <BlogPreviewSection />
       
       {/* WhatsApp Floating Button */}
       <a 

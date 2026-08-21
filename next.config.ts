@@ -14,6 +14,16 @@ const nextConfig: NextConfig = {
         destination: "/reach-markets",
         permanent: true,
       },
+      {
+        source: "/quality",
+        destination: "/certifications",
+        permanent: true,
+      },
+      {
+        source: "/infrastructure",
+        destination: "/about",
+        permanent: true,
+      },
     ];
   },
 };

@@ -4,7 +4,7 @@ import { Container } from "@/components/common/container"
 import { motion, AnimatePresence } from "framer-motion"
 import { ComposableMap, Geographies, Geography } from "react-simple-maps"
 import { geoMercator } from "d3-geo"
-import { MapPin, Ship, Clock, Box, ShoppingCart, User, Factory, Package, FileText, Anchor } from "lucide-react"
+import { MapPin, ShoppingCart, FileText, Package, Factory, Anchor } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const geoUrl = "/features.json"
@@ -14,13 +14,11 @@ type Region = {
   name: string
   coord: [number, number]
   color: string
-  transit: string
-  container: string
-  moq: string
   products: string
-  buyerType: string
-  packaging: string
-  documentation: string
+  productDesc: string
+  productImage: string
+  specs: string
+  logistics: string
 }
 
 const factoryCoord: [number, number] = [72.76, 19.69] // Palghar
@@ -32,65 +30,55 @@ const regions: Region[] = [
     name: "United Kingdom",
     coord: [-2.0, 53.5],
     color: "#1E3261", // Deep Navy
-    transit: "20–24 Days",
-    container: "20ft / 40ft FCL",
-    moq: "30,000 Units",
-    products: "A4 / A5 Double Wire Bound Notebooks",
-    buyerType: "Importers, Wholesalers",
-    packaging: "Standard Export Cartons",
-    documentation: "Commercial Invoice, Packing List, BL"
+    products: "A4 / A5 Double-Wire Project Books",
+    productDesc: "Features colored subject tabs, micro-perforation, and premium 80 GSM white paper, standard in UK schools and professional workplaces.",
+    productImage: "/Images of Product/Set_05/Set_05 (1).png",
+    specs: "Sizes: A4, A5\nBinding: Double-Wire Spine\nPaper: 80 GSM High-White\nRuling: 8mm Lined with Margin",
+    logistics: "Packing: Shrink-wrapped in 5s\nMin Order: 25,000 Units\nTransit: 20-24 Days to UK Ports"
   },
   {
     id: "me",
     name: "Middle East",
     coord: [45.0, 25.0], 
     color: "#10B981", // Emerald Green
-    transit: "5–8 Days",
-    container: "20ft / 40ft FCL",
-    moq: "20,000 Units",
-    products: "Premium Hardcover Journals",
-    buyerType: "Stationery Distributors",
-    packaging: "Palletized Cartons, Shrink Wrapped",
-    documentation: "Certificate of Origin, Invoice, BL"
+    products: "Leatherette Executive Journals",
+    productDesc: "Premium hardcover thread-sewn corporate notebooks, designed with gold gilt-edge sheets and customized cover branding for Gulf markets.",
+    productImage: "/Images of Product/Set_08/Set_08 (1).png",
+    specs: "Sizes: A5, B6\nBinding: Section Sewn Hardcover\nPaper: 80 GSM Ivory Lined\nCover: Soft Debossed PU",
+    logistics: "Packing: Individual Gift Box\nMin Order: 15,000 Units\nTransit: 5-8 Days to Gulf Ports"
   },
   {
     id: "na",
     name: "North America",
     coord: [-95.0, 40.0],
     color: "#3B82F6", // Royal Blue
-    transit: "30–35 Days",
-    container: "40ft HQ FCL",
-    moq: "50,000 Units",
-    products: "College Ruled Notebooks, Legal Pads",
-    buyerType: "Big Box Retailers, Importers",
-    packaging: "Retail Ready Packaging",
-    documentation: "ISF Filing, Commercial Invoice, BL"
+    products: "Letter Size College Ruled Notebooks",
+    productDesc: "Classic school spiral notebooks featuring college ruling, perforated margins, and 3-hole punched spine sheets for standard US binder inserts.",
+    productImage: "/Images of Product/Set_01/Set_01 (1).png",
+    specs: "Sizes: Letter (8.5\" x 11\")\nBinding: Single Spiral Wire\nPaper: 60 GSM Bright White\nRuling: 9/32\" College Ruled",
+    logistics: "Packing: Display Carton Box\nMin Order: 50,000 Units\nTransit: 30-35 Days to US Ports"
   },
   {
     id: "wa",
     name: "West Africa",
     coord: [8.0, 10.0],
     color: "#F97316", // Orange
-    transit: "25–30 Days",
-    container: "20ft FCL",
-    moq: "40,000 Units",
-    products: "French Ruled Notebooks",
-    buyerType: "Wholesale Markets, Govt",
-    packaging: "Heavy Duty Corrugated Cartons",
-    documentation: "SONCAP, Form M, Invoice, BL"
+    products: "Seyi / French Ruled Exercise Books",
+    productDesc: "Traditional stapled exercise books tailored with heavy-duty board covers and Seyes double-line grids, popular in Francophone markets.",
+    productImage: "/Images of Product/Set_02/Set_02 (1).png",
+    specs: "Sizes: 17 x 22 cm, A5\nBinding: Stapled (Saddle Stitch)\nPaper: 60/70 GSM White\nRuling: Seyes / French Grid",
+    logistics: "Packing: Heavy-Duty Bundle Pack\nMin Order: 40,000 Units\nTransit: 25-30 Days to WA Ports"
   },
   {
     id: "la",
     name: "Latin America",
     coord: [-60.0, -15.0],
     color: "#DC2626", // Crimson Red
-    transit: "35–45 Days",
-    container: "40ft FCL",
-    moq: "40,000 Units",
-    products: "Spanish Ruled Notebooks",
-    buyerType: "Importers, Regional Distributors",
-    packaging: "Standard Cartons, Palletized",
-    documentation: "Commercial Invoice, BL"
+    products: "Cuadernos Cosidos (Stitched School Notebooks)",
+    productDesc: "High-volume stitched school journals constructed with glossy plasticized covers to withstand harsh student usage and tropical climates.",
+    productImage: "/Images of Product/Set_03/Set_03 (1).png",
+    specs: "Sizes: 19 x 24 cm\nBinding: Sewn Spine (Cosido)\nPaper: 60 GSM Lined / Quad\nCover: High-Gloss Poly-Coated",
+    logistics: "Packing: Standard Export Carton\nMin Order: 45,000 Units\nTransit: 35-45 Days to LA Ports"
   },
 ]
 
@@ -118,9 +106,9 @@ export function ExportNetworkSection() {
   const animKey = `anim-${activeRegionId}`
 
   return (
-    <section className="py-24 md:py-32 bg-white relative overflow-hidden border-t border-slate-200">
+    <section className="py-12 md:py-16 bg-white relative overflow-hidden border-t border-slate-200">
       <Container>
-        <div className="w-full mb-12 text-center border-b border-slate-200 pb-10">
+        <div className="w-full mb-8 text-center border-b border-slate-200 pb-6">
           <div className="inline-block text-xs font-bold tracking-[0.2em] uppercase text-slate-400 mb-4 px-4 py-1.5 rounded-full border border-slate-200 bg-slate-50">
             World Export Network
           </div>
@@ -130,18 +118,18 @@ export function ExportNetworkSection() {
         </div>
 
         {/* Hero Interactive World Map */}
-        <div className="w-full bg-[#f8fafc] border border-slate-200 rounded-3xl overflow-hidden mb-12 shadow-[0_10px_40px_rgba(30,50,97,0.04)] relative">
+        <div className="w-full bg-[#f8fafc] border border-slate-200 rounded-3xl overflow-hidden mb-8 shadow-[0_10px_40px_rgba(30,50,97,0.04)] relative">
           
           {/* Map Legend */}
           <div className="absolute top-6 left-6 flex flex-wrap items-center gap-4 bg-white/90 backdrop-blur-md p-3 px-5 rounded-full border border-slate-200 shadow-sm z-10">
              <div className="flex items-center gap-2 text-xs font-bold text-slate-700">
-               <Factory size={14} className="text-[#1E3261]" /> Factory
+                <Factory size={14} className="text-[#1E3261]" /> Factory
              </div>
              <div className="flex items-center gap-2 text-xs font-bold text-slate-700">
-               <Anchor size={14} className="text-[#1E3261]" /> Port
+                <Anchor size={14} className="text-[#1E3261]" /> Port
              </div>
              <div className="flex items-center gap-2 text-xs font-bold text-slate-700">
-               <MapPin size={14} className="text-[#1E3261]" /> Destination
+                <MapPin size={14} className="text-[#1E3261]" /> Destination
              </div>
           </div>
 
@@ -309,7 +297,7 @@ export function ExportNetworkSection() {
         </div>
 
         {/* Region Tabs */}
-        <div className="flex flex-wrap items-center justify-center gap-2 md:gap-4 mb-16">
+        <div className="flex flex-wrap items-center justify-center gap-2 md:gap-4 mb-8">
           {regions.map((region) => {
             const isActive = region.id === activeRegionId
             return (
@@ -340,57 +328,55 @@ export function ExportNetworkSection() {
             exit={{ opacity: 0, transition: { duration: 0.1 } }}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
           >
-            <div className="bg-slate-50 p-6 rounded-2xl border flex flex-col justify-center shadow-sm" style={{ borderColor: `${activeRegion.color}30` }}>
-              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest mb-3" style={{ color: activeRegion.color }}>
-                <Clock size={14} /> Transit Time
+            {/* Card 1 & 2: Popular Product (spans 2 columns on desktop) */}
+            <div 
+              className="bg-slate-50 p-8 rounded-3xl border flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 lg:col-span-2 shadow-sm relative overflow-hidden group" 
+              style={{ borderColor: `${activeRegion.color}30` }}
+            >
+              <div className="flex-1 relative z-10">
+                <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest mb-3" style={{ color: activeRegion.color }}>
+                  <ShoppingCart size={14} /> Most Popular Product
+                </div>
+                <div className="text-xl font-bold text-[#1E3261] mb-2">{activeRegion.products}</div>
+                <p className="text-xs text-slate-500 leading-relaxed font-semibold">{activeRegion.productDesc}</p>
               </div>
-              <div className="text-xl font-bold text-[#1E3261]">{activeRegion.transit}</div>
+              <div className="relative w-24 h-24 rounded-xl overflow-hidden bg-white border border-slate-200 shrink-0 self-center p-1 shadow-inner z-10">
+                <img 
+                  src={activeRegion.productImage} 
+                  alt={activeRegion.products} 
+                  className="w-full h-full object-contain" 
+                />
+              </div>
             </div>
 
-            <div className="bg-slate-50 p-6 rounded-2xl border flex flex-col justify-center shadow-sm" style={{ borderColor: `${activeRegion.color}30` }}>
-              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest mb-3" style={{ color: activeRegion.color }}>
-                <Package size={14} /> MOQ
+            {/* Card 3: Key Specifications (spans 1 column) */}
+            <div 
+              className="bg-slate-50 p-8 rounded-3xl border flex flex-col justify-start shadow-sm" 
+              style={{ borderColor: `${activeRegion.color}30` }}
+            >
+              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest mb-4" style={{ color: activeRegion.color }}>
+                <FileText size={14} /> Key Specifications
               </div>
-              <div className="text-xl font-bold text-[#1E3261]">{activeRegion.moq}</div>
+              <div className="text-sm font-semibold text-[#1E3261] leading-relaxed whitespace-pre-line">
+                {activeRegion.specs}
+              </div>
             </div>
 
-            <div className="bg-slate-50 p-6 rounded-2xl border flex flex-col justify-center shadow-sm" style={{ borderColor: `${activeRegion.color}30` }}>
-              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest mb-3" style={{ color: activeRegion.color }}>
-                <Box size={14} /> Container
+            {/* Card 4: Packaging & Volume (spans 1 column) */}
+            <div 
+              className="bg-slate-50 p-8 rounded-3xl border flex flex-col justify-start shadow-sm" 
+              style={{ borderColor: `${activeRegion.color}30` }}
+            >
+              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest mb-4" style={{ color: activeRegion.color }}>
+                <Package size={14} /> Sourcing & Logistics
               </div>
-              <div className="text-xl font-bold text-[#1E3261]">{activeRegion.container}</div>
+              <div className="text-sm font-semibold text-[#1E3261] leading-relaxed whitespace-pre-line">
+                {activeRegion.logistics}
+              </div>
             </div>
 
-            <div className="bg-slate-50 p-6 rounded-2xl border flex flex-col justify-center shadow-sm" style={{ borderColor: `${activeRegion.color}30` }}>
-              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest mb-3" style={{ color: activeRegion.color }}>
-                <User size={14} /> Buyer Type
-              </div>
-              <div className="text-sm font-bold text-[#1E3261]">{activeRegion.buyerType}</div>
-            </div>
-
-            <div className="bg-slate-50 p-6 rounded-2xl border flex flex-col justify-center md:col-span-2 shadow-sm" style={{ borderColor: `${activeRegion.color}30` }}>
-              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest mb-3" style={{ color: activeRegion.color }}>
-                <ShoppingCart size={14} /> Popular Products
-              </div>
-              <div className="text-xl font-bold text-[#1E3261]">{activeRegion.products}</div>
-            </div>
-
-            <div className="bg-slate-50 p-6 rounded-2xl border flex flex-col justify-center shadow-sm" style={{ borderColor: `${activeRegion.color}30` }}>
-              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest mb-3" style={{ color: activeRegion.color }}>
-                <Factory size={14} /> Packaging
-              </div>
-              <div className="text-sm font-bold text-[#1E3261]">{activeRegion.packaging}</div>
-            </div>
-
-            <div className="bg-slate-50 p-6 rounded-2xl border flex flex-col justify-center shadow-sm" style={{ borderColor: `${activeRegion.color}30` }}>
-              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest mb-3" style={{ color: activeRegion.color }}>
-                <FileText size={14} /> Documentation
-              </div>
-              <div className="text-sm font-bold text-[#1E3261]">{activeRegion.documentation}</div>
-            </div>
           </motion.div>
         </AnimatePresence>
-
       </Container>
     </section>
   )
