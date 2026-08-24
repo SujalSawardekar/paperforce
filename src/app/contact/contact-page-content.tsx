@@ -129,7 +129,7 @@ export function ContactPageContent() {
                     <Phone className="w-4 h-4 text-slate-400 group-hover:text-blue-600 transition-colors duration-300" />
                     Phone
                   </span>
-                  <span className="text-slate-700 font-medium pl-6 group-hover:text-blue-700 transition-colors">+91 97699 66770</span>
+                  <span className="text-slate-700 font-medium pl-6 group-hover:text-blue-700 transition-colors">+91 91367 55322</span>
                 </div>
 
                 {/* WhatsApp */}
@@ -147,8 +147,8 @@ export function ContactPageContent() {
                     <Mail className="w-4 h-4 text-slate-400 group-hover:text-blue-600 transition-colors duration-300" />
                     Email
                   </span>
-                  <a href="mailto:vedant@paperforce.in" className="text-[#1E3261] font-medium hover:text-blue-600 pl-6 relative after:absolute after:bottom-0 after:left-6 after:right-0 after:h-[2px] after:bg-blue-600 after:scale-x-0 group-hover:after:scale-x-100 after:transition-transform after:origin-left inline-block w-max">
-                    vedant@paperforce.in
+                  <a href="mailto:sales@paperforce.in" className="text-[#1E3261] font-medium hover:text-blue-600 pl-6 relative after:absolute after:bottom-0 after:left-6 after:right-0 after:h-[2px] after:bg-blue-600 after:scale-x-0 group-hover:after:scale-x-100 after:transition-transform after:origin-left inline-block w-max">
+                    sales@paperforce.in
                   </a>
                 </div>
               </div>

@@ -170,7 +170,7 @@ export function CatalogueDownloadModal() {
 
                   <div className="space-y-1">
                     <label className="text-xs font-bold text-slate-500 uppercase tracking-wider">
-                      Professional Phone
+                      Phone
                     </label>
                     <div className="relative">
                       <Phone className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 w-4 h-4" />
@@ -188,7 +188,7 @@ export function CatalogueDownloadModal() {
 
                   <div className="space-y-1">
                     <label className="text-xs font-bold text-slate-500 uppercase tracking-wider">
-                      Business Email Address
+                      Email ID
                     </label>
                     <div className="relative">
                       <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 w-4 h-4" />
@@ -218,7 +218,7 @@ export function CatalogueDownloadModal() {
                       ) : (
                         <>
                           <Mail size={16} />
-                          Email Product Catalogue
+                          Request Product Catalogue
                         </>
                       )}
                     </Button>

@@ -8,6 +8,7 @@ import { Menu, X, Download } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion, useScroll, useMotionValueEvent, Variants } from "framer-motion";
 import { Button } from "../ui/button";
+import { useEntrance } from "./entrance-provider";
 
 const desktopPillLinks = [
   { name: "Home", href: "/" },
@@ -21,6 +22,8 @@ const desktopPillLinks = [
 export function Navbar() {
   const pathname = usePathname();
   const router = useRouter();
+  const { isEntranceComplete } = useEntrance();
+  const isHome = pathname === "/";
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
   const [isScrolled, setIsScrolled] = React.useState(false);
 
@@ -77,14 +80,19 @@ export function Navbar() {
 
   return (
     <motion.header
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ 
-        opacity: isFooterVisible ? 0 : 1, 
-        y: isFooterVisible ? "-100%" : 0 
-      }}
+      initial={isHome && !isEntranceComplete ? false : { opacity: 0, y: -20 }}
+      animate={
+        isHome && !isEntranceComplete
+          ? {}
+          : {
+              opacity: isFooterVisible ? 0 : 1,
+              y: isFooterVisible ? "-100%" : 0,
+            }
+      }
       transition={{ duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] }}
       className={cn(
         "fixed top-0 left-0 right-0 w-full z-50 pointer-events-none transition-all duration-300",
+        isHome && !isEntranceComplete && "animate-nav-entrance",
         isCompact 
           ? "bg-white/70  backdrop-blur-2xl shadow-[0_10px_40px_rgba(11,28,63,0.05)] py-1" 
           : "pt-5 bg-transparent"
@@ -188,7 +196,7 @@ export function Navbar() {
       <motion.div 
         variants={navVariants}
         initial="visible"
-        animate={isHidden ? "hidden" : "visible"}
+        animate={isHome && !isEntranceComplete ? "visible" : (isHidden ? "hidden" : "visible")}
         className={cn(
         "max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 flex items-center justify-between w-full relative pointer-events-none z-10 transition-all duration-300",
         isCompact ? "h-[50px]" : "h-[60px]"
@@ -265,7 +273,7 @@ export function Navbar() {
                     className="font-bold text-[12px] lg:text-[13px] px-3.5 lg:px-5 h-9 border-slate-300"
                     onClick={() => router.push("/contact")}
                   >
-                    Request Quote
+                    Reach Us
                   </Button>
               </motion.div>
 

@@ -6,6 +6,7 @@ import { Footer } from "@/components/common/footer";
 import { ThemeProvider } from "next-themes";
 import { Analytics } from "@vercel/analytics/next";
 import { CatalogueDownloadModal } from "@/components/common/catalogue-modal";
+import { EntranceProvider } from "@/components/common/entrance-provider";
 
 export const metadata: Metadata = {
   title: "Paperforce India - Global Stationery Manufacturer",
@@ -21,13 +22,15 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className="font-sans antialiased overflow-x-hidden" suppressHydrationWarning>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} forcedTheme="light" disableTransitionOnChange>
-          <Navbar />
-          <main className="min-h-screen">
-            {children}
-          </main>
-          <Footer />
-          <Analytics />
-          <CatalogueDownloadModal />
+          <EntranceProvider>
+            <Navbar />
+            <main className="min-h-screen">
+              {children}
+            </main>
+            <Footer />
+            <Analytics />
+            <CatalogueDownloadModal />
+          </EntranceProvider>
         </ThemeProvider>
       </body>
     </html>

@@ -245,3 +245,165 @@
   transform: translateY(0);
   transition: opacity 0.7s ease, transform 0.7s ease;
 }
+
+/* ─── Coordinated Entrance Animations ─── */
+
+@keyframes nav-reveal-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+    filter: blur(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0px);
+  }
+}
+
+@keyframes hero-bg-entrance {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.28;
+  }
+}
+
+@keyframes hero-visual-entrance {
+  0% {
+    opacity: 0;
+    transform: scale(1.02) translateY(8px);
+    filter: blur(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0px);
+  }
+}
+
+@keyframes hero-heading-entrance {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-desc-entrance {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-cta-entrance {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes btn-soft-pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.88;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes btn-sweep-once {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Entrance Animation Classes */
+.animate-nav-entrance {
+  animation: nav-reveal-down 0.6s cubic-bezier(0.21, 0.47, 0.32, 0.98) 0.15s forwards;
+  opacity: 0;
+  transform: translateY(-30px);
+  filter: blur(12px);
+}
+
+.animate-hero-bg {
+  animation: hero-bg-entrance 1.2s cubic-bezier(0.25, 1, 0.5, 1) 0s forwards;
+  opacity: 0;
+}
+
+.animate-hero-visual {
+  animation: hero-visual-entrance 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0s forwards;
+  opacity: 0;
+  transform: scale(1.02) translateY(8px);
+  filter: blur(8px);
+}
+
+.animate-hero-heading {
+  animation: hero-heading-entrance 0.6s cubic-bezier(0.25, 1, 0.5, 1) 0.25s forwards;
+  transform: translateY(100%);
+  display: block;
+}
+
+.animate-hero-desc {
+  animation: hero-desc-entrance 0.6s cubic-bezier(0.25, 1, 0.5, 1) 0.45s forwards;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.animate-hero-cta {
+  animation: hero-cta-entrance 0.4s cubic-bezier(0.25, 1, 0.5, 1) 0.65s forwards;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+/* CTA Button Subtle Loading Effects */
+.btn-loading-pulse-primary,
+.btn-loading-pulse-secondary {
+  animation: btn-soft-pulse 0.4s ease-in-out 0.65s 1 forwards !important;
+  pointer-events: none !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.btn-loading-highlight-sweep {
+  display: block !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.08) 50%,
+    transparent 100%
+  ) !important;
+  transform: translateX(-100%) !important;
+  animation: btn-sweep-once 0.45s ease-out 0.65s 1 forwards !important;
+  z-index: 2 !important;
+  pointer-events: none !important;
+}
+
+/* Outline button needs a dark highlight sweep to be visible on white background */
+.btn-loading-pulse-secondary .btn-loading-highlight-sweep {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(30, 50, 97, 0.04) 50%,
+    transparent 100%
+  ) !important;
+}

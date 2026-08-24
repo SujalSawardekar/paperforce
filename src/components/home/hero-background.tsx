@@ -1,8 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
 
-export function HeroBackground() {
+export function HeroBackground({ isPageReady }: { isPageReady?: boolean }) {
   return (
     <>
       {/* Base Paper Fallback Color */}
@@ -12,11 +12,11 @@ export function HeroBackground() {
       <div className="absolute inset-0 paper-noise pointer-events-none -z-25 mix-blend-multiply opacity-20" />
 
       {/* Main User-provided Background Image (Paperforce BG - Optimized WebP) */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.28 }}
-        transition={{ duration: 1.2, ease: "easeOut" }}
-        className="absolute inset-0 -z-20 pointer-events-none bg-center bg-cover bg-no-repeat"
+      <div
+        className={cn(
+          "absolute inset-0 -z-20 pointer-events-none bg-center bg-cover bg-no-repeat opacity-0",
+          !isPageReady ? "animate-hero-bg" : "opacity-[0.28]"
+        )}
         style={{
           backgroundImage: "url('/images/paperforce-bg.webp')",
         }}

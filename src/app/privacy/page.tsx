@@ -49,7 +49,7 @@ export default function PrivacyPolicyPage() {
           <section className="space-y-4">
             <h2 className="text-2xl font-bold font-serif text-[#1E3261]">4. Contact & Compliance</h2>
             <p>
-              If you have any questions regarding data handling or wish to update your business preferences, please reach out to our trade operations team at <a href="mailto:vedant@paperforce.in" className="text-blue-600 hover:underline">vedant@paperforce.in</a>.
+              If you have any questions regarding data handling or wish to update your business preferences, please reach out to our trade operations team at <a href="mailto:sales@paperforce.in" className="text-blue-600 hover:underline">sales@paperforce.in</a>.
             </p>
           </section>
         </div>

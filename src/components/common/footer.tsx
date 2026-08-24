@@ -75,10 +75,12 @@ export function Footer() {
             Let&apos;s build your next stationery product together.
           </motion.p>
           <motion.div variants={itemVariants}>
-            <Button variant="default" size="lg" className="px-10 h-14 text-base md:text-lg">
-              Request Quote
-              <ArrowRight className="ml-2 transition-transform group-hover:translate-x-1" />
-            </Button>
+            <Link href="/contact">
+              <Button variant="default" size="lg" className="px-10 h-14 text-base md:text-lg">
+                Reach Us
+                <ArrowRight className="ml-2 transition-transform group-hover:translate-x-1" />
+              </Button>
+            </Link>
           </motion.div>
         </motion.div>
 
@@ -122,11 +124,11 @@ export function Footer() {
               <strong className="text-white font-medium text-base block mb-2">Paperforce India LLP</strong>
               <div className="flex items-center gap-3 hover:text-white transition-colors">
                 <Phone size={16} className="text-blue-400 shrink-0" />
-                <span>+91 97699 66770</span>
+                <span>+91 91367 55322</span>
               </div>
               <div className="flex items-center gap-3 hover:text-white transition-colors">
                 <Mail size={16} className="text-blue-400 shrink-0" />
-                <a href="mailto:vedant@paperforce.in" className="hover:underline">vedant@paperforce.in</a>
+                <a href="mailto:sales@paperforce.in" className="hover:underline">sales@paperforce.in</a>
               </div>
             </div>
           </motion.div>
