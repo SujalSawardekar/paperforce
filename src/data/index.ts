@@ -16,12 +16,12 @@ export const footerLinks = {
     { name: "Contact Us", href: "/contact" },
   ],
   products: [
-    { name: "Exercise Books", href: "/products#exercise-books" },
-    { name: "Spiral Bound", href: "/products#spiral-bound" },
-    { name: "Double Wire Bound", href: "/products#double-wire-bound" },
-    { name: "Hard Cover Gally Bound", href: "/products#gally-bound" },
-    { name: "Centre Stitched", href: "/products#centre-stitched" },
-    { name: "Glue Bound", href: "/products#glue-bound" },
+    { name: "Center-pinned", href: "/products/Set_03" },
+    { name: "Center stitched", href: "/products/Set_10" },
+    { name: "Spiral Bound", href: "/products/Set_11" },
+    { name: "Double Wire/Wiro bound", href: "/products/Set_02" },
+    { name: "Perfect Bound Notebook", href: "/products/Set_09" },
+    { name: "Hardcover/Casebound", href: "/products/Set_07" },
   ],
   markets: [
     { name: "USA", href: "/reach-markets#usa" },

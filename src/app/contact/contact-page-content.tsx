@@ -117,7 +117,8 @@ export function ContactPageContent() {
                     Manufacturing Facility
                   </span>
                   <span className="text-slate-700 leading-relaxed block max-w-[280px] pl-6 transition-colors">
-                    Plot No. 19–20, Dewan {"&"} Shah Industrial Estate<br/>
+                    Plot No. 19-20<br/>
+                    Dewan & Shah Industrial Estate<br/>
                     Palghar Udyog Nagar<br/>
                     Palghar
                   </span>

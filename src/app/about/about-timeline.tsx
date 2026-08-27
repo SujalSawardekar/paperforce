@@ -31,7 +31,7 @@ const timeline = [
   {
     year: "Today",
     title: "Global Export Partner",
-    description: "Shipping premium paper stationery across 15+ countries, serving international retail chains, OEMs, and major global distributors.",
+    description: "Shipping Volume paper stationery as per customized specifications across 15+ countries, serving international retail chains, OEMs, and major global distributors.",
     icon: <Globe className="w-5 h-5" />,
     color: "bg-indigo-600"
   }

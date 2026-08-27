@@ -11,6 +11,9 @@ import { EntranceProvider } from "@/components/common/entrance-provider";
 export const metadata: Metadata = {
   title: "Paperforce India - Global Stationery Manufacturer",
   description: "B2B OEM Private Label Manufacturer supplying high-volume paper stationery globally.",
+  icons: {
+    icon: "/logo.jpg",
+  },
 };
 
 export default function RootLayout({

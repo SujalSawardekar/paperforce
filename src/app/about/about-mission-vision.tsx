@@ -44,7 +44,7 @@ export function AboutMissionVision() {
                   Our Mission
                 </span>
                 <h3 className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold font-serif text-slate-900 leading-tight">
-                  Engineering high-volume, premium paper stationery for global brands.
+                  Engineering high-volume, Volume paper stationery as per customized specifications for global brands.
                 </h3>
               </ScrollReveal>
               <ScrollReveal direction="up" delay={0.2}>

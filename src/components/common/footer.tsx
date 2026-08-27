@@ -108,12 +108,12 @@ export function Footer() {
           <motion.div variants={itemVariants} className="flex flex-col items-start text-left">
             <h4 className="text-base font-semibold text-white mb-6">Products</h4>
             <ul className="space-y-4">
-              <li><Link href="/products" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Exercise Books</Link></li>
-              <li><Link href="/products" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Spiral Bound</Link></li>
-              <li><Link href="/products" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Double Wire Bound</Link></li>
-              <li><Link href="/products" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Hard Cover</Link></li>
-              <li><Link href="/products" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Centre Stitch</Link></li>
-              <li><Link href="/products" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Private Label</Link></li>
+              <li><Link href="/products/Set_03" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Center-pinned</Link></li>
+              <li><Link href="/products/Set_10" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Center stitched</Link></li>
+              <li><Link href="/products/Set_11" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Spiral Bound</Link></li>
+              <li><Link href="/products/Set_02" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Double Wire/Wiro bound</Link></li>
+              <li><Link href="/products/Set_09" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Perfect Bound Notebook</Link></li>
+              <li><Link href="/products/Set_07" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Hardcover/Casebound</Link></li>
             </ul>
           </motion.div>
 
@@ -138,9 +138,9 @@ export function Footer() {
             <h4 className="text-base font-semibold text-white mb-6">Address</h4>
             <div className="space-y-4 text-sm text-blue-200/70">
               <ul className="space-y-4">
-                <li><Link href="/contact#map-section" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Corporate Office</Link></li>
-                <li><Link href="/contact#map-section" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Branch Office</Link></li>
-                <li><Link href="/contact#map-section" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Factory</Link></li>
+                <li><a href="https://maps.google.com/?q=Morya+House+Andheri+West+Mumbai" target="_blank" rel="noopener noreferrer" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Corporate Office</a></li>
+                <li><a href="https://maps.app.goo.gl/u77t82eECftxwLXo7" target="_blank" rel="noopener noreferrer" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Branch Office</a></li>
+                <li><a href="https://maps.google.com/?q=Dewan+Shah+Industrial+Estate+Palghar" target="_blank" rel="noopener noreferrer" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Factory</a></li>
               </ul>
             </div>
           </motion.div>

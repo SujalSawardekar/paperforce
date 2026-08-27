@@ -45,6 +45,38 @@ const exportMarkets = [
 
 const origin: [number, number] = [72.76, 19.69]; // Palghar, India roughly
 
+function IndianFlag({ className }: { className?: string }) {
+  return (
+    <svg 
+      viewBox="0 0 900 600" 
+      className={className}
+      width="24" 
+      height="16"
+      aria-label="Indian National Flag"
+    >
+      <rect width="900" height="200" fill="#FF9933" />
+      <rect y="200" width="900" height="200" fill="#FFFFFF" />
+      <rect y="400" width="900" height="200" fill="#138808" />
+      <g transform="translate(450,300)">
+        <circle r="92" fill="none" stroke="#000080" strokeWidth="12" />
+        <circle r="16" fill="#000080" />
+        {Array.from({ length: 24 }).map((_, i) => (
+          <line
+            key={i}
+            x1="0"
+            y1="0"
+            x2="0"
+            y2="-92"
+            stroke="#000080"
+            strokeWidth="4"
+            transform={`rotate(${i * 15})`}
+          />
+        ))}
+      </g>
+    </svg>
+  );
+}
+
 export function GlobalReachSection() {
   const [hoveredMarket, setHoveredMarket] = React.useState<string | null>(null);
   const [mounted, setMounted] = React.useState(false);
@@ -54,47 +86,51 @@ export function GlobalReachSection() {
   }, []);
 
   return (
-    <section className="py-24 md:py-32 bg-[#0B1221] relative overflow-hidden border-t border-white/5">
+    <section className="py-24 md:py-32 bg-white relative overflow-hidden border-t border-slate-100">
       {/* Very subtle background texture */}
-      <div className="absolute inset-0 opacity-[0.015] pointer-events-none" 
-           style={{ backgroundImage: 'linear-gradient(white 1px, transparent 1px), linear-gradient(90deg, white 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+      <div className="absolute inset-0 opacity-[0.3] pointer-events-none" 
+           style={{ backgroundImage: 'linear-gradient(#f1f5f9 1px, transparent 1px), linear-gradient(90deg, #f1f5f9 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
 
       <Container className="relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           
           {/* Left / Primary Area (40%) */}
-          <div className="lg:col-span-5 space-y-10 text-white z-20">
+          <div className="lg:col-span-5 space-y-10 text-slate-900 z-20">
             <ScrollReveal direction="up" delay={0.1}>
-              <h2 className="text-5xl lg:text-6xl xl:text-7xl font-bold font-serif leading-[1.05] tracking-tight">
-                Made in India.<br />
-                <span className="text-[#93C5FD]">Shipped Worldwide.</span>
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold font-serif leading-[1.05] tracking-tight text-[#0b1c3f]">
+                <span className="whitespace-nowrap inline-flex items-center gap-3 md:gap-4">
+                  <span>Made in India.</span>
+                  <IndianFlag className="rounded shadow-[0_1px_3px_rgba(0,0,0,0.15)] border border-slate-200 shrink-0 w-9 sm:w-12 md:w-14 lg:w-16 h-auto" />
+                </span>
+                <br />
+                <span className="text-blue-600">Shipped Worldwide.</span>
               </h2>
             </ScrollReveal>
             
             <ScrollReveal direction="up" delay={0.2}>
-              <p className="text-lg md:text-xl text-slate-300 font-sans leading-relaxed max-w-md">
-                Paperforce India seamlessly supplies high-volume premium paper stationery to international brands, retailers, and distributors across the globe.
+              <p className="text-lg md:text-xl text-slate-600 font-sans leading-relaxed max-w-md">
+                Paperforce India seamlessly supplies high-volume Volume paper stationery as per customized specifications to international brands, retailers, and distributors across the globe.
               </p>
             </ScrollReveal>
             
             <ScrollReveal direction="up" delay={0.3}>
-              <div className="flex flex-col sm:flex-row sm:items-center gap-8 py-8 border-y border-white/10 my-8">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-8 py-8 border-y border-slate-200 my-8">
                 <div>
-                  <div className="text-5xl font-serif font-bold text-white">30</div>
-                  <div className="text-[11px] font-semibold tracking-[0.2em] uppercase text-slate-400 mt-3">Countries Served</div>
+                  <div className="text-5xl font-serif font-bold text-[#0b1c3f]">30</div>
+                  <div className="text-[11px] font-semibold tracking-[0.2em] uppercase text-slate-500 mt-3">Countries Served</div>
                 </div>
-                <div className="hidden sm:block w-px h-16 bg-white/10" />
-                <div className="block sm:hidden w-16 h-px bg-white/10" />
+                <div className="hidden sm:block w-[1px] h-16 bg-slate-200" />
+                <div className="block sm:hidden w-16 h-[1px] bg-slate-200" />
                 <div>
-                  <div className="text-5xl font-serif font-bold text-white">5</div>
-                  <div className="text-[11px] font-semibold tracking-[0.2em] uppercase text-slate-400 mt-3">Continents</div>
+                  <div className="text-5xl font-serif font-bold text-[#0b1c3f]">5</div>
+                  <div className="text-[11px] font-semibold tracking-[0.2em] uppercase text-slate-500 mt-3">Continents</div>
                 </div>
               </div>
             </ScrollReveal>
             
             <ScrollReveal direction="up" delay={0.4}>
               <Link href="/reach-markets">
-                <Button variant="outline" size="lg">
+                <Button variant="outline" size="lg" className="border-slate-300 text-slate-800 hover:bg-slate-50">
                   Explore Our Global Markets
                 </Button>
               </Link>
@@ -118,12 +154,12 @@ export function GlobalReachSection() {
                         <Geography 
                           key={geo.rsmKey} 
                           geography={geo} 
-                          fill="#1E2A45" 
-                          stroke="#0B1221"
+                          fill="#E2E8F0" 
+                          stroke="#FFFFFF"
                           strokeWidth={0.5}
                           style={{
                             default: { outline: "none" },
-                            hover: { outline: "none", fill: "#273659" },
+                            hover: { outline: "none", fill: "#CBD5E1" },
                             pressed: { outline: "none" }
                           }}
                         />
@@ -146,7 +182,7 @@ export function GlobalReachSection() {
                     >
                       <circle 
                         r={hoveredMarket === market.name ? 4 : 2.5} 
-                        fill="#93C5FD" 
+                        fill="#2563EB" 
                         opacity={hoveredMarket === market.name ? 1 : 0.8} 
                         className="transition-all duration-300"
                       />
@@ -154,7 +190,7 @@ export function GlobalReachSection() {
                       {hoveredMarket === market.name && (
                         <circle 
                           r={8} 
-                          fill="#93C5FD" 
+                          fill="#2563EB" 
                           opacity={0.3} 
                           className="animate-ping"
                         />
@@ -163,7 +199,7 @@ export function GlobalReachSection() {
                         <text
                           textAnchor="middle"
                           y={-8}
-                          style={{ fontFamily: "system-ui", fill: "#ffffff", fontSize: "11px", fontWeight: 500, pointerEvents: "none" }}
+                          style={{ fontFamily: "system-ui", fill: "#0B1221", fontSize: "11px", fontWeight: 500, pointerEvents: "none" }}
                         >
                           {market.name}
                         </text>
@@ -171,28 +207,26 @@ export function GlobalReachSection() {
                     </Marker>
                   ))}
 
-                  {/* Export Market Markers */}
+                  {/* Origin Marker (India) */}
+                  <Marker coordinates={origin}>
+                    <circle r={4} fill="#2563EB" className="animate-pulse" />
+                    <text
+                      textAnchor="middle"
+                      y={16}
+                      style={{ fontFamily: "system-ui", fill: "#1E3261", fontSize: "10px", fontWeight: 600, letterSpacing: "0.1em" }}
+                    >
+                      MANUFACTURING HUB
+                    </text>
+                    <text
+                      textAnchor="middle"
+                      y={28}
+                      style={{ fontFamily: "system-ui", fill: "#475569", fontSize: "10px" }}
+                    >
+                      Palghar, India
+                    </text>
+                  </Marker>
 
-                {/* Origin Marker (India) */}
-                <Marker coordinates={origin}>
-                  <circle r={4} fill="#60A5FA" className="animate-pulse" />
-                  <text
-                    textAnchor="middle"
-                    y={16}
-                    style={{ fontFamily: "system-ui", fill: "#93C5FD", fontSize: "10px", fontWeight: 600, letterSpacing: "0.1em" }}
-                  >
-                    MANUFACTURING HUB
-                  </text>
-                  <text
-                    textAnchor="middle"
-                    y={28}
-                    style={{ fontFamily: "system-ui", fill: "#CBD5E1", fontSize: "10px" }}
-                  >
-                    Palghar, India
-                  </text>
-                </Marker>
-
-              </ComposableMap>
+                </ComposableMap>
               )}
             </ScrollReveal>
           </div>

@@ -22,7 +22,7 @@ export default function HomePage() {
   const schema = getCompanySchema();
 
   return (
-    <main className="min-h-screen bg-background font-sans antialiased text-foreground">
+    <main className="min-h-screen bg-white font-sans antialiased text-foreground">
       <Script
         id="company-schema"
         type="application/ld+json"
@@ -32,8 +32,8 @@ export default function HomePage() {
       <HeroSection />
 
       <CorporateProfileSection />
-      <ManufacturingProcess />
       <ProductSection />
+      <ManufacturingProcess />
       <IndustriesSection />
       <GlobalReachSection />
       <HomeFaqSection />

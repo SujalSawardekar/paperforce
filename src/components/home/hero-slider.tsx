@@ -15,13 +15,13 @@ interface Slide {
 const slides: Slide[] = [
   {
     type: "factory",
-    src: "/images/spiral_notebook_hero.jpg",
-    alt: "Paperforce premium spiral bound notebook collection",
+    src: "/Images by Com/Centere Pinned Notebooks.png",
+    alt: "Paperforce Center Pinned Notebooks collection",
   },
   {
     type: "factory",
-    src: "/images/factory_facility_hero.jpg",
-    alt: "Paperforce modern stationery manufacturing facility",
+    src: "/Images by Com/Composition Books.png",
+    alt: "Paperforce Composition Books collection",
   },
   {
     type: "factory",

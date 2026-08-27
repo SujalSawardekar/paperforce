@@ -36,19 +36,19 @@ export function ProductPhilosophy() {
 
 export function ManufacturingProcess() {
   const steps = [
-    { num: "01", title: "Raw Material", desc: "FSC-certified paper sourcing" },
-    { num: "02", title: "Printing", desc: "Precision offset web presses" },
-    { num: "03", title: "Binding", desc: "Automated high-speed lines" },
-    { num: "04", title: "Inspection", desc: "Strict AQL quality checks" },
-    { num: "05", title: "Packing", desc: "Export-grade master cartons" },
-    { num: "06", title: "Dispatch", desc: "Container loading & shipping" }
+    { num: "01", title: "Order Finalization", desc: "" },
+    { num: "02", title: "Designing & Pre-Press", desc: "" },
+    { num: "03", title: "Procurement", desc: "" },
+    { num: "04", title: "Manufacturing", desc: "governed by ISO 9001: 2015 Standards" },
+    { num: "05", title: "Packing & Quality Assurance", desc: "" },
+    { num: "06", title: "Container Stuffing & Dispatch", desc: "" }
   ];
 
   return (
-    <section className="py-24 bg-slate-50 border-y border-slate-200 overflow-hidden">
+    <section className="py-24 bg-white border-y border-slate-200 overflow-hidden">
       <Container>
         <ScrollReveal>
-          <h2 className="text-3xl md:text-4xl font-bold font-serif text-[#1E3261] mb-16">The Manufacturing Flow</h2>
+          <h2 className="text-3xl md:text-4xl font-bold font-serif text-[#1E3261] mb-16">The Order Flow</h2>
         </ScrollReveal>
         
         <div className="relative">
@@ -58,8 +58,8 @@ export function ManufacturingProcess() {
               <ScrollReveal key={i} delay={i * 0.1} className="relative">
                 <div className="bg-white border border-slate-200 rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-shadow relative z-10 h-full flex flex-col items-center justify-center">
                   <span className="text-[#1E3261] font-bold text-sm mb-2 opacity-50 block">Step {step.num}</span>
-                  <h4 className="font-bold text-slate-900 mb-1">{step.title}</h4>
-                  <p className="text-xs text-slate-500">{step.desc}</p>
+                  <h4 className="font-bold text-slate-900 mb-1 leading-snug">{step.title}</h4>
+                  {step.desc && <p className="text-xs text-slate-500 mt-1 leading-relaxed">{step.desc}</p>}
                 </div>
               </ScrollReveal>
             ))}

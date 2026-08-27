@@ -6,7 +6,7 @@ export function HeroBackground({ isPageReady }: { isPageReady?: boolean }) {
   return (
     <>
       {/* Base Paper Fallback Color */}
-      <div className="absolute inset-0 -z-30 bg-[#FAF8F3]" />
+      <div className="absolute inset-0 -z-30 bg-white" />
       
       {/* Paper Organic Noise Texture */}
       <div className="absolute inset-0 paper-noise pointer-events-none -z-25 mix-blend-multiply opacity-20" />
@@ -15,10 +15,10 @@ export function HeroBackground({ isPageReady }: { isPageReady?: boolean }) {
       <div
         className={cn(
           "absolute inset-0 -z-20 pointer-events-none bg-center bg-cover bg-no-repeat opacity-0",
-          !isPageReady ? "animate-hero-bg" : "opacity-[0.28]"
+          !isPageReady ? "animate-hero-bg" : "opacity-30"
         )}
         style={{
-          backgroundImage: "url('/images/paperforce-bg.webp')",
+          backgroundImage: "url('/images/paperforce-bg2.jpeg')",
         }}
       />
 

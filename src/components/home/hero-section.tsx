@@ -13,7 +13,7 @@ export function HeroSection() {
   const { isEntranceComplete } = useEntrance();
 
   return (
-    <section className="relative pt-24 md:pt-32 pb-12 md:pb-16 isolate overflow-hidden bg-[#FAF8F3]">
+    <section className="relative pt-24 md:pt-32 pb-12 md:pb-16 isolate overflow-hidden bg-white">
       {/* Animated Background */}
       <HeroBackground isPageReady={isEntranceComplete} />
 

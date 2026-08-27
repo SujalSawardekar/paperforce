@@ -87,7 +87,7 @@ export function ContactForm() {
       country: "",
       email: "",
       phone: "",
-      productInterest: "exercise-books",
+      productInterest: "center-pinned",
       moq: "",
       message: ""
     }
@@ -97,13 +97,12 @@ export function ContactForm() {
   React.useEffect(() => {
     if (interestParam) {
       const validOptions = [
-        "exercise-books",
+        "center-pinned",
+        "center-stitched",
         "spiral-bound",
-        "double-wire-bound",
-        "gally-bound",
-        "centre-stitched",
-        "glue-bound",
-        "packaging"
+        "double-wire-wiro-bound",
+        "perfect-bound-notebook",
+        "hardcover-casebound"
       ];
       if (validOptions.includes(interestParam)) {
         setValue("productInterest", interestParam as EnquiryInput["productInterest"]);
@@ -252,13 +251,12 @@ export function ContactForm() {
               value={watch("productInterest") || ""}
               onChange={(val) => setValue("productInterest", val as any, { shouldValidate: true })}
               options={[
-                { value: "exercise-books", label: "Exercise Books" },
+                { value: "center-pinned", label: "Center-pinned" },
+                { value: "center-stitched", label: "Center stitched" },
                 { value: "spiral-bound", label: "Spiral Bound" },
-                { value: "double-wire-bound", label: "Double Wire Bound" },
-                { value: "gally-bound", label: "Hard Cover Gally Bound" },
-                { value: "centre-stitched", label: "Centre Stitched" },
-                { value: "glue-bound", label: "Glue Bound" },
-                { value: "packaging", label: "Paper Packaging" }
+                { value: "double-wire-wiro-bound", label: "Double Wire/Wiro bound" },
+                { value: "perfect-bound-notebook", label: "Perfect Bound Notebook" },
+                { value: "hardcover-casebound", label: "Hardcover/Casebound" }
               ]}
             />
             {errors.productInterest && (

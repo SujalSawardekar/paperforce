@@ -8,23 +8,23 @@ import Image from "next/image";
 
 const industries = [
   { 
-    title: "Educational Procurement", 
-    desc: "Supplying bulk exercise books and spiral notebooks to universities, school districts, and institutional suppliers globally.", 
-    image: "/images/industries/educational_procurement.jpg" 
-  },
-  { 
-    title: "Corporate & B2B", 
-    desc: "Manufacturing premium hardcover and double-wire notebooks for corporate gifting, office supply chains, and business retailers.", 
-    image: "/images/industries/corporate_b2b.jpg" 
-  },
-  { 
-    title: "OEM Private Label", 
-    desc: "Complete white-label production for international stationery brands. Custom watermarks, foil stamping, and bespoke sizing.", 
+    title: "Importers around the world for school & office", 
+    desc: "Reliable B2B high-volume OEM paper stationery production and logistics for leading global importers and distributors.", 
     image: "/images/industries/oem_private_label.jpg" 
   },
   { 
+    title: "Educational establishments", 
+    desc: "Direct-to-institution supply for universities, school networks, and large-scale educational procurement systems.", 
+    image: "/images/industries/educational_procurement.jpg" 
+  },
+  { 
+    title: "Chainstores", 
+    desc: "Private-label retail-ready collections, barcode integration, custom packaging, and strict quality compliance.", 
+    image: "/images/industries/corporate_b2b.jpg" 
+  },
+  { 
     title: "Government Tenders", 
-    desc: "Meeting strict compliance, GSM, and pricing requirements for large-scale government educational and administrative tenders.", 
+    desc: "Meeting strict regulatory standards, precise paper GSM, custom rulings, and competitive volume pricing for public tenders.", 
     image: "/images/industries/government_tenders.jpg" 
   }
 ];
@@ -34,9 +34,8 @@ export function IndustriesSection() {
     <section className="py-20 md:py-32 bg-white border-t border-slate-100">
       <Container>
         <SectionHeader 
-          eyebrow="Industries We Serve" 
-          title="Stationery for Every Sector" 
-          description="Meeting the specific structural and design requirements of industries across the globe."
+          title="Who We Cater To" 
+          description="Supplying custom, high-volume paper stationery to key global customer segments."
           centered 
         />
         

@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/common/container";
 import { SectionHeader } from "@/components/ui/section-header";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
@@ -13,51 +14,51 @@ import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 const productCollections = [
   {
     number: "01",
-    title: "Exercise Books",
+    title: "Center-pinned",
     description: "High-volume notebook formats manufactured for institutional, retail and export requirements.",
     image: "/products/exercise_books.png",
     bgColor: "#eef6ee",
-    alt: "Exercise Books stacked on production line"
+    alt: "Center-pinned exercise books stacked on production line"
   },
   {
     number: "02",
-    title: "Spiral Bound",
-    description: "Durable wire-coil binding for a smooth, lay-flat writing experience. Favored by students and professionals.",
-    image: "/products/spiral_notebook.png",
+    title: "Center stitched",
+    description: "Classic saddle-stitched exercise books for volume-conscious school procurement and public tenders.",
+    image: "/products/stitched_notebook.png",
     bgColor: "#f1f0f9",
-    alt: "Spiral Bound notebooks close up"
+    alt: "Center stitched notebook binding detail"
   },
   {
     number: "03",
-    title: "Double Wire Bound",
-    description: "Reinforced double-loop wire construction for frequent, heavy corporate and institutional use.",
-    image: "/products/double_wire_notebook.png",
+    title: "Spiral Bound",
+    description: "Durable wire-coil binding for a smooth, lay-flat writing experience. Favored by students and professionals.",
+    image: "/products/spiral_notebook.png",
     bgColor: "#f6f1f4",
-    alt: "Double Wire Bound notebook preview"
+    alt: "Spiral Bound notebooks close up"
   },
   {
     number: "04",
-    title: "Hard Cover Gally Bound",
-    description: "Premium bound notebooks with rigid protective casing, built for longevity and archive applications.",
-    image: "/products/hardcover_notebook.png",
+    title: "Double Wire/Wiro bound",
+    description: "Reinforced double-loop wire construction for frequent, heavy corporate and institutional use.",
+    image: "/products/double_wire_notebook.png",
     bgColor: "#f0f4f8",
-    alt: "Hard Cover Gally Bound notebook close up"
+    alt: "Double Wire/Wiro bound notebook preview"
   },
   {
     number: "05",
-    title: "Centre Stitched",
-    description: "Classic saddle-stitched exercise books for volume-conscious school procurement and public tenders.",
-    image: "/products/stitched_notebook.png",
+    title: "Perfect Bound Notebook",
+    description: "Clean adhesive-bound notebooks and pads offering a clean, lay-flat finish. Perfect for desktop notepad use.",
+    image: "/products/glue_bound_notebook.png",
     bgColor: "#eef6ee",
-    alt: "Centre Stitched notebook binding detail"
+    alt: "Perfect Bound notebook edge details"
   },
   {
     number: "06",
-    title: "Glue Bound",
-    description: "Clean adhesive-bound notebooks and pads offering a clean, lay-flat finish. Perfect for desktop notepad use.",
-    image: "/products/glue_bound_notebook.png",
+    title: "Hardcover/Casebound",
+    description: "Premium bound notebooks with rigid protective casing, built for longevity and archive applications.",
+    image: "/products/hardcover_notebook.png",
     bgColor: "#f1f0f9",
-    alt: "Glue Bound notebook edge details"
+    alt: "Hardcover/Casebound notebook close up"
   }
 ];
 
@@ -146,12 +147,11 @@ export function ProductSection() {
       <Container className="max-w-[1400px] mx-auto space-y-16 relative" ref={containerRef}>
         
         {/* Section Heading */}
-        <SectionHeader
-          eyebrow="Our Products"
-          title="Made for every format."
-          description="From everyday exercise books to premium bound formats, Paperforce manufactures notebook collections tailored to global sourcing requirements."
-          centered={false}
-        />
+        <ScrollReveal direction="up" delay={0.1}>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-serif text-[#0b1c3f] tracking-tight leading-tight">
+            Our Products
+          </h2>
+        </ScrollReveal>
 
         {/* Overlapping Cards Stack Container */}
         <div className="relative pb-2">

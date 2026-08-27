@@ -129,7 +129,7 @@ export function CertificationsViewer() {
             </div>
 
             {/* Selected Certificate Details Panel */}
-            <div className="p-8 rounded-3xl bg-[#FAF9F6] border border-slate-100 space-y-6 shadow-sm">
+            <div className="p-8 rounded-3xl bg-white border border-slate-100 space-y-6 shadow-sm">
               <div className="space-y-2 border-b border-slate-200/60 pb-4">
                 <span className="text-[10px] font-bold tracking-widest text-[#1E3261] uppercase block">
                   {activeCert.specValue}
@@ -137,7 +137,7 @@ export function CertificationsViewer() {
                 <h3 className="text-xl md:text-2xl font-bold font-serif text-slate-900 leading-snug">
                   {activeCert.name}
                 </h3>
-                <p className="text-xs text-slate-400 font-semibold font-mono mt-1">
+                <p className="text-xs text-slate-400 font-semibold font-sans mt-1">
                   Authority: {activeCert.authority}
                 </p>
               </div>
@@ -172,11 +172,11 @@ export function CertificationsViewer() {
           </div>
 
           {/* Right Column: Premium Document Visual Preview (Takes up 6 columns) */}
-          <div className="lg:col-span-6 flex flex-col justify-between border border-slate-100 bg-[#FAF9F5] rounded-[28px] p-8 md:p-12 shadow-[0_8px_30px_rgb(0,0,0,0.02)] relative overflow-hidden group order-1 lg:order-2">
+          <div className="lg:col-span-6 flex flex-col justify-between border border-slate-100 bg-white rounded-[28px] p-8 md:p-12 shadow-[0_8px_30px_rgb(0,0,0,0.02)] relative overflow-hidden group order-1 lg:order-2">
             
             {/* Header Control Bar */}
             <div className="flex items-center justify-between border-b border-slate-200/50 pb-4 mb-6 z-10">
-              <span className="text-[10px] font-semibold font-mono text-slate-500 uppercase tracking-widest">
+              <span className="text-[10px] font-bold font-sans text-slate-500 uppercase tracking-widest">
                 Certificate Preview {activeCert.num}/04
               </span>
               <div className="flex items-center space-x-2">

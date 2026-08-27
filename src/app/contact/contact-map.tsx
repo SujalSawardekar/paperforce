@@ -1,6 +1,6 @@
 "use client"
 import * as React from "react"
-import { MapPin, Building2, Factory, ExternalLink } from "lucide-react"
+import { MapPin, Building2, Factory } from "lucide-react"
 
 export function ContactMap() {
   const [activeTab, setActiveTab] = React.useState<"corporate" | "branch" | "manufacturing">("corporate")
@@ -57,7 +57,7 @@ export function ContactMap() {
           )}
           {activeTab === "branch" && (
             <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770!2d72.83!3d19.1!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0!2sBranch%20Office!5e0!3m2!1sen!2sus!4v0!5m2!1sen!2sus" 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4049.2330908461436!2d72.83483121098597!3d19.1309806501691!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b7f6fc8720b1%3A0x45dccb905af2adae!2sPaperforce%20India%20LLP!5e1!3m2!1sen!2sus!4v1787736091544!5m2!1sen!2sus" 
               className="absolute inset-0 w-full h-full border-0" 
               allowFullScreen 
               loading="lazy" 
@@ -74,11 +74,7 @@ export function ContactMap() {
             />
           )}
 
-          <div className="absolute top-4 right-4 z-10">
-            <a href={activeTab === "corporate" ? "https://maps.google.com/?q=Morya+House+Andheri+West+Mumbai" : activeTab === "branch" ? "https://maps.google.com/?q=Venus+Tower+Veera+Desai+Road+Andheri+W+Mumbai" : "https://maps.google.com/?q=Dewan+Shah+Industrial+Estate+Palghar"} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-3 py-1.5 bg-white rounded-md shadow-sm text-[11px] font-bold text-slate-600 hover:text-slate-900 border border-slate-200 transition-colors">
-              Open in Maps <ExternalLink size={12} />
-            </a>
-          </div>
+
 
         </div>
       </div>

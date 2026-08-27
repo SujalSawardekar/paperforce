@@ -106,9 +106,9 @@ export function ExportNetworkSection() {
   const animKey = `anim-${activeRegionId}`
 
   return (
-    <section className="py-12 md:py-16 bg-white relative overflow-hidden border-t border-slate-200">
+    <section className="py-12 md:py-16 bg-white relative overflow-hidden">
       <Container>
-        <div className="w-full mb-8 text-center border-b border-slate-200 pb-6">
+        <div className="w-full mb-8 text-center pb-6">
           <div className="inline-block text-xs font-bold tracking-[0.2em] uppercase text-slate-400 mb-4 px-4 py-1.5 rounded-full border border-slate-200 bg-slate-50">
             World Export Network
           </div>

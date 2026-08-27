@@ -38,7 +38,7 @@ export function HomeFaqSection() {
   const [openIndex, setOpenIndex] = React.useState<number | null>(0);
 
   return (
-    <section className="relative py-24 md:py-32 bg-slate-50 overflow-hidden">
+    <section className="relative py-24 md:py-32 bg-white overflow-hidden">
       {/* Decorative Blueprint Background */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.03]">
         <svg className="h-full w-full" xmlns="http://www.w3.org/2000/svg">
@@ -66,12 +66,8 @@ export function HomeFaqSection() {
               </div>
 
               <ScrollReveal direction="up">
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#1E3261]/5 border border-[#1E3261]/10 text-xs font-bold uppercase tracking-widest text-[#1E3261] mb-2">
-                  B2B Sourcing Guide
-                </div>
                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-slate-900 leading-[1.1] mt-4">
-                  Frequently Asked <br />
-                  <span className="text-[#1E3261]">Questions</span>
+                  FAQ
                 </h2>
                 <p className="text-lg text-slate-600 leading-relaxed mt-6">
                   Clear, transparent answers to the most common questions from our global importing and distribution partners.
