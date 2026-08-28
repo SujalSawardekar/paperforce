@@ -167,6 +167,7 @@ export function ContactPageContent() {
 
             <motion.div variants={revealVariants} className="pt-8">
               <button 
+                type="button"
                 onClick={(e) => {
                   e.preventDefault();
                   document.getElementById('map-section')?.scrollIntoView({ behavior: 'smooth' });
