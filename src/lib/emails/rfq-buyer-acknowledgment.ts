@@ -49,7 +49,7 @@ export function rfqBuyerAckHtml(p: BuyerAckParams): string {
 
       <table style="width:100%;font-size:12px;color:#475569;">
         <tr><td style="padding:4px 0;font-weight:600;width:120px;">Email:</td><td>info@paperforce.in</td></tr>
-        <tr><td style="padding:4px 0;font-weight:600;">WhatsApp:</td><td>+91 99999 99999 (B2B Line)</td></tr>
+        <tr><td style="padding:4px 0;font-weight:600;">WhatsApp:</td><td>+91 91367 55322 (B2B Line)</td></tr>
         <tr><td style="padding:4px 0;font-weight:600;">Factory:</td><td>Palghar, Maharashtra, India</td></tr>
       </table>
     </div>

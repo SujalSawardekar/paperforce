@@ -8,7 +8,7 @@ export const siteConfig = {
   },
   contact: {
     email: "info@paperforce.in",
-    phone: "+91 99999 99999",
+    phone: "+91 91367 55322",
     address: "Registered Office, India",
   },
 };

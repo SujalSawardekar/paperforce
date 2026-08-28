@@ -134,13 +134,18 @@ export function ContactPageContent() {
                 </div>
 
                 {/* WhatsApp */}
-                <div className="group flex flex-col gap-2 text-sm cursor-pointer">
+                <a 
+                  href="https://wa.me/919136755322" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="group flex flex-col gap-2 text-sm cursor-pointer"
+                >
                   <span className="block text-xs font-bold text-slate-400 uppercase tracking-widest flex items-center gap-2">
                     <MessageSquare className="w-4 h-4 text-slate-400 group-hover:text-green-500 transition-colors duration-300" />
                     WhatsApp
                   </span>
-                  <span className="text-slate-700 font-medium pl-6 group-hover:text-green-600 transition-colors">+91 97699 66770</span>
-                </div>
+                  <span className="text-slate-700 font-medium pl-6 group-hover:text-green-600 transition-colors">+91 91367 55322</span>
+                </a>
 
                 {/* Email */}
                 <div className="group flex flex-col gap-2 text-sm col-span-1 sm:col-span-2">

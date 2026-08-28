@@ -13,14 +13,16 @@ import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 
 const productCollections = [
   {
+    id: "Set_03",
     number: "01",
     title: "Center-pinned",
     description: "High-volume notebook formats manufactured for institutional, retail and export requirements.",
-    image: "/products/exercise_books.png",
+    image: "/Images of Product/Set_03/Set_03 (1).png",
     bgColor: "#eef6ee",
     alt: "Center-pinned exercise books stacked on production line"
   },
   {
+    id: "Set_10",
     number: "02",
     title: "Center stitched",
     description: "Classic saddle-stitched exercise books for volume-conscious school procurement and public tenders.",
@@ -29,30 +31,34 @@ const productCollections = [
     alt: "Center stitched notebook binding detail"
   },
   {
+    id: "Set_11",
     number: "03",
     title: "Spiral Bound",
     description: "Durable wire-coil binding for a smooth, lay-flat writing experience. Favored by students and professionals.",
-    image: "/products/spiral_notebook.png",
+    image: "/Images of Product/Set 11 Spiral Bound/Screenshot 2026-08-15 181240.png",
     bgColor: "#f6f1f4",
     alt: "Spiral Bound notebooks close up"
   },
   {
+    id: "Set_02",
     number: "04",
     title: "Double Wire/Wiro bound",
     description: "Reinforced double-loop wire construction for frequent, heavy corporate and institutional use.",
-    image: "/products/double_wire_notebook.png",
+    image: "/Images of Product/Set_02/Set_02 (1).png",
     bgColor: "#f0f4f8",
     alt: "Double Wire/Wiro bound notebook preview"
   },
   {
+    id: "Set_09",
     number: "05",
     title: "Perfect Bound Notebook",
     description: "Clean adhesive-bound notebooks and pads offering a clean, lay-flat finish. Perfect for desktop notepad use.",
-    image: "/products/glue_bound_notebook.png",
+    image: "/Images of Product/Set_09/Set_09 (1).png",
     bgColor: "#eef6ee",
     alt: "Perfect Bound notebook edge details"
   },
   {
+    id: "Set_07",
     number: "06",
     title: "Hardcover/Casebound",
     description: "Premium bound notebooks with rigid protective casing, built for longevity and archive applications.",
@@ -110,7 +116,7 @@ function ProductStackCard({
           <p className="text-sm text-slate-600 leading-relaxed max-w-xs mb-6 font-medium">
             {product.description}
           </p>
-          <Link href="/products" className="inline-flex items-center gap-1 text-xs font-bold text-[#1E3261] group hover:underline">
+          <Link href={`/products/${product.id}`} className="inline-flex items-center gap-1 text-xs font-bold text-[#1E3261] group hover:underline">
             Explore Range
             <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
           </Link>

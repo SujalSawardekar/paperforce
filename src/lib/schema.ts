@@ -6,7 +6,7 @@ export function getCompanySchema() {
     "image": "https://paperforceindia.com/og.png",
     "@id": "https://paperforceindia.com/#organization",
     "url": "https://paperforceindia.com",
-    "telephone": "+91 99999 99999",
+    "telephone": "+91 91367 55322",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Palghar Industrial Area",
