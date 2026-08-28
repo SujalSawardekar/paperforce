@@ -66,7 +66,7 @@ export function ContactMap() {
           )}
           {activeTab === "manufacturing" && (
             <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119853.30894056291!2d72.71181829631628!3d19.696614131557348!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be71cceeb265435%3A0x2db44d081f9a2b53!2sPalghar%2C%20Maharashtra!5e0!3m2!1sen!2sus!4v1715874025345!5m2!1sen!2sus" 
+              src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d4035.496074832529!2d72.77068707522078!3d19.683649081650145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTnCsDQxJzAxLjEiTiA3MsKwNDYnMjMuNyJF!5e1!3m2!1sen!2sin!4v1787916760352!5m2!1sen!2sin" 
               className="absolute inset-0 w-full h-full border-0" 
               allowFullScreen 
               loading="lazy" 

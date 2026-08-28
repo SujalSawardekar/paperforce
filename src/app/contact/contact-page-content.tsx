@@ -208,12 +208,41 @@ export function ContactPageContent() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-10%" }}
             transition={{ duration: 0.8 }}
-            className="text-center max-w-2xl mx-auto mb-20 space-y-6"
+            className="text-center max-w-3xl mx-auto mb-20 space-y-6"
           >
             <h2 className="text-3xl md:text-5xl font-bold text-[#0b1c3f] font-serif tracking-tight">Visit Our Locations</h2>
             <p className="text-lg text-slate-600">
               Find our Corporate Office, Branch Office and Manufacturing Facility across Maharashtra.
             </p>
+            <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+              <a 
+                href="https://maps.google.com/?q=Morya+House+Andheri+West+Mumbai"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider bg-white text-[#1E3261] border border-slate-200 px-4 py-2 rounded-full hover:bg-slate-50 hover:border-blue-300 transition-all shadow-sm"
+              >
+                <MapPin className="w-3.5 h-3.5 text-blue-600" />
+                Corporate Office Map &rarr;
+              </a>
+              <a 
+                href="https://maps.app.goo.gl/u77t82eECftxwLXo7"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider bg-white text-[#1E3261] border border-slate-200 px-4 py-2 rounded-full hover:bg-slate-50 hover:border-blue-300 transition-all shadow-sm"
+              >
+                <MapPin className="w-3.5 h-3.5 text-blue-600" />
+                Branch Office Map &rarr;
+              </a>
+              <a 
+                href="https://www.google.com/maps?q=19.683649,72.770687"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider bg-blue-600 text-white border border-blue-600 px-4 py-2 rounded-full hover:bg-blue-700 transition-all shadow-sm"
+              >
+                <MapPin className="w-3.5 h-3.5 text-white" />
+                Manufacturing Facility Map &rarr;
+              </a>
+            </div>
           </motion.div>
 
           <motion.div
@@ -233,36 +262,48 @@ export function ContactPageContent() {
             style={{ transform: 'translateY(220px)' }}
           >
             {/* Corporate Office */}
-            <motion.div 
+            <motion.a 
+              href="https://maps.google.com/?q=Morya+House+Andheri+West+Mumbai"
+              target="_blank"
+              rel="noopener noreferrer"
               variants={cardVariants}
-              className="bg-white px-10 pt-12 pb-16 h-[380px] shadow-[0_20px_50px_rgba(16,35,78,0.12)] flex flex-col text-left rounded-3xl lg:rounded-bl-[70px] relative overflow-hidden"
+              className="bg-white px-10 pt-12 pb-16 h-[380px] shadow-[0_20px_50px_rgba(16,35,78,0.12)] flex flex-col text-left rounded-3xl lg:rounded-bl-[70px] relative overflow-hidden group cursor-pointer hover:shadow-2xl transition-all"
             >
               <div className="flex items-center gap-3 mb-8 relative z-10">
-                <MapPin className="w-5 h-5 text-[#1E3261]" />
-                <h4 className="text-xl font-bold text-[#1E3261]">Corporate Office</h4>
+                <MapPin className="w-5 h-5 text-[#1E3261] group-hover:text-blue-600 transition-colors" />
+                <h4 className="text-xl font-bold text-[#1E3261] group-hover:text-blue-600 transition-colors">Corporate Office</h4>
               </div>
               <p className="text-base text-slate-600 leading-loose relative z-10">
                 C-210, Morya House<br/>
                 Andheri West<br/>
                 Mumbai
               </p>
-            </motion.div>
+              <span className="mt-auto relative z-10 text-xs font-bold uppercase tracking-widest text-blue-600 group-hover:underline flex items-center gap-1">
+                View on Google Maps &rarr;
+              </span>
+            </motion.a>
             
             {/* Branch Office */}
-            <motion.div 
+            <motion.a 
+              href="https://maps.app.goo.gl/u77t82eECftxwLXo7"
+              target="_blank"
+              rel="noopener noreferrer"
               variants={cardVariants}
-              className="bg-white px-10 pt-12 pb-16 h-[380px] shadow-[0_20px_50px_rgba(16,35,78,0.12)] flex flex-col text-left rounded-3xl relative overflow-hidden"
+              className="bg-white px-10 pt-12 pb-16 h-[380px] shadow-[0_20px_50px_rgba(16,35,78,0.12)] flex flex-col text-left rounded-3xl relative overflow-hidden group cursor-pointer hover:shadow-2xl transition-all"
             >
               <div className="flex items-center gap-3 mb-8 relative z-10">
-                <MapPin className="w-5 h-5 text-[#1E3261]" />
-                <h4 className="text-xl font-bold text-[#1E3261]">Branch Office</h4>
+                <MapPin className="w-5 h-5 text-[#1E3261] group-hover:text-blue-600 transition-colors" />
+                <h4 className="text-xl font-bold text-[#1E3261] group-hover:text-blue-600 transition-colors">Branch Office</h4>
               </div>
               <p className="text-base text-slate-600 leading-loose relative z-10">
                 403-B, Venus Tower<br/>
                 Veera Desai Road<br/>
                 Andheri (W), Mumbai
               </p>
-            </motion.div>
+              <span className="mt-auto relative z-10 text-xs font-bold uppercase tracking-widest text-blue-600 group-hover:underline flex items-center gap-1">
+                View on Google Maps &rarr;
+              </span>
+            </motion.a>
             
             {/* Manufacturing Facility */}
             <motion.a 
