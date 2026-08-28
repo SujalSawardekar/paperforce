@@ -109,7 +109,7 @@ export function GlobalReachSection() {
             
             <ScrollReveal direction="up" delay={0.2}>
               <p className="text-lg md:text-xl text-slate-600 font-sans leading-relaxed max-w-md">
-                Paperforce India seamlessly supplies high-volume Volume paper stationery as per customized specifications to international brands, retailers, and distributors across the globe.
+                Paperforce India seamlessly supplies high-volume paper stationery as per customized specifications to international brands, retailers, and distributors across the globe.
               </p>
             </ScrollReveal>
             
