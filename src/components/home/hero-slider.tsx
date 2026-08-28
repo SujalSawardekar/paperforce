@@ -124,13 +124,13 @@ export default function HeroSlider() {
                 </div>
               </div>
             ) : (
-              <div className="relative w-full h-full flex items-center justify-center overflow-hidden select-none pointer-events-none bg-slate-950/80">
+              <div className="relative w-full h-full overflow-hidden select-none pointer-events-none">
                 <Image
                   src={slides[currentIndex].src}
                   alt={slides[currentIndex].alt}
                   fill
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1200px"
-                  className="object-contain object-center transition-transform duration-700 p-2 sm:p-4 md:p-6"
+                  className="object-cover object-center transition-transform duration-700"
                   priority
                 />
                 {/* Premium gradient overlay for subtle contrast in controls area */}
