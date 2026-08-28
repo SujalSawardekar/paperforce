@@ -52,7 +52,7 @@ export function WhyChooseSection() {
               Choose Us
             </h2>
             <p className="text-lg md:text-xl text-slate-600  max-w-2xl mx-auto leading-relaxed">
-              We combine massive production scale with uncompromising quality control to deliver premium stationery products worldwide.
+              We combine massive production scale with uncompromising quality control to deliver high-volume paper stationery as per customized specifications worldwide.
             </p>
             
             {/* Floating Pills - Repositioned to not crowd the text */}

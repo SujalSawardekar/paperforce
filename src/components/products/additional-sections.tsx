@@ -21,7 +21,7 @@ export function ProductPhilosophy() {
           <ScrollReveal delay={0.1}>
             <div className="space-y-6 text-slate-600 text-lg leading-relaxed">
               <p>
-                At Paperforce India, we don't just manufacture notebooks—we engineer premium stationery solutions tailored for international markets. Our state-of-the-art facility is built to handle high-volume OEM production without ever compromising on precision.
+                At Paperforce India, we don't just manufacture notebooks—we engineer high-volume paper stationery as per customized specifications for international markets. Our state-of-the-art facility is built to handle high-volume OEM production without ever compromising on precision.
               </p>
               <p>
                 From sourcing FSC-certified raw materials to rigorous AQL inspections, every phase of our manufacturing process is designed to meet the exacting standards of global distributors, wholesalers, and premium retail brands.

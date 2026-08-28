@@ -53,7 +53,7 @@ export function ContactPageContent() {
             
             <motion.div variants={revealVariants} className="space-y-5 text-base lg:text-lg text-slate-600 leading-relaxed max-w-3xl mx-auto">
               <p>
-                Paperforce India LLP manufactures premium notebooks and paper stationery for importers, distributors, wholesalers, retailers, educational institutions, and private-label brands across global markets.
+                Paperforce India LLP manufactures high-volume paper stationery as per customized specifications for importers, distributors, wholesalers, retailers, educational institutions, and private-label brands across global markets.
               </p>
               <p>
                 Whether you're looking for OEM manufacturing, bulk exports, private labeling, or customized stationery solutions, our export team is ready to assist.
@@ -111,18 +111,23 @@ export function ContactPageContent() {
                 </div>
 
                 {/* Manufacturing Facility */}
-                <div className="group flex flex-col gap-2 text-sm col-span-1 sm:col-span-2 cursor-default">
+                <a 
+                  href="https://www.google.com/maps?q=19.683649,72.770687"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex flex-col gap-2 text-sm col-span-1 sm:col-span-2 cursor-pointer"
+                >
                   <span className="block text-xs font-bold text-slate-400 uppercase tracking-widest flex items-center gap-2">
                     <MapPin className="w-4 h-4 text-slate-400 group-hover:text-blue-600 group-hover:animate-bounce transition-colors" />
                     Manufacturing Facility
                   </span>
-                  <span className="text-slate-700 leading-relaxed block max-w-[280px] pl-6 transition-colors">
+                  <span className="text-slate-700 leading-relaxed block max-w-[280px] pl-6 group-hover:text-blue-600 transition-colors">
                     Plot No. 19-20<br/>
                     Dewan & Shah Industrial Estate<br/>
                     Palghar Udyog Nagar<br/>
                     Palghar
                   </span>
-                </div>
+                </a>
 
                 {/* Phone */}
                 <div className="group flex flex-col gap-2 text-sm cursor-default">
@@ -260,13 +265,16 @@ export function ContactPageContent() {
             </motion.div>
             
             {/* Manufacturing Facility */}
-            <motion.div 
+            <motion.a 
+              href="https://www.google.com/maps?q=19.683649,72.770687"
+              target="_blank"
+              rel="noopener noreferrer"
               variants={cardVariants}
-              className="bg-white px-10 pt-12 pb-16 h-[380px] shadow-[0_20px_50px_rgba(16,35,78,0.12)] flex flex-col text-left rounded-3xl lg:rounded-br-[70px] relative overflow-hidden"
+              className="bg-white px-10 pt-12 pb-16 h-[380px] shadow-[0_20px_50px_rgba(16,35,78,0.12)] flex flex-col text-left rounded-3xl lg:rounded-br-[70px] relative overflow-hidden group cursor-pointer hover:shadow-2xl transition-all"
             >
               <div className="flex items-center gap-3 mb-8 relative z-10">
-                <MapPin className="w-5 h-5 text-[#1E3261]" />
-                <h4 className="text-xl font-bold text-[#1E3261]">Manufacturing Facility</h4>
+                <MapPin className="w-5 h-5 text-[#1E3261] group-hover:text-blue-600 transition-colors" />
+                <h4 className="text-xl font-bold text-[#1E3261] group-hover:text-blue-600 transition-colors">Manufacturing Facility</h4>
               </div>
               <p className="text-base text-slate-600 leading-loose relative z-10">
                 Plot No. 19-20<br/>
@@ -274,7 +282,10 @@ export function ContactPageContent() {
                 Palghar Udyog Nagar<br/>
                 Palghar
               </p>
-            </motion.div>
+              <span className="mt-auto relative z-10 text-xs font-bold uppercase tracking-widest text-blue-600 group-hover:underline flex items-center gap-1">
+                View on Google Maps &rarr;
+              </span>
+            </motion.a>
           </motion.div>
         </Container>
       </section>

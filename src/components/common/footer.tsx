@@ -140,7 +140,7 @@ export function Footer() {
               <ul className="space-y-4">
                 <li><a href="https://maps.google.com/?q=Morya+House+Andheri+West+Mumbai" target="_blank" rel="noopener noreferrer" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Corporate Office</a></li>
                 <li><a href="https://maps.app.goo.gl/u77t82eECftxwLXo7" target="_blank" rel="noopener noreferrer" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Branch Office</a></li>
-                <li><a href="https://maps.google.com/?q=Dewan+Shah+Industrial+Estate+Palghar" target="_blank" rel="noopener noreferrer" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Factory</a></li>
+                <li><a href="https://www.google.com/maps?q=19.683649,72.770687" target="_blank" rel="noopener noreferrer" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Factory</a></li>
               </ul>
             </div>
           </motion.div>

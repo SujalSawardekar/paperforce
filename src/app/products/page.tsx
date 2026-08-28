@@ -26,7 +26,7 @@ export default function ProductsPage() {
           </ScrollReveal>
           <ScrollReveal direction="up" delay={0.1}>
             <p className="text-xl md:text-2xl text-slate-500 leading-relaxed max-w-2xl mx-auto mt-6">
-              Premium Notebook Manufacturing Since 1985
+              High-volume paper stationery as per customized specifications since 1985
             </p>
           </ScrollReveal>
         </Container>
