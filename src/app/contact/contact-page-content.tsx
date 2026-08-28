@@ -208,41 +208,12 @@ export function ContactPageContent() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-10%" }}
             transition={{ duration: 0.8 }}
-            className="text-center max-w-3xl mx-auto mb-20 space-y-6"
+            className="text-center max-w-2xl mx-auto mb-20 space-y-6"
           >
             <h2 className="text-3xl md:text-5xl font-bold text-[#0b1c3f] font-serif tracking-tight">Visit Our Locations</h2>
             <p className="text-lg text-slate-600">
               Find our Corporate Office, Branch Office and Manufacturing Facility across Maharashtra.
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
-              <a 
-                href="https://maps.google.com/?q=Morya+House+Andheri+West+Mumbai"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider bg-white text-[#1E3261] border border-slate-200 px-4 py-2 rounded-full hover:bg-slate-50 hover:border-blue-300 transition-all shadow-sm"
-              >
-                <MapPin className="w-3.5 h-3.5 text-blue-600" />
-                Corporate Office Map &rarr;
-              </a>
-              <a 
-                href="https://maps.app.goo.gl/u77t82eECftxwLXo7"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider bg-white text-[#1E3261] border border-slate-200 px-4 py-2 rounded-full hover:bg-slate-50 hover:border-blue-300 transition-all shadow-sm"
-              >
-                <MapPin className="w-3.5 h-3.5 text-blue-600" />
-                Branch Office Map &rarr;
-              </a>
-              <a 
-                href="https://www.google.com/maps?q=19.683649,72.770687"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider bg-blue-600 text-white border border-blue-600 px-4 py-2 rounded-full hover:bg-blue-700 transition-all shadow-sm"
-              >
-                <MapPin className="w-3.5 h-3.5 text-white" />
-                Manufacturing Facility Map &rarr;
-              </a>
-            </div>
           </motion.div>
 
           <motion.div
