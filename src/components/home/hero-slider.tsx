@@ -124,87 +124,85 @@ export default function HeroSlider() {
                 </div>
               </div>
             ) : (
-              <div className="relative w-full h-full overflow-hidden select-none pointer-events-none">
+              <div className="relative w-full h-full flex items-center justify-center overflow-hidden select-none pointer-events-none bg-slate-950/80">
                 <Image
                   src={slides[currentIndex].src}
                   alt={slides[currentIndex].alt}
                   fill
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1200px"
-                  className="object-cover transition-transform duration-700"
+                  className="object-contain object-center transition-transform duration-700 p-2 sm:p-4 md:p-6"
                   priority
                 />
                 {/* Premium gradient overlay for subtle contrast in controls area */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/15 via-transparent to-black/5 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-black/10 pointer-events-none" />
               </div>
             )}
           </motion.div>
         </AnimatePresence>
 
-        {/* Navigation Controls & Tagline Pill */}
-        <motion.div 
-          layout
-          className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 flex items-center gap-2 sm:gap-3 bg-[#0F172A]/50 backdrop-blur-md border border-white/15 px-3 py-1.5 rounded-full z-20 shadow-xl max-w-[calc(100%-2rem)]"
-        >
-          <AnimatePresence mode="wait">
-            {slides[currentIndex].copyline && (
-              <motion.span
-                key={slides[currentIndex].copyline}
-                initial={{ opacity: 0, x: -8 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -8 }}
-                transition={{ duration: 0.3 }}
-                className="text-white text-xs sm:text-sm font-semibold tracking-wide px-1.5 sm:px-2 select-none whitespace-nowrap overflow-hidden text-ellipsis drop-shadow-sm"
-              >
-                {slides[currentIndex].copyline}
-              </motion.span>
-            )}
-          </AnimatePresence>
-
-          <div className="flex items-center gap-2 shrink-0">
-            <button
-              onClick={handlePrev}
-              className="w-9 h-9 rounded-full flex items-center justify-center bg-white/20 text-white hover:bg-white/30 active:scale-95 transition-all cursor-pointer border border-white/5"
-              aria-label="Previous slide"
+        {/* Left Standalone Tagline Badge for Slides 3 & 4 */}
+        <AnimatePresence mode="wait">
+          {slides[currentIndex].copyline && (
+            <motion.div
+              key={slides[currentIndex].copyline}
+              initial={{ opacity: 0, y: 10, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 10, scale: 0.95 }}
+              transition={{ duration: 0.35, ease: [0.25, 1, 0.5, 1] }}
+              className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 z-20 bg-[#0F172A]/70 backdrop-blur-md border border-white/20 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full shadow-2xl pointer-events-none max-w-[calc(100%-140px)] sm:max-w-[calc(100%-180px)]"
             >
-              <ChevronLeft className="w-5 h-5 stroke-[2.5]" />
+              <span className="text-white text-xs sm:text-sm md:text-base font-semibold tracking-wide block truncate drop-shadow-sm">
+                {slides[currentIndex].copyline}
+              </span>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Standalone Navigation Controls Pill */}
+        <div className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 flex items-center gap-2 bg-[#0F172A]/40 backdrop-blur-md border border-white/10 px-2 py-1.5 rounded-full z-20 shadow-lg">
+          <button
+            onClick={handlePrev}
+            className="w-9 h-9 rounded-full flex items-center justify-center bg-white/20 text-white hover:bg-white/30 active:scale-95 transition-all cursor-pointer border border-white/5"
+            aria-label="Previous slide"
+          >
+            <ChevronLeft className="w-5 h-5 stroke-[2.5]" />
+          </button>
+          
+          <div className="relative w-11 h-11 flex items-center justify-center">
+            {/* Circular Progress SVG wrapper */}
+            <svg className="absolute inset-0 w-full h-full -rotate-90 pointer-events-none z-20" viewBox="0 0 44 44">
+              <circle
+                cx="22"
+                cy="22"
+                r="19"
+                stroke="rgba(255, 255, 255, 0.15)"
+                strokeWidth="2"
+                fill="transparent"
+              />
+              <circle
+                cx="22"
+                cy="22"
+                r="19"
+                stroke="#FFFFFF"
+                strokeWidth="2"
+                strokeLinecap="round"
+                fill="transparent"
+                strokeDasharray="119.38"
+                style={{
+                  strokeDashoffset: 119.38 - (119.38 * progress) / 100,
+                  transition: "stroke-dashoffset 30ms linear",
+                }}
+              />
+            </svg>
+            <button
+              onClick={handleNext}
+              className="w-9 h-9 rounded-full flex items-center justify-center bg-white text-[#0F172A] hover:bg-[#F8FAFC] active:scale-95 transition-all cursor-pointer shadow-md border border-white/10 z-10"
+              aria-label="Next slide"
+            >
+              <ChevronRight className="w-5 h-5 stroke-[2.5]" />
             </button>
-            
-            <div className="relative w-11 h-11 flex items-center justify-center">
-              {/* Circular Progress SVG wrapper */}
-              <svg className="absolute inset-0 w-full h-full -rotate-90 pointer-events-none z-20" viewBox="0 0 44 44">
-                <circle
-                  cx="22"
-                  cy="22"
-                  r="19"
-                  stroke="rgba(255, 255, 255, 0.15)"
-                  strokeWidth="2"
-                  fill="transparent"
-                />
-                <circle
-                  cx="22"
-                  cy="22"
-                  r="19"
-                  stroke="#FFFFFF"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  fill="transparent"
-                  strokeDasharray="119.38"
-                  style={{
-                    strokeDashoffset: 119.38 - (119.38 * progress) / 100,
-                    transition: "stroke-dashoffset 30ms linear",
-                  }}
-                />
-              </svg>
-              <button
-                onClick={handleNext}
-                className="w-9 h-9 rounded-full flex items-center justify-center bg-white text-[#0F172A] hover:bg-[#F8FAFC] active:scale-95 transition-all cursor-pointer shadow-md border border-white/10 z-10"
-                aria-label="Next slide"
-              >
-                <ChevronRight className="w-5 h-5 stroke-[2.5]" />
-              </button>
-            </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </div>
   );
