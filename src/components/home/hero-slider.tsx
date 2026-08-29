@@ -70,7 +70,7 @@ export default function HeroSlider({ isPageReady = true }: HeroSliderProps) {
   const [progress, setProgress] = useState(0);
   const [isImgLoading, setIsImgLoading] = useState(true);
 
-  // Trigger image loading skeleton reset on slide change
+  // Reset image loading state whenever slide changes
   useEffect(() => {
     setIsImgLoading(true);
   }, [currentIndex]);
@@ -111,18 +111,18 @@ export default function HeroSlider({ isPageReady = true }: HeroSliderProps) {
           <AnimatePresence mode="wait">
             <motion.div
               key={currentIndex}
-              initial={{ opacity: 0, y: 12 }}
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -12 }}
-              transition={{ duration: 0.35, ease: [0.25, 1, 0.5, 1] }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.35, ease: "easeInOut" }}
               className="flex flex-col items-start"
             >
-              {/* Product Name Title - Bigger Font */}
+              {/* Product Name Title */}
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[64px] font-serif font-bold text-[#0F172A] leading-[1.1] tracking-tight mb-6 sm:mb-8 max-w-xl">
                 {currentSlide.title}
               </h1>
 
-              {/* CTA Buttons - Original Button Styling Restored */}
+              {/* CTA Buttons */}
               <div className="flex flex-wrap items-center gap-4 w-full sm:w-auto">
                 <Link href="/products" className="w-full sm:w-auto">
                   <Button 
@@ -156,33 +156,34 @@ export default function HeroSlider({ isPageReady = true }: HeroSliderProps) {
           </AnimatePresence>
         </div>
 
-        {/* Product Image Showcase (Right on desktop, Top on mobile) */}
+        {/* Product Image Showcase with Normal Skeleton Loading Effect */}
         <div className="order-1 lg:order-2 lg:col-span-7 relative w-full h-[260px] sm:h-[360px] md:h-[440px] lg:h-[480px] flex items-center justify-center">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentIndex}
-              initial={{ opacity: 0, scale: 0.97, x: 15 }}
-              animate={{ opacity: 1, scale: 1, x: 0 }}
-              exit={{ opacity: 0, scale: 0.97, x: -15 }}
-              transition={{ duration: 0.45, ease: [0.25, 1, 0.5, 1] }}
+              initial={{ opacity: 0, scale: 0.98 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.98 }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
               className="absolute inset-0 w-full h-full flex items-center justify-center p-2 sm:p-4 select-none pointer-events-none"
             >
-              <div className="relative w-full h-full rounded-2xl sm:rounded-3xl overflow-hidden flex items-center justify-center bg-slate-100/90 border border-slate-200/50 shadow-sm">
-                {/* Shimmer Loading Skeleton Overlay */}
+              <div className="relative w-full h-full rounded-2xl sm:rounded-3xl overflow-hidden flex items-center justify-center bg-slate-100 border border-slate-200/60 shadow-sm">
+                
+                {/* Normal Skeleton Loading Pulse Overlay */}
                 <AnimatePresence>
                   {isImgLoading && (
                     <motion.div
                       initial={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
-                      transition={{ duration: 0.35 }}
-                      className="absolute inset-0 z-20 bg-slate-200/80 backdrop-blur-[2px] overflow-hidden flex items-center justify-center"
+                      transition={{ duration: 0.3 }}
+                      className="absolute inset-0 z-20 bg-slate-200/80 animate-pulse rounded-2xl sm:rounded-3xl flex items-center justify-center"
                     >
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/80 to-transparent animate-shimmer" />
-                      <div className="w-8 h-8 rounded-full border-2 border-[#1E3261]/20 border-t-[#1E3261] animate-spin z-30" />
+                      <div className="w-8 h-8 rounded-full border-2 border-slate-400 border-t-[#1E3261] animate-spin" />
                     </motion.div>
                   )}
                 </AnimatePresence>
 
+                {/* Product Image */}
                 <Image
                   src={currentSlide.image}
                   alt={currentSlide.alt}
@@ -191,8 +192,8 @@ export default function HeroSlider({ isPageReady = true }: HeroSliderProps) {
                   onLoad={() => setIsImgLoading(false)}
                   sizes="(max-width: 1024px) 100vw, 58vw"
                   className={cn(
-                    "object-cover object-center rounded-2xl sm:rounded-3xl transition-all duration-500",
-                    isImgLoading ? "scale-[1.03] filter blur-sm opacity-50" : "scale-100 filter blur-0 opacity-100"
+                    "object-cover object-center rounded-2xl sm:rounded-3xl shadow-sm transition-all duration-500",
+                    isImgLoading ? "opacity-0 scale-[1.01]" : "opacity-100 scale-100"
                   )}
                 />
               </div>
@@ -201,7 +202,7 @@ export default function HeroSlider({ isPageReady = true }: HeroSliderProps) {
         </div>
       </div>
 
-      {/* Bottom Segmented Progress Bar & Slide Counter with Laser Progress Glow */}
+      {/* Bottom Segmented Progress Bar & Slide Counter */}
       <div className="w-full border-t border-[#E2E8F0]/80 pt-6 mt-6 md:mt-10">
         <div className="flex items-center justify-between gap-4">
           {/* Multi-segment Progress Line */}
@@ -221,7 +222,7 @@ export default function HeroSlider({ isPageReady = true }: HeroSliderProps) {
                   <div
                     className={cn(
                       "absolute inset-y-0 left-0 bg-[#0F172A] rounded-full transition-all duration-75 ease-linear",
-                      index === currentIndex && "bg-gradient-to-r from-[#1E3261] via-[#0F172A] to-blue-600 shadow-[0_0_8px_rgba(30,50,97,0.6)]"
+                      index === currentIndex && "bg-[#1E3261]"
                     )}
                     style={{
                       width:
