@@ -2,205 +2,246 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
-interface Slide {
-  type: "product" | "factory";
-  src: string;
-  bgColor?: string;
+export interface HeroSlide {
+  id: number;
+  tagline: string;
+  title: string;
+  image: string;
   alt: string;
-  copyline?: string;
 }
 
-const slides: Slide[] = [
+const slides: HeroSlide[] = [
   {
-    type: "factory",
-    src: "/Images by Com/Centere Pinned Notebooks.png",
-    alt: "Paperforce Center Pinned Notebooks collection",
+    id: 1,
+    tagline: "CENTER-STITCHED",
+    title: "Composition Books",
+    image: "/Images by Com/Composition Books.png",
+    alt: "Paperforce Center-Stitched Composition Books",
   },
   {
-    type: "factory",
-    src: "/Images by Com/Composition Books.png",
-    alt: "Paperforce Composition Books collection",
+    id: 2,
+    tagline: "CENTER-PINNED",
+    title: "Center Pinned Notebooks",
+    image: "/Images by Com/Centere Pinned Notebooks.png",
+    alt: "Paperforce Centere Pinned Notebooks",
   },
   {
-    type: "factory",
-    src: "/Images by Com/Untitled design.jpg",
-    alt: "Made to Impress. Built for Your Brand.",
-    copyline: "Made to Impress. Built for Your Brand.",
+    id: 3,
+    tagline: "HARDCOVER SERIES",
+    title: "Hardcover Notebooks",
+    image: "/images/hardcover_notebook_hero.jpg",
+    alt: "Paperforce High Durability Hardcover Notebooks",
   },
   {
-    type: "factory",
-    src: "/Images by Com/zn1.jpg",
-    alt: "Where Quality Meets Your Brand.",
-    copyline: "Where Quality Meets Your Brand.",
+    id: 4,
+    tagline: "SPIRAL BOUND",
+    title: "Spiral Notebooks",
+    image: "/products/spiral_notebook.png",
+    alt: "Paperforce Spiral Notebooks Collection",
   },
   {
-    type: "factory",
-    src: "/images/hardcover_notebook_hero.jpg",
-    alt: "Paperforce high durability hardcover notebooks",
+    id: 5,
+    tagline: "EXERCISE BOOKS",
+    title: "Exercise Notebooks",
+    image: "/Images by Com/zn1.jpg",
+    alt: "Paperforce Custom Branded Notebooks",
+  },
+  {
+    id: 6,
+    tagline: "DOUBLE WIRE",
+    title: "Double Wire Notebooks",
+    image: "/products/double_wire_notebook.png",
+    alt: "Paperforce Double-Wire Notebooks",
   },
 ];
 
-export default function HeroSlider() {
+interface HeroSliderProps {
+  isPageReady?: boolean;
+}
+
+export default function HeroSlider({ isPageReady = true }: HeroSliderProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const [progress, setProgress] = useState(0);
+  const [isImgLoading, setIsImgLoading] = useState(true);
 
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
-  };
+  // Trigger image loading skeleton reset on slide change
+  useEffect(() => {
+    setIsImgLoading(true);
+  }, [currentIndex]);
 
-  const handlePrev = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + slides.length) % slides.length);
-  };
-
-  // Autoplay with a linear progress circle incrementing every 30ms.
-  // Resets to 0% and starts fresh on manual navigation (currentIndex change).
-  // Pauses state increment on hover and resumes exactly where it left off.
   useEffect(() => {
     setProgress(0);
-
     if (isHovered) return;
 
     const step = 30; // interval step in ms
-    const duration = 4500; // slide cycle in ms
+    const duration = 5000; // 5s per slide
 
     const timer = setInterval(() => {
       setProgress((prev) => {
         const nextVal = prev + (step / duration) * 100;
         if (nextVal >= 100) {
-          handleNext();
-          return 100;
+          setCurrentIndex((prevIdx) => (prevIdx + 1) % slides.length);
+          return 0;
         }
         return nextVal;
       });
     }, step);
 
-    return () => {
-      clearInterval(timer);
-    };
+    return () => clearInterval(timer);
   }, [isHovered, currentIndex]);
+
+  const currentSlide = slides[currentIndex];
 
   return (
     <div
-      className="relative w-full overflow-hidden rounded-[32px] bg-slate-100 shadow-[0_12px_45px_-12px_rgba(30,50,97,0.12)] border border-[#E5E7EB]/50 group"
-      style={{ willChange: "transform" }}
+      className="w-full flex flex-col justify-between"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Slider height boundaries - taller dimensions */}
-      <div className="w-full h-[320px] sm:h-[420px] md:h-[520px] lg:h-[580px] relative overflow-hidden">
-        <AnimatePresence initial={false} mode="popLayout">
-          <motion.div
-            key={currentIndex}
-            initial={{ opacity: 0, scale: 1.02 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.98 }}
-            transition={{ duration: 0.7, ease: [0.25, 1, 0.5, 1] }}
-            className="absolute inset-0 w-full h-full"
-          >
-            {slides[currentIndex].type === "product" ? (
-              <div 
-                className="relative w-full h-full flex items-center justify-center p-6 sm:p-8 md:p-12 overflow-hidden transition-colors duration-500"
-                style={{ backgroundColor: slides[currentIndex].bgColor }}
+      {/* Top 2-Column Grid */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center min-h-[360px] sm:min-h-[420px] md:min-h-[460px]">
+        {/* Left Column: Product Info & CTAs */}
+        <div className="lg:col-span-5 flex flex-col justify-center z-10 text-left">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentIndex}
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -12 }}
+              transition={{ duration: 0.35, ease: [0.25, 1, 0.5, 1] }}
+              className="flex flex-col items-start"
+            >
+              {/* Product Name Title - Bigger Font */}
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[64px] font-serif font-bold text-[#0F172A] leading-[1.08] tracking-tight mb-8 max-w-xl">
+                {currentSlide.title}
+              </h1>
+
+              {/* CTA Buttons - Original Button Styling Restored */}
+              <div className="flex flex-wrap items-center gap-4 w-full sm:w-auto">
+                <Link href="/products" className="w-full sm:w-auto">
+                  <Button 
+                    size="lg" 
+                    variant="default"
+                    className={cn(
+                      "w-full sm:w-auto min-w-[180px] sm:min-w-[210px]",
+                      !isPageReady && "btn-loading-pulse-primary"
+                    )}
+                  >
+                    {!isPageReady && <span className="btn-loading-highlight-sweep" />}
+                    <span>Explore Our Products &rarr;</span>
+                  </Button>
+                </Link>
+
+                <Link href="/contact" className="w-full sm:w-auto">
+                  <Button 
+                    variant="outline"
+                    size="lg"
+                    className={cn(
+                      "w-full sm:w-auto min-w-[180px] sm:min-w-[210px]",
+                      !isPageReady && "btn-loading-pulse-secondary"
+                    )}
+                  >
+                    {!isPageReady && <span className="btn-loading-highlight-sweep" />}
+                    <span>Reach Us</span>
+                  </Button>
+                </Link>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        {/* Right Column: Product Image Showcase with Shimmer Loading Effect */}
+        <div className="lg:col-span-7 relative w-full h-[280px] sm:h-[360px] md:h-[440px] lg:h-[480px] flex items-center justify-center">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentIndex}
+              initial={{ opacity: 0, scale: 0.97, x: 15 }}
+              animate={{ opacity: 1, scale: 1, x: 0 }}
+              exit={{ opacity: 0, scale: 0.97, x: -15 }}
+              transition={{ duration: 0.45, ease: [0.25, 1, 0.5, 1] }}
+              className="absolute inset-0 w-full h-full flex items-center justify-center p-2 sm:p-4 select-none pointer-events-none"
+            >
+              <div className="relative w-full h-full rounded-2xl sm:rounded-3xl overflow-hidden flex items-center justify-center bg-slate-100/90 border border-slate-200/50 shadow-sm">
+                {/* Shimmer Loading Skeleton Overlay */}
+                <AnimatePresence>
+                  {isImgLoading && (
+                    <motion.div
+                      initial={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.35 }}
+                      className="absolute inset-0 z-20 bg-slate-200/80 backdrop-blur-[2px] overflow-hidden flex items-center justify-center"
+                    >
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/80 to-transparent animate-shimmer" />
+                      <div className="w-8 h-8 rounded-full border-2 border-[#1E3261]/20 border-t-[#1E3261] animate-spin z-30" />
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+
+                <Image
+                  src={currentSlide.image}
+                  alt={currentSlide.alt}
+                  fill
+                  priority
+                  onLoad={() => setIsImgLoading(false)}
+                  sizes="(max-width: 1024px) 100vw, 58vw"
+                  className={cn(
+                    "object-cover object-center rounded-2xl sm:rounded-3xl transition-all duration-500",
+                    isImgLoading ? "scale-[1.03] filter blur-sm opacity-50" : "scale-100 filter blur-0 opacity-100"
+                  )}
+                />
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+      </div>
+
+      {/* Bottom Segmented Progress Bar & Slide Counter with Laser Progress Glow */}
+      <div className="w-full border-t border-[#E2E8F0]/80 pt-6 mt-6 md:mt-10">
+        <div className="flex items-center justify-between gap-4">
+          {/* Multi-segment Progress Line */}
+          <div className="flex items-center gap-2 sm:gap-3 flex-1 max-w-full sm:max-w-2xl">
+            {slides.map((slide, index) => (
+              <button
+                key={slide.id}
+                onClick={() => {
+                  setCurrentIndex(index);
+                  setProgress(0);
+                }}
+                className="relative flex-1 h-8 flex items-center group cursor-pointer"
+                aria-label={`Go to slide ${index + 1}: ${slide.title}`}
               >
-                {/* Subtle paper grid mesh texture */}
-                <div className="absolute inset-0 grid-mesh opacity-25 pointer-events-none" />
-                {/* Organic noise texture */}
-                <div className="absolute inset-0 paper-noise opacity-15 pointer-events-none" />
-                
-                {/* Centered contained product */}
-                <div className="relative w-full h-full max-w-[85%] max-h-[85%] flex items-center justify-center select-none pointer-events-none">
-                  <Image
-                    src={slides[currentIndex].src}
-                    alt={slides[currentIndex].alt}
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 1200px"
-                    className="object-contain drop-shadow-[0_18px_36px_rgba(30,50,97,0.1)] transition-transform duration-700 hover:scale-[1.01]"
-                    priority
+                {/* Track line background */}
+                <div className="w-full h-[3px] bg-[#E2E8F0] group-hover:bg-[#CBD5E1] transition-colors rounded-full overflow-hidden relative">
+                  <div
+                    className={cn(
+                      "absolute inset-y-0 left-0 bg-[#0F172A] rounded-full transition-all duration-75 ease-linear",
+                      index === currentIndex && "bg-gradient-to-r from-[#1E3261] via-[#0F172A] to-blue-600 shadow-[0_0_8px_rgba(30,50,97,0.6)]"
+                    )}
+                    style={{
+                      width:
+                        index < currentIndex
+                          ? "100%"
+                          : index === currentIndex
+                          ? `${progress}%`
+                          : "0%",
+                    }}
                   />
                 </div>
-              </div>
-            ) : (
-              <div className="relative w-full h-full overflow-hidden select-none pointer-events-none">
-                <Image
-                  src={slides[currentIndex].src}
-                  alt={slides[currentIndex].alt}
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1200px"
-                  className="object-cover object-center transition-transform duration-700"
-                  priority
-                />
-                {/* Premium gradient overlay for subtle contrast in controls area */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-black/10 pointer-events-none" />
-              </div>
-            )}
-          </motion.div>
-        </AnimatePresence>
+              </button>
+            ))}
+          </div>
 
-        {/* Left Standalone Tagline Badge for Slides 3 & 4 */}
-        <AnimatePresence mode="wait">
-          {slides[currentIndex].copyline && (
-            <motion.div
-              key={slides[currentIndex].copyline}
-              initial={{ opacity: 0, y: 10, scale: 0.95 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 10, scale: 0.95 }}
-              transition={{ duration: 0.35, ease: [0.25, 1, 0.5, 1] }}
-              className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 z-20 bg-[#0F172A]/70 backdrop-blur-md border border-white/20 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full shadow-2xl pointer-events-none max-w-[calc(100%-140px)] sm:max-w-[calc(100%-180px)]"
-            >
-              <span className="text-white text-xs sm:text-sm md:text-base font-semibold tracking-wide block truncate drop-shadow-sm">
-                {slides[currentIndex].copyline}
-              </span>
-            </motion.div>
-          )}
-        </AnimatePresence>
-
-        {/* Standalone Navigation Controls Pill */}
-        <div className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 flex items-center gap-2 bg-[#0F172A]/40 backdrop-blur-md border border-white/10 px-2 py-1.5 rounded-full z-20 shadow-lg">
-          <button
-            onClick={handlePrev}
-            className="w-9 h-9 rounded-full flex items-center justify-center bg-white/20 text-white hover:bg-white/30 active:scale-95 transition-all cursor-pointer border border-white/5"
-            aria-label="Previous slide"
-          >
-            <ChevronLeft className="w-5 h-5 stroke-[2.5]" />
-          </button>
-          
-          <div className="relative w-11 h-11 flex items-center justify-center">
-            {/* Circular Progress SVG wrapper */}
-            <svg className="absolute inset-0 w-full h-full -rotate-90 pointer-events-none z-20" viewBox="0 0 44 44">
-              <circle
-                cx="22"
-                cy="22"
-                r="19"
-                stroke="rgba(255, 255, 255, 0.15)"
-                strokeWidth="2"
-                fill="transparent"
-              />
-              <circle
-                cx="22"
-                cy="22"
-                r="19"
-                stroke="#FFFFFF"
-                strokeWidth="2"
-                strokeLinecap="round"
-                fill="transparent"
-                strokeDasharray="119.38"
-                style={{
-                  strokeDashoffset: 119.38 - (119.38 * progress) / 100,
-                  transition: "stroke-dashoffset 30ms linear",
-                }}
-              />
-            </svg>
-            <button
-              onClick={handleNext}
-              className="w-9 h-9 rounded-full flex items-center justify-center bg-white text-[#0F172A] hover:bg-[#F8FAFC] active:scale-95 transition-all cursor-pointer shadow-md border border-white/10 z-10"
-              aria-label="Next slide"
-            >
-              <ChevronRight className="w-5 h-5 stroke-[2.5]" />
-            </button>
+          {/* Counter Text e.g. "02 / 06" */}
+          <div className="text-xs sm:text-sm font-sans tracking-[0.18em] text-[#64748B] font-medium shrink-0 pl-4 select-none">
+            <span>{String(currentIndex + 1).padStart(2, "0")}</span>
+            <span className="mx-1 text-[#CBD5E1]">/</span>
+            <span>{String(slides.length).padStart(2, "0")}</span>
           </div>
         </div>
       </div>

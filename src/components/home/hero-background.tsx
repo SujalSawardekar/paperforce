@@ -6,28 +6,23 @@ export function HeroBackground({ isPageReady }: { isPageReady?: boolean }) {
   return (
     <>
       {/* Base Paper Fallback Color */}
-      <div className="absolute inset-0 -z-30 bg-white" />
+      <div className="absolute inset-0 -z-30 bg-[#FAFBFD]" />
       
       {/* Paper Organic Noise Texture */}
-      <div className="absolute inset-0 paper-noise pointer-events-none -z-25 mix-blend-multiply opacity-20" />
+      <div className="absolute inset-0 paper-noise pointer-events-none -z-25 mix-blend-multiply opacity-15" />
 
-      {/* Main User-provided Background Image (Paperforce BG - Optimized WebP) */}
-      <div
-        className={cn(
-          "absolute inset-0 -z-20 pointer-events-none bg-center bg-cover bg-no-repeat opacity-0",
-          !isPageReady ? "animate-hero-bg" : "opacity-30"
-        )}
-        style={{
-          backgroundImage: "url('/images/paperforce-bg2.jpeg')",
-        }}
-      />
+      {/* Grid Mesh */}
+      <div className="absolute inset-0 grid-mesh opacity-20 pointer-events-none -z-20" />
+
+      {/* Floating Animated Gradient Orbs */}
+      <div className="absolute -top-32 -right-32 w-[650px] h-[650px] bg-gradient-to-br from-indigo-200/35 via-blue-100/25 to-transparent rounded-full blur-[100px] pointer-events-none -z-10 animate-pulse duration-[8000ms]" />
+      
+      <div className="absolute top-[25%] -left-32 w-[550px] h-[550px] bg-gradient-to-tr from-sky-200/35 via-indigo-100/20 to-transparent rounded-full blur-[90px] pointer-events-none -z-10 dreamy-glow-navy" />
+      
+      <div className="absolute -bottom-24 right-[15%] w-[500px] h-[500px] bg-gradient-to-t from-slate-200/40 via-blue-100/20 to-transparent rounded-full blur-[80px] pointer-events-none -z-10 dreamy-glow-grey" />
 
       {/* Subtle white gradient overlay coming upward from the bottom of the hero section */}
-      <div className="absolute inset-x-0 bottom-0 h-[60%] bg-gradient-to-t from-white via-white/30 to-transparent pointer-events-none -z-15" />
-
-      {/* Soft Accent Ambient Glows to blend edges */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] dreamy-glow-navy pointer-events-none -z-10 opacity-25 mix-blend-multiply" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] dreamy-glow-grey pointer-events-none -z-10 opacity-25 mix-blend-multiply" />
+      <div className="absolute inset-x-0 bottom-0 h-[40%] bg-gradient-to-t from-white via-white/50 to-transparent pointer-events-none -z-10" />
     </>
   );
 }

@@ -335,6 +335,19 @@
   }
 }
 
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 1.8s infinite ease-in-out;
+}
+
 /* Entrance Animation Classes */
 .animate-nav-entrance {
   animation: nav-reveal-down 0.6s cubic-bezier(0.21, 0.47, 0.32, 0.98) 0.15s forwards;
