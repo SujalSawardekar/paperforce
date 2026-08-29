@@ -104,10 +104,10 @@ export default function HeroSlider({ isPageReady = true }: HeroSliderProps) {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Top 2-Column Grid */}
+      {/* Top 2-Column Grid: Image top on mobile (order-1), Text below on mobile (order-2) */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center min-h-[360px] sm:min-h-[420px] md:min-h-[460px]">
-        {/* Left Column: Product Info & CTAs */}
-        <div className="lg:col-span-5 flex flex-col justify-center z-10 text-left">
+        {/* Product Info & CTAs (Left on desktop, Bottom on mobile) */}
+        <div className="order-2 lg:order-1 lg:col-span-5 flex flex-col justify-center z-10 text-left">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentIndex}
@@ -118,7 +118,7 @@ export default function HeroSlider({ isPageReady = true }: HeroSliderProps) {
               className="flex flex-col items-start"
             >
               {/* Product Name Title - Bigger Font */}
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[64px] font-serif font-bold text-[#0F172A] leading-[1.08] tracking-tight mb-8 max-w-xl">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[64px] font-serif font-bold text-[#0F172A] leading-[1.1] tracking-tight mb-6 sm:mb-8 max-w-xl">
                 {currentSlide.title}
               </h1>
 
@@ -156,8 +156,8 @@ export default function HeroSlider({ isPageReady = true }: HeroSliderProps) {
           </AnimatePresence>
         </div>
 
-        {/* Right Column: Product Image Showcase with Shimmer Loading Effect */}
-        <div className="lg:col-span-7 relative w-full h-[280px] sm:h-[360px] md:h-[440px] lg:h-[480px] flex items-center justify-center">
+        {/* Product Image Showcase (Right on desktop, Top on mobile) */}
+        <div className="order-1 lg:order-2 lg:col-span-7 relative w-full h-[260px] sm:h-[360px] md:h-[440px] lg:h-[480px] flex items-center justify-center">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentIndex}
