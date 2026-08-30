@@ -34,8 +34,8 @@ const stats = [
 
 export function AboutIntro() {
   return (
-    <section className="py-20 md:py-32 bg-white relative overflow-hidden">
-      <Container className="max-w-6xl mx-auto space-y-20 relative z-10">
+    <section className="py-12 md:py-16 bg-white relative overflow-hidden">
+      <Container className="max-w-6xl mx-auto space-y-10 md:space-y-12 relative z-10">
         
         {/* Top Editorial Split */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-end">

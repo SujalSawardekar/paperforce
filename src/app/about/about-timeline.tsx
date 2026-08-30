@@ -51,8 +51,8 @@ export function AboutTimeline() {
   });
 
   return (
-    <section className="py-24 bg-white relative">
-      <Container className="max-w-4xl mx-auto space-y-16">
+    <section className="py-12 md:py-16 bg-white relative">
+      <Container className="max-w-4xl mx-auto space-y-10 md:space-y-12">
         
         <SectionHeader 
           eyebrow="Heritage Timeline"
@@ -60,7 +60,7 @@ export function AboutTimeline() {
           description="From domestic paper trade to a global manufacturing powerhouse."
         />
 
-        <div ref={containerRef} className="relative pt-10">
+        <div ref={containerRef} className="relative pt-6">
           {/* Vertical Connecting Line */}
           <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-1 bg-slate-100 -translate-x-1/2 rounded-full overflow-hidden">
             <motion.div 
@@ -69,7 +69,7 @@ export function AboutTimeline() {
             />
           </div>
 
-          <div className="space-y-16 md:space-y-24">
+          <div className="space-y-8 md:space-y-10">
             {timeline.map((item, idx) => {
               const isEven = idx % 2 === 0;
               return (

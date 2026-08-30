@@ -7,12 +7,12 @@ import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 export function AboutMissionVision() {
   return (
-    <section className="py-20 md:py-32 bg-slate-50 relative border-y border-slate-100">
+    <section className="py-12 md:py-16 bg-slate-50 relative border-y border-slate-100">
       <Container className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
           
           {/* Left Column: Static Sticky Image (Desktop) */}
-          <div className="hidden lg:block lg:sticky lg:top-32 h-[500px] w-full rounded-[2rem] overflow-hidden shadow-md border border-slate-200/50 bg-slate-100 relative">
+          <div className="hidden lg:block lg:sticky lg:top-24 h-[360px] md:h-[400px] w-full rounded-[2rem] overflow-hidden shadow-md border border-slate-200/50 bg-slate-100 relative">
             <Image 
               src="/images/about/about_mfg_overview_new.jpg"
               alt="Paperforce India state-of-the-art production floor infrastructure"
@@ -24,7 +24,7 @@ export function AboutMissionVision() {
           </div>
 
           {/* Right Column: Editorial Sequential Content */}
-          <div className="space-y-24 md:space-y-36">
+          <div className="space-y-10 md:space-y-12">
             
             {/* Mobile Image: Only visible on mobile/tablet as standard flow block */}
             <div className="lg:hidden relative w-full aspect-square sm:aspect-[16/10] rounded-[2rem] overflow-hidden shadow-md border border-slate-200/50 bg-slate-100 mb-8">

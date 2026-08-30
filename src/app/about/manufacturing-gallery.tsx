@@ -40,8 +40,8 @@ const gallery = [
 
 export function ManufacturingGallery() {
   return (
-    <section className="py-24 bg-slate-50 relative">
-      <Container className="max-w-7xl mx-auto space-y-16">
+    <section className="py-12 md:py-16 bg-slate-50 relative">
+      <Container className="max-w-7xl mx-auto space-y-10 md:space-y-12">
         
         <SectionHeader 
           eyebrow="Inside The Facility"
@@ -50,7 +50,7 @@ export function ManufacturingGallery() {
         />
 
         {/* Bento Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-12 auto-rows-[250px] gap-4 md:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-12 auto-rows-[180px] md:auto-rows-[200px] gap-4 md:gap-6">
           {gallery.map((item, idx) => (
             <ScrollReveal 
               key={idx} 

@@ -10,16 +10,16 @@ import { Button } from "@/components/ui/button";
 
 export function ProductPhilosophy() {
   return (
-    <section className="py-24 md:py-32 bg-white">
+    <section className="py-12 md:py-16 bg-white">
       <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           <ScrollReveal>
-            <h2 className="text-3xl md:text-5xl font-serif font-bold text-[#1E3261] leading-tight">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#1E3261] leading-tight">
               Craftsmanship Engineered for Global Export.
             </h2>
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
-            <div className="space-y-6 text-slate-600 text-lg leading-relaxed">
+            <div className="space-y-4 text-slate-600 text-base leading-relaxed">
               <p>
                 At Paperforce India, we don't just manufacture notebooks—we engineer high-volume paper stationery as per customized specifications for international markets. Our state-of-the-art facility is built to handle high-volume OEM production without ever compromising on precision.
               </p>
@@ -45,21 +45,21 @@ export function ManufacturingProcess() {
   ];
 
   return (
-    <section className="py-24 bg-white border-y border-slate-200 overflow-hidden">
+    <section className="py-12 md:py-16 bg-white border-y border-slate-200 overflow-hidden">
       <Container>
         <ScrollReveal>
-          <h2 className="text-3xl md:text-4xl font-bold font-serif text-[#1E3261] mb-16">The Order Flow</h2>
+          <h2 className="text-2xl md:text-3xl font-bold font-serif text-[#1E3261] mb-8">The Order Flow</h2>
         </ScrollReveal>
         
         <div className="relative">
           <div className="hidden md:block absolute top-1/2 left-0 w-full h-px bg-slate-300 -translate-y-1/2" />
-          <div className="grid grid-cols-2 md:grid-cols-6 gap-6 md:gap-4 relative z-10">
+          <div className="grid grid-cols-2 md:grid-cols-6 gap-4 relative z-10">
             {steps.map((step, i) => (
               <ScrollReveal key={i} delay={i * 0.1} className="relative">
-                <div className="bg-white border border-slate-200 rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-shadow relative z-10 h-full flex flex-col items-center justify-center">
-                  <span className="text-[#1E3261] font-bold text-sm mb-2 opacity-50 block">Step {step.num}</span>
-                  <h4 className="font-bold text-slate-900 mb-1 leading-snug">{step.title}</h4>
-                  {step.desc && <p className="text-xs text-slate-500 mt-1 leading-relaxed">{step.desc}</p>}
+                <div className="bg-white border border-slate-200 rounded-xl p-4 text-center shadow-sm hover:shadow-md transition-shadow relative z-10 h-full flex flex-col items-center justify-center">
+                  <span className="text-[#1E3261] font-bold text-xs mb-1 opacity-50 block">Step {step.num}</span>
+                  <h4 className="font-bold text-slate-900 text-sm leading-snug">{step.title}</h4>
+                  {step.desc && <p className="text-[11px] text-slate-500 mt-1 leading-relaxed">{step.desc}</p>}
                 </div>
               </ScrollReveal>
             ))}
@@ -72,11 +72,11 @@ export function ManufacturingProcess() {
 
 export function OemPrivateLabelSection() {
   return (
-    <section className="py-24 bg-white">
+    <section className="py-12 md:py-16 bg-white">
       <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           <ScrollReveal>
-            <div className="relative aspect-square md:aspect-[4/3] rounded-2xl overflow-hidden bg-slate-100 p-8 flex items-center justify-center">
+            <div className="relative aspect-[4/3] max-h-[320px] rounded-2xl overflow-hidden bg-slate-100 p-6 flex items-center justify-center">
               <Image 
                 src="/Images of Product/Set_07/Set_07 (1).png" 
                 alt="OEM Manufacturing" 
@@ -86,28 +86,28 @@ export function OemPrivateLabelSection() {
             </div>
           </ScrollReveal>
           
-          <div className="space-y-8">
+          <div className="space-y-6">
             <ScrollReveal>
-              <h2 className="text-3xl md:text-4xl font-bold font-serif text-[#1E3261]">OEM & Private Label</h2>
-              <p className="text-lg text-slate-600 mt-4 leading-relaxed">
+              <h2 className="text-2xl md:text-3xl font-bold font-serif text-[#1E3261]">OEM & Private Label</h2>
+              <p className="text-base text-slate-600 mt-2 leading-relaxed">
                 Your brand, our manufacturing expertise. We offer complete customization capabilities to ensure the final product perfectly aligns with your brand identity.
               </p>
             </ScrollReveal>
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {[
                 { icon: PenTool, title: "Custom Covers", desc: "Foil stamping, UV, debossing" },
                 { icon: Factory, title: "Paper Grammage", desc: "54 GSM to 80+ GSM options" },
                 { icon: Box, title: "Retail Packaging", desc: "Custom shrink-wrap & barcodes" },
                 { icon: CheckCircle, title: "Brand Identity", desc: "Watermarks & custom endpapers" }
               ].map((feat, i) => (
-                <ScrollReveal key={i} delay={0.1 * i} className="flex gap-4 items-start">
-                  <div className="text-[#1E3261] bg-slate-50 p-3 rounded-lg">
-                    <feat.icon size={20} />
+                <ScrollReveal key={i} delay={0.1 * i} className="flex gap-3 items-start">
+                  <div className="text-[#1E3261] bg-slate-50 p-2.5 rounded-lg shrink-0">
+                    <feat.icon size={18} />
                   </div>
                   <div>
-                    <h4 className="font-bold text-slate-900">{feat.title}</h4>
-                    <p className="text-sm text-slate-500 mt-1">{feat.desc}</p>
+                    <h4 className="font-bold text-slate-900 text-sm">{feat.title}</h4>
+                    <p className="text-xs text-slate-500 mt-0.5">{feat.desc}</p>
                   </div>
                 </ScrollReveal>
               ))}
@@ -121,19 +121,19 @@ export function OemPrivateLabelSection() {
 
 export function QualityAssuranceSection() {
   return (
-    <section className="py-24 bg-[#1E3261] text-white">
+    <section className="py-12 md:py-16 bg-[#1E3261] text-white">
       <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div className="space-y-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+          <div className="space-y-6">
             <ScrollReveal>
-              <ShieldCheck size={48} className="text-blue-300 mb-6" />
-              <h2 className="text-3xl md:text-4xl font-bold font-serif">Export Quality Assurance</h2>
-              <p className="text-lg text-slate-300 mt-4 leading-relaxed">
+              <ShieldCheck size={40} className="text-blue-300 mb-4" />
+              <h2 className="text-2xl md:text-3xl font-bold font-serif">Export Quality Assurance</h2>
+              <p className="text-base text-slate-300 mt-2 leading-relaxed">
                 We understand that in international trade, consistency is paramount. Our factory operates under stringent quality control protocols to guarantee that every single container shipped meets global retail standards.
               </p>
             </ScrollReveal>
             
-            <ul className="space-y-4">
+            <ul className="space-y-3">
               {[
                 "AQL Pre-Shipment Inspection",
                 "ISO Certified Manufacturing Standards",
@@ -141,20 +141,20 @@ export function QualityAssuranceSection() {
                 "Moisture & Bind Strength Checks"
               ].map((item, i) => (
                 <ScrollReveal key={i} delay={0.1 * i} className="flex items-center gap-3">
-                  <CheckCircle size={20} className="text-blue-400" />
-                  <span className="font-medium text-slate-200">{item}</span>
+                  <CheckCircle size={18} className="text-blue-400" />
+                  <span className="font-medium text-sm text-slate-200">{item}</span>
                 </ScrollReveal>
               ))}
             </ul>
           </div>
           
           <ScrollReveal>
-            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-slate-800 p-8 flex items-center justify-center">
+            <div className="relative aspect-[4/3] max-h-[320px] rounded-2xl overflow-hidden bg-slate-800 p-6 flex items-center justify-center">
                <Image src="/images/precision_at_scale.png" alt="Quality Assurance" fill className="object-cover opacity-60 mix-blend-luminosity" />
                <div className="absolute inset-0 bg-slate-900/60 mix-blend-multiply pointer-events-none" />
                <div className="absolute inset-0 paper-noise opacity-30 pointer-events-none" />
-               <div className="relative z-10 p-8 text-center">
-                  <span className="text-white font-serif italic text-2xl drop-shadow-md">Precision at Scale</span>
+               <div className="relative z-10 p-6 text-center">
+                  <span className="text-white font-serif italic text-xl drop-shadow-md">Precision at Scale</span>
                </div>
             </div>
           </ScrollReveal>
@@ -172,12 +172,12 @@ export function CatalogueDownloadsSection() {
   ];
 
   return (
-    <section className="py-24 bg-slate-50">
+    <section className="py-12 md:py-16 bg-slate-50">
       <Container>
         <ScrollReveal>
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold font-serif text-[#1E3261] mb-4">Official Documentation</h2>
-            <p className="text-slate-600 text-lg">Download our comprehensive guides to review product matrixes, technical details, and logistical requirements.</p>
+          <div className="text-center max-w-2xl mx-auto mb-10">
+            <h2 className="text-2xl md:text-3xl font-bold font-serif text-[#1E3261] mb-3">Official Documentation</h2>
+            <p className="text-slate-600 text-base">Download our comprehensive guides to review product matrixes, technical details, and logistical requirements.</p>
           </div>
         </ScrollReveal>
 
@@ -185,16 +185,16 @@ export function CatalogueDownloadsSection() {
           {docs.map((doc, i) => (
             <ScrollReveal key={i} delay={0.1 * i}>
               <div 
-                className="bg-white border border-slate-200 p-8 rounded-2xl hover:border-slate-300 hover:shadow-lg transition-all cursor-pointer group"
+                className="bg-white border border-slate-200 p-6 rounded-2xl hover:border-slate-300 hover:shadow-lg transition-all cursor-pointer group"
                 onClick={() => window.dispatchEvent(new CustomEvent("open-catalogue-modal"))}
               >
-                <div className="bg-slate-50 w-12 h-12 rounded-full flex items-center justify-center text-[#1E3261] mb-6 group-hover:bg-[#1E3261] group-hover:text-white transition-colors">
-                  <FileText size={20} />
+                <div className="bg-slate-50 w-10 h-10 rounded-full flex items-center justify-center text-[#1E3261] mb-4 group-hover:bg-[#1E3261] group-hover:text-white transition-colors">
+                  <FileText size={18} />
                 </div>
-                <h3 className="font-bold text-xl text-slate-900 mb-2">{doc.title}</h3>
-                <p className="text-slate-500 mb-6">{doc.desc}</p>
-                <div className="flex items-center text-sm font-bold text-[#1E3261] uppercase tracking-wider">
-                  Download PDF <Download size={16} className="ml-2 group-hover:-translate-y-1 transition-transform" />
+                <h3 className="font-bold text-lg text-slate-900 mb-1">{doc.title}</h3>
+                <p className="text-slate-500 text-sm mb-4">{doc.desc}</p>
+                <div className="flex items-center text-xs font-bold text-[#1E3261] uppercase tracking-wider">
+                  Download PDF <Download size={14} className="ml-2 group-hover:-translate-y-1 transition-transform" />
                 </div>
               </div>
             </ScrollReveal>

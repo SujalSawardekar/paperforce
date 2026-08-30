@@ -15,56 +15,56 @@ const productCollections = [
   {
     id: "Set_03",
     number: "01",
-    title: "Center-pinned",
+    title: "Center Pinned Notebooks",
     description: "High-volume notebook formats manufactured for institutional, retail and export requirements.",
     image: "/Images of Product/Set_03/Set_03 (1).png",
     bgColor: "#eef6ee",
-    alt: "Center-pinned exercise books stacked on production line"
+    alt: "Paperforce Center Pinned Notebooks"
   },
   {
     id: "Set_10",
     number: "02",
-    title: "Center stitched",
+    title: "Composition Notebooks",
     description: "Classic saddle-stitched exercise books for volume-conscious school procurement and public tenders.",
-    image: "/products/stitched_notebook.png",
+    image: "/Images of Product/Set 10 Composition/Screenshot 2026-08-15 181137.png",
     bgColor: "#f1f0f9",
-    alt: "Center stitched notebook binding detail"
+    alt: "Paperforce Composition Notebooks"
   },
   {
     id: "Set_11",
     number: "03",
-    title: "Spiral Bound",
+    title: "Spiral Bound Notebooks",
     description: "Durable wire-coil binding for a smooth, lay-flat writing experience. Favored by students and professionals.",
     image: "/Images of Product/Set 11 Spiral Bound/Screenshot 2026-08-15 181240.png",
     bgColor: "#f6f1f4",
-    alt: "Spiral Bound notebooks close up"
+    alt: "Paperforce Spiral Bound Notebooks"
   },
   {
     id: "Set_02",
     number: "04",
-    title: "Double Wire/Wiro bound",
+    title: "Double Wire Bound Notebooks",
     description: "Reinforced double-loop wire construction for frequent, heavy corporate and institutional use.",
-    image: "/Images of Product/Set_02/Set_02 (1).png",
+    image: "/Images of Product/Set_02/Set_02 (2).png",
     bgColor: "#f0f4f8",
-    alt: "Double Wire/Wiro bound notebook preview"
+    alt: "Paperforce Double Wire Bound Notebooks"
   },
   {
     id: "Set_09",
     number: "05",
-    title: "Perfect Bound Notebook",
+    title: "Perfect Bound Notebooks",
     description: "Clean adhesive-bound notebooks and pads offering a clean, lay-flat finish. Perfect for desktop notepad use.",
     image: "/Images of Product/Set_09/Set_09 (1).png",
     bgColor: "#eef6ee",
-    alt: "Perfect Bound notebook edge details"
+    alt: "Paperforce Perfect Bound Notebooks"
   },
   {
     id: "Set_07",
     number: "06",
-    title: "Hardcover/Casebound",
+    title: "Casebound Notebooks",
     description: "Premium bound notebooks with rigid protective casing, built for longevity and archive applications.",
-    image: "/products/hardcover_notebook.png",
+    image: "/Images of Product/Set_07/Set_07 (3).png",
     bgColor: "#f1f0f9",
-    alt: "Hardcover/Casebound notebook close up"
+    alt: "Paperforce Casebound Notebooks"
   }
 ];
 
@@ -102,7 +102,7 @@ function ProductStackCard({
       }}
     >
       <div
-        className="flex flex-col lg:flex-row rounded-[28px] overflow-hidden border border-slate-100/80 shadow-[0_8px_40px_-10px_rgba(0,0,0,0.12)] bg-white"
+        className="flex flex-col lg:flex-row rounded-[28px] overflow-hidden border border-slate-100/80 shadow-[0_8px_40px_-10px_rgba(0,0,0,0.12)]"
         style={{ backgroundColor: product.bgColor }}
       >
         {/* Left Column: Text & Content (2/5 width) */}
@@ -122,14 +122,17 @@ function ProductStackCard({
           </Link>
         </div>
 
-        {/* Right Column: Image only, no overlapping gradient (3/5 width) */}
-        <div className="w-full lg:w-3/5 h-[240px] sm:h-[280px] lg:h-[340px] relative">
+        {/* Right Column: Image display matching card background color (3/5 width) */}
+        <div 
+          className="w-full lg:w-3/5 h-[260px] sm:h-[300px] lg:h-[360px] relative flex items-center justify-center p-4 sm:p-6"
+          style={{ backgroundColor: product.bgColor }}
+        >
           <Image
             src={product.image}
             alt={product.alt}
             fill
             sizes="(max-width: 1024px) 100vw, 60vw"
-            className="object-cover"
+            className="object-contain object-center p-3 sm:p-6"
             priority={idx === 0}
             loading={idx === 0 ? "eager" : "lazy"}
           />
