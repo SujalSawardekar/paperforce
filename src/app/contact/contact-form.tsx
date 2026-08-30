@@ -24,7 +24,7 @@ const catalogProducts: ProductOption[] = [
   ...collections.map((c) => ({
     id: c.id,
     name: c.name,
-    category: c.id.replace("_", " Set "),
+    category: "",
     image: c.coverImage,
     keywords: [
       c.name.toLowerCase(),
@@ -35,28 +35,28 @@ const catalogProducts: ProductOption[] = [
   {
     id: "sub_01",
     name: "Legal Pads & Shorthand Notebooks",
-    category: "Writing Pads",
+    category: "",
     image: "/Images of Product/Set_06/Set_06 (1).png",
     keywords: ["legal", "steno", "shorthand", "writing pad", "notepad", "yellow pad"],
   },
   {
     id: "sub_02",
     name: "Executive Hardcover Journals (A4 / A5)",
-    category: "Casebound",
+    category: "",
     image: "/Images of Product/Set_07/Set_07 (2).png",
     keywords: ["hardcover", "journal", "diary", "executive", "casebound", "ribbon"],
   },
   {
     id: "sub_03",
     name: "School Exercise Books (Saddle Stitched)",
-    category: "Center Pinned",
+    category: "",
     image: "/Images of Product/Set_03/Set_03 (1).png",
     keywords: ["school", "exercise book", "stitched", "tender", "student", "pin"],
   },
   {
     id: "sub_04",
     name: "Custom OEM & Private Label Production",
-    category: "Custom Branding",
+    category: "",
     image: "/Images of Product/Set_02/Set_02 (1).png",
     keywords: ["oem", "private label", "custom", "branding", "bespoke", "bulk"],
   },
@@ -98,7 +98,6 @@ function ProductSearchAutocomplete({
     return catalogProducts.filter(
       (p) =>
         p.name.toLowerCase().includes(q) ||
-        p.category.toLowerCase().includes(q) ||
         p.keywords.some((k) => k.includes(q))
     );
   }, [query]);
@@ -151,7 +150,7 @@ function ProductSearchAutocomplete({
           onChange={handleInputChange}
           onFocus={() => setIsOpen(true)}
           onKeyDown={handleKeyDown}
-          placeholder="Type product name (e.g. Counter Books, Spiral, Index Cards)..."
+          placeholder="Type product name..."
           className="w-full rounded-sm border border-border py-3.5 pl-10 pr-10 text-sm bg-background text-foreground focus:ring-1 focus:ring-primary focus:outline-hidden transition-all"
         />
         {query ? (
@@ -178,14 +177,9 @@ function ProductSearchAutocomplete({
         )}
       </div>
 
-      {/* Floating Live Product Suggestions Dropdown */}
+      {/* Floating Clean Product Suggestions Dropdown */}
       {isOpen && (
-        <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-slate-200 rounded-2xl shadow-[0_12px_40px_rgba(0,0,0,0.12)] z-50 overflow-hidden max-h-[340px] overflow-y-auto py-2 divide-y divide-slate-100">
-          <div className="px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-slate-400 flex items-center justify-between bg-slate-50/80">
-            <span>Catalogue Suggestions ({filteredProducts.length})</span>
-            <span>Type or select below</span>
-          </div>
-
+        <div className="absolute top-full left-0 right-0 mt-2 bg-white border border-slate-200 rounded-2xl shadow-[0_12px_40px_rgba(0,0,0,0.12)] z-50 overflow-hidden max-h-[300px] overflow-y-auto py-1 divide-y divide-slate-100">
           {filteredProducts.length > 0 ? (
             filteredProducts.map((prod, idx) => {
               const isSelected = query.toLowerCase().trim() === prod.name.toLowerCase().trim();
@@ -197,28 +191,23 @@ function ProductSearchAutocomplete({
                   type="button"
                   onClick={() => handleSelect(prod.name)}
                   onMouseEnter={() => setHighlightIndex(idx)}
-                  className={`w-full text-left px-3.5 py-2.5 flex items-center justify-between gap-3 transition-colors ${
+                  className={`w-full text-left px-4 py-3 flex items-center justify-between gap-3 transition-colors ${
                     isHighlighted || isSelected ? "bg-blue-50/70" : "hover:bg-slate-50"
                   }`}
                 >
                   <div className="flex items-center gap-3 min-w-0">
-                    <div className="relative w-9 h-9 rounded-lg border border-slate-200 bg-white overflow-hidden shrink-0 flex items-center justify-center p-0.5">
+                    <div className="relative w-8 h-8 rounded-lg border border-slate-200 bg-white overflow-hidden shrink-0 flex items-center justify-center p-0.5">
                       <Image
                         src={prod.image}
                         alt={prod.name}
-                        width={32}
-                        height={32}
+                        width={28}
+                        height={28}
                         className="object-contain w-full h-full"
                       />
                     </div>
-                    <div className="min-w-0">
-                      <p className={`text-xs font-bold truncate ${isSelected ? "text-[#1E3261]" : "text-slate-800"}`}>
-                        {prod.name}
-                      </p>
-                      <p className="text-[10px] text-slate-400 font-medium truncate">
-                        {prod.category}
-                      </p>
-                    </div>
+                    <span className={`text-sm font-semibold truncate ${isSelected ? "text-[#1E3261] font-bold" : "text-slate-800"}`}>
+                      {prod.name}
+                    </span>
                   </div>
                   {isSelected && <Check className="w-4 h-4 text-[#1E3261] shrink-0" />}
                 </button>
@@ -226,10 +215,10 @@ function ProductSearchAutocomplete({
             })
           ) : (
             <div className="px-4 py-4 text-center">
-              <Package className="w-6 h-6 text-slate-300 mx-auto mb-1" />
-              <p className="text-xs font-bold text-slate-700">Custom Entry: &quot;{query}&quot;</p>
+              <Package className="w-5 h-5 text-slate-300 mx-auto mb-1" />
+              <p className="text-xs font-bold text-slate-700">&quot;{query}&quot;</p>
               <p className="text-[11px] text-slate-400">
-                Your custom specifications will be sent directly to our commercial team.
+                Custom specification will be submitted directly.
               </p>
             </div>
           )}
