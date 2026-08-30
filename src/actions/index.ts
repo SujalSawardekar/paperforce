@@ -63,6 +63,13 @@ export async function submitEnquiryAction(data: unknown) {
     let savedToDb = false;
     let dbRecordId = "fallback";
 
+    const formatProductName = (str: string) => {
+      if (!str) return "General Stationery";
+      return str.replace(/-/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+    };
+
+    const formattedProductInterest = formatProductName(productInterest);
+
     // Attempt to write to PostgreSQL database via Prisma
     if (process.env.DATABASE_URL) {
       try {
@@ -79,7 +86,7 @@ export async function submitEnquiryAction(data: unknown) {
             items: {
               create: [
                 {
-                  productName: productInterest.replace("-", " ").replace(/\b\w/g, c => c.toUpperCase()),
+                  productName: formattedProductInterest,
                   specNotes: `MOQ requested: ${moq}`,
                 }
               ]
@@ -104,7 +111,7 @@ export async function submitEnquiryAction(data: unknown) {
         country,
         email,
         phone,
-        productInterest,
+        productInterest: formattedProductInterest,
         moq,
         message
       });
@@ -113,7 +120,7 @@ export async function submitEnquiryAction(data: unknown) {
     // Send emails (non-blocking notification)
     try {
       const items = [{
-        productName: productInterest.replace("-", " ").replace(/\b\w/g, c => c.toUpperCase()),
+        productName: formattedProductInterest,
         specNotes: `MOQ: ${moq}`
       }];
 

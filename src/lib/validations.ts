@@ -7,14 +7,7 @@ export const EnquirySchema = z.object({
   country: z.string().min(2, "Country must be at least 2 characters"),
   email: z.string().email("Please enter a valid business email address"),
   phone: z.string().min(6, "Phone/WhatsApp number must be at least 6 characters"),
-  productInterest: z.enum([
-    "center-pinned",
-    "center-stitched",
-    "spiral-bound",
-    "double-wire-wiro-bound",
-    "perfect-bound-notebook",
-    "hardcover-casebound",
-  ], { message: "Please select a valid product interest category" }),
+  productInterest: z.string().min(2, "Please select or enter your product interest"),
   moq: z.string().min(1, "Please specify your required MOQ / volume (e.g. 1 FCL, 5000 units)"),
   message: z.string().min(10, "Message must detail your specifications and be at least 10 characters"),
   _hp: z.string().max(0, "Bot detected").optional(), // Honeypot — must be empty
