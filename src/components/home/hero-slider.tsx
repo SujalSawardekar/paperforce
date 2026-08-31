@@ -28,7 +28,7 @@ const slides: HeroSlide[] = [
   },
   {
     id: 2,
-    tagline: "COUNTER BOOKS",
+    tagline: "HARDCOVER & RECORD",
     title: "Counter Books",
     image: "/Images of Product/Set_01/Set_01 (4).png",
     alt: "Paperforce Durable Counter Books",
@@ -36,7 +36,7 @@ const slides: HeroSlide[] = [
   },
   {
     id: 3,
-    tagline: "CONSTRUCTION & ART",
+    tagline: "CREATIVE ART & CRAFT",
     title: "Construction Paper & Pads",
     image: "/Images of Product/Set_05/Set_05 (1).png",
     alt: "Paperforce Construction Paper & Pads",
@@ -44,7 +44,7 @@ const slides: HeroSlide[] = [
   },
   {
     id: 4,
-    tagline: "DRAWING & SKETCH",
+    tagline: "FINE ART & SKETCH",
     title: "Drawing Books & Sketch Pads",
     image: "/Images of Product/Set_04/Set_04 (1).png",
     alt: "Paperforce Fine Art Drawing Books & Sketch Pads",
@@ -52,7 +52,7 @@ const slides: HeroSlide[] = [
   },
   {
     id: 5,
-    tagline: "INDEX CARDS",
+    tagline: "PRECISION CUT & RULED",
     title: "Index Cards",
     image: "/Images of Product/Set_08/Set_08 (4).png",
     alt: "Paperforce Precision Cut Index Cards",
@@ -60,7 +60,7 @@ const slides: HeroSlide[] = [
   },
   {
     id: 6,
-    tagline: "WRITING PADS",
+    tagline: "LEGAL & SHORTHAND",
     title: "Writing Pads & Shorthand Pads",
     image: "/Images of Product/Set_06/Set_06 (1).png",
     alt: "Paperforce Shorthand & Legal Writing Pads",
