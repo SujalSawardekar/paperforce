@@ -4,6 +4,7 @@ import Image from "next/image"
 import { Container } from "@/components/common/container"
 import { ScrollReveal } from "@/components/ui/scroll-reveal"
 import { ShieldCheck, Target, Leaf, CheckCircle2 } from "lucide-react"
+import { CertificateModal } from "@/components/certifications/certificate-modal"
 
 const workflow = [
   { 
@@ -34,6 +35,8 @@ const workflow = [
 ];
 
 export function AboutCompliance() {
+  const [isCertOpen, setIsCertOpen] = React.useState(false);
+
   return (
     <section className="pt-20 pb-44 md:pt-28 md:pb-56 lg:pt-32 lg:pb-64 bg-white relative overflow-hidden">
       <Container className="max-w-6xl mx-auto">
@@ -52,9 +55,21 @@ export function AboutCompliance() {
               </div>
             </ScrollReveal>
 
-            {/* Floating Badges */}
+            {/* Floating Badges - ISO 9001 inspectable on click directly, without adding a button */}
             <ScrollReveal direction="up" delay={0.3} className="absolute top-6 -left-4 lg:-left-6">
-              <div className="bg-white/95 backdrop-blur-md p-3.5 sm:p-4 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-3">
+              <div 
+                role="button"
+                tabIndex={0}
+                onClick={() => setIsCertOpen(true)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    setIsCertOpen(true);
+                  }
+                }}
+                title="Click to inspect ISO 9001:2015 Certificate"
+                className="bg-white/95 backdrop-blur-md p-3.5 sm:p-4 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-3 cursor-pointer hover:border-slate-300 hover:shadow-2xl transition-all duration-300"
+              >
                 <div className="w-10 h-10 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center shrink-0">
                   <ShieldCheck className="w-5 h-5" />
                 </div>
@@ -131,6 +146,16 @@ export function AboutCompliance() {
 
         </div>
       </Container>
+
+      {/* Inspect ISO 9001 Certificate Modal */}
+      <CertificateModal
+        isOpen={isCertOpen}
+        onClose={() => setIsCertOpen(false)}
+        title="ISO 9001:2015 Quality Management System"
+        subtitle="Certificate of Registration • Paperforce India LLP"
+        imageUrl="/Certificate/iso_9001_2015.png"
+        pdfUrl="/Certificate/ISO 9001 2015 paperforce india llp_.pdf"
+      />
     </section>
   )
 }

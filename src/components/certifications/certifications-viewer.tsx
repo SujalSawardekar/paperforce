@@ -6,11 +6,14 @@ import { Container } from "@/components/common/container";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
+import { CertificateModal } from "@/components/certifications/certificate-modal";
+
 interface Certificate {
   num: string;
   name: string;
   desc: string;
   imageUrl: string;
+  pdfUrl?: string;
 }
 
 const certificates: Certificate[] = [
@@ -18,30 +21,35 @@ const certificates: Certificate[] = [
     num: "01",
     name: "MSMED Registration",
     desc: "A Government of India registration confirming that Paperforce operates as a certified small-to-medium manufacturing enterprise.",
-    imageUrl: "/Certificate/udyam_registration.png"
+    imageUrl: "/Certificate/udyam_registration.png",
+    pdfUrl: "/Certificate/Print _ Udyam Registration Certificate-1.pdf",
   },
   {
     num: "02",
     name: "IEC Certificate",
     desc: "An import-export recognized license issued by the Government authorizing Paperforce India LLP to legally import or export goods.",
-    imageUrl: "/Certificate/iec_registration.png"
+    imageUrl: "/Certificate/iec_registration.png",
+    pdfUrl: "/Certificate/IEC _ ABJFP7297A.pdf",
   },
   {
     num: "03",
     name: "ISO 9001:2015 Certified",
     desc: "ISO 9001:2015 is the globally recognized standard for quality management systems, confirming that Paperforce follows defined quality processes from design and manufacturing through final dispatch.",
-    imageUrl: "/Certificate/iso_9001_2015.png"
+    imageUrl: "/Certificate/iso_9001_2015.png",
+    pdfUrl: "/Certificate/ISO 9001 2015 paperforce india llp_.pdf",
   },
   {
     num: "04",
     name: "FIEO Member",
     desc: "Paperforce is a recognized member of India’s official export community, meeting the standards required for cross-border trade credibility.",
-    imageUrl: "/Certificate/fieo_registration.png"
-  }
+    imageUrl: "/Certificate/fieo_registration.png",
+    pdfUrl: "/Certificate/FIEO Registration (valid Till 31M27)_unlocked.pdf",
+  },
 ];
 
 export function CertificationsViewer() {
   const [activeIndex, setActiveIndex] = React.useState(0);
+  const [isInspectOpen, setIsInspectOpen] = React.useState(false);
   const activeCert = certificates[activeIndex];
 
   const handlePrev = () => {
@@ -150,9 +158,21 @@ export function CertificationsViewer() {
               </div>
             </div>
 
-            {/* Document Frame */}
+            {/* Document Frame - Click to inspect directly without adding extra button */}
             <div className="flex-1 flex items-center justify-center p-4">
-              <div className="relative bg-white border border-slate-200/80 shadow-[0_12px_45px_rgba(30,50,97,0.06)] rounded-2xl p-4 flex items-center justify-center w-full max-w-[360px] aspect-[1/1.414] overflow-hidden">
+              <div
+                role="button"
+                tabIndex={0}
+                onClick={() => setIsInspectOpen(true)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    setIsInspectOpen(true);
+                  }
+                }}
+                className="relative bg-white border border-slate-200/80 shadow-[0_12px_45px_rgba(30,50,97,0.06)] rounded-2xl p-4 flex items-center justify-center w-full max-w-[360px] aspect-[1/1.414] overflow-hidden cursor-zoom-in hover:shadow-xl hover:border-slate-300 transition-all duration-300 group"
+                title={`Click to inspect ${activeCert.name}`}
+              >
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={activeIndex}
@@ -179,6 +199,16 @@ export function CertificationsViewer() {
 
         </div>
       </Container>
+
+      {/* Inspect Certificate Modal */}
+      <CertificateModal
+        isOpen={isInspectOpen}
+        onClose={() => setIsInspectOpen(false)}
+        title={activeCert.name}
+        subtitle={activeCert.desc}
+        imageUrl={activeCert.imageUrl}
+        pdfUrl={activeCert.pdfUrl}
+      />
     </section>
   );
 }
