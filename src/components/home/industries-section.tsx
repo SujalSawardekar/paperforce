@@ -35,7 +35,6 @@ export function IndustriesSection() {
       <Container>
         <SectionHeader 
           title="Our Customers" 
-          description="Supplying custom, high-volume paper stationery to key global customer segments."
           centered 
         />
         

@@ -3,7 +3,7 @@ import * as React from "react";
 import { Container } from "@/components/common/container";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { Button } from "@/components/ui/button";
-import { Plus, CheckCircle2, Factory } from "lucide-react";
+import { Plus, CheckCircle2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 
@@ -60,11 +60,6 @@ export function HomeFaqSection() {
           {/* Left Panel: Content & Trust */}
           <div className="lg:col-span-5 relative">
             <div className="lg:sticky lg:top-32 space-y-8">
-              {/* Background Decorative Icon */}
-              <div className="absolute -top-10 -left-10 opacity-[0.05] pointer-events-none">
-                <Factory size={240} />
-              </div>
-
               <ScrollReveal direction="up">
                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-slate-900 leading-[1.1] mt-4">
                   FAQ

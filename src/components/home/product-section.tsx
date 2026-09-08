@@ -28,7 +28,7 @@ const productCollections = [
   {
     id: "Set_10",
     number: "02",
-    title: "Centere Stitched (Thread Bound)",
+    title: "Center Stitched (Thread Bound)",
     bullets: [
       "The classic, done right.",
       "School-ready. Order-ready. Always.",
@@ -92,12 +92,12 @@ const productCollections = [
   }
 ];
 
-function ProductStackCard({ 
-  product, 
-  idx, 
+function ProductStackCard({
+  product,
+  idx,
   totalCards,
   progress,
-}: { 
+}: {
   product: typeof productCollections[0];
   idx: number;
   totalCards: number;
@@ -152,7 +152,7 @@ function ProductStackCard({
         </div>
 
         {/* Right Column: Image display matching card background color (3/5 width) */}
-        <div 
+        <div
           className="w-full lg:w-3/5 h-[260px] sm:h-[300px] lg:h-[360px] relative flex items-center justify-center p-4 sm:p-6"
           style={{ backgroundColor: product.bgColor }}
         >
@@ -183,7 +183,7 @@ export function ProductSection() {
   return (
     <section className="pt-20 md:pt-28 pb-0 bg-white cursor-default border-t border-slate-100">
       <Container className="max-w-[1400px] mx-auto space-y-16 relative" ref={containerRef}>
-        
+
         {/* Section Heading */}
         <ScrollReveal direction="up" delay={0.1}>
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-serif text-[#0b1c3f] tracking-tight leading-tight">

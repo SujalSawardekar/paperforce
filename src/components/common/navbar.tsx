@@ -16,7 +16,7 @@ const desktopPillLinks = [
   { name: "Products", href: "/products" },
   { name: "Certifications", href: "/certifications" },
   { name: "Markets", href: "/reach-markets" },
-  { name: "Infrastructure", href: "/infrastructure" },
+  { name: "Infra", href: "/infrastructure" },
   { name: "Blog", href: "/blog" },
 ];
 
