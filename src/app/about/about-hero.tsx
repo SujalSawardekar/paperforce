@@ -71,8 +71,10 @@ export function AboutHero() {
  
             {/* Floating Badge 2 */}
             <ScrollReveal direction="down" delay={0.5} className="absolute top-6 -right-4 sm:top-8 sm:-right-8">
-              <Link 
-                href="/contact#facility"
+              <a 
+                href="https://maps.app.goo.gl/mKkhMrpZoQ1NRL8E9"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-[#1E3261]/95 hover:bg-[#1E3261] transition-all backdrop-blur-md p-3.5 sm:p-4 rounded-2xl shadow-xl border border-white/10 flex items-center gap-3 group cursor-pointer"
               >
                 <div className="w-9 h-9 bg-white/10 text-white rounded-full flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
@@ -85,7 +87,7 @@ export function AboutHero() {
                   </div>
                   <div className="text-[10px] text-blue-200">100<span className="font-sans font-normal">%</span> Export Oriented</div>
                 </div>
-              </Link>
+              </a>
             </ScrollReveal>
           </div>
 
