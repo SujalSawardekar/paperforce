@@ -3,7 +3,7 @@ import { CertificationsViewer } from "@/components/certifications/certifications
 
 export const metadata: Metadata = {
   title: "Official Compliance & Certifications | Paperforce India LLP",
-  description: "Verify Paperforce India's official credentials, including ISO 9001:2015 quality standards, FIEO registration, DGFT Import-Export Code (IEC), and Udyam manufacturing licenses.",
+  description: "Verify Paperforce India's official credentials, including MSMED registration, IEC Certificate, ISO 9001:2015 Certified quality standards, and FIEO membership.",
 };
 
 export default function CertificationsPage() {
