@@ -68,12 +68,9 @@ export function Footer() {
           variants={containerVariants}
           className="flex flex-col items-center justify-center text-center max-w-4xl mx-auto pb-12 border-b border-blue-900/50 mb-12"
         >
-          <motion.h2 variants={itemVariants} className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-6">
+          <motion.h2 variants={itemVariants} className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-8">
             Ready to Manufacture with Paperforce?
           </motion.h2>
-          <motion.p variants={itemVariants} className="text-lg md:text-xl text-blue-200/80 mb-10">
-            Let&apos;s build your next stationery product together.
-          </motion.p>
           <motion.div variants={itemVariants}>
             <Link href="/contact">
               <Button variant="default" size="lg" className="px-10 h-14 text-base md:text-lg">
@@ -98,6 +95,7 @@ export function Footer() {
               <li><Link href="/about" className="text-sm text-blue-200/70 hover:text-white transition-colors block">About Us</Link></li>
               <li><Link href="/certifications" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Certifications</Link></li>
               <li><Link href="/reach-markets" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Markets</Link></li>
+              <li><Link href="/infrastructure" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Infrastructure</Link></li>
               <li><Link href="/products" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Products</Link></li>
               <li><Link href="/blog" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Blog</Link></li>
               <li><Link href="/contact" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Contact</Link></li>

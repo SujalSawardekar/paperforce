@@ -16,7 +16,11 @@ const productCollections = [
     id: "Set_03",
     number: "01",
     title: "Center Pinned Notebooks",
-    description: "High-volume notebook formats manufactured for institutional, retail and export requirements.",
+    bullets: [
+      "Pinned tight. Built to last.",
+      "Simple binding, serious durability.",
+      "Old-school strength, still unbeaten."
+    ],
     image: "/Images of Product/Set_03/Set_03 (1).png",
     bgColor: "#eef6ee",
     alt: "Paperforce Center Pinned Notebooks"
@@ -24,17 +28,25 @@ const productCollections = [
   {
     id: "Set_10",
     number: "02",
-    title: "Composition Notebooks",
-    description: "Classic saddle-stitched exercise books for volume-conscious school procurement and public tenders.",
+    title: "Centere Stitched (Thread Bound)",
+    bullets: [
+      "The classic, done right.",
+      "School-ready. Order-ready. Always.",
+      "Simple notebook, serious volume."
+    ],
     image: "/Images of Product/Set 10 Composition/Screenshot 2026-08-15 181137.png",
     bgColor: "#f1f0f9",
-    alt: "Paperforce Composition Notebooks"
+    alt: "Paperforce Centere Stitched Thread Bound Notebooks"
   },
   {
     id: "Set_11",
     number: "03",
     title: "Spiral Bound Notebooks",
-    description: "Durable wire-coil binding for a smooth, lay-flat writing experience. Favored by students and professionals.",
+    bullets: [
+      "Flips flat. Writes smoother.",
+      "Full circle. Zero fuss.",
+      "Made to spin, built to last."
+    ],
     image: "/Images of Product/Set 11 Spiral Bound/Screenshot 2026-08-15 181240.png",
     bgColor: "#f6f1f4",
     alt: "Paperforce Spiral Bound Notebooks"
@@ -42,8 +54,12 @@ const productCollections = [
   {
     id: "Set_02",
     number: "04",
-    title: "Double Wire Bound Notebooks",
-    description: "Reinforced double-loop wire construction for frequent, heavy corporate and institutional use.",
+    title: "Double Wire (Wiro) Bound Notebooks",
+    bullets: [
+      "Two loops, zero wear.",
+      "Double strength, daily use.",
+      "Built for the long haul."
+    ],
     image: "/Images of Product/Set_02/Set_02 (2).png",
     bgColor: "#f0f4f8",
     alt: "Paperforce Double Wire Bound Notebooks"
@@ -52,7 +68,11 @@ const productCollections = [
     id: "Set_09",
     number: "05",
     title: "Perfect Bound Notebooks",
-    description: "Clean adhesive-bound notebooks and pads offering a clean, lay-flat finish. Perfect for desktop notepad use.",
+    bullets: [
+      "Clean edge. Desk-ready finish.",
+      "Glued right. Looks premium.",
+      "Sleek binding, sharper finish."
+    ],
     image: "/Images of Product/Set_09/Set_09 (1).png",
     bgColor: "#eef6ee",
     alt: "Paperforce Perfect Bound Notebooks"
@@ -60,11 +80,15 @@ const productCollections = [
   {
     id: "Set_07",
     number: "06",
-    title: "Casebound Notebooks",
-    description: "Premium bound notebooks with rigid protective casing, built for longevity and archive applications.",
+    title: "Case Bound Notebooks",
+    bullets: [
+      "Hardcover. Built for years.",
+      "Tough outside, timeless inside.",
+      "Made to be kept, not tossed."
+    ],
     image: "/Images of Product/Set_07/Set_07 (3).png",
     bgColor: "#f1f0f9",
-    alt: "Paperforce Casebound Notebooks"
+    alt: "Paperforce Case Bound Notebooks"
   }
 ];
 
@@ -113,9 +137,14 @@ function ProductStackCard({
           <h3 className="text-2xl sm:text-3xl lg:text-[2rem] font-bold text-slate-900 mb-4 font-serif leading-tight">
             {product.title}
           </h3>
-          <p className="text-sm text-slate-600 leading-relaxed max-w-xs mb-6 font-medium">
-            {product.description}
-          </p>
+          <ul className="space-y-2.5 max-w-sm mb-6">
+            {product.bullets.map((bullet, bIdx) => (
+              <li key={bIdx} className="text-sm text-slate-700 flex items-start gap-2.5 font-medium leading-snug">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#1E3261] mt-1.5 shrink-0" />
+                <span>{bullet}</span>
+              </li>
+            ))}
+          </ul>
           <Link href={`/products/${product.id}`} className="inline-flex items-center gap-1 text-xs font-bold text-[#1E3261] group hover:underline">
             Explore Range
             <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
@@ -158,7 +187,7 @@ export function ProductSection() {
         {/* Section Heading */}
         <ScrollReveal direction="up" delay={0.1}>
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-serif text-[#0b1c3f] tracking-tight leading-tight">
-            Our Products
+            Binding Capabilities
           </h2>
         </ScrollReveal>
 

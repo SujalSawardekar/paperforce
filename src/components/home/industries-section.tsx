@@ -8,24 +8,24 @@ import Image from "next/image";
 
 const industries = [
   { 
-    title: "Importers around the world for school & office", 
-    desc: "Reliable B2B high-volume OEM paper stationery production and logistics for leading global importers and distributors.", 
-    image: "/images/industries/oem_private_label.jpg" 
+    title: "Importers/Distributors", 
+    desc: "OEM and private-label production with your branding, your specs, your MOQ starting at 10,000 units per SKU.", 
+    image: "/images/industries/customer_importers.jpg" 
   },
   { 
     title: "Educational establishments", 
-    desc: "Direct-to-institution supply for universities, school networks, and large-scale educational procurement systems.", 
-    image: "/images/industries/educational_procurement.jpg" 
+    desc: "Bulk procurement supply for school networks and university systems, with consistent GSM and ruling across every reorder.", 
+    image: "/images/industries/customer_education.jpg" 
   },
   { 
     title: "Chainstores", 
-    desc: "Private-label retail-ready collections, barcode integration, custom packaging, and strict quality compliance.", 
-    image: "/images/industries/corporate_b2b.jpg" 
+    desc: "Retail-ready private label — barcoding, custom packaging, and compliance built into every batch.", 
+    image: "/images/industries/customer_chainstores.jpg" 
   },
   { 
     title: "Government Tenders", 
-    desc: "Meeting strict regulatory standards, precise paper GSM, custom rulings, and competitive volume pricing for public tenders.", 
-    image: "/images/industries/government_tenders.jpg" 
+    desc: "Tender-grade specs met on paper, GSM, and ruling — with the documentation to back every claim.", 
+    image: "/images/industries/customer_government.jpg" 
   }
 ];
 
@@ -34,7 +34,7 @@ export function IndustriesSection() {
     <section className="py-20 md:py-32 bg-white border-t border-slate-100">
       <Container>
         <SectionHeader 
-          title="Who We Cater To" 
+          title="Our Customers" 
           description="Supplying custom, high-volume paper stationery to key global customer segments."
           centered 
         />

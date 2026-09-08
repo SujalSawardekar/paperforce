@@ -123,7 +123,7 @@ export default function HeroSlider({ isPageReady = true }: HeroSliderProps) {
             )}
           >
             {!isPageReady && <span className="btn-loading-highlight-sweep" />}
-            <span>Explore Our Products &rarr;</span>
+            <span>Our Products &rarr;</span>
           </Button>
         </Link>
 
