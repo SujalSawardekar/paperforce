@@ -19,14 +19,14 @@ export function AboutHero() {
           <div className="space-y-6 lg:space-y-8 max-w-xl">
             <ScrollReveal direction="up" delay={0.2}>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-serif text-slate-900 leading-[1.15]">
-                Manufacturing <br className="hidden lg:block" />
-                <span className="text-[#1E3261]">Excellence</span> Since 1988
+                Trade Legacy <br className="hidden lg:block" />
+                <span className="text-[#1E3261]">Since 1988</span>
               </h1>
             </ScrollReveal>
 
             <ScrollReveal direction="up" delay={0.3}>
               <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
-                Discover the legacy, precision engineering, and expansive infrastructure behind Paperforce India. We are the trusted private label partner for global stationery brands.
+                We started in 1988 moving paper between mills. Today we run automated converting lines out of our factory, making the notebooks that end up on shelves in 30+ countries.
               </p>
             </ScrollReveal>
 
@@ -43,15 +43,16 @@ export function AboutHero() {
           {/* Right Content - Images & Floating Cards */}
           <div className="relative">
             <ScrollReveal direction="left" delay={0.2}>
-              <div className="relative aspect-[4/5] max-h-[500px] lg:max-h-[560px] rounded-[2rem] overflow-hidden shadow-2xl border border-slate-200/50">
-                <Image 
-                  src="/images/about/about_hero_factory_branded.jpg" 
-                  alt="Paperforce India Manufacturing Facility Exterior"
-                  fill
-                  className="object-cover"
-                  priority
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
+              <div className="relative aspect-[4/5] max-h-[500px] lg:max-h-[560px] rounded-[2rem] overflow-hidden shadow-2xl border border-slate-200/80 bg-white flex items-center justify-center p-8 sm:p-12">
+                <div className="relative w-full h-full flex items-center justify-center">
+                  <Image 
+                    src="/logo.png" 
+                    alt="Paperforce India Logo"
+                    fill
+                    className="object-contain p-4"
+                    priority
+                  />
+                </div>
               </div>
             </ScrollReveal>
 
@@ -70,15 +71,21 @@ export function AboutHero() {
  
             {/* Floating Badge 2 */}
             <ScrollReveal direction="down" delay={0.5} className="absolute top-6 -right-4 sm:top-8 sm:-right-8">
-              <div className="bg-[#1E3261]/95 backdrop-blur-md p-3.5 sm:p-4 rounded-2xl shadow-xl border border-white/10 flex items-center gap-3">
-                <div className="w-9 h-9 bg-white/10 text-white rounded-full flex items-center justify-center shrink-0">
-                  <MapPin className="w-4 h-4" />
+              <Link 
+                href="/contact#facility"
+                className="bg-[#1E3261]/95 hover:bg-[#1E3261] transition-all backdrop-blur-md p-3.5 sm:p-4 rounded-2xl shadow-xl border border-white/10 flex items-center gap-3 group cursor-pointer"
+              >
+                <div className="w-9 h-9 bg-white/10 text-white rounded-full flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                  <MapPin className="w-4 h-4 text-white" />
                 </div>
                 <div>
-                  <div className="text-xs font-bold text-white">Palghar, India</div>
+                  <div className="text-xs font-bold text-white flex items-center gap-1">
+                    Factory
+                    <ArrowRight className="w-3 h-3 text-blue-200 group-hover:translate-x-0.5 transition-transform" />
+                  </div>
                   <div className="text-[10px] text-blue-200">100<span className="font-sans font-normal">%</span> Export Oriented</div>
                 </div>
-              </div>
+              </Link>
             </ScrollReveal>
           </div>
 

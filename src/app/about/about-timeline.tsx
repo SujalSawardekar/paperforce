@@ -4,36 +4,43 @@ import { motion, useScroll, useSpring, useTransform } from "framer-motion"
 import { Container } from "@/components/common/container"
 import { SectionHeader } from "@/components/ui/section-header"
 import { ScrollReveal } from "@/components/ui/scroll-reveal"
-import { Calendar, TrendingUp, Factory, Globe } from "lucide-react"
+import { Truck, Factory, Package, Globe, Building2 } from "lucide-react"
 
 const timeline = [
   {
     year: "1988",
-    title: "Origins in Paper Trade",
-    description: "The founding team established a strong foothold in the domestic paper trade, building crucial relationships with paper mills across India.",
-    icon: <Calendar className="w-5 h-5" />,
+    title: "Trans Trade — Logistics",
+    description: "The family's roots in the paper trade began with Trans Trade, a logistics business built from the ground up, forming lasting relationships with paper mills and stationers across India.",
+    icon: <Truck className="w-5 h-5" />,
     color: "bg-blue-600"
   },
   {
-    year: "2010",
-    title: "Manufacturing Vertical Begins",
-    description: "Transitioning from trade to production, we launched our first manual converting units to meet local wholesale demand.",
+    year: "2008",
+    title: "Trans Industries — Manufacturing",
+    description: "The family expanded into manufacturing with Trans Industries, producing copper wire and building hands-on production and factory-floor experience.",
     icon: <Factory className="w-5 h-5" />,
     color: "bg-[#1E3261]"
   },
   {
-    year: "2018",
-    title: "High-Speed Automation",
-    description: "Installed state-of-the-art automated binding and cutting machinery, multiplying capacity to handle container-load export orders.",
-    icon: <TrendingUp className="w-5 h-5" />,
+    year: "2012",
+    title: "Western India Packagings — Packaging Manufacturing",
+    description: "Western India Packagings was established, manufacturing packaging solutions for companies across India and deepening the family's roots in industrial production.",
+    icon: <Package className="w-5 h-5" />,
+    color: "bg-indigo-600"
+  },
+  {
+    year: "2014",
+    title: "Entry into Global Export Markets",
+    description: "The family's manufacturing experience extended into exports, supplying paper stationery to buyers across the Middle East, Europe, Africa, and beyond.",
+    icon: <Globe className="w-5 h-5" />,
     color: "bg-emerald-600"
   },
   {
-    year: "Today",
-    title: "Global Export Partner",
-    description: "Shipping Volume paper stationery as per customized specifications across 15+ countries, serving international retail chains, OEMs, and major global distributors.",
-    icon: <Globe className="w-5 h-5" />,
-    color: "bg-indigo-600"
+    year: "2026",
+    title: "Paperforce India LLP",
+    description: "Paperforce was established with its own manufacturing facility — a 30,000 sq. ft. ISO 9001:2015 certified factory in Palghar, Maharashtra — exporting to 30+ countries worldwide.",
+    icon: <Building2 className="w-5 h-5" />,
+    color: "bg-[#0b1c3f]"
   }
 ];
 

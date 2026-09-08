@@ -8,13 +8,13 @@ import { Globe2, Users, ShieldCheck, Factory } from "lucide-react"
 const stats = [
   {
     icon: <Globe2 className="w-6 h-6 text-blue-600" />,
-    value: "15+",
-    label: "Countries Exported",
+    value: "30+",
+    label: "Countries",
     bgColor: "bg-blue-50"
   },
   {
     icon: <Users className="w-6 h-6 text-indigo-600" />,
-    value: "10\u200C0+",
+    value: "10‌0+",
     label: "Skilled Workforce",
     bgColor: "bg-indigo-50"
   },
@@ -41,7 +41,7 @@ export function AboutIntro() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-end">
           <div className="max-w-2xl">
             <SectionHeader 
-              eyebrow="Company Introduction" 
+              eyebrow="About Paperforce India LLP" 
               title="Committed to Redefining Manufacturing" 
               description=""
               centered={false}
@@ -49,8 +49,8 @@ export function AboutIntro() {
           </div>
           <div className="lg:pb-12">
             <ScrollReveal direction="up" delay={0.2}>
-              <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-medium">
-                We combine state-of-the-art machinery, skilled expertise, and a customer-centric approach to deliver innovative, sustainable, and export-ready solutions for your brand.
+              <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-medium">
+                Paperforce brings together more than three decades of trade excellence, nearly two decades of manufacturing excellence, and — more importantly — ethical business practices carried through three generations. That heritage now runs through a 30,000 sq. ft., ISO 9001:2015-certified facility, where high-speed automated converting lines are backed by machining skills built the old way — on the floor, batch after batch, long before automation entered the picture. It&apos;s this combination of inherited trade instinct and modern manufacturing discipline that lets Paperforce deliver at the scale and consistency global buyers expect, without losing the accountability a family business built its name on.
               </p>
             </ScrollReveal>
           </div>

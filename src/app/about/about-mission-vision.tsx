@@ -38,41 +38,35 @@ export function AboutMissionVision() {
             </div>
 
             {/* Our Mission */}
-            <div className="space-y-6">
+            <div className="space-y-4">
               <ScrollReveal direction="up" delay={0.1}>
                 <span className="text-xs md:text-sm font-bold uppercase tracking-widest text-[#1E3261] mb-2 block">
                   Our Mission
                 </span>
                 <h3 className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold font-serif text-slate-900 leading-tight">
-                  Engineering high-volume paper stationery as per customized specifications for global brands.
+                  Trade. Trust. Scale.
                 </h3>
               </ScrollReveal>
               <ScrollReveal direction="up" delay={0.2}>
                 <p className="text-base md:text-lg text-slate-600 leading-relaxed font-medium">
-                  We combine manufacturing excellence with seamless logistics and uncompromising quality standards to deliver container loads of perfection.
-                </p>
-                <p className="text-sm text-slate-500 leading-relaxed mt-4">
-                  By utilizing automated roll-to-book converting lines, we minimize mechanical tolerances and ensure that every item meets institutional and retail specifications consistently.
+                  To manufacture with the discipline of three generations and the scale of modern automation — delivering paper stationery global brands can trust, batch after batch, without compromise.
                 </p>
               </ScrollReveal>
             </div>
 
             {/* Our Vision */}
-            <div className="space-y-6">
+            <div className="space-y-4">
               <ScrollReveal direction="up" delay={0.1}>
                 <span className="text-xs md:text-sm font-bold uppercase tracking-widest text-[#1E3261] mb-2 block">
                   Our Vision
                 </span>
                 <h3 className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold font-serif text-slate-900 leading-tight">
-                  Establishing India as the premier hub for export-ready manufacturing.
+                  Legacy. Built Forward.
                 </h3>
               </ScrollReveal>
               <ScrollReveal direction="up" delay={0.2}>
                 <p className="text-base md:text-lg text-slate-600 leading-relaxed font-medium">
-                  We are redefining the future of bulk stationery sourcing through raw material stability, rapid automation, and unbroken supply chains.
-                </p>
-                <p className="text-sm text-slate-500 leading-relaxed mt-4">
-                  Our goal is to serve as the default partner for global distributors, wholesalers, and retail chains seeking an alternative manufacturing arm in South Asia.
+                  To become the manufacturing name global brands turn to first — not because we&apos;re the newest, but because three generations in, we&apos;ve never cut a corner.
                 </p>
               </ScrollReveal>
             </div>

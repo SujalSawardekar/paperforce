@@ -112,10 +112,11 @@ export function ContactPageContent() {
 
                 {/* Manufacturing Facility */}
                 <a 
+                  id="facility"
                   href="https://www.google.com/maps?q=19.683649,72.770687"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex flex-col gap-2 text-sm col-span-1 sm:col-span-2 cursor-pointer"
+                  className="group flex flex-col gap-2 text-sm col-span-1 sm:col-span-2 cursor-pointer scroll-mt-32"
                 >
                   <span className="block text-xs font-bold text-slate-400 uppercase tracking-widest flex items-center gap-2">
                     <MapPin className="w-4 h-4 text-slate-400 group-hover:text-blue-600 group-hover:animate-bounce transition-colors" />

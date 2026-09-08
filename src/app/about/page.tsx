@@ -4,7 +4,6 @@ import { AboutIntro } from "./about-intro";
 import { AboutTimeline } from "./about-timeline";
 import { AboutCompliance } from "./about-compliance";
 import { AboutMissionVision } from "./about-mission-vision";
-import { ManufacturingGallery } from "./manufacturing-gallery";
 
 export const metadata: Metadata = {
   title: "About Us & Corporate Identity | Paperforce India LLP",
@@ -18,7 +17,6 @@ export default function AboutPage() {
       <AboutIntro />
       <AboutTimeline />
       <AboutMissionVision />
-      <ManufacturingGallery />
       <AboutCompliance />
     </main>
   );

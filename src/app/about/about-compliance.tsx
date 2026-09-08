@@ -6,19 +6,41 @@ import { ScrollReveal } from "@/components/ui/scroll-reveal"
 import { ShieldCheck, Target, Leaf, CheckCircle2 } from "lucide-react"
 
 const workflow = [
-  { step: "01", title: "Raw Material Audit", desc: "Rigorous moisture and GSM checks before production begins." },
-  { step: "02", title: "In-line Inspection", desc: "Continuous monitoring of binding strength and ruling alignment." },
-  { step: "03", title: "ISO 9001 Final Audit", desc: "Strict statistical sampling prior to palletization and container loading." }
+  { 
+    step: "01", 
+    title: "Inward Material Inspection", 
+    desc: "Every raw material — paper, board, spiral, wiro, ink, covers, cartons, and more — is checked against fixed tolerances before it's accepted into stores. Nothing enters production until it clears this gate." 
+  },
+  { 
+    step: "02", 
+    title: "Ruling Sheet Approval", 
+    desc: "Each paper roll is approved for ruling geometry, registration, and margins before a single sheet is committed to production. A fault here is caught before it can run through an entire roll." 
+  },
+  { 
+    step: "03", 
+    title: "Paper Counting & Cover Insertion Check", 
+    desc: "Conducted three times a day, this verifies sheet counts and cover-to-paper matching at the exact point books are assembled — catching mismatches while they're still isolated to a small batch." 
+  },
+  { 
+    step: "04", 
+    title: "In-Process Production Check", 
+    desc: "Every two hours, binding strength, alignment, and finishing are checked across every active machine on the floor — not just at the start and end of a job, but throughout it." 
+  },
+  { 
+    step: "05", 
+    title: "Final Inspection", 
+    desc: "Once a job reaches 50% carton packing, a statistically sampled inspection — run to ISO 2859-1 / ANSI-ASQ Z1.4 AQL standards — confirms the job is ready for dispatch before it's cleared." 
+  }
 ];
 
 export function AboutCompliance() {
   return (
     <section className="pt-20 pb-44 md:pt-28 md:pb-56 lg:pt-32 lg:pb-64 bg-white relative overflow-hidden">
       <Container className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
           
           {/* Left: Inspection Image & Badges */}
-          <div className="relative">
+          <div className="relative lg:sticky lg:top-32">
             <ScrollReveal direction="right" delay={0.1}>
               <div className="relative aspect-[4/5] max-h-[480px] lg:max-h-[540px] rounded-[2rem] overflow-hidden shadow-2xl border border-slate-200">
                 <Image 
@@ -61,19 +83,19 @@ export function AboutCompliance() {
             
             <div className="space-y-4">
               <ScrollReveal direction="up" delay={0.1}>
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-50 border border-rose-100 text-rose-700 text-xs font-bold uppercase tracking-widest mb-1">
-                  <Target size={14} />
-                  Uncompromising Compliance
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-[#1E3261] text-xs font-bold uppercase tracking-widest mb-1">
+                  <ShieldCheck size={14} />
+                  Quality Assurance Process
                 </div>
                 <h3 className="text-3xl md:text-4xl font-bold font-serif text-slate-900 leading-tight">
-                  Zero Defect <br />
-                  <span className="text-[#1E3261]">Quality Control</span>
+                  Quality Assurance <br />
+                  <span className="text-[#1E3261]">Process</span>
                 </h3>
               </ScrollReveal>
               
               <ScrollReveal direction="up" delay={0.2}>
                 <p className="text-base text-slate-600 leading-relaxed font-medium">
-                  We maintain rigorous manufacturing standards to ensure every batch of our paper stationery meets global compliance requirements, drastically reducing rejection rates for importers.
+                  Quality at Paperforce isn&apos;t a single checkpoint — it&apos;s five, running from the moment raw material arrives to the moment a container is sealed.
                 </p>
               </ScrollReveal>
             </div>
@@ -81,18 +103,18 @@ export function AboutCompliance() {
             {/* Workflow List */}
             <div className="space-y-5 relative">
               {workflow.map((item, idx) => (
-                <ScrollReveal key={idx} direction="up" delay={0.3 + (idx * 0.1)}>
+                <ScrollReveal key={idx} direction="up" delay={0.2 + (idx * 0.08)}>
                   <div className="flex gap-4 sm:gap-6 group">
-                    <div className="flex flex-col items-center">
-                      <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-xs sm:text-sm text-slate-500 font-bold group-hover:bg-[#1E3261] group-hover:text-white group-hover:border-[#1E3261] transition-colors duration-300 shadow-sm z-10">
+                    <div className="flex flex-col items-center self-stretch">
+                      <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center text-xs sm:text-sm text-slate-500 font-bold group-hover:bg-[#1E3261] group-hover:text-white group-hover:border-[#1E3261] transition-colors duration-300 shadow-sm z-10 shrink-0">
                         {item.step}
                       </div>
                       {idx !== workflow.length - 1 && (
-                        <div className="w-0.5 h-10 bg-slate-100 group-hover:bg-blue-100 transition-colors duration-300 mt-1" />
+                        <div className="w-0.5 flex-1 min-h-12 bg-slate-100 group-hover:bg-blue-100 transition-colors duration-300 my-1" />
                       )}
                     </div>
-                    <div className="pt-0.5 pb-2">
-                      <h4 className="text-base sm:text-lg font-bold text-slate-900 mb-1 flex items-center gap-2">
+                    <div className="pt-0.5 pb-4">
+                      <h4 className="text-base sm:text-lg font-bold text-slate-900 mb-1.5 flex items-center gap-2">
                         {item.title}
                         <CheckCircle2 className="w-4 h-4 text-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                       </h4>
