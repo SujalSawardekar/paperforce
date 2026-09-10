@@ -25,45 +25,46 @@ export function Navbar() {
   const { isEntranceComplete } = useEntrance();
   const isHome = pathname === "/";
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
-  const [isScrolled, setIsScrolled] = React.useState(false);
 
   const isCollectionPage = pathname.startsWith('/products/') && pathname !== '/products';
 
   const { scrollY } = useScroll();
   const [isHidden, setIsHidden] = React.useState(false);
   const [isCompact, setIsCompact] = React.useState(false);
-  const [isFooterVisible, setIsFooterVisible] = React.useState(false);
 
+  // Ensure navbar is visible and resets cleanly on every route change
   React.useEffect(() => {
-    const handleFooterVisibility = (e: CustomEvent<{ isVisible: boolean }>) => {
-      setIsFooterVisible(e.detail.isVisible);
-    };
+    setIsHidden(false);
+    setIsCompact(typeof window !== "undefined" && window.scrollY > 30);
+    setMobileMenuOpen(false);
+  }, [pathname]);
 
-    window.addEventListener('footerVisibilityChange', handleFooterVisibility as EventListener);
-    return () => {
-      window.removeEventListener('footerVisibilityChange', handleFooterVisibility as EventListener);
-    };
-  }, []);
-
+  // Robust scroll event listener: auto-hide on scroll down, reveal compact on scroll up, full at top
   useMotionValueEvent(scrollY, "change", (latest) => {
-    const previous = scrollY.getPrevious() || 0;
+    const previous = scrollY.getPrevious() ?? 0;
+    const diff = latest - previous;
     
-    // Reset to default at the very top
-    if (latest <= 20) {
+    // Reset to default brand-curve state at the very top
+    if (latest <= 30) {
       setIsHidden(false);
       setIsCompact(false);
       return;
     }
 
-    // Scrolling down
-    if (latest > previous) {
-      if (latest > 150) setIsHidden(true);
-      setIsCompact(false); // Keep logo big, curve untouched, no bg
-    } 
-    // Scrolling up
-    else if (latest < previous) {
+    // Keep navbar open if mobile drawer is active
+    if (mobileMenuOpen) {
       setIsHidden(false);
-      setIsCompact(true); // Show glass bg, flatten curve, shrink logo
+      return;
+    }
+
+    // Scrolling down past threshold -> smoothly hide entire navbar and logo
+    if (diff > 6 && latest > 100) {
+      setIsHidden(true);
+    } 
+    // Scrolling up -> immediately reveal compact glassmorphic navbar with logo
+    else if (diff < -6) {
+      setIsHidden(false);
+      setIsCompact(true);
     }
   });
 
@@ -77,7 +78,6 @@ export function Navbar() {
     hidden: { opacity: 0, y: -20, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } }
   };
 
-
   return (
     <motion.header
       initial={isHome && !isEntranceComplete ? false : { opacity: 0, y: -20 }}
@@ -85,16 +85,16 @@ export function Navbar() {
         isHome && !isEntranceComplete
           ? {}
           : {
-              opacity: isFooterVisible ? 0 : 1,
-              y: isFooterVisible ? "-100%" : 0,
+              opacity: isHidden && !mobileMenuOpen ? 0 : 1,
+              y: isHidden && !mobileMenuOpen ? "-100%" : 0,
             }
       }
-      transition={{ duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] }}
+      transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
       className={cn(
-        "fixed top-0 left-0 right-0 w-full z-50 pointer-events-none transition-all duration-300",
+        "fixed top-0 left-0 right-0 w-full z-50 pointer-events-none transition-colors duration-300",
         isHome && !isEntranceComplete && "animate-nav-entrance",
         isCompact 
-          ? "bg-white/70  backdrop-blur-2xl shadow-[0_10px_40px_rgba(11,28,63,0.05)] py-1" 
+          ? "bg-white/80 backdrop-blur-2xl shadow-[0_10px_40px_rgba(11,28,63,0.06)] py-1" 
           : "pt-5 bg-transparent"
       )}
     >
@@ -196,7 +196,7 @@ export function Navbar() {
       <motion.div 
         variants={navVariants}
         initial="visible"
-        animate={isHome && !isEntranceComplete ? "visible" : (isHidden ? "hidden" : "visible")}
+        animate="visible"
         className={cn(
         "max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 flex items-center justify-between w-full relative pointer-events-none z-10 transition-all duration-300",
         isCompact ? "h-[50px]" : "h-[60px]"

@@ -6,9 +6,8 @@ import { siteConfig } from "@/config/site";
 import { footerLinks } from "@/data";
 import { Container } from "./container";
 import { MapPin, Mail, ArrowRight, Phone, MessageSquare, Globe } from "lucide-react";
-import { motion, useInView, Variants } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { Button } from "../ui/button";
-import { useRef, useEffect } from "react";
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -32,16 +31,9 @@ const itemVariants: Variants = {
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
-  const footerRef = useRef<HTMLElement>(null);
-  const isInView = useInView(footerRef, { margin: "0px" });
-
-  useEffect(() => {
-    const event = new CustomEvent('footerVisibilityChange', { detail: { isVisible: isInView } });
-    window.dispatchEvent(event);
-  }, [isInView]);
 
   return (
-    <footer ref={footerRef} className="relative z-20 bg-[#172554] text-white pt-40 md:pt-48 lg:pt-56">
+    <footer className="relative z-20 bg-[#172554] text-white pt-40 md:pt-48 lg:pt-56">
       {/* Organic Curved Top Border - Animated Growth */}
       <div className="absolute top-0 left-0 w-full leading-none -translate-y-full transform z-0">
         <svg
