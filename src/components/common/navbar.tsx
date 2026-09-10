@@ -17,7 +17,6 @@ const desktopPillLinks = [
   { name: "Certifications", href: "/certifications" },
   { name: "Markets", href: "/reach-markets" },
   { name: "Infra", href: "/infrastructure" },
-  { name: "Blog", href: "/blog" },
 ];
 
 export function Navbar() {
