@@ -9,16 +9,18 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const slides = [
-  {
-    id: 1,
-    image: "/images/hero-center-pinned-slide2.png",
-    alt: "Paperforce Center Pinned Exercise Books - Commercial & Regional Export Range",
-  },
-  {
-    id: 2,
-    image: "/Spiral Bound Sample 3.jpg",
-    alt: "Paperforce Spiral Bound Notebook Range - Premium Collection",
-  },
+  { id: 1, image: "/Homepage Slider/IMG1.png", alt: "Paperforce Notebook Collection Slide 1" },
+  { id: 2, image: "/Homepage Slider/IMG2.png", alt: "Paperforce Notebook Collection Slide 2" },
+  { id: 3, image: "/Homepage Slider/IMG3.png", alt: "Paperforce Notebook Collection Slide 3" },
+  { id: 4, image: "/Homepage Slider/IMG4.png", alt: "Paperforce Notebook Collection Slide 4" },
+  { id: 5, image: "/Homepage Slider/IMG5.png", alt: "Paperforce Notebook Collection Slide 5" },
+  { id: 6, image: "/Homepage Slider/IMG6.png", alt: "Paperforce Notebook Collection Slide 6" },
+  { id: 7, image: "/Homepage Slider/IMG7.png", alt: "Paperforce Notebook Collection Slide 7" },
+  { id: 8, image: "/Homepage Slider/IMG8.png", alt: "Paperforce Notebook Collection Slide 8" },
+  { id: 9, image: "/Homepage Slider/IMG9.png", alt: "Paperforce Notebook Collection Slide 9" },
+  { id: 10, image: "/Homepage Slider/IMG10.png", alt: "Paperforce Notebook Collection Slide 10" },
+  { id: 11, image: "/Homepage Slider/IMG11.png", alt: "Paperforce Notebook Collection Slide 11" },
+  { id: 12, image: "/Homepage Slider/IMG12.png", alt: "Paperforce Notebook Collection Slide 12" },
 ];
 
 interface HeroSliderProps {
@@ -28,11 +30,11 @@ interface HeroSliderProps {
 export default function HeroSlider({ isPageReady = true }: HeroSliderProps) {
   const [currentIndex, setCurrentIndex] = React.useState(0);
 
-  // Auto-advance slides every 5.5 seconds
+  // Auto-advance slides every 5 seconds
   React.useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % slides.length);
-    }, 5500);
+    }, 5000);
 
     return () => clearInterval(timer);
   }, []);
@@ -49,10 +51,9 @@ export default function HeroSlider({ isPageReady = true }: HeroSliderProps) {
 
   return (
     <div className="w-full flex flex-col items-center select-none">
-      {/* Visual Hero Slide Card - Clean White without shadows */}
+      {/* Visual Hero Slide Card */}
       <div className="relative w-full overflow-hidden rounded-[20px] sm:rounded-[28px] md:rounded-[36px] bg-white border border-slate-200/70 group shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
         
-        {/* Full-width responsive slide container: taller ratio on mobile so notebooks are clear and prominent, matching 2.67:1 on desktop */}
         <div className="relative w-full aspect-[16/11] sm:aspect-[2/1] md:aspect-[2400/900] min-h-[210px] sm:min-h-[280px] md:min-h-0 flex items-center justify-center overflow-hidden">
           <AnimatePresence mode="wait">
             <motion.div
@@ -67,7 +68,7 @@ export default function HeroSlider({ isPageReady = true }: HeroSliderProps) {
                 src={currentSlide.image}
                 alt={currentSlide.alt}
                 fill
-                priority={currentIndex === 0}
+                priority={currentIndex === 0 || currentIndex === 1}
                 sizes="(max-width: 768px) 100vw, 1536px"
                 className="object-contain object-center pointer-events-none"
               />
@@ -93,15 +94,15 @@ export default function HeroSlider({ isPageReady = true }: HeroSliderProps) {
           <ChevronRight className="w-4 h-4 sm:w-6 sm:h-6" />
         </button>
 
-        {/* Slide Indicator Dots (2 Slides) */}
-        <div className="absolute bottom-2.5 sm:bottom-4 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-white/85 backdrop-blur-xs border border-slate-200/80 shadow-2xs">
+        {/* Slide Indicator Dots (12 Slides) */}
+        <div className="absolute bottom-2.5 sm:bottom-4 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-white/85 backdrop-blur-xs border border-slate-200/80 shadow-2xs max-w-[90vw] overflow-x-auto">
           {slides.map((slide, idx) => (
             <button
               key={slide.id}
               onClick={() => setCurrentIndex(idx)}
               aria-label={`Go to slide ${idx + 1}`}
               className={cn(
-                "h-1.5 sm:h-2 rounded-full transition-all cursor-pointer",
+                "h-1.5 sm:h-2 rounded-full transition-all cursor-pointer shrink-0",
                 idx === currentIndex
                   ? "w-5 sm:w-6 bg-[#1E3261]"
                   : "w-1.5 sm:w-2 bg-slate-300 hover:bg-slate-400"
@@ -111,7 +112,7 @@ export default function HeroSlider({ isPageReady = true }: HeroSliderProps) {
         </div>
       </div>
 
-      {/* CTA Buttons - Clean side-by-side on mobile, original layout on desktop */}
+      {/* CTA Buttons */}
       <div className="flex flex-row items-center justify-center gap-3 mt-6 sm:mt-10 w-full max-w-sm sm:max-w-none sm:w-auto">
         <Link href="/products" className="flex-1 sm:flex-initial sm:w-auto">
           <Button 
@@ -144,8 +145,3 @@ export default function HeroSlider({ isPageReady = true }: HeroSliderProps) {
     </div>
   );
 }
-
-
-
-
-
