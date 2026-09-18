@@ -9,18 +9,18 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const slides = [
-  { id: 1, image: "/Homepage Slider/IMG1.png", alt: "Paperforce Notebook Collection Slide 1" },
-  { id: 2, image: "/Homepage Slider/IMG2.png", alt: "Paperforce Notebook Collection Slide 2" },
-  { id: 3, image: "/Homepage Slider/IMG3.png", alt: "Paperforce Notebook Collection Slide 3" },
-  { id: 4, image: "/Homepage Slider/IMG4.png", alt: "Paperforce Notebook Collection Slide 4" },
-  { id: 5, image: "/Homepage Slider/IMG5.png", alt: "Paperforce Notebook Collection Slide 5" },
-  { id: 6, image: "/Homepage Slider/IMG6.png", alt: "Paperforce Notebook Collection Slide 6" },
-  { id: 7, image: "/Homepage Slider/IMG7.png", alt: "Paperforce Notebook Collection Slide 7" },
-  { id: 8, image: "/Homepage Slider/IMG8.png", alt: "Paperforce Notebook Collection Slide 8" },
-  { id: 9, image: "/Homepage Slider/IMG9.png", alt: "Paperforce Notebook Collection Slide 9" },
-  { id: 10, image: "/Homepage Slider/IMG10.png", alt: "Paperforce Notebook Collection Slide 10" },
-  { id: 11, image: "/Homepage Slider/IMG11.png", alt: "Paperforce Notebook Collection Slide 11" },
-  { id: 12, image: "/Homepage Slider/IMG12.png", alt: "Paperforce Notebook Collection Slide 12" },
+  { id: 1, image: "/Homepage Slider/IMG1.png?v=5", alt: "Paperforce Notebook Collection Slide 1" },
+  { id: 2, image: "/Homepage Slider/IMG2.png?v=5", alt: "Paperforce Notebook Collection Slide 2" },
+  { id: 3, image: "/Homepage Slider/IMG3.png?v=5", alt: "Paperforce Notebook Collection Slide 3" },
+  { id: 4, image: "/Homepage Slider/IMG4.png?v=5", alt: "Paperforce Notebook Collection Slide 4" },
+  { id: 5, image: "/Homepage Slider/IMG5.png?v=5", alt: "Paperforce Notebook Collection Slide 5" },
+  { id: 6, image: "/Homepage Slider/IMG6.png?v=5", alt: "Paperforce Notebook Collection Slide 6" },
+  { id: 7, image: "/Homepage Slider/IMG7.png?v=5", alt: "Paperforce Notebook Collection Slide 7" },
+  { id: 8, image: "/Homepage Slider/IMG8.png?v=5", alt: "Paperforce Notebook Collection Slide 8" },
+  { id: 9, image: "/Homepage Slider/IMG9.png?v=5", alt: "Paperforce Notebook Collection Slide 9" },
+  { id: 10, image: "/Homepage Slider/IMG10.png?v=5", alt: "Paperforce Notebook Collection Slide 10" },
+  { id: 11, image: "/Homepage Slider/IMG11.png?v=5", alt: "Paperforce Notebook Collection Slide 11" },
+  { id: 12, image: "/Homepage Slider/IMG12.png?v=5", alt: "Paperforce Notebook Collection Slide 12" },
 ];
 
 interface HeroSliderProps {
