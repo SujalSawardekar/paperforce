@@ -142,16 +142,6 @@ export function CertificateModal({
             {/* Footer Notice */}
             <div className="px-5 sm:px-7 py-3 border-t border-slate-100 bg-white flex items-center justify-between text-xs text-slate-500">
               <span>Official verified credential • Paperforce India LLP</span>
-              {pdfUrl && (
-                <a
-                  href={pdfUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#1E3261] font-semibold hover:underline"
-                >
-                  Open Original PDF &rarr;
-                </a>
-              )}
             </div>
           </motion.div>
         </div>

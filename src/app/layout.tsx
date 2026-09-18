@@ -127,7 +127,7 @@ const jsonLd = {
             itemOffered: {
               "@type": "Product",
               name: "Center Pinned Notebooks",
-              url: "https://paperforceindia.com/products/Set_03"
+              url: "https://paperforceindia.com/products/center-pinned-notebook"
             }
           },
           {
@@ -135,7 +135,7 @@ const jsonLd = {
             itemOffered: {
               "@type": "Product",
               name: "Composition Notebooks",
-              url: "https://paperforceindia.com/products/Set_10"
+              url: "https://paperforceindia.com/products/composition-book"
             }
           },
           {
@@ -143,7 +143,7 @@ const jsonLd = {
             itemOffered: {
               "@type": "Product",
               name: "Spiral Bound Notebooks",
-              url: "https://paperforceindia.com/products/Set_11"
+              url: "https://paperforceindia.com/products/spiral-notebook"
             }
           },
           {
@@ -151,23 +151,23 @@ const jsonLd = {
             itemOffered: {
               "@type": "Product",
               name: "Double Wire Bound Notebooks",
-              url: "https://paperforceindia.com/products/Set_02"
+              url: "https://paperforceindia.com/products/double-wire-notebooks"
             }
           },
           {
             "@type": "Offer",
             itemOffered: {
               "@type": "Product",
-              name: "Perfect Bound Notebooks",
-              url: "https://paperforceindia.com/products/Set_09"
+              name: "Counter Books",
+              url: "https://paperforceindia.com/products/counter-books"
             }
           },
           {
             "@type": "Offer",
             itemOffered: {
               "@type": "Product",
-              name: "Casebound Hardcover Notebooks",
-              url: "https://paperforceindia.com/products/Set_07"
+              name: "Case Bound Books",
+              url: "https://paperforceindia.com/products/case-bound-books"
             }
           }
         ]

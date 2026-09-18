@@ -5,92 +5,11 @@ import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/common/container";
-import { SectionHeader } from "@/components/ui/section-header";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, BookOpen } from "lucide-react";
 import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
-
-const productCollections = [
-  {
-    id: "Set_03",
-    number: "01",
-    title: "Center Pinned Notebooks",
-    bullets: [
-      "Pinned tight. Built to last.",
-      "Simple binding, serious durability.",
-      "Old-school strength, still unbeaten."
-    ],
-    image: "/Images of Product/Set_03/Set_03 (1).png",
-    bgColor: "#eef6ee",
-    alt: "Paperforce Center Pinned Notebooks"
-  },
-  {
-    id: "Set_10",
-    number: "02",
-    title: "Center Stitched (Thread Bound)",
-    bullets: [
-      "The classic, done right.",
-      "School-ready. Order-ready. Always.",
-      "Simple notebook, serious volume."
-    ],
-    image: "/Images of Product/Set 10 Composition/Screenshot 2026-08-15 181137.png",
-    bgColor: "#f1f0f9",
-    alt: "Paperforce Centere Stitched Thread Bound Notebooks"
-  },
-  {
-    id: "Set_11",
-    number: "03",
-    title: "Spiral Bound Notebooks",
-    bullets: [
-      "Flips flat. Writes smoother.",
-      "Full circle. Zero fuss.",
-      "Made to spin, built to last."
-    ],
-    image: "/Images of Product/Set 11 Spiral Bound/Screenshot 2026-08-15 181240.png",
-    bgColor: "#f6f1f4",
-    alt: "Paperforce Spiral Bound Notebooks"
-  },
-  {
-    id: "Set_02",
-    number: "04",
-    title: "Double Wire (Wiro) Bound Notebooks",
-    bullets: [
-      "Two loops, zero wear.",
-      "Double strength, daily use.",
-      "Built for the long haul."
-    ],
-    image: "/Images of Product/Set_02/Set_02 (2).png",
-    bgColor: "#f0f4f8",
-    alt: "Paperforce Double Wire Bound Notebooks"
-  },
-  {
-    id: "Set_09",
-    number: "05",
-    title: "Perfect Bound Notebooks",
-    bullets: [
-      "Clean edge. Desk-ready finish.",
-      "Glued right. Looks premium.",
-      "Sleek binding, sharper finish."
-    ],
-    image: "/Images of Product/Set_09/Set_09 (1).png",
-    bgColor: "#eef6ee",
-    alt: "Paperforce Perfect Bound Notebooks"
-  },
-  {
-    id: "Set_07",
-    number: "06",
-    title: "Case Bound Notebooks",
-    bullets: [
-      "Hardcover. Built for years.",
-      "Tough outside, timeless inside.",
-      "Made to be kept, not tossed."
-    ],
-    image: "/Images of Product/Set_07/Set_07 (3).png",
-    bgColor: "#f1f0f9",
-    alt: "Paperforce Case Bound Notebooks"
-  }
-];
+import { collections, ProductCollection } from "@/components/products/data";
 
 function ProductStackCard({
   product,
@@ -98,7 +17,7 @@ function ProductStackCard({
   totalCards,
   progress,
 }: {
-  product: typeof productCollections[0];
+  product: ProductCollection;
   idx: number;
   totalCards: number;
   progress: MotionValue<number>;
@@ -114,11 +33,13 @@ function ProductStackCard({
     isLast ? [1, 1] : [1, 0.94]
   );
 
+  const cardNumber = (idx + 1).toString().padStart(2, "0");
+
   return (
     <motion.div
-      className={`sticky pt-4 ${isLast ? "mb-12" : "mb-[40vh]"}`}
+      className={`sticky pt-4 ${isLast ? "mb-12" : "mb-[35vh]"}`}
       style={{
-        top: `calc(12vh + ${idx * 18}px)`,
+        top: `calc(10vh + ${Math.min(idx * 16, 200)}px)`,
         zIndex: idx + 10,
         scale,
         transformOrigin: "top center",
@@ -127,18 +48,18 @@ function ProductStackCard({
     >
       <div
         className="flex flex-col lg:flex-row rounded-[28px] overflow-hidden border border-slate-100/80 shadow-[0_8px_40px_-10px_rgba(0,0,0,0.12)]"
-        style={{ backgroundColor: product.bgColor }}
+        style={{ backgroundColor: product.bgColor || "#f8fafc" }}
       >
         {/* Left Column: Text & Content (2/5 width) */}
         <div className="w-full lg:w-2/5 p-8 lg:p-12 flex flex-col justify-center">
           <span className="text-[11px] font-bold uppercase tracking-widest text-[#1E3261] mb-3 block">
-            {product.number}
+            {cardNumber}
           </span>
           <h3 className="text-2xl sm:text-3xl lg:text-[2rem] font-bold text-slate-900 mb-4 font-serif leading-tight">
-            {product.title}
+            {product.name}
           </h3>
           <ul className="space-y-2.5 max-w-sm mb-6">
-            {product.bullets.map((bullet, bIdx) => (
+            {product.bullets?.map((bullet, bIdx) => (
               <li key={bIdx} className="text-sm text-slate-700 flex items-start gap-2.5 font-medium leading-snug">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#1E3261] mt-1.5 shrink-0" />
                 <span>{bullet}</span>
@@ -154,17 +75,25 @@ function ProductStackCard({
         {/* Right Column: Image display matching card background color (3/5 width) */}
         <div
           className="w-full lg:w-3/5 h-[260px] sm:h-[300px] lg:h-[360px] relative flex items-center justify-center p-4 sm:p-6"
-          style={{ backgroundColor: product.bgColor }}
+          style={{ backgroundColor: product.bgColor || "#f8fafc" }}
         >
-          <Image
-            src={product.image}
-            alt={product.alt}
-            fill
-            sizes="(max-width: 1024px) 100vw, 60vw"
-            className="object-contain object-center p-3 sm:p-6"
-            priority={idx === 0}
-            loading={idx === 0 ? "eager" : "lazy"}
-          />
+          {product.coverImage ? (
+            <Image
+              src={product.coverImage}
+              alt={product.name}
+              fill
+              sizes="(max-width: 1024px) 100vw, 60vw"
+              className="object-contain object-center p-3 sm:p-6"
+              priority={idx === 0}
+              loading={idx === 0 ? "eager" : "lazy"}
+            />
+          ) : (
+            <div className="flex flex-col items-center justify-center text-center p-8 bg-white/70 backdrop-blur-xs rounded-2xl border border-dashed border-slate-300 w-full max-w-md h-[80%]">
+              <BookOpen className="w-12 h-12 text-[#1E3261]/60 mb-3" />
+              <p className="text-sm font-bold text-[#1E3261] mb-1">Catalogue Specifications Ready</p>
+              <p className="text-xs text-slate-500 max-w-xs">Custom OEM sizes and grammages available on order.</p>
+            </div>
+          )}
         </div>
       </div>
     </motion.div>
@@ -187,18 +116,18 @@ export function ProductSection() {
         {/* Section Heading */}
         <ScrollReveal direction="up" delay={0.1}>
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-serif text-[#0b1c3f] tracking-tight leading-tight">
-            Binding Capabilities
+            Our Products
           </h2>
         </ScrollReveal>
 
         {/* Overlapping Cards Stack Container */}
         <div className="relative pb-2">
-          {productCollections.map((product, idx) => (
+          {collections.map((product, idx) => (
             <ProductStackCard
-              key={idx}
+              key={product.id}
               product={product}
               idx={idx}
-              totalCards={productCollections.length}
+              totalCards={collections.length}
               progress={scrollYProgress}
             />
           ))}
@@ -207,7 +136,7 @@ export function ProductSection() {
         {/* Final CTA Button */}
         <div className="flex justify-center pt-8 pb-16">
           <Link href="/products">
-            <Button variant="outline" size="lg" className="font-bold border-[#1E3261] px-8 py-6 text-base">
+            <Button variant="outline" size="lg" className="font-bold border-[#1E3261] px-8 py-6 text-base hover:bg-[#1E3261] hover:text-white transition-colors">
               View All Products
             </Button>
           </Link>

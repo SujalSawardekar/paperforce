@@ -4,19 +4,22 @@ import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { ArrowLeft, ChevronLeft, ChevronRight, Download } from "lucide-react";
+import { ArrowLeft, ChevronLeft, ChevronRight, Download, BookOpen, Layers } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { defaultSpecs } from "@/components/products/data";
+import { defaultSpecs, ProductCollection } from "@/components/products/data";
 import { Container } from "@/components/common/container";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 interface CollectionViewProps {
-  collection: any;
+  collection: ProductCollection;
 }
 
 export function CollectionView({ collection }: CollectionViewProps) {
   const [galleryIndex, setGalleryIndex] = React.useState(0);
   const router = useRouter();
+
+  const hasImages = collection.images && collection.images.length > 0;
+  const currentImage = hasImages ? collection.images[galleryIndex] : collection.coverImage;
 
   return (
     <div className="w-full bg-white pb-32">
@@ -38,69 +41,97 @@ export function CollectionView({ collection }: CollectionViewProps) {
           <div className="lg:col-span-7 space-y-6">
             <ScrollReveal>
               {/* Main Stage */}
-              <div className="relative aspect-[4/3] w-full bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
-                <Image 
-                  src={collection.images[galleryIndex]} 
-                  alt={`${collection.name} Render ${galleryIndex + 1}`} 
-                  fill 
-                  className="object-contain animate-in fade-in duration-700 p-4" 
-                  key={galleryIndex}
-                  sizes="(max-width: 1024px) 100vw, 55vw"
-                  priority
-                />
-                
-                {/* Arrow Navigation on image */}
-                <div className="absolute inset-x-4 top-1/2 -translate-y-1/2 flex justify-between pointer-events-none">
-                  <button 
-                    onClick={() => setGalleryIndex(prev => prev > 0 ? prev - 1 : collection.images.length - 1)}
-                    className="p-2.5 bg-white/95 border border-slate-200 rounded-full hover:bg-slate-50 transition-colors shadow-sm pointer-events-auto"
-                    aria-label="Previous image"
-                  >
-                    <ChevronLeft size={18} className="text-[#1E3261]" />
-                  </button>
-                  <button 
-                    onClick={() => setGalleryIndex(prev => prev < collection.images.length - 1 ? prev + 1 : 0)}
-                    className="p-2.5 bg-white/95 border border-slate-200 rounded-full hover:bg-slate-50 transition-colors shadow-sm pointer-events-auto"
-                    aria-label="Next image"
-                  >
-                    <ChevronRight size={18} className="text-[#1E3261]" />
-                  </button>
-                </div>
+              <div 
+                className="relative aspect-[4/3] w-full border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex items-center justify-center p-6"
+                style={{ backgroundColor: collection.bgColor || "#f8fafc" }}
+              >
+                {currentImage ? (
+                  <>
+                    <Image 
+                      src={currentImage} 
+                      alt={`${collection.name} Render ${galleryIndex + 1}`} 
+                      fill 
+                      className="object-contain animate-in fade-in duration-700 p-4" 
+                      key={currentImage}
+                      sizes="(max-width: 1024px) 100vw, 55vw"
+                      priority
+                    />
+                    
+                    {/* Arrow Navigation on image if multiple images */}
+                    {hasImages && collection.images.length > 1 && (
+                      <div className="absolute inset-x-4 top-1/2 -translate-y-1/2 flex justify-between pointer-events-none">
+                        <button 
+                          onClick={() => setGalleryIndex(prev => prev > 0 ? prev - 1 : collection.images.length - 1)}
+                          className="p-2.5 bg-white/95 border border-slate-200 rounded-full hover:bg-slate-50 transition-colors shadow-md pointer-events-auto cursor-pointer"
+                          aria-label="Previous image"
+                        >
+                          <ChevronLeft size={18} className="text-[#1E3261]" />
+                        </button>
+                        <button 
+                          onClick={() => setGalleryIndex(prev => prev < collection.images.length - 1 ? prev + 1 : 0)}
+                          className="p-2.5 bg-white/95 border border-slate-200 rounded-full hover:bg-slate-50 transition-colors shadow-md pointer-events-auto cursor-pointer"
+                          aria-label="Next image"
+                        >
+                          <ChevronRight size={18} className="text-[#1E3261]" />
+                        </button>
+                      </div>
+                    )}
 
-                <div className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-lg text-xs font-bold text-slate-500 shadow-sm">
-                  {galleryIndex + 1} / {collection.images.length}
-                </div>
+                    {hasImages && collection.images.length > 1 && (
+                      <div className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-lg text-xs font-bold text-slate-500 shadow-sm">
+                        {galleryIndex + 1} / {collection.images.length}
+                      </div>
+                    )}
+                  </>
+                ) : (
+                  <div className="flex flex-col items-center justify-center text-center p-12 bg-white/90 backdrop-blur-sm border border-dashed border-slate-300 rounded-2xl w-full h-[85%]">
+                    <BookOpen className="w-16 h-16 text-[#1E3261]/50 mb-4" />
+                    <h3 className="text-xl font-serif font-bold text-[#1E3261] mb-2">Production Blueprint &amp; Specs Ready</h3>
+                    <p className="text-sm text-slate-500 max-w-sm">
+                      Product images are currently being photographed. Custom specifications, sample swatches, and OEM manufacturing quotes are ready on demand.
+                    </p>
+                  </div>
+                )}
               </div>
             </ScrollReveal>
 
-            {/* Thumbnail Selectors (Film Strip) */}
-            <ScrollReveal delay={0.1}>
-              <div className="flex gap-3 overflow-x-auto no-scrollbar py-2">
-                {collection.images.map((img: string, idx: number) => (
-                  <button 
-                    key={idx} 
-                    onClick={() => setGalleryIndex(idx)}
-                    className={`relative w-24 aspect-[4/3] rounded-xl overflow-hidden shrink-0 border-2 transition-all ${
-                      galleryIndex === idx ? "border-[#1E3261] opacity-100 scale-95" : "border-transparent opacity-60 hover:opacity-100"
-                    }`}
-                  >
-                    <Image src={img} alt={`${collection.name} Thumbnail ${idx + 1}`} fill className="object-cover" sizes="96px" />
-                  </button>
-                ))}
-              </div>
-            </ScrollReveal>
+            {/* Thumbnail Selectors (Film Strip) if multiple images */}
+            {hasImages && collection.images.length > 1 && (
+              <ScrollReveal delay={0.1}>
+                <div className="flex gap-3 overflow-x-auto no-scrollbar py-2">
+                  {collection.images.map((img: string, idx: number) => (
+                    <button 
+                      key={idx} 
+                      onClick={() => setGalleryIndex(idx)}
+                      className={`relative w-24 aspect-[4/3] rounded-xl overflow-hidden shrink-0 border-2 transition-all cursor-pointer p-1 bg-white ${
+                        galleryIndex === idx ? "border-[#1E3261] opacity-100 scale-95 shadow-md" : "border-slate-200 opacity-60 hover:opacity-100"
+                      }`}
+                    >
+                      <Image src={img} alt={`${collection.name} Thumbnail ${idx + 1}`} fill className="object-contain p-1" sizes="96px" />
+                    </button>
+                  ))}
+                </div>
+              </ScrollReveal>
+            )}
           </div>
 
           {/* Right Side: Product technical specifications */}
           <div className="lg:col-span-5 space-y-8">
             <ScrollReveal>
-              <h1 className="text-3xl md:text-4xl font-serif font-bold text-[#1E3261]">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-[#1E3261] text-xs font-bold uppercase tracking-wider mb-2">
+                <Layers size={13} />
+                OEM Manufacturing Series
+              </div>
+              <h1 className="text-3xl md:text-4xl font-serif font-bold text-[#1E3261] leading-tight">
                 {collection.name}
               </h1>
-              <div className="w-16 h-1 bg-[#1E3261] mt-4 rounded-full" />
+              <p className="text-slate-600 text-sm md:text-base leading-relaxed mt-3">
+                {collection.description}
+              </p>
+              <div className="w-16 h-1 bg-[#1E3261] mt-6 rounded-full" />
             </ScrollReveal>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-8 pt-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-8 pt-2">
               <SpecBlock title="Available Sizes" items={defaultSpecs.sizes} delay={0.1} />
               <SpecBlock title="Paper GSM" items={defaultSpecs.gsm} delay={0.2} />
               <SpecBlock title="Binding & Covers" items={defaultSpecs.covers} delay={0.3} />
@@ -123,7 +154,7 @@ export function CollectionView({ collection }: CollectionViewProps) {
             <div className="flex flex-col sm:flex-row justify-center gap-4 relative z-10">
               <Button 
                 size="lg" 
-                className="bg-white text-[#1E3261] hover:bg-slate-200 hover:text-[#1E3261] px-8 py-6 text-base font-bold transition-all shadow-xl hover:scale-105"
+                className="bg-white text-[#1E3261] hover:bg-slate-200 hover:text-[#1E3261] px-8 py-6 text-base font-bold transition-all shadow-xl hover:scale-105 cursor-pointer"
                 onClick={() => router.push(`/contact?interest=${collection.id}`)}
               >
                 Request Quotation
@@ -131,7 +162,7 @@ export function CollectionView({ collection }: CollectionViewProps) {
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="bg-transparent text-white border-slate-400 hover:bg-white/10 hover:border-white px-8 py-6 text-base font-bold transition-all hover:scale-105"
+                className="bg-transparent text-white border-slate-400 hover:bg-white/10 hover:border-white px-8 py-6 text-base font-bold transition-all hover:scale-105 cursor-pointer"
                 onClick={() => window.dispatchEvent(new CustomEvent("open-catalogue-modal"))}
               >
                 <Download size={20} className="mr-2" /> Download Catalogue

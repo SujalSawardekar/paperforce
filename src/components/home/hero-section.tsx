@@ -78,7 +78,6 @@ const slides: HeroSlide[] = [
 
 export function HeroSection() {
   const [current, setCurrent] = React.useState(0);
-  const [isPaused, setIsPaused] = React.useState(false);
 
   // Touch swipe support for mobile
   const touchStartX = React.useRef(0);
@@ -111,14 +110,13 @@ export function HeroSection() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
-  // Auto-advance slides every 5 seconds unless hovered
+  // Auto-advance slides every 5 seconds continuously (hovering does not pause the slider)
   React.useEffect(() => {
-    if (isPaused) return;
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % slides.length);
     }, 5000);
     return () => clearInterval(timer);
-  }, [isPaused]);
+  }, []);
 
   const handlePrev = () => {
     setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
@@ -132,8 +130,6 @@ export function HeroSection() {
 
   return (
     <section
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}

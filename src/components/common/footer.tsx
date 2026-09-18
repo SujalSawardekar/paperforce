@@ -98,12 +98,12 @@ export function Footer() {
           <motion.div variants={itemVariants} className="flex flex-col items-start text-left">
             <h4 className="text-base font-semibold text-white mb-6">Products</h4>
             <ul className="space-y-4">
-              <li><Link href="/products/Set_03" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Center-pinned</Link></li>
-              <li><Link href="/products/Set_10" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Center stitched</Link></li>
-              <li><Link href="/products/Set_11" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Spiral Bound</Link></li>
-              <li><Link href="/products/Set_02" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Double Wire/Wiro bound</Link></li>
-              <li><Link href="/products/Set_09" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Perfect Bound Notebook</Link></li>
-              <li><Link href="/products/Set_07" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Hardcover/Casebound</Link></li>
+              <li><Link href="/products/center-pinned-notebook" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Center-pinned</Link></li>
+              <li><Link href="/products/composition-book" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Composition Books</Link></li>
+              <li><Link href="/products/spiral-notebook" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Spiral Bound</Link></li>
+              <li><Link href="/products/double-wire-notebooks" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Double Wire Bound</Link></li>
+              <li><Link href="/products/counter-books" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Counter Books</Link></li>
+              <li><Link href="/products/case-bound-books" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Hardcover / Casebound</Link></li>
             </ul>
           </motion.div>
 

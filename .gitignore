@@ -43,4 +43,6 @@ next-env.d.ts
 # large raw source cutouts
 /public/Center Pinned/
 /public/Sprial/
+/Products/
+*.zip
 *.xlsx
