@@ -16,62 +16,62 @@ interface HeroSlide {
 const slides: HeroSlide[] = [
   {
     id: 1,
-    image: "/Homepage Slider/IMG1.png",
+    image: "/Homepage Slider/IMG1.png?v=3",
     alt: "Paperforce Notebook Manufacturing & Export Collection 1",
   },
   {
     id: 2,
-    image: "/Homepage Slider/IMG2.png",
+    image: "/Homepage Slider/IMG2.png?v=3",
     alt: "Paperforce Notebook Manufacturing & Export Collection 2",
   },
   {
     id: 3,
-    image: "/Homepage Slider/IMG3.png",
+    image: "/Homepage Slider/IMG3.png?v=3",
     alt: "Paperforce Notebook Manufacturing & Export Collection 3",
   },
   {
     id: 4,
-    image: "/Homepage Slider/IMG4.png",
+    image: "/Homepage Slider/IMG4.png?v=3",
     alt: "Paperforce Notebook Manufacturing & Export Collection 4",
   },
   {
     id: 5,
-    image: "/Homepage Slider/IMG5.png",
+    image: "/Homepage Slider/IMG5.png?v=3",
     alt: "Paperforce Notebook Manufacturing & Export Collection 5",
   },
   {
     id: 6,
-    image: "/Homepage Slider/IMG6.png",
+    image: "/Homepage Slider/IMG6.png?v=3",
     alt: "Paperforce Notebook Manufacturing & Export Collection 6",
   },
   {
     id: 7,
-    image: "/Homepage Slider/IMG7.png",
+    image: "/Homepage Slider/IMG7.png?v=3",
     alt: "Paperforce Notebook Manufacturing & Export Collection 7",
   },
   {
     id: 8,
-    image: "/Homepage Slider/IMG8.png",
+    image: "/Homepage Slider/IMG8.png?v=3",
     alt: "Paperforce Notebook Manufacturing & Export Collection 8",
   },
   {
     id: 9,
-    image: "/Homepage Slider/IMG9.png",
+    image: "/Homepage Slider/IMG9.png?v=3",
     alt: "Paperforce Notebook Manufacturing & Export Collection 9",
   },
   {
     id: 10,
-    image: "/Homepage Slider/IMG10.png",
+    image: "/Homepage Slider/IMG10.png?v=3",
     alt: "Paperforce Notebook Manufacturing & Export Collection 10",
   },
   {
     id: 11,
-    image: "/Homepage Slider/IMG11.png",
+    image: "/Homepage Slider/IMG11.png?v=3",
     alt: "Paperforce Notebook Manufacturing & Export Collection 11",
   },
   {
     id: 12,
-    image: "/Homepage Slider/IMG12.png",
+    image: "/Homepage Slider/IMG12.png?v=3",
     alt: "Paperforce Notebook Manufacturing & Export Collection 12",
   },
 ];
@@ -153,6 +153,7 @@ export function HeroSection() {
               fill
               priority={current === 0 || current === 1}
               sizes="100vw"
+              unoptimized
               className="w-full h-full object-cover md:object-contain object-center pointer-events-none"
               style={{ opacity: 1 }}
             />
