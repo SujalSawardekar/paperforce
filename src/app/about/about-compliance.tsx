@@ -47,8 +47,8 @@ export function AboutCompliance() {
             <ScrollReveal direction="right" delay={0.1}>
               <div className="relative aspect-[4/5] max-h-[480px] lg:max-h-[540px] rounded-[2rem] overflow-hidden shadow-2xl border border-slate-200">
                 <Image 
-                  src="/images/about/gallery_quality_inspection.jpg"
-                  alt="Quality inspection process"
+                  src="/images/about/about_quality_inspection.png"
+                  alt="Paperforce precision quality inspection and notebook verification"
                   fill
                   className="object-cover"
                 />

@@ -14,8 +14,8 @@ export function AboutMissionVision() {
           {/* Left Column: Static Sticky Image (Desktop) */}
           <div className="hidden lg:block lg:sticky lg:top-24 h-[360px] md:h-[400px] w-full rounded-[2rem] overflow-hidden shadow-md border border-slate-200/50 bg-slate-100 relative">
             <Image 
-              src="/images/about/about_mfg_overview_new.jpg"
-              alt="Paperforce India state-of-the-art production floor infrastructure"
+              src="/images/about/about_mission_vision.png"
+              alt="Paperforce India state-of-the-art manufacturing facility aerial view"
               fill
               sizes="40vw"
               className="object-cover"
@@ -29,8 +29,8 @@ export function AboutMissionVision() {
             {/* Mobile Image: Only visible on mobile/tablet as standard flow block */}
             <div className="lg:hidden relative w-full aspect-square sm:aspect-[16/10] rounded-[2rem] overflow-hidden shadow-md border border-slate-200/50 bg-slate-100 mb-8">
               <Image 
-                src="/images/about/about_mfg_overview_new.jpg"
-                alt="Paperforce India state-of-the-art production floor infrastructure"
+                src="/images/about/about_mission_vision.png"
+                alt="Paperforce India state-of-the-art manufacturing facility aerial view"
                 fill
                 sizes="100vw"
                 className="object-cover"
