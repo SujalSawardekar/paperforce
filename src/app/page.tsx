@@ -1,4 +1,5 @@
 import * as React from "react";
+import type { Metadata } from "next";
 import Script from "next/script";
 import { CorporateProfileSection } from "@/components/home/corporate-profile-section";
 import { ProductSection } from "@/components/home/product-section";
@@ -8,13 +9,35 @@ import { HomeFaqSection } from "@/components/home/faq-section";
 import { ManufacturingProcess } from "@/components/products/additional-sections";
 import { HeroSection } from "@/components/home/hero-section";
 
+export const metadata: Metadata = {
+  title: "Paperforce India - Global Stationery Manufacturer | OEM & Private Label",
+  description: "Paperforce India LLP is a leading high-volume paper stationery manufacturer and OEM exporter based in Maharashtra, India. Manufacturing spiral notebooks, composition books, counter books, and customized private-label paper stationery.",
+  alternates: {
+    canonical: "https://paperforceindia.com",
+  },
+  openGraph: {
+    title: "Paperforce India - Global Stationery Manufacturer | OEM & Private Label",
+    description: "Paperforce India LLP is a leading high-volume paper stationery manufacturer and OEM exporter based in Maharashtra, India.",
+    url: "https://paperforceindia.com",
+    siteName: "Paperforce India LLP",
+    images: [
+      {
+        url: "/logo.png",
+        width: 1200,
+        height: 630,
+        alt: "Paperforce India Logo",
+      },
+    ],
+  },
+};
+
 function getCompanySchema() {
   return {
     "@context": "https://schema.org",
     "@type": "ManufacturingBusiness",
     "name": "Paperforce India LLP",
     "description": "B2B OEM Private Label Manufacturer supplying high-volume paper stationery globally.",
-    "url": "https://paperforce.in",
+    "url": "https://paperforceindia.com",
   };
 }
 
