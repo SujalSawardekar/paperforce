@@ -119,6 +119,7 @@
 | 2026-09-18 | Seamless Hero Slider Background Transparency: Processed all user-provided images in `public/Homepage Slider/` (IMG1–IMG12) with floodfill color-to-alpha segmentation and natural soft shadow matting to remove solid white/grey backgrounds, matching the clean transparent format of IMG5 and IMG10. Updated slide image cache-busting parameters (`?v=5`) in `hero-section.tsx` and `hero-slider.tsx` for immediate client cache updates. |
 | 2026-09-20 | Added authentic product images for "12. Drawing & Sketch Books" (A4 Drawing Book, A3 Drawing Pad, A3 Sketch Pad) to public assets and configured coverImage and image gallery in `data.ts`. Updated product specs across all collections to match master Excel specifications. Drawing & Sketch Books now showcases high-res imagery across the Home page product stack, the Products catalog, and the dedicated product detail view. |
 | 2026-09-20 | Replaced placeholder imagery on About Us (`/about`) with authentic company visuals: integrated the aerial factory drone facility view (`about_mission_vision.png`) into `AboutMissionVision` (desktop sticky image & mobile view), and integrated the close-up notebook measurement quality inspection photo (`about_quality_inspection.png`) into `AboutCompliance`. |
+| 2026-09-20 | Updated "Why Global Importers Choose Us" section (`why-choose-section.tsx`): added "Quality" and "Commitment" with icons to the left and right floating capsules, and updated the 3 pillar tiles to "01 — Quality", "02 — Commitment", and "03 — Relationship" with new copy. |
 
 
 ---

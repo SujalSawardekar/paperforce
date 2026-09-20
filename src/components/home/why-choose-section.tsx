@@ -3,22 +3,23 @@
 import * as React from "react";
 import { useRef } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { ShieldCheck, CheckCircle2 } from "lucide-react";
 
 const pillars = [
   {
     num: "01",
-    title: "Uncompromising Scale",
-    desc: "Built to handle high-volume export orders. Our factory floors operate seamlessly to fulfill container-load shipments without bottlenecking."
+    title: "Quality",
+    desc: "No compromises on quality, no matter the cost or deadline."
   },
   {
     num: "02",
-    title: "Precision Engineering",
-    desc: "Automated converting lines ensure zero tolerance for ruling misalignment, binding failure, or moisture damage across every batch."
+    title: "Commitment",
+    desc: "Once we commit, we do whatever it takes to deliver."
   },
   {
     num: "03",
-    title: "Global Supply Chain",
-    desc: "Strategically positioned near India's largest container port, we ensure rapid, cost-effective maritime transit to over five continents."
+    title: "Relationship",
+    desc: "Built on trust that keeps buyers coming back, order after order."
   }
 ];
 
@@ -55,7 +56,7 @@ export function WhyChooseSection() {
               We combine massive production scale with uncompromising quality control to deliver high-volume paper stationery as per customized specifications worldwide.
             </p>
             
-            {/* Floating Pills - Repositioned to not crowd the text */}
+            {/* Floating Pills - Quality & Commitment */}
             <motion.div 
               initial={{ opacity: 0 }} 
               animate={{ opacity: 1, y: [0, -15, 0] }} 
@@ -63,9 +64,15 @@ export function WhyChooseSection() {
                 opacity: { duration: 0.7, delay: 0.2 },
                 y: { duration: 4, repeat: Infinity, ease: "easeInOut" }
               }}
-              className="absolute top-8 md:top-12 lg:top-16 -left-8 md:-left-16 lg:-left-24 w-[80px] h-[35px] md:w-[150px] md:h-[65px] rounded-[100px] overflow-hidden shadow-2xl border-4 border-white  hidden sm:block z-20"
+              className="absolute top-8 md:top-12 lg:top-16 -left-8 md:-left-16 lg:-left-24 w-[110px] h-[44px] md:w-[160px] md:h-[65px] rounded-[100px] overflow-hidden shadow-2xl border-4 border-white hidden sm:block z-20"
             >
-              <img src="/images/factory_pill.png" alt="Factory" className="w-full h-full object-cover" />
+              <img src="/images/factory_pill.png" alt="Quality" className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-[#0b1c3f]/65 flex items-center justify-center gap-1.5 md:gap-2 px-3">
+                <ShieldCheck className="w-4 h-4 md:w-5 md:h-5 text-emerald-400 shrink-0 drop-shadow" />
+                <span className="text-xs md:text-sm font-bold text-white tracking-wide drop-shadow font-sans">
+                  Quality
+                </span>
+              </div>
             </motion.div>
             
             <motion.div 
@@ -75,9 +82,15 @@ export function WhyChooseSection() {
                 opacity: { duration: 0.7, delay: 0.4 },
                 y: { duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }
               }}
-              className="absolute bottom-16 md:bottom-24 lg:bottom-28 -right-4 md:-right-12 lg:-right-20 w-[90px] h-[40px] md:w-[180px] md:h-[70px] rounded-[100px] overflow-hidden shadow-2xl border-4 border-white  hidden sm:block z-20"
+              className="absolute bottom-16 md:bottom-24 lg:bottom-28 -right-4 md:-right-12 lg:-right-20 w-[130px] h-[44px] md:w-[185px] md:h-[70px] rounded-[100px] overflow-hidden shadow-2xl border-4 border-white hidden sm:block z-20"
             >
-              <img src="/images/shipping_pill.png" alt="Shipping" className="w-full h-full object-cover" />
+              <img src="/images/shipping_pill.png" alt="Commitment" className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-[#0b1c3f]/65 flex items-center justify-center gap-1.5 md:gap-2 px-3">
+                <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5 text-blue-300 shrink-0 drop-shadow" />
+                <span className="text-xs md:text-sm font-bold text-white tracking-wide drop-shadow font-sans">
+                  Commitment
+                </span>
+              </div>
             </motion.div>
           </div>
         </div>
