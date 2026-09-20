@@ -1,3 +1,15 @@
+export interface ProductSpecs {
+  gsmRange: string;
+  paperGrade: string;
+  coversMaterials: string;
+  coverType?: string;
+  rulings: string;
+  rulingColors: string;
+  bindingMaterial?: string;
+  typesOfLocks?: string;
+  dailyCapacity: string;
+}
+
 export interface ProductCollection {
   id: string;
   legacyId?: string;
@@ -9,6 +21,7 @@ export interface ProductCollection {
   images: string[];
   bgColor: string;
   features: string[];
+  specs: ProductSpecs;
 }
 
 export const collections: ProductCollection[] = [
@@ -43,12 +56,16 @@ export const collections: ProductCollection[] = [
       "/images/Products/1. Centere Pinned Notebook/centered pin 22x17 cm _02.png"
     ],
     "bgColor": "#eef6ee",
-    "features": [
-      "Export Ready",
-      "OEM Available",
-      "Custom Specs"
-    ],
-    "legacyId": "Set_03"
+    "features": ["Export Ready", "OEM Available", "Custom Specs"],
+    "legacyId": "Set_03",
+    "specs": {
+      "gsmRange": "44 to 140",
+      "paperGrade": "Wood Pulp, Bagasse, Recycled, Cotton Paper",
+      "coversMaterials": "Kraft, Mapletho, FBB, Duplex, Poly Propelene",
+      "rulings": "Straight Line, Square, Seyes, Plain, Custom",
+      "rulingColors": "1+1 Color, 2+2 Color, 3+3 color",
+      "dailyCapacity": "200,000 pcs"
+    }
   },
   {
     "id": "spiral-notebook",
@@ -89,12 +106,18 @@ export const collections: ProductCollection[] = [
       "/images/Products/2. Spiral notebook/Stenobook_04.png"
     ],
     "bgColor": "#f6f1f4",
-    "features": [
-      "Export Ready",
-      "OEM Available",
-      "Custom Specs"
-    ],
-    "legacyId": "Set_11"
+    "features": ["Export Ready", "OEM Available", "Custom Specs"],
+    "legacyId": "Set_11",
+    "specs": {
+      "gsmRange": "44 to 140",
+      "paperGrade": "Wood Pulp, Bagasse, Recycled, Cotton Paper",
+      "coversMaterials": "Kraft, Mapletho, FBB, Duplex, Poly Propelene",
+      "rulings": "Straight Line, Square, Seyes, Plain, Custom",
+      "rulingColors": "1+1 Color, 2+2 Color, 3+3 color",
+      "bindingMaterial": "Zinc Coated Metal Silver, Nylon Coated Color, Color PVC",
+      "typesOfLocks": "G Lock & L Lock",
+      "dailyCapacity": "100,000 pcs"
+    }
   },
   {
     "id": "double-wire-notebooks",
@@ -118,12 +141,17 @@ export const collections: ProductCollection[] = [
       "/images/Products/3. Double Wire Notebooks/copper Double wiro Notebook_01.png"
     ],
     "bgColor": "#f0f4f8",
-    "features": [
-      "Export Ready",
-      "OEM Available",
-      "Custom Specs"
-    ],
-    "legacyId": "Set_02"
+    "features": ["Export Ready", "OEM Available", "Custom Specs"],
+    "legacyId": "Set_02",
+    "specs": {
+      "gsmRange": "44 to 140",
+      "paperGrade": "Wood Pulp, Bagasse, Recycled, Cotton Paper",
+      "coversMaterials": "Kraft, Mapletho, FBB, Duplex, Poly Propelene",
+      "rulings": "Straight Line, Square, Seyes, Plain, Custom",
+      "rulingColors": "1+1 Color, 2+2 Color, 3+3 color",
+      "bindingMaterial": "Nylon Coated Color Wiro",
+      "dailyCapacity": "75,000 pcs"
+    }
   },
   {
     "id": "composition-book",
@@ -148,12 +176,17 @@ export const collections: ProductCollection[] = [
       "/images/Products/4. Composition Book/24.7 x 90 cm_Neon Composition Notebook_05.png"
     ],
     "bgColor": "#f1f0f9",
-    "features": [
-      "Export Ready",
-      "OEM Available",
-      "Custom Specs"
-    ],
-    "legacyId": "Set_10"
+    "features": ["Export Ready", "OEM Available", "Custom Specs"],
+    "legacyId": "Set_10",
+    "specs": {
+      "gsmRange": "44 to 100",
+      "paperGrade": "Wood Pulp, Bagasse, Recycled, Cotton Paper",
+      "coversMaterials": "Kraft, Mapletho, FBB, Duplex, Poly Propelene",
+      "coverType": "Stiff & Semi Stiff",
+      "rulings": "Straight Line, Square, Seyes, Plain, Custom",
+      "rulingColors": "1+1 Color, 2+2 Color, 3+3 color",
+      "dailyCapacity": "75,000 pcs"
+    }
   },
   {
     "id": "counter-books",
@@ -176,12 +209,17 @@ export const collections: ProductCollection[] = [
       "/images/Products/5. Counter Books/33 x 21cm_Counter Notebook_13.png"
     ],
     "bgColor": "#eef6ee",
-    "features": [
-      "Export Ready",
-      "OEM Available",
-      "Custom Specs"
-    ],
-    "legacyId": "Set_01"
+    "features": ["Export Ready", "OEM Available", "Custom Specs"],
+    "legacyId": "Set_01",
+    "specs": {
+      "gsmRange": "44 to 100",
+      "paperGrade": "Wood Pulp, Bagasse, Recycled, Cotton Paper",
+      "coversMaterials": "Kraft, Mapletho, FBB, Duplex, Poly Propelene",
+      "coverType": "Stiff & Semi Stiff",
+      "rulings": "Straight Line, Square, Seyes, Plain, Custom",
+      "rulingColors": "1+1 Color, 2+2 Color, 3+3 color",
+      "dailyCapacity": "75,000 pcs"
+    }
   },
   {
     "id": "case-bound-books",
@@ -198,12 +236,17 @@ export const collections: ProductCollection[] = [
       "/images/Products/6. Case Bound books/001.png"
     ],
     "bgColor": "#f1f0f9",
-    "features": [
-      "Export Ready",
-      "OEM Available",
-      "Custom Specs"
-    ],
-    "legacyId": "Set_07"
+    "features": ["Export Ready", "OEM Available", "Custom Specs"],
+    "legacyId": "Set_07",
+    "specs": {
+      "gsmRange": "44 to 100",
+      "paperGrade": "Wood Pulp, Bagasse, Recycled, Cotton Paper",
+      "coversMaterials": "0.8mm to 1.5mm Mill Board",
+      "coverType": "PVC With Foiling or Screen Printing / Printed Art Paper",
+      "rulings": "Straight Line, Square, Seyes, Plain, Custom",
+      "rulingColors": "1+1 Color, 2+2 Color, 3+3 color",
+      "dailyCapacity": "30,000 pcs"
+    }
   },
   {
     "id": "index-cards",
@@ -222,12 +265,17 @@ export const collections: ProductCollection[] = [
       "/images/Products/7. Index Card/4x6_Index Card.png"
     ],
     "bgColor": "#f0f4f8",
-    "features": [
-      "Export Ready",
-      "OEM Available",
-      "Custom Specs"
-    ],
-    "legacyId": "Set_08"
+    "features": ["Export Ready", "OEM Available", "Custom Specs"],
+    "legacyId": "Set_08",
+    "specs": {
+      "gsmRange": "80 to 150",
+      "paperGrade": "Wood Pulp, Bagasse, Recycled",
+      "coversMaterials": "Tray / Loose Leaf",
+      "coverType": "Art Paper / FBB",
+      "rulings": "Straight Line, Square, Plain, Custom",
+      "rulingColors": "1 Color / 2 Color",
+      "dailyCapacity": "120,000 pcs"
+    }
   },
   {
     "id": "construction-paper-and-pad",
@@ -246,12 +294,17 @@ export const collections: ProductCollection[] = [
       "/images/Products/8. Construction Paper and Pad/9 x 12 In Construction Paper Pad.png"
     ],
     "bgColor": "#f6f1f4",
-    "features": [
-      "Export Ready",
-      "OEM Available",
-      "Custom Specs"
-    ],
-    "legacyId": "Set_05"
+    "features": ["Export Ready", "OEM Available", "Custom Specs"],
+    "legacyId": "Set_05",
+    "specs": {
+      "gsmRange": "80 to 120",
+      "paperGrade": "High Bright / Low Bright",
+      "coversMaterials": "Printed Paper",
+      "coverType": "Loose Leaf / FBB / Duplex",
+      "rulings": "Straight Line, Square, Plain, Custom",
+      "rulingColors": "1 Color / 2 Color",
+      "dailyCapacity": "80,000 pcs"
+    }
   },
   {
     "id": "penmanship-and-primary-tablet",
@@ -269,12 +322,17 @@ export const collections: ProductCollection[] = [
       "/images/Products/9. Penmenship and Primary tablet/9.75 x 7.5 In Penmenship book.png"
     ],
     "bgColor": "#eef6ee",
-    "features": [
-      "Export Ready",
-      "OEM Available",
-      "Custom Specs"
-    ],
-    "legacyId": "Set_09"
+    "features": ["Export Ready", "OEM Available", "Custom Specs"],
+    "legacyId": "Set_09",
+    "specs": {
+      "gsmRange": "54 to 120",
+      "paperGrade": "Wood Pulp, Bagasse, Recycled, Cotton Paper",
+      "coversMaterials": "Printed Paper",
+      "coverType": "FBB / Duplex / Art Paper",
+      "rulings": "Straight Line, Square, Plain, Custom",
+      "rulingColors": "1+1 Color / 2+2 Color",
+      "dailyCapacity": "40,000 pcs"
+    }
   },
   {
     "id": "refill-paper-and-pad",
@@ -294,12 +352,17 @@ export const collections: ProductCollection[] = [
       "/images/Products/10. Refill Paper and Pad/A4_29.7 x 21 cm_Rifil Pad.png"
     ],
     "bgColor": "#f0f4f8",
-    "features": [
-      "Export Ready",
-      "OEM Available",
-      "Custom Specs"
-    ],
-    "legacyId": "Set_12"
+    "features": ["Export Ready", "OEM Available", "Custom Specs"],
+    "legacyId": "Set_12",
+    "specs": {
+      "gsmRange": "54 to 120",
+      "paperGrade": "Wood Pulp, Bagasse, Recycled, Cotton Paper",
+      "coversMaterials": "Printed Paper",
+      "coverType": "FBB / Duplex / Art Paper",
+      "rulings": "Straight Line, Square, Plain, Custom",
+      "rulingColors": "1+1 Color / 2+2 Color",
+      "dailyCapacity": "40,000 pcs"
+    }
   },
   {
     "id": "writing-pad-and-legal-pad",
@@ -323,12 +386,17 @@ export const collections: ProductCollection[] = [
       "/images/Products/11. Writing Pad & Legal Pad/Spiral Notebook 5x8.png"
     ],
     "bgColor": "#f1f0f9",
-    "features": [
-      "Export Ready",
-      "OEM Available",
-      "Custom Specs"
-    ],
-    "legacyId": "Set_06"
+    "features": ["Export Ready", "OEM Available", "Custom Specs"],
+    "legacyId": "Set_06",
+    "specs": {
+      "gsmRange": "54 to 120",
+      "paperGrade": "Wood Pulp, Bagasse, Recycled, Cotton Paper",
+      "coversMaterials": "Printed Paper / Loose Leaf",
+      "coverType": "FBB / Duplex / Art Paper",
+      "rulings": "Straight Line, Square, Plain, Custom",
+      "rulingColors": "1+1 Color / 2+2 Color W/ Perforation",
+      "dailyCapacity": "40,000 pcs"
+    }
   },
   {
     "id": "drawing-and-sketch-books",
@@ -343,12 +411,17 @@ export const collections: ProductCollection[] = [
     "coverImage": "",
     "images": [],
     "bgColor": "#f6f1f4",
-    "features": [
-      "Export Ready",
-      "OEM Available",
-      "Custom Specs"
-    ],
-    "legacyId": "Set_04"
+    "features": ["Export Ready", "OEM Available", "Custom Specs"],
+    "legacyId": "Set_04",
+    "specs": {
+      "gsmRange": "80 to 120",
+      "paperGrade": "Wood Pulp, Bagasse, Recycled, Cotton Paper",
+      "coversMaterials": "Printed Paper / Loose Leaf / Poly",
+      "coverType": "FBB / Duplex / Art Paper",
+      "rulings": "plain / border printed",
+      "rulingColors": "with or without perforation",
+      "dailyCapacity": "50,000 pcs"
+    }
   }
 ];
 

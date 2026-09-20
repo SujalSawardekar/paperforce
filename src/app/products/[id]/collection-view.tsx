@@ -6,7 +6,8 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { ArrowLeft, ChevronLeft, ChevronRight, Download, BookOpen, Layers } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { defaultSpecs, ProductCollection } from "@/components/products/data";
+import { ProductCollection } from "@/components/products/data";
+
 import { Container } from "@/components/common/container";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
@@ -131,12 +132,8 @@ export function CollectionView({ collection }: CollectionViewProps) {
               <div className="w-16 h-1 bg-[#1E3261] mt-6 rounded-full" />
             </ScrollReveal>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-8 pt-2">
-              <SpecBlock title="Available Sizes" items={defaultSpecs.sizes} delay={0.1} />
-              <SpecBlock title="Paper GSM" items={defaultSpecs.gsm} delay={0.2} />
-              <SpecBlock title="Binding & Covers" items={defaultSpecs.covers} delay={0.3} />
-              <SpecBlock title="Ruling Formats" items={defaultSpecs.ruling} delay={0.4} />
-            </div>
+            {/* Per-product Spec Table */}
+            <ProductSpecTable collection={collection} />
           </div>
 
         </div>
@@ -175,7 +172,44 @@ export function CollectionView({ collection }: CollectionViewProps) {
   );
 }
 
-function SpecBlock({ title, items, delay }: { title: string, items: string[], delay: number }) {
+function ProductSpecTable({ collection }: { collection: ProductCollection }) {
+  const s = collection.specs;
+  const rows: { label: string; value: string }[] = [
+    { label: "GSM Range", value: s.gsmRange },
+    { label: "Paper Grade", value: s.paperGrade },
+    { label: "Covers Materials", value: s.coversMaterials },
+    ...(s.coverType ? [{ label: "Cover Type", value: s.coverType }] : []),
+    { label: "Rulings", value: s.rulings },
+    { label: "Ruling Colors", value: s.rulingColors },
+    ...(s.bindingMaterial ? [{ label: "Type of Binding Material", value: s.bindingMaterial }] : []),
+    ...(s.typesOfLocks ? [{ label: "Types of Locks", value: s.typesOfLocks }] : []),
+    { label: "Daily Capacity", value: s.dailyCapacity },
+  ];
+
+  return (
+    <ScrollReveal delay={0.2}>
+      <div className="rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+        {rows.map((row, i) => (
+          <div
+            key={i}
+            className={`flex items-start gap-4 px-5 py-4 ${
+              i % 2 === 0 ? "bg-white" : "bg-slate-50/70"
+            } border-b border-slate-100 last:border-0`}
+          >
+            <span className="w-44 shrink-0 text-[11px] font-bold uppercase tracking-wider text-slate-400 pt-0.5">
+              {row.label}
+            </span>
+            <span className="text-sm font-semibold text-[#1E3261] leading-snug">
+              {row.value}
+            </span>
+          </div>
+        ))}
+      </div>
+    </ScrollReveal>
+  );
+}
+
+function SpecBlock({ title, items, delay }: { title: string; items: string[]; delay: number }) {
   return (
     <ScrollReveal delay={delay}>
       <h4 className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-4">{title}</h4>
