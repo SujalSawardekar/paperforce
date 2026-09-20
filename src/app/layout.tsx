@@ -86,6 +86,9 @@ export const metadata: Metadata = {
       { rel: "manifest", url: "/site.webmanifest" },
     ],
   },
+  verification: {
+    google: "google3b7e143888c62f98",
+  },
 };
 
 const jsonLd = {

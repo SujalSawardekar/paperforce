@@ -121,6 +121,7 @@
 | 2026-09-20 | Replaced placeholder imagery on About Us (`/about`) with authentic company visuals: integrated the aerial factory drone facility view (`about_mission_vision.png`) into `AboutMissionVision` (desktop sticky image & mobile view), and integrated the close-up notebook measurement quality inspection photo (`about_quality_inspection.png`) into `AboutCompliance`. |
 | 2026-09-20 | Updated "Why Global Importers Choose Us" section (`why-choose-section.tsx`): added "Quality" and "Commitment" with icons to the left and right floating capsules, and updated the 3 pillar tiles to "01 — Quality", "02 — Commitment", and "03 — Relationship" with new copy. |
 | 2026-09-20 | SEO & Favicon Overhaul: Fixed Google Search indexing and missing favicon issues. Replaced 5.4MB oversized logo reference with full suite of compliant favicons (`favicon.ico`, 16x16, 32x32, Googlebot-standard 48x48, 96x96, 192x192, 512x512, apple-touch-icon, and `site.webmanifest`). Added explicit homepage metadata (title, B2B OEM meta description, canonical, OpenGraph). Unblocked `/_next/` in `robots.ts` so search crawlers can fully render pages and indexed assets. |
+| 2026-09-20 | Google Search Console Site Verification: Added official verification HTML file `public/google3b7e143888c62f98.html` and configured `<meta name="google-site-verification" content="google3b7e143888c62f98"/>` in `layout.tsx` metadata. |
 
 
 ---
