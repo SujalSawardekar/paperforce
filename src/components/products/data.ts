@@ -408,8 +408,12 @@ export const collections: ProductCollection[] = [
       "Spiral and glue-bound formats available",
       "Custom sizing and cover treatments on request"
     ],
-    "coverImage": "",
-    "images": [],
+    "coverImage": "/images/Products/12. Drawing & Sketch Books/A4 Drawing Book.png",
+    "images": [
+      "/images/Products/12. Drawing & Sketch Books/A4 Drawing Book.png",
+      "/images/Products/12. Drawing & Sketch Books/A3 Drawing pad.png",
+      "/images/Products/12. Drawing & Sketch Books/A3 Sketch Pad.png"
+    ],
     "bgColor": "#f6f1f4",
     "features": ["Export Ready", "OEM Available", "Custom Specs"],
     "legacyId": "Set_04",
