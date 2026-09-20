@@ -3,6 +3,7 @@ import { Container } from "@/components/common/container";
 import { Cog } from "lucide-react";
 import { MachineryTable } from "@/components/infrastructure/machinery-table";
 import { FacilityStats } from "@/components/infrastructure/facility-stats";
+import { FacilityGallery } from "@/components/infrastructure/facility-gallery";
 
 export const metadata: Metadata = {
   title: "Manufacturing Infrastructure & Machinery | Paperforce India LLP",
@@ -32,6 +33,11 @@ export default function InfrastructurePage() {
 
           {/* Quick Facility Overview Badges (ISO 9001 card is inspectable on click) */}
           <FacilityStats />
+        </div>
+
+        {/* Facility Gallery */}
+        <div className="w-full">
+          <FacilityGallery />
         </div>
 
         {/* Plant Machinery Fleet Registry Table */}
