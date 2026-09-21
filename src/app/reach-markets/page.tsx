@@ -4,7 +4,7 @@ import { WhyChooseSection } from "@/components/home/why-choose-section";
 
 export default function ReachMarketsPage() {
   return (
-    <main className="flex-1 bg-white pt-16 pb-12 overflow-x-clip">
+    <main className="flex-1 bg-white pt-16 pb-40 overflow-x-clip">
       {/* 1. Realtime Shipping Map Section (now at the top of the page) */}
       <ExportNetworkSection />
 

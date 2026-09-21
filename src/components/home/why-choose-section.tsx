@@ -42,7 +42,7 @@ export function WhyChooseSection() {
   });
 
   return (
-    <section ref={containerRef} className="h-[150vh] relative bg-slate-50  border-y border-border/30">
+    <section ref={containerRef} className="h-[200vh] relative bg-slate-50  border-y border-border/30">
       <div className="sticky top-0 pt-24 md:pt-32 overflow-hidden flex flex-col justify-start pb-10 sm:pb-20 h-screen">
         
         {/* Clean, Elegant Typography Header */}
@@ -109,7 +109,7 @@ export function WhyChooseSection() {
             {pillars.map((pillar, idx) => (
               <div 
                 key={idx}
-                className="w-[var(--card-w)] shrink-0 bg-white/70  backdrop-blur-xl rounded-[32px] p-8 md:p-10 border border-slate-200/60  shadow-[0_8px_40px_rgba(11,28,63,0.06)] relative overflow-hidden group transition-all hover:shadow-[0_20px_60px_rgba(11,28,63,0.12)] min-h-[35vh] flex flex-col justify-center"
+                className="w-[var(--card-w)] shrink-0 bg-white/70 backdrop-blur-xl rounded-[32px] rounded-b-[40px] p-8 md:p-10 shadow-[0_8px_40px_rgba(11,28,63,0.06)] relative overflow-hidden group transition-all hover:shadow-[0_20px_60px_rgba(11,28,63,0.12)] min-h-[35vh] flex flex-col justify-center"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-transparent  opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="text-7xl lg:text-[100px] leading-none font-light text-slate-200  font-serif mb-6 transition-colors duration-500 group-hover:text-amber-500/20 absolute -top-2 right-4 pointer-events-none select-none">

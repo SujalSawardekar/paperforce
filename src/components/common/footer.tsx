@@ -61,7 +61,7 @@ export function Footer() {
           className="flex flex-col items-center justify-center text-center max-w-4xl mx-auto pb-12 border-b border-blue-900/50 mb-12"
         >
           <motion.h2 variants={itemVariants} className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-8">
-            Ready to Manufacture with Paperforce?
+            Ready to Order?
           </motion.h2>
           <motion.div variants={itemVariants}>
             <Link href="/contact">
@@ -97,13 +97,19 @@ export function Footer() {
           {/* Products */}
           <motion.div variants={itemVariants} className="flex flex-col items-start text-left">
             <h4 className="text-base font-semibold text-white mb-6">Products</h4>
-            <ul className="space-y-4">
-              <li><Link href="/products/center-pinned-notebook" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Center-pinned</Link></li>
-              <li><Link href="/products/composition-book" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Composition Books</Link></li>
-              <li><Link href="/products/spiral-notebook" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Spiral Bound</Link></li>
+            <ul className="space-y-3">
+              <li><Link href="/products/center-pinned-notebook" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Center-Pinned Notebooks</Link></li>
+              <li><Link href="/products/spiral-notebook" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Spiral Notebooks</Link></li>
               <li><Link href="/products/double-wire-notebooks" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Double Wire Bound</Link></li>
+              <li><Link href="/products/composition-book" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Composition Books</Link></li>
               <li><Link href="/products/counter-books" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Counter Books</Link></li>
-              <li><Link href="/products/case-bound-books" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Hardcover / Casebound</Link></li>
+              <li><Link href="/products/case-bound-books" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Case Bound Books</Link></li>
+              <li><Link href="/products/index-cards" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Index Cards</Link></li>
+              <li><Link href="/products/construction-paper-and-pad" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Construction Paper &amp; Pads</Link></li>
+              <li><Link href="/products/penmanship-and-primary-tablet" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Penmanship &amp; Primary Tablets</Link></li>
+              <li><Link href="/products/refill-paper-and-pad" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Refill Paper &amp; Pads</Link></li>
+              <li><Link href="/products/writing-pad-and-legal-pad" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Writing &amp; Legal Pads</Link></li>
+              <li><Link href="/products/drawing-and-sketch-books" className="text-sm text-blue-200/70 hover:text-white transition-colors block">Drawing &amp; Sketch Books</Link></li>
             </ul>
           </motion.div>
 

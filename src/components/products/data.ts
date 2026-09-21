@@ -408,7 +408,7 @@ export const collections: ProductCollection[] = [
       "Spiral and glue-bound formats available",
       "Custom sizing and cover treatments on request"
     ],
-    "coverImage": "/images/Products/12. Drawing & Sketch Books/A4 Drawing Book.png",
+    "coverImage": "/images/Products/12. Drawing & Sketch Books/drawing_sketch_cover.png",
     "images": [
       "/images/Products/12. Drawing & Sketch Books/A4 Drawing Book.png",
       "/images/Products/12. Drawing & Sketch Books/A3 Drawing pad.png",
