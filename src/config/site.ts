@@ -4,9 +4,10 @@ export const siteConfig = {
   url: "https://paperforceindia.com",
   ogImage: "https://paperforceindia.com/logo.png",
   links: {
-    linkedin: "https://www.linkedin.com/in/paperforce-india-llp-536a15426",
-    instagram: "https://www.instagram.com/paperforceindia",
-    facebook: "https://www.facebook.com/share/1EpdqK5Zve/",
+    linkedin: "https://www.linkedin.com/company/paperforce-india-llp/",
+    instagram: "https://www.instagram.com/paperforceindia?stkn=eG10NWp6NDVhbGQ=",
+    facebook: "https://www.facebook.com/share/1Xe9TuUfJM/",
+    pinterest: "https://pin.it/6dTgbkvzE",
     developer: "https://haloxion.com",
   },
   contact: {

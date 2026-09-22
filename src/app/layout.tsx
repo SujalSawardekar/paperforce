@@ -118,9 +118,10 @@ const jsonLd = {
         addressCountry: "IN"
       },
       sameAs: [
-        "https://www.linkedin.com/in/paperforce-india-llp-536a15426",
-        "https://www.instagram.com/paperforceindia",
-        "https://www.facebook.com/share/1EpdqK5Zve/",
+        "https://www.linkedin.com/company/paperforce-india-llp/",
+        "https://www.instagram.com/paperforceindia?stkn=eG10NWp6NDVhbGQ=",
+        "https://www.facebook.com/share/1Xe9TuUfJM/",
+        "https://pin.it/6dTgbkvzE",
         "https://haloxion.com"
       ],
       contactPoint: [

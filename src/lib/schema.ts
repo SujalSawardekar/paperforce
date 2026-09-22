@@ -16,7 +16,10 @@ export function getCompanySchema() {
       "addressCountry": "IN"
     },
     "sameAs": [
-      "https://linkedin.com/company/paperforce-india"
+      "https://www.linkedin.com/company/paperforce-india-llp/",
+      "https://www.instagram.com/paperforceindia?stkn=eG10NWp6NDVhbGQ=",
+      "https://www.facebook.com/share/1Xe9TuUfJM/",
+      "https://pin.it/6dTgbkvzE"
     ],
     "description": "Premium corporate B2B manufacturing of high-quality notebooks and paper stationery exported worldwide.",
     "knowsAbout": [

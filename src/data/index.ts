@@ -31,9 +31,10 @@ export const footerLinks = {
     { name: "Latin America", href: "/reach-markets#latin-america" },
   ],
   socials: [
-    { name: "LinkedIn", href: "https://linkedin.com", icon: "linkedin" },
-    { name: "Facebook", href: "https://facebook.com", icon: "facebook" },
-    { name: "Instagram", href: "https://instagram.com", icon: "instagram" },
+    { name: "LinkedIn", href: "https://www.linkedin.com/company/paperforce-india-llp/", icon: "linkedin" },
+    { name: "Facebook", href: "https://www.facebook.com/share/1Xe9TuUfJM/", icon: "facebook" },
+    { name: "Instagram", href: "https://www.instagram.com/paperforceindia?stkn=eG10NWp6NDVhbGQ=", icon: "instagram" },
+    { name: "Pinterest", href: "https://pin.it/6dTgbkvzE", icon: "pinterest" },
   ],
   support: [
     { name: "Privacy Policy", href: "/privacy" },
