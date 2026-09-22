@@ -141,7 +141,7 @@ export async function POST(req: NextRequest) {
 
   // Send both emails concurrently for maximum speed (sub-second delivery)
   try {
-    await Promise.all([
+    await Promise.allSettled([
       // 1. Send Product Catalogue to the Client's Email
       sendEmail({
         to: trimmedEmail,

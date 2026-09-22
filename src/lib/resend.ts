@@ -5,20 +5,40 @@ import nodemailer from "nodemailer";
 import { Resend } from "resend";
 
 export const EMAIL_FROM =
-  process.env.EMAIL_FROM ?? "Paperforce India <sales@paperforce.in>";
+  process.env.EMAIL_FROM || "Paperforce India <sales@paperforce.in>";
 
-export const SALES_EMAIL = process.env.SALES_EMAIL ?? "sales@paperforce.in";
+export const SALES_EMAIL =
+  process.env.SALES_EMAIL || "sales@paperforce.in";
 
-const transporter =
-  process.env.SMTP_USER && process.env.SMTP_PASS
-    ? nodemailer.createTransport({
-        service: "gmail",
-        auth: {
-          user: process.env.SMTP_USER,
-          pass: process.env.SMTP_PASS,
-        },
-      })
-    : null;
+const DEFAULT_SMTP_USER = "sales@paperforce.in";
+const DEFAULT_SMTP_PASS = "etpgkroccfjqfsea";
+
+function getTransporter() {
+  const user = (process.env.SMTP_USER || DEFAULT_SMTP_USER).trim();
+  const rawPass = process.env.SMTP_PASS || DEFAULT_SMTP_PASS;
+  const pass = rawPass.trim().replace(/\s+/g, "");
+
+  if (!user || !pass) {
+    console.warn("[SMTP CONFIG WARNING] No SMTP credentials found.");
+    return null;
+  }
+
+  return nodemailer.createTransport({
+    host: process.env.SMTP_HOST || "smtp.gmail.com",
+    port: parseInt(process.env.SMTP_PORT || "465", 10),
+    secure: process.env.SMTP_SECURE !== "false", // true for 465 (SSL)
+    auth: {
+      user,
+      pass,
+    },
+    tls: {
+      rejectUnauthorized: false,
+    },
+    connectionTimeout: 10000,
+    greetingTimeout: 10000,
+    socketTimeout: 15000,
+  });
+}
 
 const resend = process.env.RESEND_API_KEY
   ? new Resend(process.env.RESEND_API_KEY)
@@ -41,8 +61,9 @@ export async function sendEmail(opts: {
   const recipients = Array.isArray(opts.to) ? opts.to.join(", ") : opts.to;
 
   // 1. Primary: Send via Nodemailer / Gmail SMTP
-  if (transporter) {
-    try {
+  try {
+    const transporter = getTransporter();
+    if (transporter) {
       const info = await transporter.sendMail({
         from: EMAIL_FROM,
         to: recipients,
@@ -52,9 +73,9 @@ export async function sendEmail(opts: {
       });
       console.log("[SMTP SUCCESS] Email sent to:", recipients, "MessageId:", info.messageId);
       return { success: true, id: info.messageId };
-    } catch (smtpErr) {
-      console.error("[SMTP ERROR] Failed to send via Gmail SMTP:", smtpErr);
     }
+  } catch (smtpErr) {
+    console.error("[SMTP ERROR] Failed to send via Gmail SMTP:", smtpErr);
   }
 
   // 2. Secondary: Send via Resend API
@@ -85,4 +106,5 @@ export async function sendEmail(opts: {
   });
   return { success: true, id: "dev-fallback" };
 }
+
 

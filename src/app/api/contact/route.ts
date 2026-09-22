@@ -80,7 +80,7 @@ export async function POST(req: NextRequest) {
   let savedToDb = false;
   if (process.env.DATABASE_URL) {
     try {
-      await prisma.contactSubmission.create({
+      const dbPromise = prisma.contactSubmission.create({
         data: {
           name,
           email,
@@ -89,6 +89,12 @@ export async function POST(req: NextRequest) {
           message,
         },
       });
+
+      const timeoutPromise = new Promise((_, reject) =>
+        setTimeout(() => reject(new Error("Database connection timeout")), 1500)
+      );
+
+      await Promise.race([dbPromise, timeoutPromise]);
       savedToDb = true;
     } catch (dbErr) {
       console.error("[CONTACT DB ERROR] Failed to write to Prisma DB:", dbErr);
@@ -99,11 +105,14 @@ export async function POST(req: NextRequest) {
     await saveContactFallback({ name, email, phone, subject, message });
   }
 
-  // Send notification email
-  await sendEmail({
-    to: SALES_EMAIL,
-    subject: `[Contact Form Message] Subject: ${subject || "General Inquiry"}`,
-    html: `<!DOCTYPE html>
+  // Send notification email to admin and confirmation acknowledgment to user
+  try {
+    await Promise.allSettled([
+      // 1. Alert Sales / Admin Team
+      sendEmail({
+        to: SALES_EMAIL,
+        subject: `[Contact Form Message] Subject: ${subject || "General Inquiry"}`,
+        html: `<!DOCTYPE html>
 <html lang="en">
 <head><meta charset="UTF-8"><title>New Contact Message</title></head>
 <body style="font-family:sans-serif;background:#f8fafc;padding:24px;margin:0;">
@@ -129,7 +138,38 @@ export async function POST(req: NextRequest) {
   </div>
 </body>
 </html>`,
-  });
+      }),
+
+      // 2. Send Acknowledgment to the User
+      sendEmail({
+        to: email,
+        subject: "Thank you for contacting Paperforce India LLP",
+        html: `<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>Thank you for contacting Paperforce India</title></head>
+<body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background:#f6f7fb; padding:32px 16px; margin:0; color:#334155;">
+  <div style="max-width:600px; margin:0 auto; background:#ffffff; border:1px solid #e2e8f0; border-radius:16px; overflow:hidden; box-shadow:0 4px 12px rgba(30,50,97,0.04);">
+    <div style="background:#1e3261; padding:32px 24px; text-align:center; color:#ffffff;">
+      <h1 style="margin:0; font-size:24px; font-weight:700;">Paperforce India LLP</h1>
+    </div>
+    <div style="padding:36px 28px; line-height:1.65; font-size:15px; color:#334155;">
+      <p style="margin-top:0;">Dear <strong>${name}</strong>,</p>
+      <p>Thank you for reaching out to us. We have received your message regarding <strong>${subject || "General Inquiry"}</strong>.</p>
+      <p>Our sales team will review your inquiry and get back to you shortly.</p>
+      <hr style="border:0; border-top:1px solid #f1f5f9; margin:28px 0;" />
+      <p style="margin:0; font-size:13px; color:#64748b; text-align:center;">
+        Best Regards,<br/>
+        <strong>Paperforce India LLP</strong>
+      </p>
+    </div>
+  </div>
+</body>
+</html>`,
+      }),
+    ]);
+  } catch (emailErr) {
+    console.error("[CONTACT EMAIL ERROR]", emailErr);
+  }
 
   return NextResponse.json({
     success: true,
