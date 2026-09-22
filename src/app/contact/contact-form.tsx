@@ -289,7 +289,7 @@ export function ContactForm() {
       }
     } catch {
       setServerSuccess(false);
-      setServerMessage("An unexpected system error occurred. Please submit your request directly to info@paperforce.in.");
+      setServerMessage("An unexpected system error occurred. Please submit your request directly to sales@paperforce.in.");
     } finally {
       setIsSubmittingState(false);
     }

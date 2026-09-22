@@ -40,15 +40,8 @@ export function rfqBuyerAckHtml(p: BuyerAckParams): string {
         ${itemList}
       </ul>
 
-      <div style="background:#f1f5f9;border-radius:8px;padding:16px;margin-bottom:24px;">
-        <p style="font-size:12px;color:#64748b;margin:0 0 8px;font-weight:600;">WHAT HAPPENS NEXT</p>
-        <p style="font-size:12px;color:#475569;margin:0;line-height:1.6;">
-          Our export team at Nhava Sheva (JNPT) will review your requirements, compile container-grade pricing, and respond with a formal quotation. For urgent requirements, you may also reach us directly on WhatsApp.
-        </p>
-      </div>
-
       <table style="width:100%;font-size:12px;color:#475569;">
-        <tr><td style="padding:4px 0;font-weight:600;width:120px;">Email:</td><td>info@paperforce.in</td></tr>
+        <tr><td style="padding:4px 0;font-weight:600;width:120px;">Email:</td><td>sales@paperforce.in</td></tr>
         <tr><td style="padding:4px 0;font-weight:600;">WhatsApp:</td><td>+91 91367 55322 (B2B Line)</td></tr>
         <tr><td style="padding:4px 0;font-weight:600;">Factory:</td><td>Palghar, Maharashtra, India</td></tr>
       </table>
@@ -56,7 +49,7 @@ export function rfqBuyerAckHtml(p: BuyerAckParams): string {
     <div style="background:#f8fafc;padding:16px 32px;border-top:1px solid #e2e8f0;">
       <p style="font-size:11px;color:#94a3b8;margin:0;">
         This is an automated acknowledgment. Please do not reply to this email. 
-        For direct contact, email <a href="mailto:info@paperforce.in" style="color:#0b1c3f;">info@paperforce.in</a>
+        For direct contact, email <a href="mailto:sales@paperforce.in" style="color:#0b1c3f;">sales@paperforce.in</a>
       </p>
     </div>
   </div>

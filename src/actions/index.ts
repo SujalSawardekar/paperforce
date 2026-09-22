@@ -73,7 +73,7 @@ export async function submitEnquiryAction(data: unknown) {
     // Attempt to write to PostgreSQL database via Prisma
     if (process.env.DATABASE_URL) {
       try {
-        const rfq = await prisma.rFQ.create({
+        const dbPromise = prisma.rFQ.create({
           data: {
             companyName: company,
             contactName: name,
@@ -93,14 +93,18 @@ export async function submitEnquiryAction(data: unknown) {
             }
           }
         });
+
+        const timeoutPromise = new Promise<never>((_, reject) =>
+          setTimeout(() => reject(new Error("Database connection timeout")), 1500)
+        );
+
+        const rfq = await Promise.race([dbPromise, timeoutPromise]);
         dbRecordId = rfq.id;
         savedToDb = true;
         console.log("[DB SUCCESS] Lead stored in database with ID:", rfq.id);
-      } catch (prismaError) {
-        console.error("[DB ERROR] Prisma database write failed. Falling back to local file storage:", prismaError);
+      } catch {
+        // Fallback to local file storage
       }
-    } else {
-      console.log("[DB NOTICE] DATABASE_URL is not configured. Falling back to local file storage.");
     }
 
     // Save lead to local JSON storage if PostgreSQL write failed or wasn't configured
@@ -163,7 +167,7 @@ export async function submitEnquiryAction(data: unknown) {
     console.error("Server Action submitEnquiryAction Error:", error);
     return {
       success: false,
-      message: "An internal server error occurred. Please try again later or contact info@paperforce.in directly.",
+      message: "An internal server error occurred. Please try again later or contact sales@paperforce.in directly.",
     };
   }
 }

@@ -63,8 +63,44 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(email)) {
+  const trimmedName = name.trim();
+  const trimmedPhone = phone.trim();
+  const trimmedEmail = email.trim();
+
+  // Name Validation
+  if (trimmedName.length < 2 || trimmedName.length > 60) {
+    return NextResponse.json(
+      { success: false, message: "Full name must be between 2 and 60 characters." },
+      { status: 400 }
+    );
+  }
+  const nameRegex = /^[a-zA-Z\s.'-]+$/;
+  if (!nameRegex.test(trimmedName)) {
+    return NextResponse.json(
+      { success: false, message: "Name must contain letters and spaces only." },
+      { status: 400 }
+    );
+  }
+
+  // Phone Validation
+  const digitsOnly = trimmedPhone.replace(/\D/g, "");
+  if (digitsOnly.length < 7 || digitsOnly.length > 15) {
+    return NextResponse.json(
+      { success: false, message: "Please provide a valid phone number (between 7 and 15 digits)." },
+      { status: 400 }
+    );
+  }
+  const phoneStructureRegex = /^[+]?[(]?[0-9]{1,4}[)]?[-\s./0-9]*$/;
+  if (!phoneStructureRegex.test(trimmedPhone)) {
+    return NextResponse.json(
+      { success: false, message: "Invalid phone number format." },
+      { status: 400 }
+    );
+  }
+
+  // Email Validation
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  if (!emailRegex.test(trimmedEmail)) {
     return NextResponse.json(
       { success: false, message: "Invalid email address format." },
       { status: 400 }
@@ -74,101 +110,112 @@ export async function POST(req: NextRequest) {
   let savedToDb = false;
   if (process.env.DATABASE_URL) {
     try {
-      await prisma.contactSubmission.create({
+      const dbPromise = prisma.contactSubmission.create({
         data: {
-          name,
-          email,
-          phone: phone || null,
+          name: trimmedName,
+          email: trimmedEmail,
+          phone: trimmedPhone || null,
           subject: "Catalogue Request",
-          message: `Requested the product catalogue. Phone: ${phone}. Email: ${email}.`,
+          message: `Requested the product catalogue. Phone: ${trimmedPhone}. Email: ${trimmedEmail}.`,
         },
       });
+
+      // Timeout after 1.5s if local database is unreachable
+      const timeoutPromise = new Promise((_, reject) =>
+        setTimeout(() => reject(new Error("Database connection timeout")), 1500)
+      );
+
+      await Promise.race([dbPromise, timeoutPromise]);
       savedToDb = true;
-    } catch (dbErr) {
-      console.error("[CATALOGUE DB ERROR] Failed to write to Prisma DB:", dbErr);
+    } catch {
+      // Graceful fallback to local JSON storage without slowing down user response
     }
   }
 
   if (!savedToDb) {
-    await saveRequestFallback({ name, email, phone });
+    await saveRequestFallback({ name: trimmedName, email: trimmedEmail, phone: trimmedPhone });
   }
 
-  const baseUrl = process.env.NEXTAUTH_URL || "http://localhost:3000";
-  const catalogueUrl = `${baseUrl}/PaperForce%20Catalogue.pdf`;
+  const baseUrl = process.env.NEXTAUTH_URL || process.env.NEXT_PUBLIC_APP_URL || "https://paperforce.in";
+  const downloadUrl = `${baseUrl}/api/download-catalogue`;
 
-  // Send Catalogue Email to User
-  await sendEmail({
-    to: email,
-    subject: "Your Paperforce Product Catalogue",
-    html: `<!DOCTYPE html>
+  // Send both emails concurrently for maximum speed (sub-second delivery)
+  try {
+    await Promise.all([
+      // 1. Send Product Catalogue to the Client's Email
+      sendEmail({
+        to: trimmedEmail,
+        subject: "Your Paperforce Product Catalogue",
+        html: `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Your Paperforce Product Catalogue</title>
 </head>
-<body style="font-family: sans-serif; background: #f6f7fb; padding: 32px 16px; margin: 0; color: #334155;">
-  <div style="max-width: 600px; margin: 0 auto; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 12px rgba(30,50,97,0.03);">
-    <div style="background: #1e3261; padding: 32px; text-align: center; color: #ffffff;">
-      <h1 style="margin: 0; font-size: 24px; font-weight: 700; letter-spacing: 0.05em;">Paperforce India</h1>
-      <p style="margin: 8px 0 0; font-size: 14px; opacity: 0.8;">Premium Stationery Manufacturing</p>
+<body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: #f6f7fb; padding: 32px 16px; margin: 0; color: #334155;">
+  <div style="max-width: 600px; margin: 0 auto; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 12px rgba(30,50,97,0.04);">
+    <div style="background: #1e3261; padding: 32px 24px; text-align: center; color: #ffffff;">
+      <h1 style="margin: 0; font-size: 24px; font-weight: 700; letter-spacing: 0.04em;">Paperforce India LLP</h1>
     </div>
     
-    <div style="padding: 32px 24px; line-height: 1.6; font-size: 15px;">
-      <p style="margin-top: 0;">Dear <strong>${name}</strong>,</p>
-      <p>Thank you for requesting our B2B Product Catalogue. We are excited to support your sourcing requirements.</p>
-      <p>Inside, you will find detailed specifications on our notebooks collection, paper quality indexes, cover rulings, and export packaging parameters.</p>
+    <div style="padding: 36px 28px; line-height: 1.65; font-size: 15px; color: #334155;">
+      <p style="margin-top: 0;">Dear <strong>${trimmedName}</strong>,</p>
+      <p>Thank you for requesting our official <strong>B2B Product Catalogue</strong>.</p>
       
       <div style="text-align: center; margin: 36px 0;">
-        <a href="${catalogueUrl}" target="_blank" style="display: inline-block; background: #1e3261; color: #ffffff; text-decoration: none; padding: 14px 36px; border-radius: 8px; font-size: 14px; font-weight: 700; box-shadow: 0 4px 6px rgba(30,50,97,0.15);">Download Product Catalogue</a>
+        <a href="${downloadUrl}" style="display: inline-block; background: #1e3261; color: #ffffff; text-decoration: none; padding: 15px 36px; border-radius: 8px; font-size: 15px; font-weight: 700; box-shadow: 0 4px 10px rgba(30,50,97,0.2);">Download Product Catalogue (PDF)</a>
       </div>
       
-      <p style="font-size: 12px; color: #94a3b8; word-break: break-all;">
-        If the button above does not work, copy and paste this link in your browser:<br/>
-        <a href="${catalogueUrl}" style="color: #2563eb; text-decoration: underline;">${catalogueUrl}</a>
-      </p>
-      
-      <hr style="border: 0; border-top: 1px solid #f1f5f9; margin: 24px 0;" />
-      <p style="margin: 0; font-size: 14px; color: #64748b;">
+      <hr style="border: 0; border-top: 1px solid #f1f5f9; margin: 28px 0;" />
+      <p style="margin: 0; font-size: 13px; color: #64748b; text-align: center;">
         Best Regards,<br/>
-        <strong>Export Sales Team</strong><br/>
-        Paperforce India LLP
+        <strong>Paperforce India LLP</strong>
       </p>
     </div>
   </div>
 </body>
 </html>`,
-  });
+      }),
 
-  // Notify Sales Team
-  await sendEmail({
-    to: SALES_EMAIL,
-    subject: `[New Lead] Catalogue Download Requested — ${name}`,
-    html: `<!DOCTYPE html>
+      // 2. Notify the Sales / Admin Team
+      sendEmail({
+        to: SALES_EMAIL,
+        subject: `[New Lead] Catalogue Download Requested — ${trimmedName}`,
+        html: `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Catalogue Download Request</title>
 </head>
-<body style="font-family: sans-serif; background: #f6f7fb; padding: 24px; margin: 0;">
+<body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: #f6f7fb; padding: 24px; margin: 0;">
   <div style="max-width: 600px; margin: 0 auto; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden;">
-    <div style="background: #1e3261; padding: 24px; color: #ffffff;">
-      <h2 style="margin: 0; font-size: 18px;">📋 Catalogue Download Request</h2>
+    <div style="background: #1e3261; padding: 20px 24px; color: #ffffff;">
+      <h2 style="margin: 0; font-size: 18px;">📋 New Catalogue Request</h2>
     </div>
     <div style="padding: 24px; font-size: 14px; line-height: 1.6;">
-      <p>A new user has submitted details and downloaded the product catalogue:</p>
-      <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
-        <tr><td style="padding: 6px 0; color: #64748b; width: 120px;">Name</td><td style="padding: 6px 0; font-weight: bold;">${name}</td></tr>
-        <tr><td style="padding: 6px 0; color: #64748b;">Email</td><td style="padding: 6px 0;"><a href="mailto:${email}">${email}</a></td></tr>
-        <tr><td style="padding: 6px 0; color: #64748b;">Phone</td><td style="padding: 6px 0;">${phone}</td></tr>
+      <p style="margin-top: 0; color: #475569;">A prospective buyer has requested the product catalogue:</p>
+      <table style="width: 100%; border-collapse: collapse; margin-top: 12px; margin-bottom: 20px;">
+        <tr style="border-bottom: 1px solid #f1f5f9;"><td style="padding: 8px 0; color: #64748b; width: 120px;">Full Name</td><td style="padding: 8px 0; font-weight: bold; color: #1e293b;">${trimmedName}</td></tr>
+        <tr style="border-bottom: 1px solid #f1f5f9;"><td style="padding: 8px 0; color: #64748b;">Email Address</td><td style="padding: 8px 0;"><a href="mailto:${trimmedEmail}" style="color: #2563eb; font-weight: 500;">${trimmedEmail}</a></td></tr>
+        <tr><td style="padding: 8px 0; color: #64748b;">Phone Number</td><td style="padding: 8px 0; font-weight: bold; color: #1e293b;">${trimmedPhone}</td></tr>
       </table>
+      <div style="background: #f8fafc; border-radius: 8px; padding: 12px 16px; font-size: 12px; color: #64748b;">
+        The B2B Product Catalogue download link has been automatically dispatched to <strong>${trimmedEmail}</strong>.
+      </div>
     </div>
   </div>
 </body>
 </html>`,
-  });
+      }),
+    ]);
+  } catch (emailErr) {
+    console.error("[CATALOGUE EMAIL ERROR]", emailErr);
+  }
 
   return NextResponse.json({
     success: true,
-    message: "Success! The catalogue download link has been emailed to you.",
+    message: "Success! The catalogue has been sent to your email address.",
   });
 }
+
+
